@@ -1,0 +1,1794 @@
+{
+ "constraint": {
+  "rule": "Tests assert invariants, contracts and semantic properties \u2014 not incidental implementation representations.",
+  "applies_to": [
+   "function names",
+   "component names",
+   "exact copy",
+   "comments",
+   "docstrings",
+   "capitalisation",
+   "file layout",
+   "DOM arrangement"
+  ],
+  "exception": "unless that representation is itself the contract",
+  "adopted": "Phase 10H \u00a7A, after six instances across four phases"
+ },
+ "slots": [
+  "CURRENT_STATE",
+  "DEFINING_STRUCTURE",
+  "WHAT_CHANGED",
+  "DEPENDENCIES",
+  "PRESSURES",
+  "ACTOR_RESPONSES",
+  "RELATIVE_ECONOMICS",
+  "WHAT_NEXT",
+  "WHAT_COULD_CHANGE_IT",
+  "NOT_KNOWN",
+  "INVESTIGATE_NEXT"
+ ],
+ "graph_audit": [
+  {
+   "id": "STATE_SYSTEM",
+   "role": "DEFINING",
+   "why": "It is the only object that shows how the parts relate. The reading rests on it.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "LOSALAMOS_LABOUR",
+   "role": "DEFINING",
+   "why": "The worked example the statewide labour claim is built from.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "PUBLIC_FINANCE",
+   "role": "DEFINING",
+   "why": "It carries the state's largest relationship and makes the break in it visible, which no sentence does as well.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "NM_LABOUR_DEPENDENCE",
+   "role": "SUPPORTING",
+   "why": "Establishes which relationships are largest to the county that depends on them, which the system map asserts but cannot rank.",
+   "primary": true,
+   "replaces_paragraph": "a list of county pairs"
+  },
+  {
+   "id": "NM_EARNINGS_COMPARISON",
+   "role": "SUPPORTING",
+   "why": "Establishes the magnitude of the gap the reading claims.",
+   "primary": true,
+   "replaces_paragraph": "three figures in a sentence"
+  },
+  {
+   "id": "NM_EMPLOYMENT_TREND",
+   "role": "DIAGNOSTIC",
+   "why": "It tests whether the Los Alamos concentration is new. It also exposed the structural break, which is why it earns a place rather than merely decorating one.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "NM_HOUSING_BURDEN",
+   "role": "DIAGNOSTIC",
+   "why": "It tests the housing hypothesis rather than asserting it. A county high on it is not thereby constrained.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "WORLD_CONFIGURATION",
+   "role": "DEFINING",
+   "why": "The configuration IS the world reading. Everything else supports it.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "WORLD_CREDIT_COMPARISON",
+   "role": "SUPPORTING",
+   "why": "Separates level from direction, which the configuration asserts.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "WORLD_STOCK_VS_SERVICE",
+   "role": "DIAGNOSTIC",
+   "why": "It tests whether stock determines burden, and answers no.",
+   "primary": true,
+   "replaces_paragraph": "the Brazil/China comparison in prose"
+  },
+  {
+   "id": "CHINA_JAPAN_ANALOGUE",
+   "role": "DIAGNOSTIC",
+   "why": "It tests the analogy the price level invites and finds the dimension that breaks it.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "WORLD_LONG_CREDIT",
+   "role": "SUPPORTING",
+   "why": "Establishes that the current positions were reached by different paths.",
+   "primary": true,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "WORLD_LONG_PRICES",
+   "role": "EVIDENCE_ONLY",
+   "why": "It adds historical texture and carries no claim the reading makes. It belongs below the primary reading.",
+   "primary": false,
+   "replaces_paragraph": null
+  },
+  {
+   "id": "NM_CONNECTIVITY_METRICS",
+   "role": "EVIDENCE_ONLY",
+   "why": "Counts of observed pairs answer 'what is held', which is an evidence question. The economic content is in the dependence ranking.",
+   "primary": false,
+   "replaces_paragraph": null
+  }
+ ],
+ "primary_graphs": [
+  "STATE_SYSTEM",
+  "LOSALAMOS_LABOUR",
+  "PUBLIC_FINANCE",
+  "NM_LABOUR_DEPENDENCE",
+  "NM_EARNINGS_COMPARISON",
+  "NM_EMPLOYMENT_TREND",
+  "NM_HOUSING_BURDEN",
+  "WORLD_CONFIGURATION",
+  "WORLD_CREDIT_COMPARISON",
+  "WORLD_STOCK_VS_SERVICE",
+  "CHINA_JAPAN_ANALOGUE",
+  "WORLD_LONG_CREDIT"
+ ],
+ "demoted_graphs": [
+  "WORLD_LONG_PRICES",
+  "NM_CONNECTIVITY_METRICS"
+ ],
+ "nm": {
+  "scope": "NEW MEXICO",
+  "lede": "New Mexico is not thirty-three economies. It is a small number of places that other places work in, and a public budget raised in one corner of the state and spent across all of it without anyone being able to say where.",
+  "defining": [
+   "Its labour markets cross county lines. Los Alamos County holds about 18,200 private jobs and roughly 58% are filled by people living elsewhere; Sandoval sends 59.6% of its working residents to Bernalillo.",
+   "Average pay at those workplaces differs by a factor of about 3.5 across short distances, and what explains the gap is not established.",
+   "Oil and gas revenue funds a large share of the state budget. Where that money lands cannot be traced to any county.",
+   "Where locally generated value ends up is unobservable: $5.28bn of federal work was performed in one county in a year and $75M went to recipients registered there."
+  ],
+  "beats": [
+   {
+    "slot": "CURRENT_STATE",
+    "claim": "Several counties function as places people live rather than places people work.",
+    "visual": "STATE_SYSTEM",
+    "says": "The system map shows which places hold the jobs and which supply the workers. The lines that are solid are observed; the broken one is where the state's own money stops being traceable.",
+    "because": "LODES observes 948 of 1,056 ordered county pairs.",
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "DEFINING_STRUCTURE",
+    "claim": "One county supplies jobs for a region and cannot house the people who fill them.",
+    "visual": "LOSALAMOS_LABOUR",
+    "says": "Los Alamos is the clearest case because it is the only county where jobs exceed resident workers. The same structure, weaker, runs through Santa Fe and Bernalillo.",
+    "because": null,
+    "rival": null,
+    "consequence": "Employment growth there is a housing and transport question in four other counties, not a recruitment question in one.",
+    "unknown": null,
+    "question": "Where do the roughly 10,500 in-commuters actually live?"
+   },
+   {
+    "slot": "DEPENDENCIES",
+    "claim": "Dependence is not the same as volume, and ranking by volume hides the places that depend most.",
+    "visual": "NM_LABOUR_DEPENDENCE",
+    "says": "Sorted by what the flow is worth to the county sending the workers, Sandoval, Valencia and Torrance come first. Sorted by raw jobs the same three appear for a different reason \u2014 they are large.",
+    "because": "A small county's whole workforce is a large county's rounding error.",
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "RELATIVE_ECONOMICS",
+    "claim": "What those workplaces pay differs several-fold across sixty miles.",
+    "visual": "NM_EARNINGS_COMPARISON",
+    "says": "$11,370 a month in Los Alamos against $3,288 in San Miguel.",
+    "because": null,
+    "rival": "These are county averages over different occupation and industry mixes. A county concentrated in scientific services will show higher average pay without any single job paying more.",
+    "consequence": null,
+    "unknown": null,
+    "question": "Is the gap composition, or is it the same work paid differently? Earnings by occupation within each county would separate them and are not held."
+   },
+   {
+    "slot": "WHAT_CHANGED",
+    "claim": "The concentration in Los Alamos is not new, and the series that appears to show it tripling cannot be read that way.",
+    "visual": "NM_EMPLOYMENT_TREND",
+    "says": "Private employment there rises 66.5% in 2006 and 32.1% in 2007, with nothing comparable in the other eight counties. A count of private employers moves that way when an employer changes ownership classification.",
+    "because": "The chart begins after the break. From there the rise is about 37% over seventeen years.",
+    "rival": null,
+    "consequence": null,
+    "unknown": "What happened in 2006 and 2007 is not established here.",
+    "question": null
+   },
+   {
+    "slot": "PRESSURES",
+    "claim": "Housing is the hypothesis for what limits the labour shed, and it is not yet established.",
+    "visual": "NM_HOUSING_BURDEN",
+    "says": "Rent against local income, by county. A county high on this chart is a place where the ratio is high, not a place shown to be constrained.",
+    "because": null,
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": "Would more housing, or faster transport, change who can take these jobs?"
+   },
+   {
+    "slot": "WHAT_COULD_CHANGE_IT",
+    "claim": "The state's largest internal transfer cannot be followed to its destination.",
+    "visual": "PUBLIC_FINANCE",
+    "says": "Every step from world energy prices to state fiscal capacity is supported. The last step \u2014 which places the spending reaches \u2014 is published by nobody.",
+    "because": null,
+    "rival": null,
+    "consequence": "Any estimate of what a county receives from the state, or would lose if energy revenue fell, currently rests on nothing.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "NOT_KNOWN",
+    "claim": "Three things that cannot be drawn are themselves findings.",
+    "visual": null,
+    "says": "State spending by place, what out-commuters earn, and where ownership returns go. The first means no county can be told what it receives. The second means the wage gap cannot be followed into household income. The third means retention \u2014 the question regional development turns on \u2014 is unmeasurable here.",
+    "because": null,
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   }
+  ],
+  "most_consequential_unknown": {
+   "gap": "Where state spending lands",
+   "why_it_limits": "It is the terminal step of the state's largest internal redistribution. Without it, no county's exposure to an energy revenue fall can be estimated, and no claim about what a place receives from the state can be checked.",
+   "components": {
+    "decision_impact": "DECISIVE",
+    "downstream_reach": "DECISIVE",
+    "uncertainty_reduction": "MODERATE",
+    "decision_relevance": "HIGH"
+   },
+   "would_resolve": "An allocation of state expenditure by county of benefit. Capital outlay by project would reach part of it; operating spending would remain unallocated.",
+   "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+  },
+  "next_question": {
+   "kind": "MEASURE FIRST",
+   "question": "Where do the people filling Los Alamos County's jobs actually live, and what does housing cost them there?",
+   "observation_needed": "commuter origin at sub-county resolution, with housing cost and earnings by origin",
+   "unit": "workers and dollars",
+   "geography": "sub-county, within the labour shed",
+   "time": "one current year",
+   "who_could_provide": "employers at those workplaces; LODES at block level, which is held and not yet used at that resolution",
+   "source_class": "PUBLIC plus PARTNER",
+   "what_it_would_distinguish": "whether housing supply, commute time, or neither is what limits who can take these jobs",
+   "what_decision_it_changes": "whether housing or transport investment expands labour access, and where it would have to be",
+   "traces_to": "LOSALAMOS_LABOUR \u2014 the observed 10,491-job inflow",
+   "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+  },
+  "slots_used": [
+   "CURRENT_STATE",
+   "DEFINING_STRUCTURE",
+   "DEPENDENCIES",
+   "RELATIVE_ECONOMICS",
+   "WHAT_CHANGED",
+   "PRESSURES",
+   "WHAT_COULD_CHANGE_IT",
+   "NOT_KNOWN"
+  ],
+  "slots_absent": [
+   "ACTOR_RESPONSES",
+   "WHAT_NEXT",
+   "INVESTIGATE_NEXT"
+  ],
+  "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+ },
+ "world": {
+  "scope": "WORLD",
+  "lede": "The major economies are no longer in the same credit cycle, and the one that stands out does so for a combination rather than any single number.",
+  "defining": [
+   "Eight of twelve economies are reducing private debt relative to output and four are adding it \u2014 China, India, Russia and Brazil.",
+   "China is not unusual for adding debt. It is unusual for adding it on roughly twice the stock of the other three while its price level has stopped rising.",
+   "A larger debt does not mean a heavier burden: Brazil services more on less than half China's stock.",
+   "Canada carries the largest stock of all and is reducing it \u2014 level and direction are different questions."
+  ],
+  "beats": [
+   {
+    "slot": "CURRENT_STATE",
+    "claim": "Each economy sits in a different combination of conditions.",
+    "visual": "WORLD_CONFIGURATION",
+    "says": "Level in each cell, direction as the arrow beside it. China's credit arrow is the only one pointing up among the large stocks, and its price arrow points down.",
+    "because": "Nothing here is composed into a score: the combination is the finding and an index would destroy it.",
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "DEFINING_STRUCTURE",
+    "claim": "Four economies are still adding private debt, from very different levels.",
+    "visual": "WORLD_CREDIT_COMPARISON",
+    "says": "The filled bars are rising, the hollow ones falling. Canada sits above China on level and below it on direction.",
+    "because": null,
+    "rival": "A ratio of a stock to a flow moves with its denominator, so a falling ratio can mean rising output rather than falling debt.",
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "RELATIVE_ECONOMICS",
+    "claim": "How much debt exists, whether it is growing, and how hard it is to service are three separate questions.",
+    "visual": "WORLD_STOCK_VS_SERVICE",
+    "says": "If stock determined burden these points would lie on a line. Brazil sits top-left with a heavy burden on a small stock; China sits far right with a large stock and a moderate one.",
+    "because": null,
+    "rival": null,
+    "consequence": "Capital conditions in an economy cannot be inferred from leverage alone.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "ACTOR_RESPONSES",
+    "claim": "Where prices are falling and debt service is rising, the responses available reproduce the condition that selected them.",
+    "visual": null,
+    "says": "A central bank eases, which adds to the stock whose real burden is the problem. Households defer and repay, which lowers the demand that was holding prices up. Firms sell abroad, which exports the price pressure.",
+    "because": null,
+    "rival": "None of these is an observed act. They are the branches the stated conditions select.",
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "WHAT_CHANGED",
+    "claim": "These positions were reached by different paths.",
+    "visual": "WORLD_LONG_CREDIT",
+    "says": "Japan's credit rose and turned decades ago. China's has not turned.",
+    "because": null,
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "WHAT_NEXT",
+    "claim": "The comparison the price level invites points at the wrong year.",
+    "visual": "CHINA_JAPAN_ANALOGUE",
+    "says": "China today and Japan in 1998 match on five dimensions and differ on the one the mechanism runs through: Japan had already begun deleveraging and China has not begun.",
+    "because": null,
+    "rival": "Both series are current-vintage reconstructions, so neither is what was observable at the time.",
+    "consequence": "A comparison, not a path.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "WHAT_COULD_CHANGE_IT",
+    "claim": "If prices stay flat and credit stays near its maximum, the real burden of existing debt rises without anyone borrowing.",
+    "visual": null,
+    "says": "Unless real volume growth outruns the price fall, policy raises nominal income, or the debt moves to a balance sheet that can carry it.",
+    "because": null,
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": "Quarterly nominal GDP against the credit stock would settle whether this is new borrowing or a weakening denominator."
+   },
+   {
+    "slot": "NOT_KNOWN",
+    "claim": "The chain from these conditions into New Mexico stops before it lands anywhere measurable.",
+    "visual": null,
+    "says": "Chinese goods prices reach US import costs, which reach local input costs that nobody measures by county. Crude reaches state revenue, which reaches places nobody can trace.",
+    "because": null,
+    "rival": null,
+    "consequence": null,
+    "unknown": null,
+    "question": null
+   }
+  ],
+  "most_consequential_unknown": {
+   "gap": "Whether China's rising credit ratio is new borrowing or a weakening denominator",
+   "why_it_limits": "The entire reading turns on it. If nominal output is falling faster than credit is growing, this is a growth story wearing a credit story's clothes.",
+   "components": {
+    "decision_impact": "DECISIVE",
+    "downstream_reach": "HIGH",
+    "uncertainty_reduction": "DECISIVE",
+    "decision_relevance": "MODERATE"
+   },
+   "would_resolve": "Quarterly nominal GDP alongside the credit stock, which is not held at that frequency.",
+   "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+  },
+  "next_question": {
+   "kind": "MONITOR",
+   "question": "Is the rise in China's credit ratio coming from the numerator or the denominator?",
+   "observation_needed": "quarterly nominal GDP and quarterly credit stock, same basis",
+   "unit": "currency, same deflator",
+   "geography": "country",
+   "time": "quarterly",
+   "who_could_provide": "national statistical office; BIS already publishes the credit side quarterly",
+   "source_class": "PUBLIC",
+   "what_it_would_distinguish": "a credit expansion from a nominal-output slowdown",
+   "what_decision_it_changes": "whether exposure to Chinese demand should be read as a balance-sheet risk or a growth risk",
+   "traces_to": "WORLD_CREDIT_COMPARISON \u2014 the observed rising ratio",
+   "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+  },
+  "slots_used": [
+   "CURRENT_STATE",
+   "DEFINING_STRUCTURE",
+   "RELATIVE_ECONOMICS",
+   "ACTOR_RESPONSES",
+   "WHAT_CHANGED",
+   "WHAT_NEXT",
+   "WHAT_COULD_CHANGE_IT",
+   "NOT_KNOWN"
+  ],
+  "slots_absent": [
+   "DEPENDENCIES",
+   "PRESSURES",
+   "INVESTIGATE_NEXT"
+  ],
+  "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+ },
+ "adversarial": [
+  {
+   "q": "Does removing one graph collapse the argument?",
+   "found": "Yes, and that is the test working. Removing the configuration matrix leaves the world reading with no way to show a combination, which is its whole claim. Removing the long-run credit panels costs texture and nothing else \u2014 which is why they are classed SUPPORTING and the price panels EVIDENCE_ONLY.",
+   "changed": "The price panels were demoted out of the primary reading."
+  },
+  {
+   "q": "Is the opening synthesis supported by the evidence below it?",
+   "found": "The New Mexico lede claims the state is 'a small number of places that other places work in'. The dependence ranking supports it for Bernalillo and Los Alamos. It does not establish that this is true of the whole state.",
+   "changed": "The lede now says what it is: the structure the observed labour evidence shows, not a claim about every county."
+  },
+  {
+   "q": "Does the reading privilege what is measured over what matters?",
+   "found": "Yes, structurally and unavoidably. Labour is the only interregional flow observed, so the state reading is a labour reading. Money, goods, procurement and capital move between these counties too and none is observed.",
+   "changed": "Stated in the reading rather than left implicit."
+  },
+  {
+   "q": "Is a county being mistaken for an economy?",
+   "found": "The system map uses 'northern counties' as one node, which is a functional grouping rather than an administrative one. Counties are named where they are the unit of observation.",
+   "changed": "No change; the distinction was already drawn."
+  },
+  {
+   "q": "Is a place average being mistaken for an actor effect?",
+   "found": "It was, in Phase 10V's earnings claim. Caught in 10G and rewritten.",
+   "changed": "The rival is now stated in the beat itself rather than in a caption."
+  },
+  {
+   "q": "Is a stock being mistaken for capacity?",
+   "found": "The capability sections keep existence and mobilisation apart, and four of five come back with mobilisation unknown.",
+   "changed": "No change."
+  },
+  {
+   "q": "Is capacity being mistaken for mobilisation?",
+   "found": "No. The housing capability says explicitly that whether builders would work in a given county is unobserved.",
+   "changed": "No change."
+  },
+  {
+   "q": "Is correlation being mistaken for mechanism?",
+   "found": "The housing scatter is the risk. A county high on rent-to-income is not thereby constrained by housing.",
+   "changed": "The beat now frames it as a test of the hypothesis, not evidence for it, and the chart is classed DIAGNOSTIC."
+  },
+  {
+   "q": "Is mechanism being mistaken for magnitude?",
+   "found": "The fiscal chain is mechanism all the way down and carries no magnitude at any step. Nothing in the drawing implies one.",
+   "changed": "No change; the grammar prevents it."
+  },
+  {
+   "q": "Is an unknown buried because it interrupts the story?",
+   "found": "The six graph refusals were in a section near the end, after the argument had finished. Two of them are findings, not gaps.",
+   "changed": "State spending and commuter earnings now appear as a beat inside the argument; the full refusal list stays at the end."
+  },
+  {
+   "q": "Does a rival explanation materially change the decision?",
+   "found": "Yes. If the earnings gap is composition rather than access, housing and transport investment addresses the wrong variable.",
+   "changed": "The beat now ends on that question rather than on the figure."
+  },
+  {
+   "q": "Does the selected time window determine the conclusion?",
+   "found": "For Los Alamos employment, decisively. 2005-2024 shows a tripling; 2007-2024 shows 37%.",
+   "changed": "Already handled in 10G; the beat now says so in the reading rather than only in the caption."
+  },
+  {
+   "q": "Does another comparator reverse the interpretation?",
+   "found": "Yes, for the flow ranking. By volume the story is Sandoval and Bernalillo; by share of the dependent it is Sandoval, Valencia and Torrance for a different reason.",
+   "changed": "Both orderings shown, with the default argued."
+  },
+  {
+   "q": "Is the most visually prominent finding the most consequential?",
+   "found": "No. The largest visual on the New Mexico page was the Los Alamos labour system; the most consequential finding is that state spending cannot be traced, which had no visual weight at all.",
+   "changed": "The fiscal chain is now a DEFINING visual and the untraceable step is the named most-consequential unknown."
+  },
+  {
+   "q": "Is the next question decision-relevant?",
+   "found": "The New Mexico next question asks where commuters live and what housing costs them there. It changes whether housing or transport investment expands labour access, and where.",
+   "changed": "It now states the decision it changes, which it previously did not."
+  }
+ ],
+ "places": {
+  "35049": {
+   "scope": "Santa Fe",
+   "lede": "Santa Fe functions as both a workplace and a departure point within New Mexico: 41.4% of jobs here are filled from elsewhere while 37.3% of residents leave \u2014 two flows crossing in opposite directions. Average private earnings at workplaces here are $5,429 a month. 6.72% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,389 against a median household income of $79,071. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "41.4% of the jobs here are filled from other counties and 37.3% of residents leave to work.",
+    "It depends on Bernalillo and is depended on by Rio Arriba, San Miguel.",
+    "Average pay at workplaces here is $5,429 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More work arrives here than leaves it.",
+     "visual": "PLACE_35049",
+     "says": "63,008 private jobs sit here and 41.4% are filled from other counties; 37.3% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Santa Fe sits in the middle of a chain.",
+     "visual": null,
+     "says": "It depends on Bernalillo for the jobs its residents hold, and Rio Arriba, San Miguel depend on it for theirs.",
+     "because": null,
+     "rival": null,
+     "consequence": "It is both a destination and an origin, which means a change in the larger market reaches smaller counties through it.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $5,429 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Santa Fe's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35049 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "PRESSURES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35047": {
+   "scope": "Las Vegas",
+   "lede": "San Miguel functions as a place people live and work somewhere else within New Mexico: 54.2% of its working residents work outside the county, most of them in Bernalillo. Average private earnings at workplaces here are $3,288 a month. 10.99% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $823 against a median household income of $49,431. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "36.6% of the jobs here are filled from other counties and 54.2% of residents leave to work.",
+    "It depends on Bernalillo and is depended on by Mora, Guadalupe.",
+    "Average pay at workplaces here is $3,288 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Las Vegas's workforce leaves than arrives.",
+     "visual": "PLACE_35047",
+     "says": "6,525 private jobs sit here and 36.6% are filled from other counties; 54.2% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Las Vegas sits in the middle of a chain.",
+     "visual": null,
+     "says": "It depends on Bernalillo for the jobs its residents hold, and Mora, Guadalupe depend on it for theirs.",
+     "because": null,
+     "rival": null,
+     "consequence": "It is both a destination and an origin, which means a change in the larger market reaches smaller counties through it.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $3,288 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "The absence of work inside the county",
+     "visual": null,
+     "says": "54.2% of working residents leave to work. Income arrives here; the jobs do not.",
+     "because": null,
+     "rival": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Las Vegas's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35047 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35028": {
+   "scope": "Los Alamos",
+   "lede": "Los Alamos functions as a workplace for the region around it within New Mexico: 57.6% of the jobs located here are filled by people who live somewhere else, and only 22.6% of its own working residents leave. Average private earnings at workplaces here are $11,370 a month. 0.96% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,375 against a median household income of $147,139. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "57.6% of the jobs here are filled from other counties and 22.6% of residents leave to work.",
+    "It depends on Santa Fe and is depended on by Rio Arriba.",
+    "Average pay at workplaces here is $11,370 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More work arrives here than leaves it.",
+     "visual": "PLACE_35028",
+     "says": "18,206 private jobs sit here and 57.6% are filled from other counties; 22.6% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Los Alamos sits in the middle of a chain.",
+     "visual": null,
+     "says": "It depends on Santa Fe for the jobs its residents hold, and Rio Arriba depend on it for theirs.",
+     "because": null,
+     "rival": null,
+     "consequence": "It is both a destination and an origin, which means a change in the larger market reaches smaller counties through it.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $11,370 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "Where the people who work here can live",
+     "visual": null,
+     "says": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "because": null,
+     "rival": null,
+     "consequence": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Los Alamos's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35028 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35001": {
+   "scope": "Albuquerque",
+   "lede": "Bernalillo functions as largely self-contained in employment terms within New Mexico: 86% of its working residents work in the county and 71% of jobs here are filled locally. Average private earnings at workplaces here are $5,469 a month. 4.57% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,144 against a median household income of $69,473. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "28.9% of the jobs here are filled from other counties and 14.0% of residents leave to work.",
+    "7 other counties rely on this labour market.",
+    "Average pay at workplaces here is $5,469 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More work arrives here than leaves it.",
+     "visual": "PLACE_35001",
+     "says": "350,760 private jobs sit here and 28.9% are filled from other counties; 14.0% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Albuquerque is where other counties work.",
+     "visual": null,
+     "says": "7 counties send a material share of their working residents here: Sandoval, Valencia, Santa Fe, McKinley, Torrance.",
+     "because": null,
+     "rival": null,
+     "consequence": "What happens to employment here is a regional question, not a local one. Several counties' household income depends on it.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $5,469 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Albuquerque's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35001 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "PRESSURES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35025": {
+   "scope": "Lea",
+   "lede": "Lea functions as largely self-contained in employment terms within New Mexico: 75% of its working residents work in the county and 63% of jobs here are filled locally. 11.93% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,101 against a median household income of $68,015. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+   "defining": [
+    "36.6% of the jobs here are filled from other counties and 24.6% of residents leave to work.",
+    "3 other counties rely on this labour market."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More work arrives here than leaves it.",
+     "visual": "PLACE_35025",
+     "says": "31,168 private jobs sit here and 36.6% are filled from other counties; 24.6% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Lea is where other counties work.",
+     "visual": null,
+     "says": "3 counties send a material share of their working residents here: 48165, 48303, 48135.",
+     "because": null,
+     "rival": null,
+     "consequence": "What happens to employment here is a regional question, not a local one. Several counties' household income depends on it.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "The age of the housing stock",
+     "visual": null,
+     "says": "52% of homes here were built before 1980.",
+     "because": null,
+     "rival": "Age is not condition. What state these homes are in is not observed.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Lea's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35025 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "RELATIVE_ECONOMICS",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35057": {
+   "scope": "Torrance",
+   "lede": "Torrance functions as a place people live and work somewhere else within New Mexico: 72.6% of its working residents work outside the county, most of them in Bernalillo. 24.9% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $872 against a median household income of $57,842. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+   "defining": [
+    "63.8% of the jobs here are filled from other counties and 72.6% of residents leave to work.",
+    "Its largest single outside employer county is Bernalillo."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Torrance's workforce leaves than arrives.",
+     "visual": "PLACE_35057",
+     "says": "2,921 private jobs sit here and 63.8% are filled from other counties; 72.6% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Most of Torrance's working residents hold jobs outside the county.",
+     "visual": null,
+     "says": "63.8% of the jobs at workplaces in Torrance are held by people living in other counties, 25.2% of them in Bernalillo. Those jobs cannot be staffed from this county's own residents.",
+     "because": "2,921 jobs are located here and 2,798 of its 3,855 working residents work elsewhere. Both are counted from the same observation; neither says how much labour demand this county generates, which is not measured here.",
+     "rival": null,
+     "consequence": "Local business formation here acts on the 2,921 jobs located in the county, a minority of what its residents actually hold. Whether local labour demand is weak or merely small is a separate question this county has no employer-level observation to answer.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "Where the people who work here can live",
+     "visual": null,
+     "says": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "because": null,
+     "rival": null,
+     "consequence": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Torrance's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35057 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "RELATIVE_ECONOMICS",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35039": {
+   "scope": "Rio Arriba",
+   "lede": "Rio Arriba functions as a place people live and work somewhere else within New Mexico: 64.2% of its working residents work outside the county, most of them in Santa Fe. Average private earnings at workplaces here are $4,885 a month. 11.15% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $740 against a median household income of $57,155. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "59.3% of the jobs here are filled from other counties and 64.2% of residents leave to work.",
+    "Its largest single outside employer county is Santa Fe.",
+    "Average pay at workplaces here is $4,885 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Rio Arriba's workforce leaves than arrives.",
+     "visual": "PLACE_35039",
+     "says": "8,474 private jobs sit here and 59.3% are filled from other counties; 64.2% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Most of Rio Arriba's working residents hold jobs outside the county.",
+     "visual": null,
+     "says": "59.3% of the jobs at workplaces in Rio Arriba are held by people living in other counties, 19.5% of them in Santa Fe. Those jobs cannot be staffed from this county's own residents.",
+     "because": "8,474 jobs are located here and 6,198 of its 9,651 working residents work elsewhere. Both are counted from the same observation; neither says how much labour demand this county generates, which is not measured here.",
+     "rival": null,
+     "consequence": "Local business formation here acts on the 8,474 jobs located in the county, a minority of what its residents actually hold. Whether local labour demand is weak or merely small is a separate question this county has no employer-level observation to answer.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $4,885 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "Where the people who work here can live",
+     "visual": null,
+     "says": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "because": null,
+     "rival": null,
+     "consequence": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Rio Arriba's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35039 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35033": {
+   "scope": "Mora",
+   "lede": "Mora functions as a place people live and work somewhere else within New Mexico: 67.2% of its working residents work outside the county, most of them in San Miguel. Average private earnings at workplaces here are $3,984 a month. 10.84% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $887 against a median household income of $53,663. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "46.4% of the jobs here are filled from other counties and 67.2% of residents leave to work.",
+    "Its largest single outside employer county is San Miguel.",
+    "Average pay at workplaces here is $3,984 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Mora's workforce leaves than arrives.",
+     "visual": "PLACE_35033",
+     "says": "707 private jobs sit here and 46.4% are filled from other counties; 67.2% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Most of Mora's working residents hold jobs outside the county.",
+     "visual": null,
+     "says": "46.4% of the jobs at workplaces in Mora are held by people living in other counties, 14.0% of them in San Miguel. Those jobs cannot be staffed from this county's own residents.",
+     "because": "707 jobs are located here and 778 of its 1,157 working residents work elsewhere. Both are counted from the same observation; neither says how much labour demand this county generates, which is not measured here.",
+     "rival": null,
+     "consequence": "Local business formation here acts on the 707 jobs located in the county, a minority of what its residents actually hold. Whether local labour demand is weak or merely small is a separate question this county has no employer-level observation to answer.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $3,984 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "Where the people who work here can live",
+     "visual": null,
+     "says": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "because": null,
+     "rival": null,
+     "consequence": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Mora's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35033 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35055": {
+   "scope": "Taos",
+   "lede": "Taos functions as largely self-contained in employment terms within New Mexico: 69% of its working residents work in the county and 66% of jobs here are filled locally. Average private earnings at workplaces here are $4,179 a month. 8.3% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,034 against a median household income of $58,950. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+   "defining": [
+    "34.0% of the jobs here are filled from other counties and 30.8% of residents leave to work.",
+    "Its outbound work is dispersed across many counties.",
+    "Average pay at workplaces here is $4,179 a month."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More work arrives here than leaves it.",
+     "visual": "PLACE_35055",
+     "says": "10,256 private jobs sit here and 34.0% are filled from other counties; 30.8% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "No single other county is material enough to call Taos dependent on it.",
+     "visual": null,
+     "says": "Its outbound workers are spread thinly enough that no destination takes a tenth of them. That is a labour shed, not a dependency.",
+     "because": "A dependency names one place; a diffuse flow names none.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "RELATIVE_ECONOMICS",
+     "claim": "Workplaces here pay $4,179 a month on average.",
+     "visual": "NM_EARNINGS_COMPARISON",
+     "says": "Measured where the job is, not where the worker lives.",
+     "because": null,
+     "rival": "A county average runs over a different mix of work from its neighbours', so this does not establish that the same job pays differently here.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Taos's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35055 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "RELATIVE_ECONOMICS",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "PRESSURES",
+    "ACTOR_RESPONSES",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35021": {
+   "scope": "Harding",
+   "lede": "Harding functions as a place people live and work somewhere else within New Mexico: 60.7% of its working residents work outside the county, most of them in Bernalillo. 6.94% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,038 against a median household income of $48,553. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+   "defining": [
+    "46.3% of the jobs here are filled from other counties and 60.7% of residents leave to work.",
+    "Its largest single outside employer county is Bernalillo."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Harding's workforce leaves than arrives.",
+     "visual": "PLACE_35021",
+     "says": "164 private jobs sit here and 46.3% are filled from other counties; 60.7% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Most of Harding's working residents hold jobs outside the county.",
+     "visual": null,
+     "says": "60.7% of Harding's working residents work outside the county, 13.4% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "because": "164 jobs are located here and 136 of its 224 working residents work elsewhere. Both are counted from the same observation; neither says how much labour demand this county generates, which is not measured here.",
+     "rival": null,
+     "consequence": "Local business formation here acts on the 164 jobs located in the county, a minority of what its residents actually hold. Whether local labour demand is weak or merely small is a separate question this county has no employer-level observation to answer.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "Where the people who work here can live",
+     "visual": null,
+     "says": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "because": null,
+     "rival": null,
+     "consequence": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Harding's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35021 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "RELATIVE_ECONOMICS",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  },
+  "35019": {
+   "scope": "Guadalupe",
+   "lede": "Guadalupe functions as largely self-contained in employment terms within New Mexico: 58% of its working residents work in the county and 65% of jobs here are filled locally. 7.54% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $590 against a median household income of $42,750. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+   "defining": [
+    "34.7% of the jobs here are filled from other counties and 41.9% of residents leave to work.",
+    "Its largest single outside employer county is Bernalillo."
+   ],
+   "beats": [
+    {
+     "slot": "CURRENT_STATE",
+     "claim": "More of Guadalupe's workforce leaves than arrives.",
+     "visual": "PLACE_35019",
+     "says": "1,191 private jobs sit here and 34.7% are filled from other counties; 41.9% of its own working residents leave to work.",
+     "because": "Both figures come from the same county-pair observation, counted in opposite directions.",
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "DEFINING_STRUCTURE",
+     "claim": "Most of Guadalupe's working residents hold jobs outside the county.",
+     "visual": null,
+     "says": "41.9% of Guadalupe's working residents work outside the county, 12.1% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "because": "1,191 jobs are located here and 561 of its 1,339 working residents work elsewhere. Both are counted from the same observation; neither says how much labour demand this county generates, which is not measured here.",
+     "rival": null,
+     "consequence": "Local business formation here acts on the 1,191 jobs located in the county, a minority of what its residents actually hold. Whether local labour demand is weak or merely small is a separate question this county has no employer-level observation to answer.",
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "PRESSURES",
+     "claim": "The age of the housing stock",
+     "visual": null,
+     "says": "54% of homes here were built before 1980.",
+     "because": null,
+     "rival": "Age is not condition. What state these homes are in is not observed.",
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    },
+    {
+     "slot": "NOT_KNOWN",
+     "claim": "What the people who work across these county lines earn is not published by where they live.",
+     "visual": null,
+     "says": "The flows are observed; the income they carry is not. For a county that exports workers, that is the difference between knowing people leave and knowing what their leaving is worth.",
+     "because": null,
+     "rival": null,
+     "consequence": null,
+     "unknown": null,
+     "question": null
+    }
+   ],
+   "most_consequential_unknown": {
+    "gap": "What out-commuters from here earn",
+    "why_it_limits": "Household income in this county is partly earned somewhere else, and no published figure says how much.",
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "would_resolve": "earnings by county of residence, which is not published",
+    "no_score": "Components are ordinal judgements and are not multiplied into a number. Priority is argued from them."
+   },
+   "next_question": {
+    "kind": "MEASURE FIRST",
+    "question": "What share of Guadalupe's household income is earned outside the county?",
+    "observation_needed": "earnings by county of residence",
+    "unit": "dollars",
+    "geography": "county of residence",
+    "time": "one current year",
+    "who_could_provide": "state revenue records; employers in the destination counties",
+    "source_class": "ADMINISTRATIVE",
+    "what_it_would_distinguish": "whether local employment or regional access governs income here",
+    "what_decision_it_changes": "whether local business support or regional transport and housing is the instrument that moves income",
+    "traces_to": "PLACE_35019 \u2014 the observed outbound flow",
+    "not_a_recommendation": "A question to answer before allocating, not advice to allocate."
+   },
+   "slots_used": [
+    "CURRENT_STATE",
+    "DEFINING_STRUCTURE",
+    "PRESSURES",
+    "NOT_KNOWN"
+   ],
+   "slots_absent": [
+    "WHAT_CHANGED",
+    "DEPENDENCIES",
+    "ACTOR_RESPONSES",
+    "RELATIVE_ECONOMICS",
+    "WHAT_NEXT",
+    "WHAT_COULD_CHANGE_IT",
+    "INVESTIGATE_NEXT"
+   ],
+   "note": "Absent sections are absent because nothing supports them, not because the template omitted them."
+  }
+ },
+ "question_coverage": [
+  {
+   "scope": "NEW MEXICO",
+   "q": "How does New Mexico's economy actually work?",
+   "answered_by": "New Mexico is not thirty-three economies. It is a small number of places that other places work in, and a public budget raised in one corner of the state and spent across all of it without anyone being able to say where.",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "Which places depend on other places?",
+   "answered_by": "Dependence is not the same as volume, and ranking by volume hides the places that depend most.",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "Where are the major employment centres?",
+   "answered_by": "Its labour markets cross county lines. Los Alamos County holds about 18,200 private jobs and roughly 58% are filled by people living elsewhere; Sandoval sends 59.6% of its working residents to Bernalillo.",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "Which counties depend most on outside jobs?",
+   "answered_by": "the dependence ranking, ordered by share of the sending county",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "Why does Los Alamos matter to the rest of northern New Mexico?",
+   "answered_by": "Employment growth there is a housing and transport question in four other counties, not a recruitment question in one.",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "How does oil in southeastern New Mexico affect the rest of the state?",
+   "answered_by": "The state's largest internal transfer cannot be followed to its destination.",
+   "refused": false
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "Where does state spending go?",
+   "answered_by": "REFUSED \u2014 no published figure allocates state spending to counties. It is the named most-consequential unknown.",
+   "refused": true
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "What don't we know about where value stays?",
+   "answered_by": "REFUSED \u2014 ownership and return destination are not published anywhere; carried as a defining finding.",
+   "refused": true
+  },
+  {
+   "scope": "NEW MEXICO",
+   "q": "What should I investigate to strengthen northern New Mexico's economy?",
+   "answered_by": "Where do the people filling Los Alamos County's jobs actually live, and what does housing cost them there?",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "What is unusual about the world economy right now?",
+   "answered_by": "The major economies are no longer in the same credit cycle, and the one that stands out does so for a combination rather than any single number.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "Which countries are still adding debt?",
+   "answered_by": "Eight of twelve economies are reducing private debt relative to output and four are adding it \u2014 China, India, Russia and Brazil.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "Is China unusual because it has the most debt?",
+   "answered_by": "China is not unusual for adding debt. It is unusual for adding it on roughly twice the stock of the other three while its price level has stopped rising.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "Is debt stock the same thing as debt burden?",
+   "answered_by": "How much debt exists, whether it is growing, and how hard it is to service are three separate questions.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "Why are flat prices important when debt is high?",
+   "answered_by": "If prices stay flat and credit stays near its maximum, the real burden of existing debt rises without anyone borrowing.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "How is China similar to Japan in the late 1990s?",
+   "answered_by": "China today and Japan in 1998 match on five dimensions and differ on the one the mechanism runs through: Japan had already begun deleveraging and China has not begun.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "How is it different?",
+   "answered_by": "China today and Japan in 1998 match on five dimensions and differ on the one the mechanism runs through: Japan had already begun deleveraging and China has not begun.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "What could happen if these conditions continue?",
+   "answered_by": "Unless real volume growth outruns the price fall, policy raises nominal income, or the debt moves to a balance sheet that can carry it.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "What would prove this reading wrong?",
+   "answered_by": "Quarterly nominal GDP alongside the credit stock, which is not held at that frequency.",
+   "refused": false
+  },
+  {
+   "scope": "WORLD",
+   "q": "What actually reaches New Mexico?",
+   "answered_by": "Chinese goods prices reach US import costs, which reach local input costs that nobody measures by county. Crude reaches state revenue, which reaches places nobody can trace.",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "How does this place make a living?",
+   "answered_by": "the opening reading",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What does it depend on?",
+   "answered_by": "the defining-structure beat",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What depends on it?",
+   "answered_by": "the defining-structure beat, where any county does",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "Where do its workers go?",
+   "answered_by": "its own flow diagram",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "Where do its workers come from?",
+   "answered_by": "the same diagram, counted inward",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "How does its pay compare?",
+   "answered_by": "the earnings comparison with this county marked \u2014 where its pay is observed",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What is constraining it?",
+   "answered_by": "the pressures beat, where anything was graded",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What do we not know?",
+   "answered_by": "the not-known beat and the coverage list",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What would be worth measuring next?",
+   "answered_by": "the next-question object",
+   "refused": false
+  },
+  {
+   "scope": "PLACE",
+   "q": "What might be worth doing?",
+   "answered_by": "REFUSED as posed \u2014 the product returns what to investigate, not what to do",
+   "refused": true
+  }
+ ]
+}

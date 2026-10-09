@@ -1,0 +1,1136 @@
+{
+ "artefact": "EC-O · OPPORTUNITY ORIGINATION",
+ "generated": true,
+ "rebuild": "python pipeline/ec_origination.py",
+ "two_axes": {
+  "evidence": "r38_opportunity.STATUS — what is known about the opportunity",
+  "operator": "OPERATOR_STATE — whether anyone can execute it",
+  "why": "a thing can be a real economic signal and have nobody to build it. Collapsing the two into one number is how an archetype starts looking like a deal.",
+  "evidence_ladder": [
+   "SIGNAL",
+   "RESEARCH_CANDIDATE",
+   "MARKET_VALIDATED_CANDIDATE",
+   "FEASIBILITY_CANDIDATE",
+   "UNDERWRITING_CANDIDATE",
+   "INVESTABLE_OPPORTUNITY"
+  ],
+  "operator_ladder": [
+   {
+    "state": "ARCHETYPE_HYPOTHESIZED",
+    "means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity."
+   },
+   {
+    "state": "LOCALLY_VALIDATED",
+    "means": "the economic conditions this model needs are established in this place -- both the demand side and the cost side"
+   },
+   {
+    "state": "OPERATOR_IDENTIFIED",
+    "means": "a real, named operator exists and has said they are interested. Only a recorded response can reach this state."
+   },
+   {
+    "state": "INVESTABLE_ENTERPRISE",
+    "means": "an identified operator, validated economics, a capital requirement and terms"
+   }
+  ]
+ },
+ "origination_types": {
+  "DISCOVER": "identify an existing business that could expand, be acquired, or receive investment",
+  "DEVELOP": "identify a productive activity that could become a new business or institution",
+  "COORDINATE": "identify an opportunity for existing organisations to jointly improve economic performance"
+ },
+ "no_candidate_id_required": "origination creates a record with NO attaches_to. R3.15's rule that an intervention must attach to an existing candidate is kept for interventions and is not a restriction on originating opportunities.",
+ "names_no_company": "an archetype is a SHAPE derived from an observed capability gap. It names no operator. An operator enters only through record_response(), so Dula originates by ASKING rather than by proposing.",
+ "archetypes": [
+  {
+   "id": "AT_AGGREGATION",
+   "name": "Regional food aggregation and distribution",
+   "origination": "DEVELOP",
+   "origination_means": "identify a productive activity that could become a new business or institution",
+   "gap": [
+    "CM_AGGREGATORS",
+    "CM_DELIVERY_FLEET",
+    "CM_COLD_STORAGE"
+   ],
+   "what_it_does": "consolidates product from many small northern producers into orders large enough for an institutional buyer to place and a vehicle to carry, and delivers them on a schedule a kitchen can plan around",
+   "who_it_serves": "school districts, hospitals, rural grocers, restaurants",
+   "revenue_mechanism": "a margin on product, or a fee per case or per stop",
+   "cost_drivers": [
+    "route cost per loop",
+    "stops per loop",
+    "cold chain",
+    "handling at the dock",
+    "working capital between paying a producer and being paid by an institution"
+   ],
+   "must_be_true": [
+    "enough buyers within reach of one route to share its cost",
+    "order values per stop that cover the contribution the route needs",
+    "producers able to meet buyer requirements for volume, pack and food-safety certification",
+    "a margin the buyers will bear"
+   ],
+   "what_varies_by_place": [],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": "the route arithmetic is in ec_interventions.route_economics; at 10 stops a $341-$676 loop needs $34-$68 of contribution per stop before anything else is paid for",
+   "note": "this is the archetype the ESO brief below is written for",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  },
+  {
+   "id": "AT_SHARED_COLD_CHAIN",
+   "name": "Shared cold storage and first-mile cooling",
+   "origination": "COORDINATE",
+   "origination_means": "identify an opportunity for existing organisations to jointly improve economic performance",
+   "gap": [
+    "CM_COLD_STORAGE",
+    "CM_POSTHARVEST"
+   ],
+   "what_it_does": "provides cooling and short-term storage near production so product holds its quality long enough to reach an aggregation point",
+   "who_it_serves": "producers, aggregators, processors",
+   "revenue_mechanism": "rental by pallet-position or by day; or a cooperative cost share",
+   "cost_drivers": [
+    "electricity",
+    "siting",
+    "utilisation across a season",
+    "maintenance"
+   ],
+   "must_be_true": [
+    "enough volume in one catchment to keep a facility utilised",
+    "producers willing to deliver to a shared point",
+    "an operator willing to carry the fixed cost between seasons"
+   ],
+   "what_varies_by_place": [],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": null,
+   "note": "COORDINATE rather than DEVELOP because the assets partly exist and the question is whether their owners would share them",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  },
+  {
+   "id": "AT_PROCESSING_CAPACITY",
+   "name": "Inspected processing capacity for northern livestock",
+   "origination": "DEVELOP",
+   "origination_means": "identify a productive activity that could become a new business or institution",
+   "gap": [
+    "CM_INSPECTED_PROCESSING"
+   ],
+   "what_it_does": "slaughters and processes northern livestock under inspection so the meat can be sold to retailers, restaurants and institutions",
+   "who_it_serves": "ranchers, retailers, institutional buyers",
+   "revenue_mechanism": "a fee per head, or a margin on processed product",
+   "cost_drivers": [
+    "inspection staffing",
+    "throughput against fixed plant cost",
+    "cold chain",
+    "offal and waste handling",
+    "skilled labour"
+   ],
+   "must_be_true": [
+    "enough head within a haul radius to keep a plant utilised",
+    "ranchers willing to commit animals on a schedule",
+    "a buyer base for the cuts a region actually produces"
+   ],
+   "what_varies_by_place": [],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": null,
+   "note": "held deliberately at SIGNAL. The repository's own Phase 2 finding argues AGAINST the obvious reading of C01, and an archetype must not quietly re-adopt a thesis the research already qualified.",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  },
+  {
+   "id": "AT_INPUT_LOCALIZATION",
+   "name": "Regional production of an input currently sourced at distance",
+   "origination": "DEVELOP",
+   "origination_means": "identify a productive activity that could become a new business or institution",
+   "gap": [
+    "CM_BUILDING_MATERIALS",
+    "CM_FARM_INPUTS",
+    "CM_DIESEL"
+   ],
+   "what_it_does": "produces, fabricates or aggregates an input that local producers currently buy from a national or global supplier, close enough to cut freight and lead time out of every unit of local output",
+   "who_it_serves": "whoever performs the productive activity that consumes the input",
+   "revenue_mechanism": "a margin on the input, at a delivered price the buyer compares against their current supplier",
+   "cost_drivers": [
+    "minimum efficient scale",
+    "equipment",
+    "facility",
+    "certification or code compliance",
+    "freight saved",
+    "input materials"
+   ],
+   "must_be_true": [
+    "enough regional volume to reach minimum efficient scale",
+    "a delivered cost below what the distant supplier charges",
+    "buyers willing to switch supplier",
+    "any certification the product requires"
+   ],
+   "what_varies_by_place": [
+    "distance to the current supplier",
+    "regional volume",
+    "whether a compatible manufacturer already exists",
+    "local energy and labour cost",
+    "code and certification regime"
+   ],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": null,
+   "note": "THE COMPARATIVE-COST TRAP LIVES HERE. This archetype is only ever a hypothesis about whether local production would be CHEAPER DELIVERED than the supply it replaces. An import is not a loss, and distance is one cost among several. Any place hypothesis on this archetype that does not hold both delivered costs is holding neither.",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  },
+  {
+   "id": "AT_SUCCESSION",
+   "name": "Succession acquisition of operating regional businesses",
+   "origination": "DISCOVER",
+   "origination_means": "identify an existing business that could expand, be acquired, or receive investment",
+   "gap": [
+    "CM_SUCCESSOR_POOL",
+    "CM_ACQUISITION_FINANCE",
+    "CM_BUSINESS_OWNERS"
+   ],
+   "what_it_does": "acquires an existing profitable business from a retiring owner and keeps it operating, rather than letting it close",
+   "who_it_serves": "retiring owners, employees, the customers of a business that would otherwise close",
+   "revenue_mechanism": "the acquired business's own earnings",
+   "cost_drivers": [
+    "purchase price",
+    "acquisition debt service",
+    "transition risk",
+    "working capital"
+   ],
+   "must_be_true": [
+    "owners actually intending to exit",
+    "businesses with earnings that service acquisition debt",
+    "a successor willing to operate, not only to own"
+   ],
+   "what_varies_by_place": [],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": null,
+   "note": "DISCOVER: the businesses exist and are observed as a population. What is not observed is any individual owner's intention, and R3.8 forbids inventing one.",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  },
+  {
+   "id": "AT_COORDINATED_PROCUREMENT",
+   "name": "Coordinated institutional purchasing",
+   "origination": "COORDINATE",
+   "origination_means": "identify an opportunity for existing organisations to jointly improve economic performance",
+   "gap": [
+    "CM_INSTITUTIONAL_DEMAND",
+    "CM_BUYER_REQUIREMENTS"
+   ],
+   "what_it_does": "aligns several institutions' purchasing so that orders arrive in sizes a regional supplier can fill and a route can carry",
+   "who_it_serves": "school districts, hospitals, and the producers who would supply them",
+   "revenue_mechanism": "none directly: this is a cost borne by someone, usually a programme or a convening organisation",
+   "cost_drivers": [
+    "coordinator time",
+    "procurement compliance"
+   ],
+   "must_be_true": [
+    "institutions near enough to share a delivery",
+    "procurement rules that permit a combined award",
+    "someone funded to do the coordinating"
+   ],
+   "what_varies_by_place": [],
+   "evidence_axis": "SIGNAL",
+   "operator_axis": "ARCHETYPE_HYPOTHESIZED",
+   "operator_means": "a business-model shape tied to an observed capability gap. No operator, no local validation. NOT an opportunity.",
+   "scale_hint": null,
+   "note": "the intervention IV_BUYER_AGGREGATION is the same idea evaluated against an existing candidate; this is the same idea asked as an origination question",
+   "names_no_company": true,
+   "holds_no_place_evidence": true,
+   "responses": []
+  }
+ ],
+ "by_origination_type": {
+  "DISCOVER": [
+   "AT_SUCCESSION"
+  ],
+  "DEVELOP": [
+   "AT_AGGREGATION",
+   "AT_PROCESSING_CAPACITY",
+   "AT_INPUT_LOCALIZATION"
+  ],
+  "COORDINATE": [
+   "AT_SHARED_COLD_CHAIN",
+   "AT_COORDINATED_PROCUREMENT"
+  ]
+ },
+ "briefs": [
+  {
+   "archetype": "AT_AGGREGATION",
+   "place": "Northern New Mexico",
+   "subject": "Regional food aggregation and distribution — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for regional food aggregation and distribution serving Northern New Mexico. Consolidates product from many small northern producers into orders large enough for an institutional buyer to place and a vehicle to carry, and delivers them on a schedule a kitchen can plan around.",
+   "why_we_think_so": [
+    "141 producers selling through 8 hubs",
+    "97 institutional buyers and 347 grocers in the entity population",
+    "a 262-mile loop costing $341-$676 on documented per-mile inputs",
+    "the condition recorded as exists_uneconomic north of Santa Fe",
+    "NM Grown programme funding with an OBSERVED committed capacity"
+   ],
+   "what_we_have_not_established": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether buyers would pay a premium or require a discount",
+    "whether producers can meet institutional requirements at volume"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: order value per stop; stops per loop; any distributor's margin?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  },
+  {
+   "archetype": "AT_SHARED_COLD_CHAIN",
+   "place": "Northern New Mexico",
+   "subject": "Shared cold storage and first-mile cooling — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for shared cold storage and first-mile cooling serving Northern New Mexico. Provides cooling and short-term storage near production so product holds its quality long enough to reach an aggregation point.",
+   "why_we_think_so": [
+    "rentable walk-ins and grower cold trailers recorded in Santa Fe",
+    "far north and northeast recorded as does_not_exist for cold chain",
+    "rural and tribal sites recorded as lacking cold trucks"
+   ],
+   "what_we_have_not_established": [
+    "seasonal slack in any existing facility (unknown U32)",
+    "throughput at any site",
+    "electricity cost at any candidate site"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: seasonal slack in any existing facility (unknown U32); throughput at any site; electricity cost at any candidate site?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  },
+  {
+   "archetype": "AT_PROCESSING_CAPACITY",
+   "place": "Northern New Mexico",
+   "subject": "Inspected processing capacity for northern livestock — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for inspected processing capacity for northern livestock serving Northern New Mexico. Slaughters and processes northern livestock under inspection so the meat can be sold to retailers, restaurants and institutions.",
+   "why_we_think_so": [
+    "constraint C01 at medium confidence: access to inspected processing limits how much northern livestock reaches local markets as meat",
+    "one plant at El Rito with a self-reported capacity of up to 50 lambs per day -- the only OBSERVED capacity figure of its kind in the region",
+    "cattle inventory and sales by county from the Census of Agriculture"
+   ],
+   "what_we_have_not_established": [
+    "utilisation of the existing plant",
+    "what ranchers currently pay and where they currently go",
+    "whether C01's cause is access or price -- Phase 2 recorded that its main cause is NOT access, and that correction stands"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: utilisation of the existing plant; what ranchers currently pay and where they currently go; whether C01's cause is access or price -- Phase 2 recorded that its main cause is NOT access, and that correction stands?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  },
+  {
+   "archetype": "AT_INPUT_LOCALIZATION",
+   "place": "Northern New Mexico",
+   "subject": "Regional production of an input currently sourced at distance — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for regional production of an input currently sourced at distance serving Northern New Mexico. Produces, fabricates or aggregates an input that local producers currently buy from a national or global supplier, close enough to cut freight and lead time out of every unit of local output.",
+   "why_we_think_so": [],
+   "what_we_have_not_established": [],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: ?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  },
+  {
+   "archetype": "AT_SUCCESSION",
+   "place": "Northern New Mexico",
+   "subject": "Succession acquisition of operating regional businesses — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for succession acquisition of operating regional businesses serving Northern New Mexico. Acquires an existing profitable business from a retiring owner and keeps it operating, rather than letting it close.",
+   "why_we_think_so": [
+    "constraint C04: the producer base is ageing and contracting faster than new operators enter",
+    "producer age distribution from the Census of Agriculture",
+    "candidate R6, succession capital, already at SIGNAL"
+   ],
+   "what_we_have_not_established": [
+    "any owner's stated intention to sell",
+    "earnings for any regional business",
+    "whether acquisition finance is available on terms earnings can carry"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: any owner's stated intention to sell; earnings for any regional business; whether acquisition finance is available on terms earnings can carry?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  },
+  {
+   "archetype": "AT_COORDINATED_PROCUREMENT",
+   "place": "Northern New Mexico",
+   "subject": "Coordinated institutional purchasing — Northern New Mexico",
+   "what_our_research_suggests": "There may be an opportunity for coordinated institutional purchasing serving Northern New Mexico. Aligns several institutions' purchasing so that orders arrive in sizes a regional supplier can fill and a route can carry.",
+   "why_we_think_so": [
+    "constraint C09: institutional demand is fragmented into small awards and filtered through kitchens",
+    "constraint C03: local wholesale demand depends on time-limited public purchasing programmes",
+    "NM Grown as an OBSERVED committed funding capacity"
+   ],
+   "what_we_have_not_established": [
+    "whether procurement rules permit combined awards",
+    "the cost of the coordinating role",
+    "whether buyers would accept a common delivery window"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable, and we are not recommending it. No operator has been identified and we are not proposing one.",
+   "questions": [
+    "Are you working with an entrepreneur or an existing business interested in this model?",
+    "Do you know operators who could help validate the economics?",
+    "Is there something in your experience that makes this model unworkable here?",
+    "Do you hold, or know who holds, any of: whether procurement rules permit combined awards; the cost of the coordinating role; whether buyers would accept a common delivery window?"
+   ],
+   "what_a_response_would_change": [
+    "an operator who exists and is interested moves this from a shape to a candidate",
+    "evidence that the model does not work RETIRES it, which is as useful and faster",
+    "a single operating figure may settle whether the economics close at all"
+   ],
+   "we_are_not_asking_for": [
+    "capital",
+    "a commitment",
+    "an introduction we have not earned"
+   ],
+   "recipients": {
+    "count": 66,
+    "by_role": {
+     "regional food-system organisation": 24,
+     "public programme or agency": 28,
+     "food bank, which may also operate a fleet": 14
+    },
+    "shown": [
+     {
+      "name": "Agriculture Implementation Research and Education (AIRE)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "American Friends Service Committee – New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Collaborative Visions",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Mora",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Cooking with Kids",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Earth Land and Water Stewardship (Earth L.A.W.S.)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Taos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Embudo Valley Library",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Dixon",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Farm to Table New Mexico",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Flower Hill Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Jemez Pueblo",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Greenroots Institute",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": null,
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Kitchen Angels",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Santa Fe",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Alamos Farmers' Market (Ashley Pond; White Rock)",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Los Alamos",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     },
+     {
+      "name": "Los Sembradores Farmer Training Project / Chicoyole Farm",
+      "role": "regional food-system organisation",
+      "node_type": "food_org",
+      "place": "Chamisal",
+      "observed": true,
+      "relationship_with_dula": "NONE ASSERTED"
+     }
+    ],
+    "note": "observed organisations whose public role fits this question. Dula has no relationship with any of them, has contacted none of them, and names them only as the people who would know the answer."
+   },
+   "state_if_unanswered": "ARCHETYPE_HYPOTHESIZED"
+  }
+ ],
+ "response_kinds": {
+  "ALREADY_SUPPORTS_A_COMPANY": "the respondent already works with a business doing this",
+  "KNOWS_AN_OPERATOR": "the respondent can name a person or business that might",
+  "HAS_CONTRARY_EVIDENCE": "the respondent has reason to think the model does not work here",
+  "NO_KNOWLEDGE": "the respondent does not know",
+  "DECLINED": "no response, or declined to engage"
+ },
+ "promotion_attempts": [
+  {
+   "archetype": "AT_AGGREGATION",
+   "outcome": "REFUSED",
+   "why": "AT_AGGREGATION: LOCALLY_VALIDATED requires the demand side AND the cost side observed here. demand_observed=False cost_observed=True. A route cost without an order value is half a business model."
+  }
+ ],
+ "counts": {
+  "archetypes": 6,
+  "at_archetype_stage": 6,
+  "locally_validated": 0,
+  "operators_identified": 0,
+  "responses_recorded": 0,
+  "candidate_recipients": 66
+ },
+ "the_position": "Five archetypes, all at ARCHETYPE_HYPOTHESIZED, none validated, no operator identified and no response recorded. That is not a failure of the module -- it is the state of the question before anyone has been asked. The output of origination is a brief, and the next move is a human one."
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="dula-build" content="public">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dula · Economic Intelligence</title>
+<link rel="stylesheet" href="dula/dula.css">
+<style>
+body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+.wrap{max-width:54rem;margin:0 auto;padding:0 28px 120px}
+header.sf{padding:48px 0 10px}
+.sf-mark{font-family:var(--serif);font-size:13px;letter-spacing:.18em;color:var(--clay);text-transform:uppercase}
+h1.sf{font-family:var(--serif);font-size:44px;line-height:1.08;margin:12px 0 6px;font-weight:600}
+.sf-sub{font-size:15px;color:var(--ink-2);margin:0 0 6px;max-width:40rem}
+.sf-as-of{font-size:11.5px;color:var(--ink-3);letter-spacing:.06em}
+section{padding:36px 0 0;border-top:1px solid var(--line);margin-top:34px}
+h2{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--clay);margin:0 0 16px;font-weight:600}
+h3{font-family:var(--serif);font-size:23px;line-height:1.25;margin:0 0 8px;font-weight:600}
+.lede{font-family:var(--serif);font-size:21px;line-height:1.45;margin:0 0 20px}
+p{margin:0 0 13px;max-width:44rem}
+.muted{color:var(--ink-2)}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:0 0 14px;box-shadow:var(--shadow)}
+.row{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.tag{font-size:10px;letter-spacing:.13em;text-transform:uppercase;border:1px solid var(--line-2);
+  border-radius:999px;padding:3px 10px;color:var(--ink-2);background:var(--paper-2);white-space:nowrap}
+.tag.k{background:var(--clay);color:#fff;border-color:var(--clay)}
+.tag.w{background:var(--water-soft);border-color:var(--water);color:#2a5a69}
+.tag.s{background:#e9eee2;border-color:var(--sage);color:#4d5a3e}
+.tag.u{background:var(--paper-3);color:var(--ink-3)}
+.num{font-family:var(--serif);font-size:30px;line-height:1;color:var(--clay)}
+.chain{font-family:var(--mono);font-size:12.5px;line-height:1.85;background:var(--paper-2);
+  border-left:3px solid var(--clay-soft);padding:16px 18px;border-radius:0 8px 8px 0;margin:12px 0;
+  white-space:pre-wrap;overflow-wrap:anywhere}
+/* R3.23. An identifier like WX_GLOBAL_RATES_FINANCING is one unbreakable word, and at 375px it
+   pushed the document 74px wider than the viewport. break-word only acts on a word that would
+   otherwise overflow, so ordinary prose is untouched. */
+h1,h2,h3,h4,p,li,b,td,th,summary,.num,.tag,.muted{overflow-wrap:break-word}
+.chain b{color:var(--clay);font-weight:600}
+.stop{color:var(--warn);font-weight:600}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:13.5px;margin:10px 0 0}
+.kv dt{color:var(--ink-3);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;padding-top:3px}
+.kv dd{margin:0}
+details{margin:10px 0 0;font-size:13px}
+summary{cursor:pointer;color:var(--ink-3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  list-style:none;padding:5px 0}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"▸ ";color:var(--line-2)}
+details[open] summary:before{content:"▾ "}
+details .in{border-left:2px solid var(--line);padding:4px 0 4px 14px;color:var(--ink-2)}
+ul{margin:6px 0 0;padding-left:18px}li{margin:0 0 5px;max-width:42rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.two{grid-template-columns:1fr}h1.sf{font-size:34px}}
+.foot{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-3)}
+.refuse{border-left:3px solid var(--warn);background:#fbf5e9;padding:12px 16px;border-radius:0 8px 8px 0;
+  font-size:13.5px;margin:12px 0}
+.actx{font-family:var(--serif);font-size:19px;color:var(--clay);margin:0 0 4px}
+.nav-chip.on{background:var(--clay);color:#fff;border-color:var(--clay);font-weight:600}
+.mode-chip.on{background:#e9eee2;border-color:var(--sage);color:#4d5a3e;font-weight:600}
+.nav-chip:focus-visible,.mode-chip:focus-visible{outline:2px solid var(--clay);outline-offset:2px}
+
+/* PHASE 10V. Components built from the existing tokens and the .sysnode state treatments
+   already in dula.css. No new colours, no new type families. */
+.dg{margin:4px 0 10px;padding:0}
+.dg svg{width:100%;height:auto;display:block}
+.dg .dg-box{fill:#fff;stroke:var(--line-2);stroke-width:1.5}
+.dg .sysnode.observed .dg-box{fill:var(--water-soft);stroke:var(--water)}
+.dg .sysnode.classified .dg-box{fill:var(--paper-2);stroke:var(--sand)}
+.dg .sysnode.unobserved .dg-box{fill:var(--paper);stroke:var(--line-2);stroke-dasharray:3 3}
+.dg .dg-nl{font-size:12.5px;fill:var(--ink);font-weight:600}
+.dg .dg-ns{font-size:10.5px;fill:var(--ink-3)}
+.dg .dg-el{font-size:10.5px;fill:var(--ink-3);font-family:var(--sans)}
+.dg .dg-elb{paint-order:stroke;stroke:var(--paper);stroke-width:3.5px;stroke-linejoin:round}
+.dg-cap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:11px;
+  color:var(--ink-3);padding:6px 0 0;border-top:1px solid var(--line);margin-top:4px}
+.dg-key{display:inline-flex;gap:6px;align-items:center}
+.dg-nomag{font-style:italic}
+.mx{display:flex;gap:28px;flex-wrap:wrap;margin:14px 0 16px;padding:16px 18px;
+  background:var(--paper-2);border-radius:10px}
+.mx-i{min-width:9rem;flex:1}
+.mx-v{font-family:var(--serif);font-size:34px;line-height:1;color:var(--clay)}
+.mx-l{font-size:12.5px;color:var(--ink-2);margin-top:5px;max-width:14rem}
+.mx-n{font-size:11px;color:var(--ink-3);margin-top:5px;max-width:16rem}
+.cmp{margin:10px 0 6px}
+.cmp-row{display:grid;grid-template-columns:7.5rem 1fr 5rem;gap:10px;align-items:center;
+  padding:3px 0}
+.cmp-lbl{font-size:13px;color:var(--ink-2)}
+.cmp-bar{background:var(--paper-3);border-radius:3px;height:14px;overflow:hidden}
+.cmp-bar i{display:block;height:100%;background:var(--clay-soft);border-right:2px solid var(--clay)}
+.cmp-val{font-family:var(--serif);font-size:15px;text-align:right;color:var(--ink)}
+.cmp-unit{font-size:11px;color:var(--ink-3);margin-top:6px}
+.fnd{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.fnd-n{font-family:var(--serif);font-size:26px;color:var(--clay-soft);line-height:1;min-width:1.6rem}
+.fnd-b h3{margin:0 0 6px}
+.fnd-so{font-size:13.5px;color:var(--ink-2);margin-top:8px}
+.gap{padding:14px 0;border-top:1px solid var(--line)}
+.gap h3{font-size:18px;margin:0 0 5px}
+.gap-s{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+.chan{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+.chan td{padding:9px 10px;border-top:1px solid var(--line);vertical-align:top}
+.chan-n{font-weight:600;width:11rem}
+.chan-e,.chan-l{color:var(--ink-2)}
+.chan-s{color:var(--ink-3);width:14rem}
+.chan-s.stop{color:var(--warn)}
+@media(max-width:720px){
+  .mx{gap:18px;padding:14px}.mx-v{font-size:27px}
+  .cmp-row{grid-template-columns:6rem 1fr 4.2rem}
+  .chan,.chan tbody,.chan tr,.chan td{display:block;width:auto}
+  .chan tr{border-top:1px solid var(--line);padding:8px 0}
+  .chan td{border:0;padding:2px 0}
+  .dg svg{min-height:240px}
+}
+
+/* PHASE 10G. Graph layer, built from the same tokens. No dashboard palette. */
+.gq{margin:16px 0 22px;padding:0}
+.gq-t{font-family:var(--serif);font-size:19px;line-height:1.3;margin:0 0 4px;color:var(--ink)}
+.gq-s{font-size:13px;color:var(--ink-2);margin:0 0 12px;max-width:42rem}
+.gq svg{width:100%;height:auto;display:block}
+.gq-m{display:flex;gap:14px;flex-wrap:wrap;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.04em;padding:7px 0 0;border-top:1px solid var(--line);margin-top:8px}
+.gq-c{font-size:11.5px;color:var(--ink-3);margin:6px 0 0;max-width:44rem}
+.gq-ax{font-size:10px;fill:var(--ink-3);font-family:var(--sans)}
+.gq-axl{font-size:10.5px;fill:var(--ink-3);font-family:var(--sans)}
+.gq-sl{font-size:10.5px;fill:var(--ink-2);font-family:var(--sans);paint-order:stroke;
+  stroke:var(--paper);stroke-width:3px}
+.gq-an{font-size:10px;fill:var(--warn);font-family:var(--sans)}
+.gq-pl{font-size:10px;fill:var(--ink-3);font-family:var(--sans)}
+.gq-rk{margin:4px 0}
+.gq-rr{display:grid;grid-template-columns:8.5rem 1fr 4.6rem 4.6rem;gap:10px;align-items:center;
+  padding:3px 0}
+.gq-rl{font-size:13px;color:var(--ink-2)}
+.gq-rb{background:var(--paper-3);border-radius:3px;height:13px;overflow:hidden}
+.gq-rb i{display:block;height:100%;background:var(--clay-soft);border-right:2px solid var(--clay)}
+.gq-rr.on .gq-rb i{background:var(--clay);border-right-color:var(--ink)}
+.gq-rv{font-family:var(--serif);font-size:14.5px;text-align:right}
+.gq-rd{font-size:10.5px;color:var(--ink-3)}
+.gq-mx{overflow-x:auto}
+.gq-mx table{border-collapse:collapse;font-size:12px;width:100%}
+.gq-mx th{font-weight:600;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);padding:6px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.gq-mr{text-align:left!important;color:var(--ink-2)!important;text-transform:none!important;
+  font-size:12.5px!important;letter-spacing:0!important;white-space:nowrap}
+.gq-mc{padding:6px 8px;text-align:center;border-bottom:1px solid var(--line);cursor:default}
+.gq-mv{font-family:var(--serif);font-size:14px}
+.gq-md{display:block;font-size:9px;line-height:1}
+.gq-mc.rising .gq-md{color:var(--clay)}
+.gq-mc.falling .gq-md{color:var(--water)}
+.gq-mc.flat .gq-md,.gq-mc.unknown .gq-md{color:var(--ink-3)}
+.gq-mc.none{color:var(--line-2)}
+.gq-sm{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0}
+.gq-sp{min-width:9.5rem;flex:1}
+.gq-spl{font-size:11px;color:var(--ink-2);margin-bottom:2px}
+.gq-spv{font-family:var(--serif);font-size:15px;color:var(--clay)}
+.gq-sk{vertical-align:middle;margin-left:6px}
+.gq-fl{margin:4px 0}
+.gq-fr{display:grid;grid-template-columns:7.5rem 2.2rem 7.5rem 4.4rem 1fr;gap:9px;
+  align-items:center;padding:4px 0;font-size:12.5px}
+.gq-fa{color:var(--ink-2);text-align:right}
+.gq-fb{color:var(--ink)}
+.gq-fw{display:flex;align-items:center;justify-content:center}
+.gq-fw i{display:block;width:100%;background:var(--clay-soft);border-radius:2px}
+.gq-fv{font-family:var(--serif);text-align:right}
+.gq-fs{font-size:11px;color:var(--ink-3)}
+.gq-no{border-left:3px solid var(--line-2);background:var(--paper-2);padding:12px 16px;
+  border-radius:0 8px 8px 0;margin:10px 0}
+.gq-not{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:5px}
+.gq-no p{margin:0;font-size:13px;color:var(--ink-2);max-width:44rem}
+@media(max-width:720px){
+  .gq-rr{grid-template-columns:6rem 1fr 3.8rem;row-gap:2px}
+  .gq-rd{grid-column:2/4;font-size:10px}
+  .gq-fr{grid-template-columns:5.6rem 1.6rem 5.6rem 3.6rem;row-gap:2px}
+  .gq-fs{grid-column:1/5;text-align:right}
+  .gq-sp{min-width:7rem}
+  .gq-mx table{font-size:11px}.gq-mv{font-size:12px}
+}
+
+/* PHASE 10H. The reading as an argument: numbered beats, claim first, visual inside the
+   claim, interpretation and rival beneath it. */
+.bt{display:flex;gap:18px;padding:34px 0 0;border-top:1px solid var(--line);margin-top:30px}
+.bt-n{font-family:var(--serif);font-size:15px;color:var(--clay-soft);line-height:1.6;
+  min-width:1.4rem;padding-top:3px}
+.bt-b{flex:1;min-width:0}
+.bt-c{font-family:var(--serif)!important;font-size:24px!important;line-height:1.28!important;
+  letter-spacing:0!important;text-transform:none!important;color:var(--ink)!important;
+  font-weight:600!important;margin:0 0 14px!important}
+.bt-s{font-size:14.5px;margin:10px 0 0;max-width:44rem}
+.bt-w{font-size:13px;color:var(--ink-2);margin:7px 0 0;max-width:44rem}
+.bt-r{font-size:13.5px;color:var(--ink-2);margin:10px 0 0;max-width:44rem;
+  border-left:2px solid var(--line-2);padding-left:12px}
+.bt-k{font-size:14px;margin:10px 0 0;max-width:44rem}
+.bt-u{font-size:13px;color:var(--ink-3);margin:8px 0 0;max-width:44rem}
+.bt-q{font-size:14.5px;font-family:var(--serif);color:var(--clay);margin:12px 0 0;
+  max-width:42rem}
+.defn{margin:16px 0 0;padding-left:20px}
+.defn li{margin:0 0 9px;max-width:44rem;font-size:14.5px}
+@media(max-width:720px){.bt{gap:10px}.bt-c{font-size:20px!important}.bt-n{min-width:1rem}}
+</style>
+</head>
+<body>
+<!-- PHASE 10R. THE CANONICAL DULA PRODUCT.
+     This route previously loaded dula/dula.js, whose Overview led with record counts and
+     whose place binding let a Las Vegas shell sit above a Santa Fe body. It now loads
+     dula/app10r.js: one application holding World, New Mexico and places, with
+     Intelligence, Model and Evidence modes over the same bound object.
+     The legacy modules remain in the repository and are no longer reachable from this
+     route; see docs/phase10r/01_census.md for what was kept, moved and removed. -->
+<div class="wrap" id="app">loading…</div>
+<!-- R3.11. VERSIONED. Without a version a returning browser keeps running the PREVIOUS build
+     of this module after a rebuild: the server returns new bytes and the page ignores them.
+     Verified live today. Six guards pin this src; each now asserts the same invariant with an
+     optional ?v=. Bump when dula/app10r.js changes. -->
+<script type="module" src="dula/app10r.js"></script>
+</body></html>

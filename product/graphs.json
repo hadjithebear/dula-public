@@ -1,0 +1,6690 @@
+{
+ "census": [
+  {
+   "id": "NM_EMPLOYMENT_TREND",
+   "scope": "NEW MEXICO",
+   "question": "How has private employment changed in the counties where it is observed?",
+   "measure": "private employment at workplaces",
+   "unit": "jobs",
+   "geography": "county",
+   "time": "2005-2024 annual",
+   "n": 180,
+   "eligibility": "GRAPHABLE",
+   "form": "LINE",
+   "caveat": "Private employers only. Los Alamos breaks in 2006 and 2007 and is charted from 2008; no other county breaks."
+  },
+  {
+   "id": "NM_EARNINGS_COMPARISON",
+   "scope": "NEW MEXICO",
+   "question": "How far apart are average private earnings across county labour markets?",
+   "measure": "average monthly private earnings at the workplace",
+   "unit": "USD/month",
+   "geography": "county",
+   "time": "2024 Q4",
+   "n": 9,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "County averages over different occupation and industry mixes. Not a same-worker wage premium."
+  },
+  {
+   "id": "NM_OUTBOUND_COMMUTE",
+   "scope": "NEW MEXICO",
+   "question": "Which counties send the largest share of their workers out to work?",
+   "measure": "share of working residents employed outside the county",
+   "unit": "%",
+   "geography": "county",
+   "time": "2022",
+   "n": 33,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "Jobs, not people."
+  },
+  {
+   "id": "NM_LABOUR_FLOWS",
+   "scope": "NEW MEXICO",
+   "question": "Which county-to-county labour relationships are largest, and which counties depend most on a labour market outside them?",
+   "measure": "jobs by county of residence and county of workplace",
+   "unit": "jobs",
+   "geography": "county pair",
+   "time": "2022",
+   "n": 981,
+   "eligibility": "RELATIONALLY_VISUALIZABLE",
+   "form": "FLOW",
+   "caveat": "981 pairs. Drawing all of them is unreadable; the view ranks and filters."
+  },
+  {
+   "id": "NM_HOUSING_BURDEN",
+   "scope": "NEW MEXICO",
+   "question": "Where is housing cost highest relative to local income?",
+   "measure": "median gross rent against median household income",
+   "unit": "ratio",
+   "geography": "county",
+   "time": "2020-2024",
+   "n": 33,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "SCATTER",
+   "caveat": "A five-year average. It cannot date a change and does not establish a bottleneck."
+  },
+  {
+   "id": "WORLD_CREDIT_COMPARISON",
+   "scope": "WORLD",
+   "question": "Which economies are still adding private debt, and from what level?",
+   "measure": "private non-financial credit",
+   "unit": "% of GDP",
+   "geography": "country",
+   "time": "quarterly, to 2026",
+   "n": 12,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "A ratio of a stock to a flow; the denominator moves with the cycle."
+  },
+  {
+   "id": "WORLD_STOCK_VS_SERVICE",
+   "scope": "WORLD",
+   "question": "Does a larger debt stock mean a heavier debt burden?",
+   "measure": "private credit against private debt service",
+   "unit": "% of GDP, % of income",
+   "geography": "country",
+   "time": "to 2026",
+   "n": 11,
+   "eligibility": "GRAPHABLE",
+   "form": "SCATTER",
+   "caveat": "Debt service ratios are BIS estimates from an assumed maturity and rate. No causal claim; the point is that the two do not track."
+  },
+  {
+   "id": "WORLD_LONG_SERIES",
+   "scope": "WORLD",
+   "question": "How have credit and prices moved over decades in the major economies?",
+   "measure": "private credit, consumer prices",
+   "unit": "% of GDP, % change",
+   "geography": "country",
+   "time": "1960-2026",
+   "n": 315,
+   "eligibility": "GRAPHABLE",
+   "form": "SMALL_MULTIPLES",
+   "caveat": "Annual for the World Bank series; a year cannot date a turning point."
+  },
+  {
+   "id": "WORLD_CONFIGURATION",
+   "scope": "WORLD",
+   "question": "What makes each major economy's current position different from the others?",
+   "measure": "level, direction and historical position across dimensions",
+   "unit": "mixed",
+   "geography": "country",
+   "time": "latest",
+   "n": 13,
+   "eligibility": "GRAPHABLE",
+   "form": "MATRIX",
+   "caveat": "Not composed into a score. Each cell is one dimension."
+  },
+  {
+   "id": "CHINA_JAPAN_ANALOGUE",
+   "scope": "WORLD",
+   "question": "On which dimensions does China today resemble Japan in 1998, and on which does it not?",
+   "measure": "matched dimensions",
+   "unit": "mixed",
+   "geography": "country",
+   "time": "2026 v 1998",
+   "n": 8,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "SMALL_MULTIPLES",
+   "caveat": "Both reconstructed from current-vintage data. A comparison, not a forecast."
+  },
+  {
+   "id": "NM_HOUSING_OVER_TIME",
+   "scope": "NEW MEXICO",
+   "question": "How has the housing stock changed by county?",
+   "measure": "housing units",
+   "unit": "count",
+   "geography": "county",
+   "time": "two ACS vintages",
+   "n": 2,
+   "eligibility": "SINGLE_POINT_ONLY",
+   "form": null,
+   "refused": true,
+   "why_refused": "Two overlapping five-year averages are not a time series. Their windows share three years, so a difference between them is not a change over a known period."
+  },
+  {
+   "id": "NM_STATE_SPENDING_MAP",
+   "scope": "NEW MEXICO",
+   "question": "Where does state spending land?",
+   "measure": "state expenditure by county",
+   "unit": "USD",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "No published figure allocates state spending to counties. Drawing it would require inventing the allocation, which is the whole finding."
+  },
+  {
+   "id": "NM_WATER_ECONOMIC_MAP",
+   "scope": "NEW MEXICO",
+   "question": "Where does water scarcity constrain production?",
+   "measure": "delivered acre-feet against output",
+   "unit": "acre-feet",
+   "geography": "ditch",
+   "time": null,
+   "n": 0,
+   "eligibility": "MIS_SPECIFIED",
+   "form": null,
+   "refused": true,
+   "why_refused": "Physical scarcity, legal allocation and economic consequence are three different things and only basin-scale physical conditions are held. A map joining them would assert a chain the evidence does not contain."
+  },
+  {
+   "id": "NM_COMMUTER_EARNINGS",
+   "scope": "NEW MEXICO",
+   "question": "What do out-commuters earn relative to those who stay?",
+   "measure": "earnings by county of residence",
+   "unit": "USD",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "Earnings are published by county of WORKPLACE. The quantity this question needs does not exist in any held source."
+  },
+  {
+   "id": "WORLD_CREDIT_PRICE_SCATTER",
+   "scope": "WORLD",
+   "question": "Does a higher credit stock go with lower inflation?",
+   "measure": "private credit against consumer prices",
+   "unit": "% of GDP, %",
+   "geography": "country",
+   "time": "latest",
+   "n": 12,
+   "eligibility": "MIS_SPECIFIED",
+   "form": null,
+   "refused": true,
+   "why_refused": "Twelve points across economies with different monetary regimes, currencies and price histories. Any line through them would read as a relationship nothing here identifies."
+  },
+  {
+   "id": "NM_PRODUCTIVITY",
+   "scope": "NEW MEXICO",
+   "question": "Which counties are becoming more productive?",
+   "measure": "output per worker",
+   "unit": "USD/worker",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "County output is not held. Employment alone cannot carry a productivity claim \u2014 that is the counting error this repository has already adjudicated once."
+  }
+ ],
+ "refusals": [
+  {
+   "id": "NM_HOUSING_OVER_TIME",
+   "scope": "NEW MEXICO",
+   "question": "How has the housing stock changed by county?",
+   "measure": "housing units",
+   "unit": "count",
+   "geography": "county",
+   "time": "two ACS vintages",
+   "n": 2,
+   "eligibility": "SINGLE_POINT_ONLY",
+   "form": null,
+   "refused": true,
+   "why_refused": "Two overlapping five-year averages are not a time series. Their windows share three years, so a difference between them is not a change over a known period."
+  },
+  {
+   "id": "NM_STATE_SPENDING_MAP",
+   "scope": "NEW MEXICO",
+   "question": "Where does state spending land?",
+   "measure": "state expenditure by county",
+   "unit": "USD",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "No published figure allocates state spending to counties. Drawing it would require inventing the allocation, which is the whole finding."
+  },
+  {
+   "id": "NM_WATER_ECONOMIC_MAP",
+   "scope": "NEW MEXICO",
+   "question": "Where does water scarcity constrain production?",
+   "measure": "delivered acre-feet against output",
+   "unit": "acre-feet",
+   "geography": "ditch",
+   "time": null,
+   "n": 0,
+   "eligibility": "MIS_SPECIFIED",
+   "form": null,
+   "refused": true,
+   "why_refused": "Physical scarcity, legal allocation and economic consequence are three different things and only basin-scale physical conditions are held. A map joining them would assert a chain the evidence does not contain."
+  },
+  {
+   "id": "NM_COMMUTER_EARNINGS",
+   "scope": "NEW MEXICO",
+   "question": "What do out-commuters earn relative to those who stay?",
+   "measure": "earnings by county of residence",
+   "unit": "USD",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "Earnings are published by county of WORKPLACE. The quantity this question needs does not exist in any held source."
+  },
+  {
+   "id": "WORLD_CREDIT_PRICE_SCATTER",
+   "scope": "WORLD",
+   "question": "Does a higher credit stock go with lower inflation?",
+   "measure": "private credit against consumer prices",
+   "unit": "% of GDP, %",
+   "geography": "country",
+   "time": "latest",
+   "n": 12,
+   "eligibility": "MIS_SPECIFIED",
+   "form": null,
+   "refused": true,
+   "why_refused": "Twelve points across economies with different monetary regimes, currencies and price histories. Any line through them would read as a relationship nothing here identifies."
+  },
+  {
+   "id": "NM_PRODUCTIVITY",
+   "scope": "NEW MEXICO",
+   "question": "Which counties are becoming more productive?",
+   "measure": "output per worker",
+   "unit": "USD/worker",
+   "geography": "county",
+   "time": null,
+   "n": 0,
+   "eligibility": "INSUFFICIENT",
+   "form": null,
+   "refused": true,
+   "why_refused": "County output is not held. Employment alone cannot carry a productivity claim \u2014 that is the counting error this repository has already adjudicated once."
+  }
+ ],
+ "buildable": [
+  {
+   "id": "NM_EMPLOYMENT_TREND",
+   "scope": "NEW MEXICO",
+   "question": "How has private employment changed in the counties where it is observed?",
+   "measure": "private employment at workplaces",
+   "unit": "jobs",
+   "geography": "county",
+   "time": "2005-2024 annual",
+   "n": 180,
+   "eligibility": "GRAPHABLE",
+   "form": "LINE",
+   "caveat": "Private employers only. Los Alamos breaks in 2006 and 2007 and is charted from 2008; no other county breaks."
+  },
+  {
+   "id": "NM_EARNINGS_COMPARISON",
+   "scope": "NEW MEXICO",
+   "question": "How far apart are average private earnings across county labour markets?",
+   "measure": "average monthly private earnings at the workplace",
+   "unit": "USD/month",
+   "geography": "county",
+   "time": "2024 Q4",
+   "n": 9,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "County averages over different occupation and industry mixes. Not a same-worker wage premium."
+  },
+  {
+   "id": "NM_OUTBOUND_COMMUTE",
+   "scope": "NEW MEXICO",
+   "question": "Which counties send the largest share of their workers out to work?",
+   "measure": "share of working residents employed outside the county",
+   "unit": "%",
+   "geography": "county",
+   "time": "2022",
+   "n": 33,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "Jobs, not people."
+  },
+  {
+   "id": "NM_LABOUR_FLOWS",
+   "scope": "NEW MEXICO",
+   "question": "Which county-to-county labour relationships are largest, and which counties depend most on a labour market outside them?",
+   "measure": "jobs by county of residence and county of workplace",
+   "unit": "jobs",
+   "geography": "county pair",
+   "time": "2022",
+   "n": 981,
+   "eligibility": "RELATIONALLY_VISUALIZABLE",
+   "form": "FLOW",
+   "caveat": "981 pairs. Drawing all of them is unreadable; the view ranks and filters."
+  },
+  {
+   "id": "NM_HOUSING_BURDEN",
+   "scope": "NEW MEXICO",
+   "question": "Where is housing cost highest relative to local income?",
+   "measure": "median gross rent against median household income",
+   "unit": "ratio",
+   "geography": "county",
+   "time": "2020-2024",
+   "n": 33,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "SCATTER",
+   "caveat": "A five-year average. It cannot date a change and does not establish a bottleneck."
+  },
+  {
+   "id": "WORLD_CREDIT_COMPARISON",
+   "scope": "WORLD",
+   "question": "Which economies are still adding private debt, and from what level?",
+   "measure": "private non-financial credit",
+   "unit": "% of GDP",
+   "geography": "country",
+   "time": "quarterly, to 2026",
+   "n": 12,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "RANKED_BAR",
+   "caveat": "A ratio of a stock to a flow; the denominator moves with the cycle."
+  },
+  {
+   "id": "WORLD_STOCK_VS_SERVICE",
+   "scope": "WORLD",
+   "question": "Does a larger debt stock mean a heavier debt burden?",
+   "measure": "private credit against private debt service",
+   "unit": "% of GDP, % of income",
+   "geography": "country",
+   "time": "to 2026",
+   "n": 11,
+   "eligibility": "GRAPHABLE",
+   "form": "SCATTER",
+   "caveat": "Debt service ratios are BIS estimates from an assumed maturity and rate. No causal claim; the point is that the two do not track."
+  },
+  {
+   "id": "WORLD_LONG_SERIES",
+   "scope": "WORLD",
+   "question": "How have credit and prices moved over decades in the major economies?",
+   "measure": "private credit, consumer prices",
+   "unit": "% of GDP, % change",
+   "geography": "country",
+   "time": "1960-2026",
+   "n": 315,
+   "eligibility": "GRAPHABLE",
+   "form": "SMALL_MULTIPLES",
+   "caveat": "Annual for the World Bank series; a year cannot date a turning point."
+  },
+  {
+   "id": "WORLD_CONFIGURATION",
+   "scope": "WORLD",
+   "question": "What makes each major economy's current position different from the others?",
+   "measure": "level, direction and historical position across dimensions",
+   "unit": "mixed",
+   "geography": "country",
+   "time": "latest",
+   "n": 13,
+   "eligibility": "GRAPHABLE",
+   "form": "MATRIX",
+   "caveat": "Not composed into a score. Each cell is one dimension."
+  },
+  {
+   "id": "CHINA_JAPAN_ANALOGUE",
+   "scope": "WORLD",
+   "question": "On which dimensions does China today resemble Japan in 1998, and on which does it not?",
+   "measure": "matched dimensions",
+   "unit": "mixed",
+   "geography": "country",
+   "time": "2026 v 1998",
+   "n": 8,
+   "eligibility": "COMPARISON_ELIGIBLE",
+   "form": "SMALL_MULTIPLES",
+   "caveat": "Both reconstructed from current-vintage data. A comparison, not a forecast."
+  }
+ ],
+ "forms": {
+  "change over time": "LINE",
+  "cross-entity comparison": "RANKED_BAR",
+  "spatial distribution": "MAP",
+  "measured movement": "FLOW",
+  "dependency structure": "NETWORK",
+  "mechanism": "CAUSAL_CHAIN",
+  "many entities across dimensions": "MATRIX",
+  "two measured variables": "SCATTER",
+  "same measure across entities": "SMALL_MULTIPLES",
+  "direction beside a value": "SPARKLINE",
+  "shares of a whole": "COMPOSITION",
+  "none of the above": "TEXT"
+ },
+ "nm": {
+  "employment": [
+   {
+    "label": "Los Alamos",
+    "points": [
+     [
+      2007,
+      14225
+     ],
+     [
+      2008,
+      13681
+     ],
+     [
+      2009,
+      13348
+     ],
+     [
+      2010,
+      13605
+     ],
+     [
+      2011,
+      13668
+     ],
+     [
+      2012,
+      13319
+     ],
+     [
+      2013,
+      12840
+     ],
+     [
+      2014,
+      12798
+     ],
+     [
+      2015,
+      12785
+     ],
+     [
+      2016,
+      12771
+     ],
+     [
+      2017,
+      13347
+     ],
+     [
+      2018,
+      13942
+     ],
+     [
+      2019,
+      14935
+     ],
+     [
+      2020,
+      15350
+     ],
+     [
+      2021,
+      15988
+     ],
+     [
+      2022,
+      17047
+     ],
+     [
+      2023,
+      18990
+     ],
+     [
+      2024,
+      19517
+     ]
+    ],
+    "break_note": "The series moves +66% in 2006 and +32% in 2007. A count of PRIVATE employers moves that way when an employer changes ownership classification, with no job created. The cause is not established here; only the comparable window is charted.",
+    "from": 2007
+   },
+   {
+    "label": "Santa Fe",
+    "points": [
+     [
+      2005,
+      44578
+     ],
+     [
+      2006,
+      46479
+     ],
+     [
+      2007,
+      47740
+     ],
+     [
+      2008,
+      48804
+     ],
+     [
+      2009,
+      44308
+     ],
+     [
+      2010,
+      43914
+     ],
+     [
+      2011,
+      44148
+     ],
+     [
+      2012,
+      43672
+     ],
+     [
+      2013,
+      44305
+     ],
+     [
+      2014,
+      44131
+     ],
+     [
+      2015,
+      45336
+     ],
+     [
+      2016,
+      46210
+     ],
+     [
+      2017,
+      46774
+     ],
+     [
+      2018,
+      46925
+     ],
+     [
+      2019,
+      47646
+     ],
+     [
+      2020,
+      43632
+     ],
+     [
+      2021,
+      44385
+     ],
+     [
+      2022,
+      48037
+     ],
+     [
+      2023,
+      48758
+     ],
+     [
+      2024,
+      49520
+     ]
+    ],
+    "break_note": null,
+    "from": null
+   },
+   {
+    "label": "Bernalillo",
+    "points": [
+     [
+      2005,
+      270448
+     ],
+     [
+      2006,
+      283668
+     ],
+     [
+      2007,
+      286641
+     ],
+     [
+      2008,
+      284317
+     ],
+     [
+      2009,
+      266628
+     ],
+     [
+      2010,
+      260076
+     ],
+     [
+      2011,
+      260799
+     ],
+     [
+      2012,
+      261201
+     ],
+     [
+      2013,
+      263501
+     ],
+     [
+      2014,
+      269688
+     ],
+     [
+      2015,
+      274555
+     ],
+     [
+      2016,
+      279469
+     ],
+     [
+      2017,
+      281301
+     ],
+     [
+      2018,
+      284054
+     ],
+     [
+      2019,
+      288954
+     ],
+     [
+      2020,
+      274446
+     ],
+     [
+      2021,
+      278188
+     ],
+     [
+      2022,
+      293352
+     ],
+     [
+      2023,
+      299352
+     ],
+     [
+      2024,
+      300512
+     ]
+    ],
+    "break_note": null,
+    "from": null
+   },
+   {
+    "label": "Rio Arriba",
+    "points": [
+     [
+      2005,
+      5960
+     ],
+     [
+      2006,
+      5301
+     ],
+     [
+      2007,
+      5026
+     ],
+     [
+      2008,
+      4881
+     ],
+     [
+      2009,
+      4691
+     ],
+     [
+      2010,
+      4403
+     ],
+     [
+      2011,
+      4236
+     ],
+     [
+      2012,
+      4233
+     ],
+     [
+      2013,
+      4404
+     ],
+     [
+      2014,
+      4518
+     ],
+     [
+      2015,
+      4562
+     ],
+     [
+      2016,
+      4764
+     ],
+     [
+      2017,
+      4660
+     ],
+     [
+      2018,
+      4820
+     ],
+     [
+      2019,
+      4804
+     ],
+     [
+      2020,
+      4450
+     ],
+     [
+      2021,
+      4866
+     ],
+     [
+      2022,
+      5779
+     ],
+     [
+      2023,
+      6026
+     ],
+     [
+      2024,
+      5675
+     ]
+    ],
+    "break_note": null,
+    "from": null
+   },
+   {
+    "label": "San Miguel",
+    "points": [
+     [
+      2005,
+      4469
+     ],
+     [
+      2006,
+      4455
+     ],
+     [
+      2007,
+      4479
+     ],
+     [
+      2008,
+      4320
+     ],
+     [
+      2009,
+      4319
+     ],
+     [
+      2010,
+      4149
+     ],
+     [
+      2011,
+      4236
+     ],
+     [
+      2012,
+      3966
+     ],
+     [
+      2013,
+      4484
+     ],
+     [
+      2014,
+      4538
+     ],
+     [
+      2015,
+      4677
+     ],
+     [
+      2016,
+      4745
+     ],
+     [
+      2017,
+      4769
+     ],
+     [
+      2018,
+      4753
+     ],
+     [
+      2019,
+      4604
+     ],
+     [
+      2020,
+      4237
+     ],
+     [
+      2021,
+      4037
+     ],
+     [
+      2022,
+      4379
+     ],
+     [
+      2023,
+      4314
+     ],
+     [
+      2024,
+      4244
+     ]
+    ],
+    "break_note": null,
+    "from": null
+   }
+  ],
+  "outbound": [
+   {
+    "label": "Sandoval",
+    "value": 76.2,
+    "display": "76.2%"
+   },
+   {
+    "label": "Torrance",
+    "value": 72.6,
+    "display": "72.6%"
+   },
+   {
+    "label": "Valencia",
+    "value": 72.0,
+    "display": "72.0%"
+   },
+   {
+    "label": "Mora",
+    "value": 67.2,
+    "display": "67.2%"
+   },
+   {
+    "label": "Rio Arriba",
+    "value": 64.2,
+    "display": "64.2%"
+   },
+   {
+    "label": "De Baca",
+    "value": 55.7,
+    "display": "55.7%"
+   },
+   {
+    "label": "San Miguel",
+    "value": 54.2,
+    "display": "54.2%"
+   },
+   {
+    "label": "Catron",
+    "value": 49.6,
+    "display": "49.6%"
+   },
+   {
+    "label": "Socorro",
+    "value": 49.6,
+    "display": "49.6%"
+   },
+   {
+    "label": "Cibola",
+    "value": 47.4,
+    "display": "47.4%"
+   },
+   {
+    "label": "Sierra",
+    "value": 46.3,
+    "display": "46.3%"
+   },
+   {
+    "label": "Hidalgo",
+    "value": 45.2,
+    "display": "45.2%"
+   },
+   {
+    "label": "Quay",
+    "value": 44.5,
+    "display": "44.5%"
+   },
+   {
+    "label": "Roosevelt",
+    "value": 43.5,
+    "display": "43.5%"
+   },
+   {
+    "label": "Guadalupe",
+    "value": 41.9,
+    "display": "41.9%"
+   },
+   {
+    "label": "Otero",
+    "value": 41.9,
+    "display": "41.9%"
+   },
+   {
+    "label": "Lincoln",
+    "value": 37.9,
+    "display": "37.9%"
+   },
+   {
+    "label": "Santa Fe",
+    "value": 37.3,
+    "display": "37.3%"
+   },
+   {
+    "label": "Luna",
+    "value": 36.1,
+    "display": "36.1%"
+   },
+   {
+    "label": "Chaves",
+    "value": 35.1,
+    "display": "35.1%"
+   },
+   {
+    "label": "Taos",
+    "value": 30.8,
+    "display": "30.8%"
+   },
+   {
+    "label": "Grant",
+    "value": 30.7,
+    "display": "30.7%"
+   },
+   {
+    "label": "Colfax",
+    "value": 30.1,
+    "display": "30.1%"
+   },
+   {
+    "label": "Curry",
+    "value": 30.0,
+    "display": "30.0%"
+   },
+   {
+    "label": "McKinley",
+    "value": 29.6,
+    "display": "29.6%"
+   },
+   {
+    "label": "Union",
+    "value": 26.7,
+    "display": "26.7%"
+   },
+   {
+    "label": "Eddy",
+    "value": 25.5,
+    "display": "25.5%"
+   },
+   {
+    "label": "Lea",
+    "value": 24.6,
+    "display": "24.6%"
+   },
+   {
+    "label": "Los Alamos",
+    "value": 22.6,
+    "display": "22.6%"
+   },
+   {
+    "label": "San Juan",
+    "value": 16.9,
+    "display": "16.9%"
+   },
+   {
+    "label": "Do\u00f1a Ana",
+    "value": 16.8,
+    "display": "16.8%"
+   },
+   {
+    "label": "Bernalillo",
+    "value": 14.0,
+    "display": "14.0%"
+   }
+  ],
+  "biggest_flows": [
+   {
+    "from": "Sandoval",
+    "to": "Bernalillo",
+    "value": 37746,
+    "share": "59.6% of Sandoval's working residents"
+   },
+   {
+    "from": "Valencia",
+    "to": "Bernalillo",
+    "value": 16927,
+    "share": "57.0% of Valencia's working residents"
+   },
+   {
+    "from": "Bernalillo",
+    "to": "Sandoval",
+    "value": 13437,
+    "share": "4.6% of Bernalillo's working residents"
+   },
+   {
+    "from": "Santa Fe",
+    "to": "Bernalillo",
+    "value": 10940,
+    "share": "18.6% of Santa Fe's working residents"
+   },
+   {
+    "from": "Bernalillo",
+    "to": "Santa Fe",
+    "value": 9089,
+    "share": "3.1% of Bernalillo's working residents"
+   },
+   {
+    "from": "Sandoval",
+    "to": "Santa Fe",
+    "value": 4757,
+    "share": "7.5% of Sandoval's working residents"
+   },
+   {
+    "from": "Santa Fe",
+    "to": "Los Alamos",
+    "value": 4436,
+    "share": "7.5% of Santa Fe's working residents"
+   },
+   {
+    "from": "Do\u00f1a Ana",
+    "to": "Bernalillo",
+    "value": 4156,
+    "share": "6.4% of Do\u00f1a Ana's working residents"
+   },
+   {
+    "from": "Bernalillo",
+    "to": "Valencia",
+    "value": 4122,
+    "share": "1.4% of Bernalillo's working residents"
+   },
+   {
+    "from": "San Juan",
+    "to": "Bernalillo",
+    "value": 2974,
+    "share": "7.6% of San Juan's working residents"
+   },
+   {
+    "from": "Chaves",
+    "to": "Eddy",
+    "value": 2667,
+    "share": "11.5% of Chaves's working residents"
+   },
+   {
+    "from": "Otero",
+    "to": "Do\u00f1a Ana",
+    "value": 2651,
+    "share": "14.2% of Otero's working residents"
+   }
+  ],
+  "dependence": [
+   {
+    "from": "Sandoval",
+    "to": "Bernalillo",
+    "value": 37746,
+    "pct": 59.6,
+    "share": "59.6% of its workers"
+   },
+   {
+    "from": "Valencia",
+    "to": "Bernalillo",
+    "value": 16927,
+    "pct": 57.0,
+    "share": "57.0% of its workers"
+   },
+   {
+    "from": "Torrance",
+    "to": "Bernalillo",
+    "value": 1799,
+    "pct": 46.7,
+    "share": "46.7% of its workers"
+   },
+   {
+    "from": "Socorro",
+    "to": "Bernalillo",
+    "value": 1314,
+    "pct": 23.6,
+    "share": "23.6% of its workers"
+   },
+   {
+    "from": "Roosevelt",
+    "to": "Curry",
+    "value": 1496,
+    "pct": 22.0,
+    "share": "22.0% of its workers"
+   },
+   {
+    "from": "San Miguel",
+    "to": "Bernalillo",
+    "value": 1683,
+    "pct": 18.6,
+    "share": "18.6% of its workers"
+   },
+   {
+    "from": "Santa Fe",
+    "to": "Bernalillo",
+    "value": 10940,
+    "pct": 18.6,
+    "share": "18.6% of its workers"
+   },
+   {
+    "from": "Mora",
+    "to": "San Miguel",
+    "value": 213,
+    "pct": 18.4,
+    "share": "18.4% of its workers"
+   },
+   {
+    "from": "Rio Arriba",
+    "to": "Santa Fe",
+    "value": 1725,
+    "pct": 17.9,
+    "share": "17.9% of its workers"
+   },
+   {
+    "from": "San Miguel",
+    "to": "Santa Fe",
+    "value": 1613,
+    "pct": 17.9,
+    "share": "17.9% of its workers"
+   },
+   {
+    "from": "Cibola",
+    "to": "Bernalillo",
+    "value": 1090,
+    "pct": 17.7,
+    "share": "17.7% of its workers"
+   },
+   {
+    "from": "Luna",
+    "to": "Do\u00f1a Ana",
+    "value": 1332,
+    "pct": 16.7,
+    "share": "16.7% of its workers"
+   }
+  ],
+  "earnings": [
+   {
+    "label": "Los Alamos",
+    "value": 11370,
+    "display": "$11,370"
+   },
+   {
+    "label": "Sandoval",
+    "value": 6156,
+    "display": "$6,156"
+   },
+   {
+    "label": "Bernalillo",
+    "value": 5469,
+    "display": "$5,469"
+   },
+   {
+    "label": "Santa Fe",
+    "value": 5429,
+    "display": "$5,429"
+   },
+   {
+    "label": "Rio Arriba",
+    "value": 4885,
+    "display": "$4,885"
+   },
+   {
+    "label": "Taos",
+    "value": 4179,
+    "display": "$4,179"
+   },
+   {
+    "label": "Mora",
+    "value": 3984,
+    "display": "$3,984"
+   },
+   {
+    "label": "Colfax",
+    "value": 3730,
+    "display": "$3,730"
+   },
+   {
+    "label": "San Miguel",
+    "value": 3288,
+    "display": "$3,288"
+   }
+  ],
+  "rent_burden": [
+   {
+    "label": "Harding",
+    "x": 48553.0,
+    "y": 25.654439478508024,
+    "mark": false
+   },
+   {
+    "label": "Socorro",
+    "x": 36570.0,
+    "y": 22.674323215750615,
+    "mark": false
+   },
+   {
+    "label": "Grant",
+    "x": 44958.0,
+    "y": 22.020552515681302,
+    "mark": false
+   },
+   {
+    "label": "McKinley",
+    "x": 47668.0,
+    "y": 21.624569942099523,
+    "mark": false
+   },
+   {
+    "label": "Lincoln",
+    "x": 53303.0,
+    "y": 21.522240774440462,
+    "mark": false
+   },
+   {
+    "label": "Curry",
+    "x": 57309.0,
+    "y": 21.441658378265195,
+    "mark": false
+   },
+   {
+    "label": "Luna",
+    "x": 36419.0,
+    "y": 21.417392020648563,
+    "mark": false
+   },
+   {
+    "label": "Santa Fe",
+    "x": 79071.0,
+    "y": 21.079789050347156,
+    "mark": true
+   },
+   {
+    "label": "Taos",
+    "x": 58950.0,
+    "y": 21.048346055979643,
+    "mark": false
+   },
+   {
+    "label": "Sierra",
+    "x": 41600.0,
+    "y": 21.028846153846153,
+    "mark": false
+   },
+   {
+    "label": "Valencia",
+    "x": 58933.0,
+    "y": 20.667537712317376,
+    "mark": false
+   },
+   {
+    "label": "Otero",
+    "x": 55876.0,
+    "y": 20.660032930059415,
+    "mark": false
+   },
+   {
+    "label": "San Juan",
+    "x": 55872.0,
+    "y": 20.532646048109964,
+    "mark": false
+   },
+   {
+    "label": "Roosevelt",
+    "x": 52685.0,
+    "y": 20.45363955585081,
+    "mark": false
+   },
+   {
+    "label": "Quay",
+    "x": 41946.0,
+    "y": 20.369045916177946,
+    "mark": false
+   },
+   {
+    "label": "Hidalgo",
+    "x": 48882.0,
+    "y": 19.9828157604026,
+    "mark": false
+   },
+   {
+    "label": "San Miguel",
+    "x": 49431.0,
+    "y": 19.97936517569946,
+    "mark": true
+   },
+   {
+    "label": "Mora",
+    "x": 53663.0,
+    "y": 19.834895551870005,
+    "mark": false
+   },
+   {
+    "label": "Sandoval",
+    "x": 86636.0,
+    "y": 19.76545546885821,
+    "mark": false
+   },
+   {
+    "label": "Bernalillo",
+    "x": 69473.0,
+    "y": 19.760194607977198,
+    "mark": false
+   },
+   {
+    "label": "Do\u00f1a Ana",
+    "x": 56848.0,
+    "y": 19.715733183225442,
+    "mark": false
+   },
+   {
+    "label": "Chaves",
+    "x": 52938.0,
+    "y": 19.653179190751445,
+    "mark": false
+   },
+   {
+    "label": "Lea",
+    "x": 68015.0,
+    "y": 19.42512681026244,
+    "mark": false
+   },
+   {
+    "label": "Eddy",
+    "x": 78426.0,
+    "y": 19.049804911636446,
+    "mark": false
+   }
+  ],
+  "captions": {
+   "employment": {
+    "sub": "Nine counties carry employer-level data. The other twenty-four have none, so they are absent from this chart rather than flat on it.",
+    "comparator_note": "nine of thirty-three counties"
+   },
+   "earnings": {
+    "caveat": "County averages over different occupation and industry mixes \u2014 not a same-worker wage premium."
+   },
+   "housing": {
+    "caveat": "A county high on this chart is a place where the ratio is high. It does not establish that housing constrains anything; it is where that question would start."
+   },
+   "dependence": {
+    "default_ordering": "share of the sending county's working residents",
+    "alternate_ordering": "absolute jobs",
+    "why": "Ranking by volume puts the largest counties on top and hides the places most dependent on a neighbour."
+   }
+  }
+ },
+ "world": {
+  "credit": [
+   {
+    "label": "Canada",
+    "value": 218.8,
+    "display": "219%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "China",
+    "value": 204.1,
+    "display": "204%",
+    "dir": "rising",
+    "mark": true
+   },
+   {
+    "label": "Korea",
+    "value": 191.5,
+    "display": "192%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "Japan",
+    "value": 173.7,
+    "display": "174%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "Euro area",
+    "value": 153.5,
+    "display": "154%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "United States",
+    "value": 139.7,
+    "display": "140%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "Germany",
+    "value": 134.8,
+    "display": "135%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "United Kingdom",
+    "value": 128.4,
+    "display": "128%",
+    "dir": "falling",
+    "mark": false
+   },
+   {
+    "label": "India",
+    "value": 105.1,
+    "display": "105%",
+    "dir": "rising",
+    "mark": true
+   },
+   {
+    "label": "Russia",
+    "value": 104.7,
+    "display": "105%",
+    "dir": "rising",
+    "mark": true
+   },
+   {
+    "label": "Brazil",
+    "value": 92.5,
+    "display": "92%",
+    "dir": "rising",
+    "mark": true
+   },
+   {
+    "label": "Mexico",
+    "value": 38.6,
+    "display": "39%",
+    "dir": "falling",
+    "mark": false
+   }
+  ],
+  "stock_vs_service": [
+   {
+    "label": "United States",
+    "x": 139.7,
+    "y": 13.8,
+    "mark": false
+   },
+   {
+    "label": "China",
+    "x": 204.1,
+    "y": 19.1,
+    "mark": true
+   },
+   {
+    "label": "Japan",
+    "x": 173.7,
+    "y": 15.5,
+    "mark": false
+   },
+   {
+    "label": "India",
+    "x": 105.1,
+    "y": 12.5,
+    "mark": false
+   },
+   {
+    "label": "Germany",
+    "x": 134.8,
+    "y": 12.2,
+    "mark": false
+   },
+   {
+    "label": "United Kingdom",
+    "x": 128.4,
+    "y": 12.9,
+    "mark": false
+   },
+   {
+    "label": "Korea",
+    "x": 191.5,
+    "y": 19.3,
+    "mark": false
+   },
+   {
+    "label": "Brazil",
+    "x": 92.5,
+    "y": 29.8,
+    "mark": true
+   },
+   {
+    "label": "Canada",
+    "x": 218.8,
+    "y": 25.5,
+    "mark": false
+   },
+   {
+    "label": "Mexico",
+    "x": 38.6,
+    "y": 5.3,
+    "mark": false
+   },
+   {
+    "label": "Russia",
+    "x": 104.7,
+    "y": 20.4,
+    "mark": false
+   }
+  ],
+  "prices": [
+   {
+    "label": "Russia",
+    "value": 8.71986939402666,
+    "display": "8.7%",
+    "dir": "rising"
+   },
+   {
+    "label": "Brazil",
+    "value": 5.01675279604836,
+    "display": "5.0%",
+    "dir": "falling"
+   },
+   {
+    "label": "United Kingdom",
+    "value": 3.88306881626,
+    "display": "3.9%",
+    "dir": "rising"
+   },
+   {
+    "label": "Mexico",
+    "value": 3.80668650726485,
+    "display": "3.8%",
+    "dir": "falling"
+   },
+   {
+    "label": "Japan",
+    "value": 3.17253034260248,
+    "display": "3.2%",
+    "dir": "rising"
+   },
+   {
+    "label": "United States",
+    "value": 2.94952520485207,
+    "display": "2.9%",
+    "dir": "rising"
+   },
+   {
+    "label": "Euro area",
+    "value": 2.46705543774613,
+    "display": "2.5%",
+    "dir": "falling"
+   },
+   {
+    "label": "India",
+    "value": 2.39884954182294,
+    "display": "2.4%",
+    "dir": "falling"
+   },
+   {
+    "label": "Germany",
+    "value": 2.17178770949721,
+    "display": "2.2%",
+    "dir": "falling"
+   },
+   {
+    "label": "Korea",
+    "value": 2.12309421458659,
+    "display": "2.1%",
+    "dir": "falling"
+   },
+   {
+    "label": "Canada",
+    "value": 2.07232411149103,
+    "display": "2.1%",
+    "dir": "falling"
+   },
+   {
+    "label": "China",
+    "value": 0.0595646916565403,
+    "display": "0.1%",
+    "dir": "falling"
+   }
+  ],
+  "investment": [
+   {
+    "label": "China",
+    "value": 40.4815134449629,
+    "display": "40%"
+   },
+   {
+    "label": "India",
+    "value": 34.6030048968457,
+    "display": "35%"
+   },
+   {
+    "label": "Korea",
+    "value": 29.1311226726896,
+    "display": "29%"
+   },
+   {
+    "label": "Japan",
+    "value": 27.6791711471936,
+    "display": "28%"
+   },
+   {
+    "label": "Russia",
+    "value": 25.8916433341468,
+    "display": "26%"
+   },
+   {
+    "label": "Canada",
+    "value": 23.15443514883,
+    "display": "23%"
+   },
+   {
+    "label": "Mexico",
+    "value": 22.610982698175,
+    "display": "23%"
+   },
+   {
+    "label": "Germany",
+    "value": 21.9314930278238,
+    "display": "22%"
+   },
+   {
+    "label": "Euro area",
+    "value": 21.8912390372887,
+    "display": "22%"
+   },
+   {
+    "label": "United States",
+    "value": 21.5325967668865,
+    "display": "22%"
+   },
+   {
+    "label": "United Kingdom",
+    "value": 19.6884002261946,
+    "display": "20%"
+   },
+   {
+    "label": "Brazil",
+    "value": 17.0759965150742,
+    "display": "17%"
+   }
+  ],
+  "credit_long": [
+   {
+    "label": "China",
+    "points": [
+     [
+      1985,
+      62.4
+     ],
+     [
+      1986,
+      65.125
+     ],
+     [
+      1987,
+      72.85
+     ],
+     [
+      1988,
+      70.875
+     ],
+     [
+      1989,
+      68.5
+     ],
+     [
+      1990,
+      77.4
+     ],
+     [
+      1991,
+      81.2
+     ],
+     [
+      1992,
+      78.425
+     ],
+     [
+      1993,
+      81.9
+     ],
+     [
+      1994,
+      77.4
+     ],
+     [
+      1995,
+      73.3
+     ],
+     [
+      1996,
+      75.625
+     ],
+     [
+      1997,
+      81.85
+     ],
+     [
+      1998,
+      87.15
+     ],
+     [
+      1999,
+      95.19999999999999
+     ],
+     [
+      2000,
+      102.825
+     ],
+     [
+      2001,
+      96.275
+     ],
+     [
+      2002,
+      108.1
+     ],
+     [
+      2003,
+      117.8
+     ],
+     [
+      2004,
+      117.85
+     ],
+     [
+      2005,
+      110.65
+     ],
+     [
+      2006,
+      111.075
+     ],
+     [
+      2007,
+      110.05
+     ],
+     [
+      2008,
+      107.125
+     ],
+     [
+      2009,
+      127.75
+     ],
+     [
+      2010,
+      137.52499999999998
+     ],
+     [
+      2011,
+      137.475
+     ],
+     [
+      2012,
+      145.0
+     ],
+     [
+      2013,
+      159.1
+     ],
+     [
+      2014,
+      169.375
+     ],
+     [
+      2015,
+      180.875
+     ],
+     [
+      2016,
+      189.5
+     ],
+     [
+      2017,
+      185.8
+     ],
+     [
+      2018,
+      179.925
+     ],
+     [
+      2019,
+      180.15
+     ],
+     [
+      2020,
+      192.6
+     ],
+     [
+      2021,
+      186.425
+     ],
+     [
+      2022,
+      186.925
+     ],
+     [
+      2023,
+      193.425
+     ],
+     [
+      2024,
+      198.325
+     ],
+     [
+      2025,
+      201.5
+     ],
+     [
+      2026,
+      204.1
+     ]
+    ],
+    "display": "204"
+   },
+   {
+    "label": "Japan",
+    "points": [
+     [
+      1964,
+      110.8
+     ],
+     [
+      1965,
+      113.725
+     ],
+     [
+      1966,
+      117.625
+     ],
+     [
+      1967,
+      117.925
+     ],
+     [
+      1968,
+      117.1
+     ],
+     [
+      1969,
+      116.925
+     ],
+     [
+      1970,
+      116.725
+     ],
+     [
+      1971,
+      125.1
+     ],
+     [
+      1972,
+      135.8
+     ],
+     [
+      1973,
+      139.5
+     ],
+     [
+      1974,
+      134.575
+     ],
+     [
+      1975,
+      133.9
+     ],
+     [
+      1976,
+      137.225
+     ],
+     [
+      1977,
+      136.475
+     ],
+     [
+      1978,
+      134.925
+     ],
+     [
+      1979,
+      135.7
+     ],
+     [
+      1980,
+      139.3
+     ],
+     [
+      1981,
+      140.325
+     ],
+     [
+      1982,
+      145.775
+     ],
+     [
+      1983,
+      152.7
+     ],
+     [
+      1984,
+      157.35
+     ],
+     [
+      1985,
+      160.425
+     ],
+     [
+      1986,
+      164.22500000000002
+     ],
+     [
+      1987,
+      177.625
+     ],
+     [
+      1988,
+      185.725
+     ],
+     [
+      1989,
+      195.5
+     ],
+     [
+      1990,
+      205.95
+     ],
+     [
+      1991,
+      205.25
+     ],
+     [
+      1992,
+      205.925
+     ],
+     [
+      1993,
+      210.65
+     ],
+     [
+      1994,
+      209.875
+     ],
+     [
+      1995,
+      208.4
+     ],
+     [
+      1996,
+      205.025
+     ],
+     [
+      1997,
+      200.65
+     ],
+     [
+      1998,
+      199.225
+     ],
+     [
+      1999,
+      192.65
+     ],
+     [
+      2000,
+      187.39999999999998
+     ],
+     [
+      2001,
+      180.35
+     ],
+     [
+      2002,
+      177.375
+     ],
+     [
+      2003,
+      170.85
+     ],
+     [
+      2004,
+      163.5
+     ],
+     [
+      2005,
+      162.14999999999998
+     ],
+     [
+      2006,
+      161.175
+     ],
+     [
+      2007,
+      158.675
+     ],
+     [
+      2008,
+      160.125
+     ],
+     [
+      2009,
+      168.1
+     ],
+     [
+      2010,
+      164.825
+     ],
+     [
+      2011,
+      161.475
+     ],
+     [
+      2012,
+      159.425
+     ],
+     [
+      2013,
+      158.9
+     ],
+     [
+      2014,
+      155.79999999999998
+     ],
+     [
+      2015,
+      151.925
+     ],
+     [
+      2016,
+      151.6
+     ],
+     [
+      2017,
+      153.425
+     ],
+     [
+      2018,
+      154.4
+     ],
+     [
+      2019,
+      158.4
+     ],
+     [
+      2020,
+      172.85
+     ],
+     [
+      2021,
+      177.875
+     ],
+     [
+      2022,
+      178.3
+     ],
+     [
+      2023,
+      175.7
+     ],
+     [
+      2024,
+      173.625
+     ],
+     [
+      2025,
+      171.45
+     ],
+     [
+      2026,
+      173.7
+     ]
+    ],
+    "display": "174"
+   },
+   {
+    "label": "United States",
+    "points": [
+     [
+      1947,
+      47.1
+     ],
+     [
+      1948,
+      48.025
+     ],
+     [
+      1949,
+      50.95
+     ],
+     [
+      1950,
+      55.575
+     ],
+     [
+      1951,
+      54.2
+     ],
+     [
+      1952,
+      55.175
+     ],
+     [
+      1953,
+      57.25
+     ],
+     [
+      1954,
+      60.525
+     ],
+     [
+      1955,
+      63.95
+     ],
+     [
+      1956,
+      66.7
+     ],
+     [
+      1957,
+      68.675
+     ],
+     [
+      1958,
+      71.575
+     ],
+     [
+      1959,
+      73.475
+     ],
+     [
+      1960,
+      75.875
+     ],
+     [
+      1961,
+      79.325
+     ],
+     [
+      1962,
+      80.375
+     ],
+     [
+      1963,
+      83.27499999999999
+     ],
+     [
+      1964,
+      85.3
+     ],
+     [
+      1965,
+      87.1
+     ],
+     [
+      1966,
+      87.0
+     ],
+     [
+      1967,
+      87.9
+     ],
+     [
+      1968,
+      88.75
+     ],
+     [
+      1969,
+      89.225
+     ],
+     [
+      1970,
+      90.35
+     ],
+     [
+      1971,
+      91.825
+     ],
+     [
+      1972,
+      93.675
+     ],
+     [
+      1973,
+      95.775
+     ],
+     [
+      1974,
+      97.8
+     ],
+     [
+      1975,
+      96.55000000000001
+     ],
+     [
+      1976,
+      94.3
+     ],
+     [
+      1977,
+      96.0
+     ],
+     [
+      1978,
+      98.025
+     ],
+     [
+      1979,
+      99.4
+     ],
+     [
+      1980,
+      100.825
+     ],
+     [
+      1981,
+      99.775
+     ],
+     [
+      1982,
+      100.85
+     ],
+     [
+      1983,
+      102.625
+     ],
+     [
+      1984,
+      104.775
+     ],
+     [
+      1985,
+      110.075
+     ],
+     [
+      1986,
+      116.15
+     ],
+     [
+      1987,
+      121.3
+     ],
+     [
+      1988,
+      123.97500000000001
+     ],
+     [
+      1989,
+      124.85
+     ],
+     [
+      1990,
+      125.325
+     ],
+     [
+      1991,
+      124.0
+     ],
+     [
+      1992,
+      120.6
+     ],
+     [
+      1993,
+      118.45
+     ],
+     [
+      1994,
+      118.975
+     ],
+     [
+      1995,
+      120.4
+     ],
+     [
+      1996,
+      122.225
+     ],
+     [
+      1997,
+      123.1
+     ],
+     [
+      1998,
+      127.35
+     ],
+     [
+      1999,
+      132.175
+     ],
+     [
+      2000,
+      135.85
+     ],
+     [
+      2001,
+      139.125
+     ],
+     [
+      2002,
+      143.75
+     ],
+     [
+      2003,
+      148.275
+     ],
+     [
+      2004,
+      151.225
+     ],
+     [
+      2005,
+      155.35000000000002
+     ],
+     [
+      2006,
+      161.525
+     ],
+     [
+      2007,
+      168.05
+     ],
+     [
+      2008,
+      171.325
+     ],
+     [
+      2009,
+      170.3
+     ],
+     [
+      2010,
+      163.75
+     ],
+     [
+      2011,
+      157.125
+     ],
+     [
+      2012,
+      153.1
+     ],
+     [
+      2013,
+      151.275
+     ],
+     [
+      2014,
+      150.7
+     ],
+     [
+      2015,
+      150.35
+     ],
+     [
+      2016,
+      152.0
+     ],
+     [
+      2017,
+      153.2
+     ],
+     [
+      2018,
+      153.29999999999998
+     ],
+     [
+      2019,
+      153.25
+     ],
+     [
+      2020,
+      161.175
+     ],
+     [
+      2021,
+      161.7
+     ],
+     [
+      2022,
+      155.8
+     ],
+     [
+      2023,
+      149.35
+     ],
+     [
+      2024,
+      144.6
+     ],
+     [
+      2025,
+      140.85
+     ],
+     [
+      2026,
+      139.7
+     ]
+    ],
+    "display": "140"
+   },
+   {
+    "label": "Korea",
+    "points": [
+     [
+      1962,
+      26.3
+     ],
+     [
+      1963,
+      26.0
+     ],
+     [
+      1964,
+      21.45
+     ],
+     [
+      1965,
+      21.075
+     ],
+     [
+      1966,
+      25.15
+     ],
+     [
+      1967,
+      31.825
+     ],
+     [
+      1968,
+      39.025
+     ],
+     [
+      1969,
+      52.35
+     ],
+     [
+      1970,
+      52.65
+     ],
+     [
+      1971,
+      56.75
+     ],
+     [
+      1972,
+      58.625
+     ],
+     [
+      1973,
+      58.125
+     ],
+     [
+      1974,
+      59.45
+     ],
+     [
+      1975,
+      55.15
+     ],
+     [
+      1976,
+      51.525
+     ],
+     [
+      1977,
+      51.175
+     ],
+     [
+      1978,
+      54.7
+     ],
+     [
+      1979,
+      58.375
+     ],
+     [
+      1980,
+      72.225
+     ],
+     [
+      1981,
+      79.225
+     ],
+     [
+      1982,
+      85.8
+     ],
+     [
+      1983,
+      93.45
+     ],
+     [
+      1984,
+      95.75
+     ],
+     [
+      1985,
+      103.25
+     ],
+     [
+      1986,
+      102.8
+     ],
+     [
+      1987,
+      99.125
+     ],
+     [
+      1988,
+      94.1
+     ],
+     [
+      1989,
+      101.425
+     ],
+     [
+      1990,
+      107.95
+     ],
+     [
+      1991,
+      117.25
+     ],
+     [
+      1992,
+      120.275
+     ],
+     [
+      1993,
+      125.92500000000001
+     ],
+     [
+      1994,
+      129.72500000000002
+     ],
+     [
+      1995,
+      131.875
+     ],
+     [
+      1996,
+      137.39999999999998
+     ],
+     [
+      1997,
+      148.925
+     ],
+     [
+      1998,
+      154.375
+     ],
+     [
+      1999,
+      149.475
+     ],
+     [
+      2000,
+      136.3
+     ],
+     [
+      2001,
+      134.7
+     ],
+     [
+      2002,
+      139.725
+     ],
+     [
+      2003,
+      139.575
+     ],
+     [
+      2004,
+      133.02499999999998
+     ],
+     [
+      2005,
+      130.6
+     ],
+     [
+      2006,
+      137.5
+     ],
+     [
+      2007,
+      146.075
+     ],
+     [
+      2008,
+      156.425
+     ],
+     [
+      2009,
+      165.89999999999998
+     ],
+     [
+      2010,
+      163.475
+     ],
+     [
+      2011,
+      164.2
+     ],
+     [
+      2012,
+      167.45
+     ],
+     [
+      2013,
+      169.325
+     ],
+     [
+      2014,
+      169.8
+     ],
+     [
+      2015,
+      171.725
+     ],
+     [
+      2016,
+      172.275
+     ],
+     [
+      2017,
+      172.75
+     ],
+     [
+      2018,
+      175.3
+     ],
+     [
+      2019,
+      181.875
+     ],
+     [
+      2020,
+      195.325
+     ],
+     [
+      2021,
+      204.3
+     ],
+     [
+      2022,
+      206.675
+     ],
+     [
+      2023,
+      207.85
+     ],
+     [
+      2024,
+      201.35
+     ],
+     [
+      2025,
+      199.275
+     ],
+     [
+      2026,
+      191.5
+     ]
+    ],
+    "display": "192"
+   },
+   {
+    "label": "Euro area",
+    "points": [
+     [
+      1999,
+      115.35
+     ],
+     [
+      2000,
+      121.3
+     ],
+     [
+      2001,
+      126.075
+     ],
+     [
+      2002,
+      130.0
+     ],
+     [
+      2003,
+      132.5
+     ],
+     [
+      2004,
+      134.95
+     ],
+     [
+      2005,
+      139.725
+     ],
+     [
+      2006,
+      145.3
+     ],
+     [
+      2007,
+      149.125
+     ],
+     [
+      2008,
+      155.95
+     ],
+     [
+      2009,
+      164.4
+     ],
+     [
+      2010,
+      169.35
+     ],
+     [
+      2011,
+      168.325
+     ],
+     [
+      2012,
+      170.97500000000002
+     ],
+     [
+      2013,
+      169.4
+     ],
+     [
+      2014,
+      167.95
+     ],
+     [
+      2015,
+      171.125
+     ],
+     [
+      2016,
+      169.925
+     ],
+     [
+      2017,
+      168.89999999999998
+     ],
+     [
+      2018,
+      167.35
+     ],
+     [
+      2019,
+      166.97500000000002
+     ],
+     [
+      2020,
+      177.175
+     ],
+     [
+      2021,
+      178.825
+     ],
+     [
+      2022,
+      170.725
+     ],
+     [
+      2023,
+      161.725
+     ],
+     [
+      2024,
+      156.625
+     ],
+     [
+      2025,
+      154.2
+     ],
+     [
+      2026,
+      153.5
+     ]
+    ],
+    "display": "154"
+   },
+   {
+    "label": "Canada",
+    "points": [
+     [
+      1955,
+      76.0
+     ],
+     [
+      1956,
+      77.05
+     ],
+     [
+      1957,
+      73.675
+     ],
+     [
+      1958,
+      71.975
+     ],
+     [
+      1959,
+      78.6
+     ],
+     [
+      1960,
+      77.625
+     ],
+     [
+      1961,
+      77.875
+     ],
+     [
+      1962,
+      80.975
+     ],
+     [
+      1963,
+      77.925
+     ],
+     [
+      1964,
+      78.9
+     ],
+     [
+      1965,
+      83.225
+     ],
+     [
+      1966,
+      82.0
+     ],
+     [
+      1967,
+      82.875
+     ],
+     [
+      1968,
+      87.8
+     ],
+     [
+      1969,
+      85.725
+     ],
+     [
+      1970,
+      85.425
+     ],
+     [
+      1971,
+      88.325
+     ],
+     [
+      1972,
+      91.675
+     ],
+     [
+      1973,
+      94.625
+     ],
+     [
+      1974,
+      96.125
+     ],
+     [
+      1975,
+      98.64999999999999
+     ],
+     [
+      1976,
+      99.725
+     ],
+     [
+      1977,
+      104.35
+     ],
+     [
+      1978,
+      108.775
+     ],
+     [
+      1979,
+      113.625
+     ],
+     [
+      1980,
+      116.3
+     ],
+     [
+      1981,
+      119.775
+     ],
+     [
+      1982,
+      118.775
+     ],
+     [
+      1983,
+      112.25
+     ],
+     [
+      1984,
+      107.35
+     ],
+     [
+      1985,
+      107.025
+     ],
+     [
+      1986,
+      110.125
+     ],
+     [
+      1987,
+      114.0
+     ],
+     [
+      1988,
+      119.0
+     ],
+     [
+      1989,
+      125.475
+     ],
+     [
+      1990,
+      132.875
+     ],
+     [
+      1991,
+      138.8
+     ],
+     [
+      1992,
+      142.35
+     ],
+     [
+      1993,
+      144.6
+     ],
+     [
+      1994,
+      143.525
+     ],
+     [
+      1995,
+      142.15
+     ],
+     [
+      1996,
+      142.075
+     ],
+     [
+      1997,
+      144.77499999999998
+     ],
+     [
+      1998,
+      149.325
+     ],
+     [
+      1999,
+      147.625
+     ],
+     [
+      2000,
+      145.7
+     ],
+     [
+      2001,
+      148.39999999999998
+     ],
+     [
+      2002,
+      154.875
+     ],
+     [
+      2003,
+      151.75
+     ],
+     [
+      2004,
+      153.95
+     ],
+     [
+      2005,
+      151.125
+     ],
+     [
+      2006,
+      151.125
+     ],
+     [
+      2007,
+      160.225
+     ],
+     [
+      2008,
+      164.675
+     ],
+     [
+      2009,
+      177.675
+     ],
+     [
+      2010,
+      180.775
+     ],
+     [
+      2011,
+      180.025
+     ],
+     [
+      2012,
+      182.125
+     ],
+     [
+      2013,
+      188.775
+     ],
+     [
+      2014,
+      192.725
+     ],
+     [
+      2015,
+      204.35
+     ],
+     [
+      2016,
+      212.125
+     ],
+     [
+      2017,
+      214.2
+     ],
+     [
+      2018,
+      215.575
+     ],
+     [
+      2019,
+      220.175
+     ],
+     [
+      2020,
+      237.675
+     ],
+     [
+      2021,
+      236.85000000000002
+     ],
+     [
+      2022,
+      220.125
+     ],
+     [
+      2023,
+      218.75
+     ],
+     [
+      2024,
+      218.75
+     ],
+     [
+      2025,
+      218.275
+     ],
+     [
+      2026,
+      218.8
+     ]
+    ],
+    "display": "219"
+   }
+  ],
+  "price_long": [
+   {
+    "label": "China",
+    "points": [
+     [
+      1987,
+      7.23383553065609
+     ],
+     [
+      1988,
+      18.8118179448753
+     ],
+     [
+      1989,
+      18.2456383621648
+     ],
+     [
+      1990,
+      3.05229012075233
+     ],
+     [
+      1991,
+      3.55668565220452
+     ],
+     [
+      1992,
+      6.35398134024869
+     ],
+     [
+      1993,
+      14.6100786356602
+     ],
+     [
+      1994,
+      24.2569897243361
+     ],
+     [
+      1995,
+      16.7912268492666
+     ],
+     [
+      1996,
+      8.3131587270211
+     ],
+     [
+      1997,
+      2.78646505531882
+     ],
+     [
+      1998,
+      -0.773186011549318
+     ],
+     [
+      1999,
+      -1.40147268276465
+     ],
+     [
+      2000,
+      0.347811226864587
+     ],
+     [
+      2001,
+      0.719125609120114
+     ],
+     [
+      2002,
+      -0.731970902350244
+     ],
+     [
+      2003,
+      1.12760348729637
+     ],
+     [
+      2004,
+      3.82463743108159
+     ],
+     [
+      2005,
+      1.77641407667571
+     ],
+     [
+      2006,
+      1.6494309945586
+     ],
+     [
+      2007,
+      4.81676767378834
+     ],
+     [
+      2008,
+      5.92525137041092
+     ],
+     [
+      2009,
+      -0.728165250932898
+     ],
+     [
+      2010,
+      3.17532475269199
+     ],
+     [
+      2011,
+      5.55389892257493
+     ],
+     [
+      2012,
+      2.61952432645541
+     ],
+     [
+      2013,
+      2.62105001748115
+     ],
+     [
+      2014,
+      1.92164162788521
+     ],
+     [
+      2015,
+      1.43702380935655
+     ],
+     [
+      2016,
+      2.00000182191943
+     ],
+     [
+      2017,
+      1.59313600071436
+     ],
+     [
+      2018,
+      2.07479039965576
+     ],
+     [
+      2019,
+      2.89923416358227
+     ],
+     [
+      2020,
+      2.41942189457782
+     ],
+     [
+      2021,
+      0.981015135544882
+     ],
+     [
+      2022,
+      1.97357555739051
+     ],
+     [
+      2023,
+      0.234836828893051
+     ],
+     [
+      2024,
+      0.218128938439177
+     ],
+     [
+      2025,
+      0.0595646916565403
+     ]
+    ],
+    "display": "0"
+   },
+   {
+    "label": "Japan",
+    "points": [
+     [
+      1960,
+      3.5745115253591
+     ],
+     [
+      1961,
+      5.36846178480055
+     ],
+     [
+      1962,
+      6.8354403481973
+     ],
+     [
+      1963,
+      6.7069055639799
+     ],
+     [
+      1964,
+      3.80038945305753
+     ],
+     [
+      1965,
+      6.65599094260621
+     ],
+     [
+      1966,
+      5.04083205887676
+     ],
+     [
+      1967,
+      3.98984808881518
+     ],
+     [
+      1968,
+      5.33943295739344
+     ],
+     [
+      1969,
+      5.24982091102027
+     ],
+     [
+      1970,
+      6.92417383485781
+     ],
+     [
+      1971,
+      6.39534883720926
+     ],
+     [
+      1972,
+      4.84351713859905
+     ],
+     [
+      1973,
+      11.6086235489221
+     ],
+     [
+      1974,
+      23.2222458076842
+     ],
+     [
+      1975,
+      11.7312661498708
+     ],
+     [
+      1976,
+      9.37403638606234
+     ],
+     [
+      1977,
+      8.16182689596842
+     ],
+     [
+      1978,
+      4.20956601068681
+     ],
+     [
+      1979,
+      3.70185092546269
+     ],
+     [
+      1980,
+      7.77858176555718
+     ],
+     [
+      1981,
+      4.91216291820523
+     ],
+     [
+      1982,
+      2.7410409556314
+     ],
+     [
+      1983,
+      1.89971971348485
+     ],
+     [
+      1984,
+      2.26161369193155
+     ],
+     [
+      1985,
+      2.0322773460849
+     ],
+     [
+      1986,
+      0.595586799453249
+     ],
+     [
+      1987,
+      0.126176841696583
+     ],
+     [
+      1988,
+      0.678557580457558
+     ],
+     [
+      1989,
+      2.27228962064317
+     ],
+     [
+      1990,
+      3.0785162869516
+     ],
+     [
+      1991,
+      3.25143848753308
+     ],
+     [
+      1992,
+      1.7602830605927
+     ],
+     [
+      1993,
+      1.24304589707924
+     ],
+     [
+      1994,
+      0.695458057869004
+     ],
+     [
+      1995,
+      -0.127899045020446
+     ],
+     [
+      1996,
+      0.136600358575909
+     ],
+     [
+      1997,
+      1.74780458692133
+     ],
+     [
+      1998,
+      0.661974191385911
+     ],
+     [
+      1999,
+      -0.341296928327554
+     ],
+     [
+      2000,
+      -0.676578683595175
+     ],
+     [
+      2001,
+      -0.740055504162738
+     ],
+     [
+      2002,
+      -0.923494026942321
+     ],
+     [
+      2003,
+      -0.256541816316025
+     ],
+     [
+      2004,
+      -0.00857338820310272
+     ],
+     [
+      2005,
+      -0.282946068764391
+     ],
+     [
+      2006,
+      0.249355116079085
+     ],
+     [
+      2007,
+      0.060039454498669
+     ],
+     [
+      2008,
+      1.3800788616492
+     ],
+     [
+      2009,
+      -1.35283672951719
+     ],
+     [
+      2010,
+      -0.728243207517779
+     ],
+     [
+      2011,
+      -0.27245561610124
+     ],
+     [
+      2012,
+      -0.0440645104432602
+     ],
+     [
+      2013,
+      0.335037912184741
+     ],
+     [
+      2014,
+      2.75922671353253
+     ],
+     [
+      2015,
+      0.795279630579839
+     ],
+     [
+      2016,
+      -0.127258844489754
+     ],
+     [
+      2017,
+      0.484199796126385
+     ],
+     [
+      2018,
+      0.989094598021848
+     ],
+     [
+      2019,
+      0.46877615938395
+     ],
+     [
+      2020,
+      -0.024995834027731
+     ],
+     [
+      2021,
+      -0.233352779398264
+     ],
+     [
+      2022,
+      2.49770278172255
+     ],
+     [
+      2023,
+      3.26813365933163
+     ],
+     [
+      2024,
+      2.73853681635241
+     ],
+     [
+      2025,
+      3.17253034260248
+     ]
+    ],
+    "display": "3"
+   },
+   {
+    "label": "United States",
+    "points": [
+     [
+      1960,
+      1.45797598627791
+     ],
+     [
+      1961,
+      1.07072414764724
+     ],
+     [
+      1962,
+      1.19877334820186
+     ],
+     [
+      1963,
+      1.23966942148753
+     ],
+     [
+      1964,
+      1.27891156462591
+     ],
+     [
+      1965,
+      1.58516926383662
+     ],
+     [
+      1966,
+      3.0150753768844
+     ],
+     [
+      1967,
+      2.77278562259309
+     ],
+     [
+      1968,
+      4.27179615288537
+     ],
+     [
+      1969,
+      5.46238620028745
+     ],
+     [
+      1970,
+      5.83825533848251
+     ],
+     [
+      1971,
+      4.29276668813051
+     ],
+     [
+      1972,
+      3.27227824655283
+     ],
+     [
+      1973,
+      6.17776006377038
+     ],
+     [
+      1974,
+      11.0548048048048
+     ],
+     [
+      1975,
+      9.14314686496535
+     ],
+     [
+      1976,
+      5.74481263549085
+     ],
+     [
+      1977,
+      6.5016839947284
+     ],
+     [
+      1978,
+      7.63096383885606
+     ],
+     [
+      1979,
+      11.2544711292795
+     ],
+     [
+      1980,
+      13.5492019749684
+     ],
+     [
+      1981,
+      10.3347153402771
+     ],
+     [
+      1982,
+      6.13142700027493
+     ],
+     [
+      1983,
+      3.21243523316065
+     ],
+     [
+      1984,
+      4.30053547523429
+     ],
+     [
+      1985,
+      3.54564415209365
+     ],
+     [
+      1986,
+      1.89804772234276
+     ],
+     [
+      1987,
+      3.6645632175169
+     ],
+     [
+      1988,
+      4.07774110744413
+     ],
+     [
+      1989,
+      4.82700303008944
+     ],
+     [
+      1990,
+      5.39795643990325
+     ],
+     [
+      1991,
+      4.23496396453849
+     ],
+     [
+      1992,
+      3.02881967814969
+     ],
+     [
+      1993,
+      2.95165696638559
+     ],
+     [
+      1994,
+      2.60744159215453
+     ],
+     [
+      1995,
+      2.80541968853662
+     ],
+     [
+      1996,
+      2.93120419993441
+     ],
+     [
+      1997,
+      2.33768993730735
+     ],
+     [
+      1998,
+      1.55227909874364
+     ],
+     [
+      1999,
+      2.18802719697358
+     ],
+     [
+      2000,
+      3.37685727149929
+     ],
+     [
+      2001,
+      2.82617111885407
+     ],
+     [
+      2002,
+      1.58603162650601
+     ],
+     [
+      2003,
+      2.27009497336115
+     ],
+     [
+      2004,
+      2.67723669309172
+     ],
+     [
+      2005,
+      3.3927468454955
+     ],
+     [
+      2006,
+      3.22594410070404
+     ],
+     [
+      2007,
+      2.85267248150138
+     ],
+     [
+      2008,
+      3.839100296651
+     ],
+     [
+      2009,
+      -0.355546266299747
+     ],
+     [
+      2010,
+      1.6400434423899
+     ],
+     [
+      2011,
+      3.156841568622
+     ],
+     [
+      2012,
+      2.06933726526067
+     ],
+     [
+      2013,
+      1.46483265562717
+     ],
+     [
+      2014,
+      1.62222297740817
+     ],
+     [
+      2015,
+      0.118627135552451
+     ],
+     [
+      2016,
+      1.26158320570536
+     ],
+     [
+      2017,
+      2.13011000365961
+     ],
+     [
+      2018,
+      2.44258329692817
+     ],
+     [
+      2019,
+      1.81221007526021
+     ],
+     [
+      2020,
+      1.23358439630629
+     ],
+     [
+      2021,
+      4.69785886363742
+     ],
+     [
+      2022,
+      8.00279982052121
+     ],
+     [
+      2023,
+      4.11633838374488
+     ],
+     [
+      2024,
+      2.94952520485207
+     ]
+    ],
+    "display": "3"
+   },
+   {
+    "label": "Germany",
+    "points": [
+     [
+      1960,
+      1.53661234295201
+     ],
+     [
+      1961,
+      2.29369500700884
+     ],
+     [
+      1962,
+      2.84327019799062
+     ],
+     [
+      1963,
+      2.9669597758771
+     ],
+     [
+      1964,
+      2.33573581177832
+     ],
+     [
+      1965,
+      3.24231923668133
+     ],
+     [
+      1966,
+      3.53306035477689
+     ],
+     [
+      1967,
+      1.79604992213175
+     ],
+     [
+      1968,
+      1.470289313277
+     ],
+     [
+      1969,
+      1.91267848797596
+     ],
+     [
+      1970,
+      3.45024936360895
+     ],
+     [
+      1971,
+      5.24097448273094
+     ],
+     [
+      1972,
+      5.4849331221432
+     ],
+     [
+      1973,
+      7.03202399303898
+     ],
+     [
+      1974,
+      6.98643109327497
+     ],
+     [
+      1975,
+      5.91033626324104
+     ],
+     [
+      1976,
+      4.24663102299209
+     ],
+     [
+      1977,
+      3.73416240635147
+     ],
+     [
+      1978,
+      2.71869696123339
+     ],
+     [
+      1979,
+      4.04362006473399
+     ],
+     [
+      1980,
+      5.44105754460347
+     ],
+     [
+      1981,
+      6.34424277746325
+     ],
+     [
+      1982,
+      5.24104507228422
+     ],
+     [
+      1983,
+      3.29341474302854
+     ],
+     [
+      1984,
+      2.4057933993196
+     ],
+     [
+      1985,
+      2.0662330121658
+     ],
+     [
+      1986,
+      -0.129413360854742
+     ],
+     [
+      1987,
+      0.24990610870503
+     ],
+     [
+      1988,
+      1.27411894006923
+     ],
+     [
+      1989,
+      2.78056955569751
+     ],
+     [
+      1990,
+      2.69646824292392
+     ],
+     [
+      1991,
+      4.04703259753466
+     ],
+     [
+      1992,
+      5.05697796731731
+     ],
+     [
+      1993,
+      4.47457650752808
+     ],
+     [
+      1994,
+      2.69305639854954
+     ],
+     [
+      1995,
+      1.70616041317076
+     ],
+     [
+      1996,
+      1.44972701963239
+     ],
+     [
+      1997,
+      1.93936968221574
+     ],
+     [
+      1998,
+      0.911184687196224
+     ],
+     [
+      1999,
+      0.585434192138622
+     ],
+     [
+      2000,
+      1.44026838719741
+     ],
+     [
+      2001,
+      1.98385731334471
+     ],
+     [
+      2002,
+      1.42080615551526
+     ],
+     [
+      2003,
+      1.03422218628562
+     ],
+     [
+      2004,
+      1.66573696655992
+     ],
+     [
+      2005,
+      1.54691114751328
+     ],
+     [
+      2006,
+      1.57742642840563
+     ],
+     [
+      2007,
+      2.29834400700951
+     ],
+     [
+      2008,
+      2.62837981637219
+     ],
+     [
+      2009,
+      0.312739007368447
+     ],
+     [
+      2010,
+      1.1038103778926
+     ],
+     [
+      2011,
+      2.07517283735874
+     ],
+     [
+      2012,
+      2.00848884782956
+     ],
+     [
+      2013,
+      1.50472330251876
+     ],
+     [
+      2014,
+      0.906794000434246
+     ],
+     [
+      2015,
+      0.514426137125456
+     ],
+     [
+      2016,
+      0.491747008445174
+     ],
+     [
+      2017,
+      1.50949485109628
+     ],
+     [
+      2018,
+      1.73216879766942
+     ],
+     [
+      2019,
+      1.44565976888253
+     ],
+     [
+      2020,
+      0.144877925813982
+     ],
+     [
+      2021,
+      3.06666666666673
+     ],
+     [
+      2022,
+      6.87257438551097
+     ],
+     [
+      2023,
+      5.94643667725823
+     ],
+     [
+      2024,
+      2.2564981433876
+     ],
+     [
+      2025,
+      2.17178770949721
+     ]
+    ],
+    "display": "2"
+   },
+   {
+    "label": "Brazil",
+    "points": [
+     [
+      1981,
+      101.725072957927
+     ],
+     [
+      1982,
+      100.54335919485
+     ],
+     [
+      1983,
+      135.027682230473
+     ],
+     [
+      1984,
+      192.121733132051
+     ],
+     [
+      1985,
+      225.989665211895
+     ],
+     [
+      1986,
+      147.142826237604
+     ],
+     [
+      1987,
+      228.336162575513
+     ],
+     [
+      1988,
+      629.114509120897
+     ],
+     [
+      1989,
+      1430.7237251472
+     ],
+     [
+      1990,
+      2947.732772483
+     ],
+     [
+      1991,
+      432.786661926461
+     ],
+     [
+      1992,
+      951.962053052818
+     ],
+     [
+      1993,
+      1927.38079016026
+     ],
+     [
+      1994,
+      2075.88839757325
+     ],
+     [
+      1995,
+      66.0070335542481
+     ],
+     [
+      1996,
+      15.7576656002606
+     ],
+     [
+      1997,
+      6.92671251629154
+     ],
+     [
+      1998,
+      3.19507629280052
+     ],
+     [
+      1999,
+      4.85844749902667
+     ],
+     [
+      2000,
+      7.04414105947266
+     ],
+     [
+      2001,
+      6.84035902487523
+     ],
+     [
+      2002,
+      8.45016437708331
+     ],
+     [
+      2003,
+      14.7149197228147
+     ],
+     [
+      2004,
+      6.59718509985963
+     ],
+     [
+      2005,
+      6.86953720898964
+     ],
+     [
+      2006,
+      4.18356812896909
+     ],
+     [
+      2007,
+      3.64127299102652
+     ],
+     [
+      2008,
+      5.67859390284168
+     ],
+     [
+      2009,
+      4.88803479876799
+     ],
+     [
+      2010,
+      5.03872690108075
+     ],
+     [
+      2011,
+      6.6364496221309
+     ],
+     [
+      2012,
+      5.40349914036997
+     ],
+     [
+      2013,
+      6.20431066640101
+     ],
+     [
+      2014,
+      6.32904015516139
+     ],
+     [
+      2015,
+      9.02990102416136
+     ],
+     [
+      2016,
+      8.73914352329393
+     ],
+     [
+      2017,
+      3.44637335032669
+     ],
+     [
+      2018,
+      3.66485028376729
+     ],
+     [
+      2019,
+      3.73297621216894
+     ],
+     [
+      2020,
+      3.21176803803376
+     ],
+     [
+      2021,
+      8.30165975585673
+     ],
+     [
+      2022,
+      9.28010608956873
+     ],
+     [
+      2023,
+      4.59356282283204
+     ],
+     [
+      2024,
+      4.36746407652337
+     ],
+     [
+      2025,
+      5.01675279604836
+     ]
+    ],
+    "display": "5"
+   },
+   {
+    "label": "India",
+    "points": [
+     [
+      1960,
+      1.77987784677391
+     ],
+     [
+      1961,
+      1.69521293914433
+     ],
+     [
+      1962,
+      3.63221497106987
+     ],
+     [
+      1963,
+      2.94616135685225
+     ],
+     [
+      1964,
+      13.3552611508153
+     ],
+     [
+      1965,
+      9.47475859170695
+     ],
+     [
+      1966,
+      10.8018483489341
+     ],
+     [
+      1967,
+      13.062202477797
+     ],
+     [
+      1968,
+      3.23741242627507
+     ],
+     [
+      1969,
+      -0.584136610466281
+     ],
+     [
+      1970,
+      5.09226161997545
+     ],
+     [
+      1971,
+      3.07993868406546
+     ],
+     [
+      1972,
+      6.44209746158235
+     ],
+     [
+      1973,
+      16.9408159791736
+     ],
+     [
+      1974,
+      28.5987340775089
+     ],
+     [
+      1975,
+      5.74843029767442
+     ],
+     [
+      1976,
+      -7.63394763392881
+     ],
+     [
+      1977,
+      8.30747009171166
+     ],
+     [
+      1978,
+      2.52304875695179
+     ],
+     [
+      1979,
+      6.27568336762338
+     ],
+     [
+      1980,
+      11.3460734795095
+     ],
+     [
+      1981,
+      13.112546897642
+     ],
+     [
+      1982,
+      7.89074279377487
+     ],
+     [
+      1983,
+      11.8680812986734
+     ],
+     [
+      1984,
+      8.31890711860072
+     ],
+     [
+      1985,
+      5.55642423236554
+     ],
+     [
+      1986,
+      8.72972072702581
+     ],
+     [
+      1987,
+      8.80112581251833
+     ],
+     [
+      1988,
+      9.38347186185336
+     ],
+     [
+      1989,
+      7.07428002942296
+     ],
+     [
+      1990,
+      8.97123250273255
+     ],
+     [
+      1991,
+      13.8702461773683
+     ],
+     [
+      1992,
+      11.7878170418134
+     ],
+     [
+      1993,
+      6.32689048779867
+     ],
+     [
+      1994,
+      10.2479355556119
+     ],
+     [
+      1995,
+      10.2248861637545
+     ],
+     [
+      1996,
+      8.97715233826453
+     ],
+     [
+      1997,
+      7.16425211462721
+     ],
+     [
+      1998,
+      13.2308389767977
+     ],
+     [
+      1999,
+      4.6698203803759
+     ],
+     [
+      2000,
+      4.0094359104519
+     ],
+     [
+      2001,
+      3.77929312235637
+     ],
+     [
+      2002,
+      4.29715203929562
+     ],
+     [
+      2003,
+      3.80585899528853
+     ],
+     [
+      2004,
+      3.76725173477517
+     ],
+     [
+      2005,
+      4.24634362031924
+     ],
+     [
+      2006,
+      5.79652337561634
+     ],
+     [
+      2007,
+      6.37288135593231
+     ],
+     [
+      2008,
+      8.34926704907575
+     ],
+     [
+      2009,
+      10.8823529411764
+     ],
+     [
+      2010,
+      11.9893899204245
+     ],
+     [
+      2011,
+      8.9117933648336
+     ],
+     [
+      2012,
+      9.47899691419793
+     ],
+     [
+      2013,
+      10.0178784746104
+     ],
+     [
+      2014,
+      6.66565671867899
+     ],
+     [
+      2015,
+      4.90697344127249
+     ],
+     [
+      2016,
+      4.94821634062134
+     ],
+     [
+      2017,
+      3.32817337461305
+     ],
+     [
+      2018,
+      3.93882646691643
+     ],
+     [
+      2019,
+      3.72950573539123
+     ],
+     [
+      2020,
+      6.6234367762853
+     ],
+     [
+      2021,
+      5.13140747176364
+     ],
+     [
+      2022,
+      6.69903414079858
+     ],
+     [
+      2023,
+      5.64914318907925
+     ],
+     [
+      2024,
+      4.95303550973661
+     ],
+     [
+      2025,
+      2.39884954182294
+     ]
+    ],
+    "display": "2"
+   }
+  ],
+  "matrix_rows": [
+   {
+    "id": "USA",
+    "label": "United States"
+   },
+   {
+    "id": "CHN",
+    "label": "China"
+   },
+   {
+    "id": "JPN",
+    "label": "Japan"
+   },
+   {
+    "id": "EMU",
+    "label": "Euro area"
+   },
+   {
+    "id": "IND",
+    "label": "India"
+   },
+   {
+    "id": "DEU",
+    "label": "Germany"
+   },
+   {
+    "id": "GBR",
+    "label": "United Kingdom"
+   },
+   {
+    "id": "KOR",
+    "label": "Korea"
+   },
+   {
+    "id": "BRA",
+    "label": "Brazil"
+   },
+   {
+    "id": "CAN",
+    "label": "Canada"
+   },
+   {
+    "id": "MEX",
+    "label": "Mexico"
+   },
+   {
+    "id": "RUS",
+    "label": "Russia"
+   }
+  ],
+  "matrix_cols": [
+   {
+    "id": "private_credit_stock",
+    "label": "private credit"
+   },
+   {
+    "id": "consumer_prices",
+    "label": "prices"
+   },
+   {
+    "id": "investment_rate",
+    "label": "investment"
+   },
+   {
+    "id": "manufacturing_share",
+    "label": "manufacturing"
+   },
+   {
+    "id": "age_structure",
+    "label": "65 and over"
+   }
+  ],
+  "matrix_cells": {
+   "USA|private_credit_stock": {
+    "display": "140",
+    "direction": "FALLING",
+    "percentile": 70.0
+   },
+   "USA|consumer_prices": {
+    "display": "2.9",
+    "direction": "RISING",
+    "percentile": 47.7
+   },
+   "USA|investment_rate": {
+    "display": "21.5",
+    "direction": "FLAT",
+    "percentile": 38.2
+   },
+   "USA|manufacturing_share": {
+    "display": "10.5",
+    "direction": "FALLING",
+    "percentile": 8.0
+   },
+   "USA|age_structure": {
+    "display": "18.4",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "CHN|private_credit_stock": {
+    "display": "204",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "CHN|consumer_prices": {
+    "display": "0.1",
+    "direction": "FALLING",
+    "percentile": 12.8
+   },
+   "CHN|investment_rate": {
+    "display": "40.5",
+    "direction": "FALLING",
+    "percentile": 72.3
+   },
+   "CHN|manufacturing_share": {
+    "display": "24.7",
+    "direction": "FALLING",
+    "percentile": 4.5
+   },
+   "CHN|age_structure": {
+    "display": "14.9",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "JPN|private_credit_stock": {
+    "display": "174",
+    "direction": "FALLING",
+    "percentile": 69.8
+   },
+   "JPN|consumer_prices": {
+    "display": "3.2",
+    "direction": "RISING",
+    "percentile": 63.6
+   },
+   "JPN|investment_rate": {
+    "display": "27.7",
+    "direction": "RISING",
+    "percentile": 38.2
+   },
+   "JPN|manufacturing_share": {
+    "display": "18.8",
+    "direction": "FALLING",
+    "percentile": 3.2
+   },
+   "JPN|age_structure": {
+    "display": "30.0",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "EMU|private_credit_stock": {
+    "display": "154",
+    "direction": "FALLING",
+    "percentile": 35.7
+   },
+   "EMU|consumer_prices": {
+    "display": "2.5",
+    "direction": "FALLING",
+    "percentile": 30.3
+   },
+   "EMU|investment_rate": {
+    "display": "21.9",
+    "direction": "FALLING",
+    "percentile": 30.4
+   },
+   "EMU|manufacturing_share": {
+    "display": "14.1",
+    "direction": "FALLING",
+    "percentile": 8.6
+   },
+   "EMU|age_structure": {
+    "display": "22.9",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "IND|private_credit_stock": {
+    "display": "105",
+    "direction": "RISING",
+    "percentile": 90.8
+   },
+   "IND|consumer_prices": {
+    "display": "2.4",
+    "direction": "FALLING",
+    "percentile": 7.6
+   },
+   "IND|investment_rate": {
+    "display": "34.6",
+    "direction": "RISING",
+    "percentile": 86.4
+   },
+   "IND|manufacturing_share": {
+    "display": "13.5",
+    "direction": "FALLING",
+    "percentile": 9.1
+   },
+   "IND|age_structure": {
+    "display": "7.4",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "DEU|private_credit_stock": {
+    "display": "135",
+    "direction": "FALLING",
+    "percentile": 67.2
+   },
+   "DEU|consumer_prices": {
+    "display": "2.2",
+    "direction": "FALLING",
+    "percentile": 50.0
+   },
+   "DEU|investment_rate": {
+    "display": "21.9",
+    "direction": "FALLING",
+    "percentile": 37.5
+   },
+   "DEU|manufacturing_share": {
+    "display": "17.6",
+    "direction": "FALLING",
+    "percentile": 5.7
+   },
+   "DEU|age_structure": {
+    "display": "23.7",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "GBR|private_credit_stock": {
+    "display": "128",
+    "direction": "FALLING",
+    "percentile": 59.4
+   },
+   "GBR|consumer_prices": {
+    "display": "3.9",
+    "direction": "RISING",
+    "percentile": 56.1
+   },
+   "GBR|investment_rate": {
+    "display": "19.7",
+    "direction": "RISING",
+    "percentile": 60.7
+   },
+   "GBR|manufacturing_share": {
+    "display": "7.7",
+    "direction": "FALLING",
+    "percentile": 2.8
+   },
+   "GBR|age_structure": {
+    "display": "19.7",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "KOR|private_credit_stock": {
+    "display": "192",
+    "direction": "FALLING",
+    "percentile": 90.8
+   },
+   "KOR|consumer_prices": {
+    "display": "2.1",
+    "direction": "FALLING",
+    "percentile": 15.2
+   },
+   "KOR|investment_rate": {
+    "display": "29.1",
+    "direction": "FALLING",
+    "percentile": 25.8
+   },
+   "KOR|manufacturing_share": {
+    "display": "27.4",
+    "direction": "RISING",
+    "percentile": 84.8
+   },
+   "KOR|age_structure": {
+    "display": "20.3",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "BRA|private_credit_stock": {
+    "display": "92.5",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "BRA|consumer_prices": {
+    "display": "5.0",
+    "direction": "FALLING",
+    "percentile": 26.7
+   },
+   "BRA|investment_rate": {
+    "display": "17.1",
+    "direction": "FALLING",
+    "percentile": 15.2
+   },
+   "BRA|manufacturing_share": {
+    "display": "11.8",
+    "direction": "FALLING",
+    "percentile": 43.9
+   },
+   "BRA|age_structure": {
+    "display": "11.5",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "CAN|private_credit_stock": {
+    "display": "219",
+    "direction": "FALLING",
+    "percentile": 94.4
+   },
+   "CAN|consumer_prices": {
+    "display": "2.1",
+    "direction": "FALLING",
+    "percentile": 37.9
+   },
+   "CAN|investment_rate": {
+    "display": "23.2",
+    "direction": "FALLING",
+    "percentile": 49.2
+   },
+   "CAN|manufacturing_share": {
+    "display": "9.3",
+    "direction": "FALLING",
+    "percentile": 7.7
+   },
+   "CAN|age_structure": {
+    "display": "20.3",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "MEX|private_credit_stock": {
+    "display": "38.6",
+    "direction": "FALLING",
+    "percentile": 74.5
+   },
+   "MEX|consumer_prices": {
+    "display": "3.8",
+    "direction": "FALLING",
+    "percentile": 24.2
+   },
+   "MEX|investment_rate": {
+    "display": "22.6",
+    "direction": "RISING",
+    "percentile": 54.5
+   },
+   "MEX|manufacturing_share": {
+    "display": "20.0",
+    "direction": "FALLING",
+    "percentile": 50.8
+   },
+   "MEX|age_structure": {
+    "display": "8.5",
+    "direction": "RISING",
+    "percentile": 100.0
+   },
+   "RUS|private_credit_stock": {
+    "display": "105",
+    "direction": "RISING",
+    "percentile": 93.8
+   },
+   "RUS|consumer_prices": {
+    "display": "8.7",
+    "direction": "RISING",
+    "percentile": 42.4
+   },
+   "RUS|investment_rate": {
+    "display": "25.9",
+    "direction": "RISING",
+    "percentile": 78.9
+   },
+   "RUS|manufacturing_share": {
+    "display": "13.7",
+    "direction": "RISING",
+    "percentile": 70.8
+   },
+   "RUS|age_structure": {
+    "display": "17.8",
+    "direction": "RISING",
+    "percentile": 100.0
+   }
+  },
+  "analogue": [
+   {
+    "label": "China \u2014 private credit, % of GDP",
+    "points": [
+     [
+      1985,
+      62.4
+     ],
+     [
+      1986,
+      65.125
+     ],
+     [
+      1987,
+      72.85
+     ],
+     [
+      1988,
+      70.875
+     ],
+     [
+      1989,
+      68.5
+     ],
+     [
+      1990,
+      77.4
+     ],
+     [
+      1991,
+      81.2
+     ],
+     [
+      1992,
+      78.425
+     ],
+     [
+      1993,
+      81.9
+     ],
+     [
+      1994,
+      77.4
+     ],
+     [
+      1995,
+      73.3
+     ],
+     [
+      1996,
+      75.625
+     ],
+     [
+      1997,
+      81.85
+     ],
+     [
+      1998,
+      87.15
+     ],
+     [
+      1999,
+      95.19999999999999
+     ],
+     [
+      2000,
+      102.825
+     ],
+     [
+      2001,
+      96.275
+     ],
+     [
+      2002,
+      108.1
+     ],
+     [
+      2003,
+      117.8
+     ],
+     [
+      2004,
+      117.85
+     ],
+     [
+      2005,
+      110.65
+     ],
+     [
+      2006,
+      111.075
+     ],
+     [
+      2007,
+      110.05
+     ],
+     [
+      2008,
+      107.125
+     ],
+     [
+      2009,
+      127.75
+     ],
+     [
+      2010,
+      137.52499999999998
+     ],
+     [
+      2011,
+      137.475
+     ],
+     [
+      2012,
+      145.0
+     ],
+     [
+      2013,
+      159.1
+     ],
+     [
+      2014,
+      169.375
+     ],
+     [
+      2015,
+      180.875
+     ],
+     [
+      2016,
+      189.5
+     ],
+     [
+      2017,
+      185.8
+     ],
+     [
+      2018,
+      179.925
+     ],
+     [
+      2019,
+      180.15
+     ],
+     [
+      2020,
+      192.6
+     ],
+     [
+      2021,
+      186.425
+     ],
+     [
+      2022,
+      186.925
+     ],
+     [
+      2023,
+      193.425
+     ],
+     [
+      2024,
+      198.325
+     ],
+     [
+      2025,
+      201.5
+     ],
+     [
+      2026,
+      204.1
+     ]
+    ],
+    "display": "204%",
+    "scale": "credit",
+    "colour": "var(--clay)"
+   },
+   {
+    "label": "Japan \u2014 private credit, % of GDP",
+    "points": [
+     [
+      1964,
+      110.8
+     ],
+     [
+      1965,
+      113.725
+     ],
+     [
+      1966,
+      117.625
+     ],
+     [
+      1967,
+      117.925
+     ],
+     [
+      1968,
+      117.1
+     ],
+     [
+      1969,
+      116.925
+     ],
+     [
+      1970,
+      116.725
+     ],
+     [
+      1971,
+      125.1
+     ],
+     [
+      1972,
+      135.8
+     ],
+     [
+      1973,
+      139.5
+     ],
+     [
+      1974,
+      134.575
+     ],
+     [
+      1975,
+      133.9
+     ],
+     [
+      1976,
+      137.225
+     ],
+     [
+      1977,
+      136.475
+     ],
+     [
+      1978,
+      134.925
+     ],
+     [
+      1979,
+      135.7
+     ],
+     [
+      1980,
+      139.3
+     ],
+     [
+      1981,
+      140.325
+     ],
+     [
+      1982,
+      145.775
+     ],
+     [
+      1983,
+      152.7
+     ],
+     [
+      1984,
+      157.35
+     ],
+     [
+      1985,
+      160.425
+     ],
+     [
+      1986,
+      164.22500000000002
+     ],
+     [
+      1987,
+      177.625
+     ],
+     [
+      1988,
+      185.725
+     ],
+     [
+      1989,
+      195.5
+     ],
+     [
+      1990,
+      205.95
+     ],
+     [
+      1991,
+      205.25
+     ],
+     [
+      1992,
+      205.925
+     ],
+     [
+      1993,
+      210.65
+     ],
+     [
+      1994,
+      209.875
+     ],
+     [
+      1995,
+      208.4
+     ],
+     [
+      1996,
+      205.025
+     ],
+     [
+      1997,
+      200.65
+     ],
+     [
+      1998,
+      199.225
+     ],
+     [
+      1999,
+      192.65
+     ],
+     [
+      2000,
+      187.39999999999998
+     ],
+     [
+      2001,
+      180.35
+     ],
+     [
+      2002,
+      177.375
+     ],
+     [
+      2003,
+      170.85
+     ],
+     [
+      2004,
+      163.5
+     ],
+     [
+      2005,
+      162.14999999999998
+     ],
+     [
+      2006,
+      161.175
+     ],
+     [
+      2007,
+      158.675
+     ],
+     [
+      2008,
+      160.125
+     ],
+     [
+      2009,
+      168.1
+     ],
+     [
+      2010,
+      164.825
+     ],
+     [
+      2011,
+      161.475
+     ],
+     [
+      2012,
+      159.425
+     ],
+     [
+      2013,
+      158.9
+     ],
+     [
+      2014,
+      155.79999999999998
+     ],
+     [
+      2015,
+      151.925
+     ],
+     [
+      2016,
+      151.6
+     ],
+     [
+      2017,
+      153.425
+     ],
+     [
+      2018,
+      154.4
+     ],
+     [
+      2019,
+      158.4
+     ],
+     [
+      2020,
+      172.85
+     ],
+     [
+      2021,
+      177.875
+     ],
+     [
+      2022,
+      178.3
+     ],
+     [
+      2023,
+      175.7
+     ],
+     [
+      2024,
+      173.625
+     ],
+     [
+      2025,
+      171.45
+     ],
+     [
+      2026,
+      173.7
+     ]
+    ],
+    "display": "174%",
+    "scale": "credit",
+    "colour": "var(--water)"
+   },
+   {
+    "label": "China \u2014 consumer prices, %",
+    "points": [
+     [
+      1987,
+      7.23383553065609
+     ],
+     [
+      1988,
+      18.8118179448753
+     ],
+     [
+      1989,
+      18.2456383621648
+     ],
+     [
+      1990,
+      3.05229012075233
+     ],
+     [
+      1991,
+      3.55668565220452
+     ],
+     [
+      1992,
+      6.35398134024869
+     ],
+     [
+      1993,
+      14.6100786356602
+     ],
+     [
+      1994,
+      24.2569897243361
+     ],
+     [
+      1995,
+      16.7912268492666
+     ],
+     [
+      1996,
+      8.3131587270211
+     ],
+     [
+      1997,
+      2.78646505531882
+     ],
+     [
+      1998,
+      -0.773186011549318
+     ],
+     [
+      1999,
+      -1.40147268276465
+     ],
+     [
+      2000,
+      0.347811226864587
+     ],
+     [
+      2001,
+      0.719125609120114
+     ],
+     [
+      2002,
+      -0.731970902350244
+     ],
+     [
+      2003,
+      1.12760348729637
+     ],
+     [
+      2004,
+      3.82463743108159
+     ],
+     [
+      2005,
+      1.77641407667571
+     ],
+     [
+      2006,
+      1.6494309945586
+     ],
+     [
+      2007,
+      4.81676767378834
+     ],
+     [
+      2008,
+      5.92525137041092
+     ],
+     [
+      2009,
+      -0.728165250932898
+     ],
+     [
+      2010,
+      3.17532475269199
+     ],
+     [
+      2011,
+      5.55389892257493
+     ],
+     [
+      2012,
+      2.61952432645541
+     ],
+     [
+      2013,
+      2.62105001748115
+     ],
+     [
+      2014,
+      1.92164162788521
+     ],
+     [
+      2015,
+      1.43702380935655
+     ],
+     [
+      2016,
+      2.00000182191943
+     ],
+     [
+      2017,
+      1.59313600071436
+     ],
+     [
+      2018,
+      2.07479039965576
+     ],
+     [
+      2019,
+      2.89923416358227
+     ],
+     [
+      2020,
+      2.41942189457782
+     ],
+     [
+      2021,
+      0.981015135544882
+     ],
+     [
+      2022,
+      1.97357555739051
+     ],
+     [
+      2023,
+      0.234836828893051
+     ],
+     [
+      2024,
+      0.218128938439177
+     ],
+     [
+      2025,
+      0.0595646916565403
+     ]
+    ],
+    "display": "0.1%",
+    "scale": "prices",
+    "colour": "var(--clay)"
+   },
+   {
+    "label": "Japan \u2014 consumer prices, %",
+    "points": [
+     [
+      1960,
+      3.5745115253591
+     ],
+     [
+      1961,
+      5.36846178480055
+     ],
+     [
+      1962,
+      6.8354403481973
+     ],
+     [
+      1963,
+      6.7069055639799
+     ],
+     [
+      1964,
+      3.80038945305753
+     ],
+     [
+      1965,
+      6.65599094260621
+     ],
+     [
+      1966,
+      5.04083205887676
+     ],
+     [
+      1967,
+      3.98984808881518
+     ],
+     [
+      1968,
+      5.33943295739344
+     ],
+     [
+      1969,
+      5.24982091102027
+     ],
+     [
+      1970,
+      6.92417383485781
+     ],
+     [
+      1971,
+      6.39534883720926
+     ],
+     [
+      1972,
+      4.84351713859905
+     ],
+     [
+      1973,
+      11.6086235489221
+     ],
+     [
+      1974,
+      23.2222458076842
+     ],
+     [
+      1975,
+      11.7312661498708
+     ],
+     [
+      1976,
+      9.37403638606234
+     ],
+     [
+      1977,
+      8.16182689596842
+     ],
+     [
+      1978,
+      4.20956601068681
+     ],
+     [
+      1979,
+      3.70185092546269
+     ],
+     [
+      1980,
+      7.77858176555718
+     ],
+     [
+      1981,
+      4.91216291820523
+     ],
+     [
+      1982,
+      2.7410409556314
+     ],
+     [
+      1983,
+      1.89971971348485
+     ],
+     [
+      1984,
+      2.26161369193155
+     ],
+     [
+      1985,
+      2.0322773460849
+     ],
+     [
+      1986,
+      0.595586799453249
+     ],
+     [
+      1987,
+      0.126176841696583
+     ],
+     [
+      1988,
+      0.678557580457558
+     ],
+     [
+      1989,
+      2.27228962064317
+     ],
+     [
+      1990,
+      3.0785162869516
+     ],
+     [
+      1991,
+      3.25143848753308
+     ],
+     [
+      1992,
+      1.7602830605927
+     ],
+     [
+      1993,
+      1.24304589707924
+     ],
+     [
+      1994,
+      0.695458057869004
+     ],
+     [
+      1995,
+      -0.127899045020446
+     ],
+     [
+      1996,
+      0.136600358575909
+     ],
+     [
+      1997,
+      1.74780458692133
+     ],
+     [
+      1998,
+      0.661974191385911
+     ],
+     [
+      1999,
+      -0.341296928327554
+     ],
+     [
+      2000,
+      -0.676578683595175
+     ],
+     [
+      2001,
+      -0.740055504162738
+     ],
+     [
+      2002,
+      -0.923494026942321
+     ],
+     [
+      2003,
+      -0.256541816316025
+     ],
+     [
+      2004,
+      -0.00857338820310272
+     ],
+     [
+      2005,
+      -0.282946068764391
+     ],
+     [
+      2006,
+      0.249355116079085
+     ],
+     [
+      2007,
+      0.060039454498669
+     ],
+     [
+      2008,
+      1.3800788616492
+     ],
+     [
+      2009,
+      -1.35283672951719
+     ],
+     [
+      2010,
+      -0.728243207517779
+     ],
+     [
+      2011,
+      -0.27245561610124
+     ],
+     [
+      2012,
+      -0.0440645104432602
+     ],
+     [
+      2013,
+      0.335037912184741
+     ],
+     [
+      2014,
+      2.75922671353253
+     ],
+     [
+      2015,
+      0.795279630579839
+     ],
+     [
+      2016,
+      -0.127258844489754
+     ],
+     [
+      2017,
+      0.484199796126385
+     ],
+     [
+      2018,
+      0.989094598021848
+     ],
+     [
+      2019,
+      0.46877615938395
+     ],
+     [
+      2020,
+      -0.024995834027731
+     ],
+     [
+      2021,
+      -0.233352779398264
+     ],
+     [
+      2022,
+      2.49770278172255
+     ],
+     [
+      2023,
+      3.26813365933163
+     ],
+     [
+      2024,
+      2.73853681635241
+     ],
+     [
+      2025,
+      3.17253034260248
+     ]
+    ],
+    "display": "3.2%",
+    "scale": "prices",
+    "colour": "var(--water)"
+   }
+  ],
+  "captions": {
+   "credit": {
+    "caveat": "A stock over a flow: the denominator moves with the cycle, so a falling ratio can mean rising output rather than falling debt."
+   },
+   "analogue": {
+    "title": "China's credit is still rising; Japan's had already turned",
+    "sub": "The price levels rhyme. The credit direction does not, and that is the dimension the comparison turns on.",
+    "caveat": "Both series are current-vintage reconstructions: the World Bank and BIS revise back-series, so neither is what was observable at the time. A comparison, not a forecast."
+   },
+   "stock_vs_service": {
+    "title": "Brazil carries a heavier debt-service burden than China on less than half the stock",
+    "sub": "If stock determined burden these points would lie on a line. They do not.",
+    "caveat": "Debt service ratios are BIS estimates built from an assumed maturity and interest rate, not observed payments. No line is fitted: nothing here identifies a relationship between the two."
+   }
+  }
+ },
+ "employment_detail": {
+  "35028": {
+   "fips": "35028",
+   "name": "Los Alamos",
+   "all_points": [
+    [
+     2005,
+     6468
+    ],
+    [
+     2006,
+     10769
+    ],
+    [
+     2007,
+     14225
+    ],
+    [
+     2008,
+     13681
+    ],
+    [
+     2009,
+     13348
+    ],
+    [
+     2010,
+     13605
+    ],
+    [
+     2011,
+     13668
+    ],
+    [
+     2012,
+     13319
+    ],
+    [
+     2013,
+     12840
+    ],
+    [
+     2014,
+     12798
+    ],
+    [
+     2015,
+     12785
+    ],
+    [
+     2016,
+     12771
+    ],
+    [
+     2017,
+     13347
+    ],
+    [
+     2018,
+     13942
+    ],
+    [
+     2019,
+     14935
+    ],
+    [
+     2020,
+     15350
+    ],
+    [
+     2021,
+     15988
+    ],
+    [
+     2022,
+     17047
+    ],
+    [
+     2023,
+     18990
+    ],
+    [
+     2024,
+     19517
+    ]
+   ],
+   "breaks": [
+    {
+     "year": 2006,
+     "change": 66.5
+    },
+    {
+     "year": 2007,
+     "change": 32.1
+    }
+   ],
+   "comparable_from": 2007,
+   "points": [
+    [
+     2007,
+     14225
+    ],
+    [
+     2008,
+     13681
+    ],
+    [
+     2009,
+     13348
+    ],
+    [
+     2010,
+     13605
+    ],
+    [
+     2011,
+     13668
+    ],
+    [
+     2012,
+     13319
+    ],
+    [
+     2013,
+     12840
+    ],
+    [
+     2014,
+     12798
+    ],
+    [
+     2015,
+     12785
+    ],
+    [
+     2016,
+     12771
+    ],
+    [
+     2017,
+     13347
+    ],
+    [
+     2018,
+     13942
+    ],
+    [
+     2019,
+     14935
+    ],
+    [
+     2020,
+     15350
+    ],
+    [
+     2021,
+     15988
+    ],
+    [
+     2022,
+     17047
+    ],
+    [
+     2023,
+     18990
+    ],
+    [
+     2024,
+     19517
+    ]
+   ],
+   "note": "The series moves +66% in 2006 and +32% in 2007. A count of PRIVATE employers moves that way when an employer changes ownership classification, with no job created. The cause is not established here; only the comparable window is charted."
+  },
+  "35049": {
+   "fips": "35049",
+   "name": "Santa Fe",
+   "all_points": [
+    [
+     2005,
+     44578
+    ],
+    [
+     2006,
+     46479
+    ],
+    [
+     2007,
+     47740
+    ],
+    [
+     2008,
+     48804
+    ],
+    [
+     2009,
+     44308
+    ],
+    [
+     2010,
+     43914
+    ],
+    [
+     2011,
+     44148
+    ],
+    [
+     2012,
+     43672
+    ],
+    [
+     2013,
+     44305
+    ],
+    [
+     2014,
+     44131
+    ],
+    [
+     2015,
+     45336
+    ],
+    [
+     2016,
+     46210
+    ],
+    [
+     2017,
+     46774
+    ],
+    [
+     2018,
+     46925
+    ],
+    [
+     2019,
+     47646
+    ],
+    [
+     2020,
+     43632
+    ],
+    [
+     2021,
+     44385
+    ],
+    [
+     2022,
+     48037
+    ],
+    [
+     2023,
+     48758
+    ],
+    [
+     2024,
+     49520
+    ]
+   ],
+   "breaks": [],
+   "comparable_from": null,
+   "points": [
+    [
+     2005,
+     44578
+    ],
+    [
+     2006,
+     46479
+    ],
+    [
+     2007,
+     47740
+    ],
+    [
+     2008,
+     48804
+    ],
+    [
+     2009,
+     44308
+    ],
+    [
+     2010,
+     43914
+    ],
+    [
+     2011,
+     44148
+    ],
+    [
+     2012,
+     43672
+    ],
+    [
+     2013,
+     44305
+    ],
+    [
+     2014,
+     44131
+    ],
+    [
+     2015,
+     45336
+    ],
+    [
+     2016,
+     46210
+    ],
+    [
+     2017,
+     46774
+    ],
+    [
+     2018,
+     46925
+    ],
+    [
+     2019,
+     47646
+    ],
+    [
+     2020,
+     43632
+    ],
+    [
+     2021,
+     44385
+    ],
+    [
+     2022,
+     48037
+    ],
+    [
+     2023,
+     48758
+    ],
+    [
+     2024,
+     49520
+    ]
+   ],
+   "note": null
+  },
+  "35001": {
+   "fips": "35001",
+   "name": "Bernalillo",
+   "all_points": [
+    [
+     2005,
+     270448
+    ],
+    [
+     2006,
+     283668
+    ],
+    [
+     2007,
+     286641
+    ],
+    [
+     2008,
+     284317
+    ],
+    [
+     2009,
+     266628
+    ],
+    [
+     2010,
+     260076
+    ],
+    [
+     2011,
+     260799
+    ],
+    [
+     2012,
+     261201
+    ],
+    [
+     2013,
+     263501
+    ],
+    [
+     2014,
+     269688
+    ],
+    [
+     2015,
+     274555
+    ],
+    [
+     2016,
+     279469
+    ],
+    [
+     2017,
+     281301
+    ],
+    [
+     2018,
+     284054
+    ],
+    [
+     2019,
+     288954
+    ],
+    [
+     2020,
+     274446
+    ],
+    [
+     2021,
+     278188
+    ],
+    [
+     2022,
+     293352
+    ],
+    [
+     2023,
+     299352
+    ],
+    [
+     2024,
+     300512
+    ]
+   ],
+   "breaks": [],
+   "comparable_from": null,
+   "points": [
+    [
+     2005,
+     270448
+    ],
+    [
+     2006,
+     283668
+    ],
+    [
+     2007,
+     286641
+    ],
+    [
+     2008,
+     284317
+    ],
+    [
+     2009,
+     266628
+    ],
+    [
+     2010,
+     260076
+    ],
+    [
+     2011,
+     260799
+    ],
+    [
+     2012,
+     261201
+    ],
+    [
+     2013,
+     263501
+    ],
+    [
+     2014,
+     269688
+    ],
+    [
+     2015,
+     274555
+    ],
+    [
+     2016,
+     279469
+    ],
+    [
+     2017,
+     281301
+    ],
+    [
+     2018,
+     284054
+    ],
+    [
+     2019,
+     288954
+    ],
+    [
+     2020,
+     274446
+    ],
+    [
+     2021,
+     278188
+    ],
+    [
+     2022,
+     293352
+    ],
+    [
+     2023,
+     299352
+    ],
+    [
+     2024,
+     300512
+    ]
+   ],
+   "note": null
+  },
+  "35039": {
+   "fips": "35039",
+   "name": "Rio Arriba",
+   "all_points": [
+    [
+     2005,
+     5960
+    ],
+    [
+     2006,
+     5301
+    ],
+    [
+     2007,
+     5026
+    ],
+    [
+     2008,
+     4881
+    ],
+    [
+     2009,
+     4691
+    ],
+    [
+     2010,
+     4403
+    ],
+    [
+     2011,
+     4236
+    ],
+    [
+     2012,
+     4233
+    ],
+    [
+     2013,
+     4404
+    ],
+    [
+     2014,
+     4518
+    ],
+    [
+     2015,
+     4562
+    ],
+    [
+     2016,
+     4764
+    ],
+    [
+     2017,
+     4660
+    ],
+    [
+     2018,
+     4820
+    ],
+    [
+     2019,
+     4804
+    ],
+    [
+     2020,
+     4450
+    ],
+    [
+     2021,
+     4866
+    ],
+    [
+     2022,
+     5779
+    ],
+    [
+     2023,
+     6026
+    ],
+    [
+     2024,
+     5675
+    ]
+   ],
+   "breaks": [],
+   "comparable_from": null,
+   "points": [
+    [
+     2005,
+     5960
+    ],
+    [
+     2006,
+     5301
+    ],
+    [
+     2007,
+     5026
+    ],
+    [
+     2008,
+     4881
+    ],
+    [
+     2009,
+     4691
+    ],
+    [
+     2010,
+     4403
+    ],
+    [
+     2011,
+     4236
+    ],
+    [
+     2012,
+     4233
+    ],
+    [
+     2013,
+     4404
+    ],
+    [
+     2014,
+     4518
+    ],
+    [
+     2015,
+     4562
+    ],
+    [
+     2016,
+     4764
+    ],
+    [
+     2017,
+     4660
+    ],
+    [
+     2018,
+     4820
+    ],
+    [
+     2019,
+     4804
+    ],
+    [
+     2020,
+     4450
+    ],
+    [
+     2021,
+     4866
+    ],
+    [
+     2022,
+     5779
+    ],
+    [
+     2023,
+     6026
+    ],
+    [
+     2024,
+     5675
+    ]
+   ],
+   "note": null
+  },
+  "35047": {
+   "fips": "35047",
+   "name": "San Miguel",
+   "all_points": [
+    [
+     2005,
+     4469
+    ],
+    [
+     2006,
+     4455
+    ],
+    [
+     2007,
+     4479
+    ],
+    [
+     2008,
+     4320
+    ],
+    [
+     2009,
+     4319
+    ],
+    [
+     2010,
+     4149
+    ],
+    [
+     2011,
+     4236
+    ],
+    [
+     2012,
+     3966
+    ],
+    [
+     2013,
+     4484
+    ],
+    [
+     2014,
+     4538
+    ],
+    [
+     2015,
+     4677
+    ],
+    [
+     2016,
+     4745
+    ],
+    [
+     2017,
+     4769
+    ],
+    [
+     2018,
+     4753
+    ],
+    [
+     2019,
+     4604
+    ],
+    [
+     2020,
+     4237
+    ],
+    [
+     2021,
+     4037
+    ],
+    [
+     2022,
+     4379
+    ],
+    [
+     2023,
+     4314
+    ],
+    [
+     2024,
+     4244
+    ]
+   ],
+   "breaks": [],
+   "comparable_from": null,
+   "points": [
+    [
+     2005,
+     4469
+    ],
+    [
+     2006,
+     4455
+    ],
+    [
+     2007,
+     4479
+    ],
+    [
+     2008,
+     4320
+    ],
+    [
+     2009,
+     4319
+    ],
+    [
+     2010,
+     4149
+    ],
+    [
+     2011,
+     4236
+    ],
+    [
+     2012,
+     3966
+    ],
+    [
+     2013,
+     4484
+    ],
+    [
+     2014,
+     4538
+    ],
+    [
+     2015,
+     4677
+    ],
+    [
+     2016,
+     4745
+    ],
+    [
+     2017,
+     4769
+    ],
+    [
+     2018,
+     4753
+    ],
+    [
+     2019,
+     4604
+    ],
+    [
+     2020,
+     4237
+    ],
+    [
+     2021,
+     4037
+    ],
+    [
+     2022,
+     4379
+    ],
+    [
+     2023,
+     4314
+    ],
+    [
+     2024,
+     4244
+    ]
+   ],
+   "note": null
+  }
+ }
+}

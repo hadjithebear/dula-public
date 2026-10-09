@@ -1,0 +1,2601 @@
+{
+ "hierarchy": [
+  "WHAT DOES THIS MEAN",
+  "WHY",
+  "WHAT RELATIONSHIPS PRODUCE IT",
+  "WHAT IS OBSERVED VS INFERRED",
+  "WHAT WOULD CHANGE THE VIEW",
+  "WHAT EVIDENCE SUPPORTS IT",
+  "HOW THAT EVIDENCE WAS REPRESENTED"
+ ],
+ "places": {
+  "35049": {
+   "id": "35049",
+   "name": "Santa Fe",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Santa Fe",
+    "sentence": "Santa Fe functions as both a workplace and a departure point within New Mexico: 41.4% of jobs here are filled from elsewhere while 37.3% of residents leave \u2014 two flows crossing in opposite directions. Average private earnings at workplaces here are $5,429 a month. 6.72% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,389 against a median household income of $79,071. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "both a workplace and a departure point",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 63008,
+    "filled_by_residents": 36943,
+    "filled_from_elsewhere": 26065,
+    "share_from_elsewhere": 41.4,
+    "origins": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 9089,
+      "share": 14.4
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 4757,
+      "share": 7.5
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 1725,
+      "share": 2.7
+     },
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 1613,
+      "share": 2.6
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 1385,
+      "share": 2.2
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 58913,
+    "work_here": 36943,
+    "leave": 21970,
+    "share_leaving": 37.3,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 10940,
+      "share": 18.6
+     },
+     {
+      "place": "Los Alamos",
+      "fips": "35028",
+      "jobs": 4436,
+      "share": 7.5
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 1652,
+      "share": 2.8
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 1136,
+      "share": 1.9
+     },
+     {
+      "place": "Do\u00f1a Ana",
+      "fips": "35013",
+      "jobs": 524,
+      "share": 0.9
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Santa Fe",
+     "other": "Bernalillo",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "41.4% of the jobs at workplaces in Santa Fe are held by people living in other counties, 14.4% of them in Bernalillo. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Santa Fe",
+     "other": "Bernalillo",
+     "for": "the jobs its residents hold",
+     "mechanism": "37.3% of Santa Fe's working residents work outside the county, 18.6% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Santa Fe",
+     "other": "Rio Arriba",
+     "for": "work for its residents",
+     "mechanism": "17.9% of Rio Arriba's working residents hold a job located in Santa Fe.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Santa Fe",
+     "other": "San Miguel",
+     "for": "work for its residents",
+     "mechanism": "17.9% of San Miguel's working residents hold a job located in Santa Fe.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "37.3% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "10.4% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "28.0% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Santa Fe has 49,632 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "NOT READY",
+     "hypothesis": null,
+     "why": "No relationship observed here is strong enough to carry an economic hypothesis. That is a statement about the evidence rather than about the place: the honest next step is to measure, not to propose."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35047": {
+   "id": "35047",
+   "name": "San Miguel",
+   "scale": "COUNTY",
+   "seat": "Las Vegas",
+   "reading": {
+    "place": "San Miguel",
+    "sentence": "San Miguel functions as a place people live and work somewhere else within New Mexico: 54.2% of its working residents work outside the county, most of them in Bernalillo. Average private earnings at workplaces here are $3,288 a month. 10.99% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $823 against a median household income of $49,431. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "a place people live and work somewhere else",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 6525,
+    "filled_by_residents": 4136,
+    "filled_from_elsewhere": 2389,
+    "share_from_elsewhere": 36.6,
+    "origins": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 445,
+      "share": 6.8
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 380,
+      "share": 5.8
+     },
+     {
+      "place": "Mora",
+      "fips": "35033",
+      "jobs": 213,
+      "share": 3.3
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 139,
+      "share": 2.1
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 110,
+      "share": 1.7
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 9035,
+    "work_here": 4136,
+    "leave": 4899,
+    "share_leaving": 54.2,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1683,
+      "share": 18.6
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 1613,
+      "share": 17.9
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 218,
+      "share": 2.4
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 177,
+      "share": 2.0
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 162,
+      "share": 1.8
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "San Miguel",
+     "other": "Bernalillo",
+     "for": "the jobs its residents hold",
+     "mechanism": "54.2% of San Miguel's working residents work outside the county, 18.6% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "San Miguel",
+     "other": "Mora",
+     "for": "work for its residents",
+     "mechanism": "18.4% of Mora's working residents hold a job located in San Miguel.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "San Miguel",
+     "other": "Guadalupe",
+     "for": "work for its residents",
+     "mechanism": "8.1% of Guadalupe's working residents hold a job located in San Miguel.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    }
+   ],
+   "diffuse_instead": [
+    "36.6% of the jobs here are filled from other counties, but no single county supplies as much as 10% of them. That is a labour shed, not a dependency on one place."
+   ],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "54.2% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "10.3% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "25.6% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "The absence of work inside the county",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "54.2% of working residents leave to work. Income arrives here; the jobs do not.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established. Why firms do or do not locate here is unobserved, so this reads as a signal rather than a bottleneck.",
+     "why_only_a_signal": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three."
+    },
+    {
+     "what": "The age of the housing stock",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "52% of homes here were built before 1980.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established",
+     "why_only_a_signal": "Age is not condition. What state these homes are in is not observed."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "San Miguel has 4,308 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "MEASURE FIRST",
+     "hypothesis": "Income earned by San Miguel residents in Bernalillo is a larger share of this county's household income than anything produced inside it.",
+     "why_it_might_matter": "If true, this county's economic prospects are governed by another county's labour market, and local business development would be addressing the wrong variable.",
+     "what_must_be_true": [
+      "the commuting flow is persistent, not a single year",
+      "the wages earned there materially exceed local wages"
+     ],
+     "unknown": "earnings by county of residence are not published",
+     "would_falsify_it": "earnings data showing out-commuters earn about what local jobs pay",
+     "next_action": "Obtain earnings by county of residence, or ask employers in the destination county where their workers live."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35028": {
+   "id": "35028",
+   "name": "Los Alamos",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Los Alamos",
+    "sentence": "Los Alamos functions as a workplace for the region around it within New Mexico: 57.6% of the jobs located here are filled by people who live somewhere else, and only 22.6% of its own working residents leave. Average private earnings at workplaces here are $11,370 a month. 0.96% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,375 against a median household income of $147,139. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "a workplace for the region around it",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 18206,
+    "filled_by_residents": 7715,
+    "filled_from_elsewhere": 10491,
+    "share_from_elsewhere": 57.6,
+    "origins": [
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 4436,
+      "share": 24.4
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1651,
+      "share": 9.1
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 1590,
+      "share": 8.7
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 1174,
+      "share": 6.4
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 176,
+      "share": 1.0
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 9969,
+    "work_here": 7715,
+    "leave": 2254,
+    "share_leaving": 22.6,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1032,
+      "share": 10.4
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 536,
+      "share": 5.4
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 139,
+      "share": 1.4
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 123,
+      "share": 1.2
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 97,
+      "share": 1.0
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Los Alamos",
+     "other": "Santa Fe",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "57.6% of the jobs at workplaces in Los Alamos are held by people living in other counties, 24.4% of them in Santa Fe. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Los Alamos",
+     "other": "Rio Arriba",
+     "for": "work for its residents",
+     "mechanism": "16.5% of Rio Arriba's working residents hold a job located in Los Alamos.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "22.6% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "13.9% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "18.4% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "Where the people who work here can live",
+     "grade": "INTERREGIONAL_BOTTLENECK",
+     "plain": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "if_it_moved": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "then_what_binds": "Serviced land and construction capacity \u2014 neither of which has a measured capacity.",
+     "can_anyone_move_it": "Yes. Housing production responds to land, finance and permitting, which are decisions rather than limits."
+    },
+    {
+     "what": "The age of the housing stock",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "62% of homes here were built before 1980.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established",
+     "why_only_a_signal": "Age is not condition. What state these homes are in is not observed."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Los Alamos has 19,551 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Federal science and procurement policy",
+     "us": "federal obligations performed at US sites",
+     "here": "private employment and earnings at workplaces in this county",
+     "lands": true,
+     "stops_because": null,
+     "note": "$5.28bn was spent performing federal work here in FY2025 against $75M paid to recipients registered here. Where that value ends up is not observable with public data."
+    },
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "INVESTIGATE",
+     "hypothesis": "Housing within commuting range is the binding constraint on employment growth here.",
+     "why_it_might_matter": "It would mean the limit on this county's economy is not demand for labour but where that labour can sleep.",
+     "what_must_be_true": [
+      "employers here report unfilled roles",
+      "the commute is already at the edge of tolerance"
+     ],
+     "unknown": "no observation of employer hiring difficulty is held",
+     "would_falsify_it": "employers reporting no difficulty filling roles",
+     "next_action": "Ask a small number of employers what limits their hiring."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35001": {
+   "id": "35001",
+   "name": "Bernalillo",
+   "scale": "COUNTY",
+   "seat": "Albuquerque",
+   "reading": {
+    "place": "Bernalillo",
+    "sentence": "Bernalillo functions as largely self-contained in employment terms within New Mexico: 86% of its working residents work in the county and 71% of jobs here are filled locally. Average private earnings at workplaces here are $5,469 a month. 4.57% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,144 against a median household income of $69,473. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "largely self-contained in employment terms",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 350760,
+    "filled_by_residents": 249505,
+    "filled_from_elsewhere": 101255,
+    "share_from_elsewhere": 28.9,
+    "origins": [
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 37746,
+      "share": 10.8
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 16927,
+      "share": 4.8
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 10940,
+      "share": 3.1
+     },
+     {
+      "place": "Do\u00f1a Ana",
+      "fips": "35013",
+      "jobs": 4156,
+      "share": 1.2
+     },
+     {
+      "place": "San Juan",
+      "fips": "35045",
+      "jobs": 2974,
+      "share": 0.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 290146,
+    "work_here": 249505,
+    "leave": 40641,
+    "share_leaving": 14.0,
+    "destinations": [
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 13437,
+      "share": 4.6
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 9089,
+      "share": 3.1
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 4122,
+      "share": 1.4
+     },
+     {
+      "place": "Do\u00f1a Ana",
+      "fips": "35013",
+      "jobs": 2229,
+      "share": 0.8
+     },
+     {
+      "place": "Los Alamos",
+      "fips": "35028",
+      "jobs": 1651,
+      "share": 0.6
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Bernalillo",
+     "other": "Sandoval",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "28.9% of the jobs at workplaces in Bernalillo are held by people living in other counties, 10.8% of them in Sandoval. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "Sandoval",
+     "for": "work for its residents",
+     "mechanism": "59.6% of Sandoval's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "Valencia",
+     "for": "work for its residents",
+     "mechanism": "57.0% of Valencia's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "Santa Fe",
+     "for": "work for its residents",
+     "mechanism": "18.6% of Santa Fe's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "McKinley",
+     "for": "work for its residents",
+     "mechanism": "12.4% of McKinley's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "Torrance",
+     "for": "work for its residents",
+     "mechanism": "46.7% of Torrance's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "San Miguel",
+     "for": "work for its residents",
+     "mechanism": "18.6% of San Miguel's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Bernalillo",
+     "other": "Rio Arriba",
+     "for": "work for its residents",
+     "mechanism": "15.1% of Rio Arriba's working residents hold a job located in Bernalillo.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "14.0% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "13.3% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "18.3% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Bernalillo has 301,717 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "NOT READY",
+     "hypothesis": null,
+     "why": "No relationship observed here is strong enough to carry an economic hypothesis. That is a statement about the evidence rather than about the place: the honest next step is to measure, not to propose."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35025": {
+   "id": "35025",
+   "name": "Lea",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Lea",
+    "sentence": "Lea functions as largely self-contained in employment terms within New Mexico: 75% of its working residents work in the county and 63% of jobs here are filled locally. 11.93% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,101 against a median household income of $68,015. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+    "state": "SUPPORTED",
+    "role": "largely self-contained in employment terms",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 31168,
+    "filled_by_residents": 19763,
+    "filled_from_elsewhere": 11405,
+    "share_from_elsewhere": 36.6,
+    "origins": [
+     {
+      "place": "Eddy",
+      "fips": "35015",
+      "jobs": 1764,
+      "share": 5.7
+     },
+     {
+      "place": "Chaves",
+      "fips": "35005",
+      "jobs": 982,
+      "share": 3.2
+     },
+     {
+      "place": "48141",
+      "fips": "48141",
+      "jobs": 594,
+      "share": 1.9
+     },
+     {
+      "place": "48165",
+      "fips": "48165",
+      "jobs": 433,
+      "share": 1.4
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 421,
+      "share": 1.4
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 26200,
+    "work_here": 19763,
+    "leave": 6437,
+    "share_leaving": 24.6,
+    "destinations": [
+     {
+      "place": "Eddy",
+      "fips": "35015",
+      "jobs": 2074,
+      "share": 7.9
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1424,
+      "share": 5.4
+     },
+     {
+      "place": "Chaves",
+      "fips": "35005",
+      "jobs": 760,
+      "share": 2.9
+     },
+     {
+      "place": "Do\u00f1a Ana",
+      "fips": "35013",
+      "jobs": 443,
+      "share": 1.7
+     },
+     {
+      "place": "Curry",
+      "fips": "35009",
+      "jobs": 314,
+      "share": 1.2
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Lea",
+     "other": "48165",
+     "for": "work for its residents",
+     "mechanism": "69.2% of 48165's working residents hold a job located in Lea.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Lea",
+     "other": "48303",
+     "for": "work for its residents",
+     "mechanism": "40.0% of 48303's working residents hold a job located in Lea.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    },
+    {
+     "direction": "RELIED_ON_BY",
+     "this_place": "Lea",
+     "other": "48135",
+     "for": "work for its residents",
+     "mechanism": "48.7% of 48135's working residents hold a job located in Lea.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what share of that county's household income it represents",
+     "could_break_it": "employment contraction here"
+    }
+   ],
+   "diffuse_instead": [
+    "36.6% of the jobs here are filled from other counties, but no single county supplies as much as 10% of them. That is a labour shed, not a dependency on one place."
+   ],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "24.6% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "13.0% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "11.4% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "The age of the housing stock",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "52% of homes here were built before 1980.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established",
+     "why_only_a_signal": "Age is not condition. What state these homes are in is not observed."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "NOT READY",
+     "hypothesis": null,
+     "why": "No relationship observed here is strong enough to carry an economic hypothesis. That is a statement about the evidence rather than about the place: the honest next step is to measure, not to propose."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35057": {
+   "id": "35057",
+   "name": "Torrance",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Torrance",
+    "sentence": "Torrance functions as a place people live and work somewhere else within New Mexico: 72.6% of its working residents work outside the county, most of them in Bernalillo. 24.9% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $872 against a median household income of $57,842. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+    "state": "SUPPORTED",
+    "role": "a place people live and work somewhere else",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 2921,
+    "filled_by_residents": 1057,
+    "filled_from_elsewhere": 1864,
+    "share_from_elsewhere": 63.8,
+    "origins": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 735,
+      "share": 25.2
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 519,
+      "share": 17.8
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 110,
+      "share": 3.8
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 98,
+      "share": 3.4
+     },
+     {
+      "place": "Guadalupe",
+      "fips": "35019",
+      "jobs": 54,
+      "share": 1.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 3855,
+    "work_here": 1057,
+    "leave": 2798,
+    "share_leaving": 72.6,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1799,
+      "share": 46.7
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 273,
+      "share": 7.1
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 133,
+      "share": 3.5
+     },
+     {
+      "place": "Do\u00f1a Ana",
+      "fips": "35013",
+      "jobs": 111,
+      "share": 2.9
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 100,
+      "share": 2.6
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Torrance",
+     "other": "Bernalillo",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "63.8% of the jobs at workplaces in Torrance are held by people living in other counties, 25.2% of them in Bernalillo. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Torrance",
+     "other": "Bernalillo",
+     "for": "the jobs its residents hold",
+     "mechanism": "72.6% of Torrance's working residents work outside the county, 46.7% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "72.6% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "11.1% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "22.5% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "Where the people who work here can live",
+     "grade": "INTERREGIONAL_BOTTLENECK",
+     "plain": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "if_it_moved": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "then_what_binds": "Serviced land and construction capacity \u2014 neither of which has a measured capacity.",
+     "can_anyone_move_it": "Yes. Housing production responds to land, finance and permitting, which are decisions rather than limits."
+    },
+    {
+     "what": "The absence of work inside the county",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "72.6% of working residents leave to work. Income arrives here; the jobs do not.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established. Why firms do or do not locate here is unobserved, so this reads as a signal rather than a bottleneck.",
+     "why_only_a_signal": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "MEASURE FIRST",
+     "hypothesis": "Income earned by Torrance residents in Bernalillo is a larger share of this county's household income than anything produced inside it.",
+     "why_it_might_matter": "If true, this county's economic prospects are governed by another county's labour market, and local business development would be addressing the wrong variable.",
+     "what_must_be_true": [
+      "the commuting flow is persistent, not a single year",
+      "the wages earned there materially exceed local wages"
+     ],
+     "unknown": "earnings by county of residence are not published",
+     "would_falsify_it": "earnings data showing out-commuters earn about what local jobs pay",
+     "next_action": "Obtain earnings by county of residence, or ask employers in the destination county where their workers live."
+    },
+    {
+     "status": "INVESTIGATE",
+     "hypothesis": "Housing within commuting range is the binding constraint on employment growth here.",
+     "why_it_might_matter": "It would mean the limit on this county's economy is not demand for labour but where that labour can sleep.",
+     "what_must_be_true": [
+      "employers here report unfilled roles",
+      "the commute is already at the edge of tolerance"
+     ],
+     "unknown": "no observation of employer hiring difficulty is held",
+     "would_falsify_it": "employers reporting no difficulty filling roles",
+     "next_action": "Ask a small number of employers what limits their hiring."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35039": {
+   "id": "35039",
+   "name": "Rio Arriba",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Rio Arriba",
+    "sentence": "Rio Arriba functions as a place people live and work somewhere else within New Mexico: 64.2% of its working residents work outside the county, most of them in Santa Fe. Average private earnings at workplaces here are $4,885 a month. 11.15% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $740 against a median household income of $57,155. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "a place people live and work somewhere else",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 8474,
+    "filled_by_residents": 3453,
+    "filled_from_elsewhere": 5021,
+    "share_from_elsewhere": 59.3,
+    "origins": [
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 1652,
+      "share": 19.5
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 698,
+      "share": 8.2
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 492,
+      "share": 5.8
+     },
+     {
+      "place": "San Juan",
+      "fips": "35045",
+      "jobs": 325,
+      "share": 3.8
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 217,
+      "share": 2.6
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 9651,
+    "work_here": 3453,
+    "leave": 6198,
+    "share_leaving": 64.2,
+    "destinations": [
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 1725,
+      "share": 17.9
+     },
+     {
+      "place": "Los Alamos",
+      "fips": "35028",
+      "jobs": 1590,
+      "share": 16.5
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1461,
+      "share": 15.1
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 306,
+      "share": 3.2
+     },
+     {
+      "place": "San Juan",
+      "fips": "35045",
+      "jobs": 249,
+      "share": 2.6
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Rio Arriba",
+     "other": "Santa Fe",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "59.3% of the jobs at workplaces in Rio Arriba are held by people living in other counties, 19.5% of them in Santa Fe. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Rio Arriba",
+     "other": "Santa Fe",
+     "for": "the jobs its residents hold",
+     "mechanism": "64.2% of Rio Arriba's working residents work outside the county, 17.9% of them in Santa Fe. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "64.2% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "4.4% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "21.8% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "Where the people who work here can live",
+     "grade": "INTERREGIONAL_BOTTLENECK",
+     "plain": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "if_it_moved": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "then_what_binds": "Serviced land and construction capacity \u2014 neither of which has a measured capacity.",
+     "can_anyone_move_it": "Yes. Housing production responds to land, finance and permitting, which are decisions rather than limits."
+    },
+    {
+     "what": "The absence of work inside the county",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "64.2% of working residents leave to work. Income arrives here; the jobs do not.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established. Why firms do or do not locate here is unobserved, so this reads as a signal rather than a bottleneck.",
+     "why_only_a_signal": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Rio Arriba has 5,623 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "MEASURE FIRST",
+     "hypothesis": "Income earned by Rio Arriba residents in Santa Fe is a larger share of this county's household income than anything produced inside it.",
+     "why_it_might_matter": "If true, this county's economic prospects are governed by another county's labour market, and local business development would be addressing the wrong variable.",
+     "what_must_be_true": [
+      "the commuting flow is persistent, not a single year",
+      "the wages earned there materially exceed local wages"
+     ],
+     "unknown": "earnings by county of residence are not published",
+     "would_falsify_it": "earnings data showing out-commuters earn about what local jobs pay",
+     "next_action": "Obtain earnings by county of residence, or ask employers in the destination county where their workers live."
+    },
+    {
+     "status": "INVESTIGATE",
+     "hypothesis": "Housing within commuting range is the binding constraint on employment growth here.",
+     "why_it_might_matter": "It would mean the limit on this county's economy is not demand for labour but where that labour can sleep.",
+     "what_must_be_true": [
+      "employers here report unfilled roles",
+      "the commute is already at the edge of tolerance"
+     ],
+     "unknown": "no observation of employer hiring difficulty is held",
+     "would_falsify_it": "employers reporting no difficulty filling roles",
+     "next_action": "Ask a small number of employers what limits their hiring."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35033": {
+   "id": "35033",
+   "name": "Mora",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Mora",
+    "sentence": "Mora functions as a place people live and work somewhere else within New Mexico: 67.2% of its working residents work outside the county, most of them in San Miguel. Average private earnings at workplaces here are $3,984 a month. 10.84% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $887 against a median household income of $53,663. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "a place people live and work somewhere else",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 707,
+    "filled_by_residents": 379,
+    "filled_from_elsewhere": 328,
+    "share_from_elsewhere": 46.4,
+    "origins": [
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 99,
+      "share": 14.0
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 37,
+      "share": 5.2
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 33,
+      "share": 4.7
+     },
+     {
+      "place": "Colfax",
+      "fips": "35007",
+      "jobs": 20,
+      "share": 2.8
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 13,
+      "share": 1.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 1157,
+    "work_here": 379,
+    "leave": 778,
+    "share_leaving": 67.2,
+    "destinations": [
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 213,
+      "share": 18.4
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 152,
+      "share": 13.1
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 122,
+      "share": 10.5
+     },
+     {
+      "place": "Colfax",
+      "fips": "35007",
+      "jobs": 84,
+      "share": 7.3
+     },
+     {
+      "place": "Taos",
+      "fips": "35055",
+      "jobs": 48,
+      "share": 4.1
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Mora",
+     "other": "San Miguel",
+     "for": "the people who fill the jobs located here",
+     "mechanism": "46.4% of the jobs at workplaces in Mora are held by people living in other counties, 14.0% of them in San Miguel. Those jobs cannot be staffed from this county's own residents.",
+     "observed": "yes \u2014 a county-to-county job flow, LEHD LODES8, 2022",
+     "unknown": "whether those are the same people year to year, and how many PEOPLE as distinct from jobs make the flow",
+     "could_break_it": "housing or transport changes that make the commute infeasible, or employment here contracting"
+    },
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Mora",
+     "other": "San Miguel",
+     "for": "the jobs its residents hold",
+     "mechanism": "67.2% of Mora's working residents work outside the county, 18.4% of them in San Miguel. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    }
+   ],
+   "diffuse_instead": [],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "67.2% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "3.3% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "34.0% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "Where the people who work here can live",
+     "grade": "INTERREGIONAL_BOTTLENECK",
+     "plain": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "if_it_moved": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "then_what_binds": "Serviced land and construction capacity \u2014 neither of which has a measured capacity.",
+     "can_anyone_move_it": "Yes. Housing production responds to land, finance and permitting, which are decisions rather than limits."
+    },
+    {
+     "what": "The absence of work inside the county",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "67.2% of working residents leave to work. Income arrives here; the jobs do not.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established. Why firms do or do not locate here is unobserved, so this reads as a signal rather than a bottleneck.",
+     "why_only_a_signal": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Mora has 394 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "MEASURE FIRST",
+     "hypothesis": "Income earned by Mora residents in San Miguel is a larger share of this county's household income than anything produced inside it.",
+     "why_it_might_matter": "If true, this county's economic prospects are governed by another county's labour market, and local business development would be addressing the wrong variable.",
+     "what_must_be_true": [
+      "the commuting flow is persistent, not a single year",
+      "the wages earned there materially exceed local wages"
+     ],
+     "unknown": "earnings by county of residence are not published",
+     "would_falsify_it": "earnings data showing out-commuters earn about what local jobs pay",
+     "next_action": "Obtain earnings by county of residence, or ask employers in the destination county where their workers live."
+    },
+    {
+     "status": "INVESTIGATE",
+     "hypothesis": "Housing within commuting range is the binding constraint on employment growth here.",
+     "why_it_might_matter": "It would mean the limit on this county's economy is not demand for labour but where that labour can sleep.",
+     "what_must_be_true": [
+      "employers here report unfilled roles",
+      "the commute is already at the edge of tolerance"
+     ],
+     "unknown": "no observation of employer hiring difficulty is held",
+     "would_falsify_it": "employers reporting no difficulty filling roles",
+     "next_action": "Ask a small number of employers what limits their hiring."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35055": {
+   "id": "35055",
+   "name": "Taos",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Taos",
+    "sentence": "Taos functions as largely self-contained in employment terms within New Mexico: 69% of its working residents work in the county and 66% of jobs here are filled locally. Average private earnings at workplaces here are $4,179 a month. 8.3% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,034 against a median household income of $58,950. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: local capital deployment, procurement relationships.",
+    "state": "SUPPORTED",
+    "role": "largely self-contained in employment terms",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 10256,
+    "filled_by_residents": 6773,
+    "filled_from_elsewhere": 3483,
+    "share_from_elsewhere": 34.0,
+    "origins": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 547,
+      "share": 5.3
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 500,
+      "share": 4.9
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 306,
+      "share": 3.0
+     },
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 218,
+      "share": 2.1
+     },
+     {
+      "place": "Colfax",
+      "fips": "35007",
+      "jobs": 180,
+      "share": 1.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 9786,
+    "work_here": 6773,
+    "leave": 3013,
+    "share_leaving": 30.8,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 1128,
+      "share": 11.5
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 557,
+      "share": 5.7
+     },
+     {
+      "place": "Rio Arriba",
+      "fips": "35039",
+      "jobs": 217,
+      "share": 2.2
+     },
+     {
+      "place": "Los Alamos",
+      "fips": "35028",
+      "jobs": 176,
+      "share": 1.8
+     },
+     {
+      "place": "Sandoval",
+      "fips": "35043",
+      "jobs": 133,
+      "share": 1.4
+     }
+    ]
+   },
+   "dependencies": [],
+   "diffuse_instead": [
+    "34.0% of the jobs here are filled from other counties, but no single county supplies as much as 10% of them. That is a labour shed, not a dependency on one place."
+   ],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "30.8% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "6.8% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "30.5% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [],
+   "capabilities": [
+    {
+     "capability": "An employment base",
+     "plain": "Taos has 8,164 private jobs located in it. Whether that base can be grown is not established: nothing observed here says why firms do or do not locate in this county.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "NOT READY",
+     "hypothesis": null,
+     "why": "No relationship observed here is strong enough to carry an economic hypothesis. That is a statement about the evidence rather than about the place: the honest next step is to measure, not to propose."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time",
+     "employment and earnings by employer"
+    ],
+    "cannot_see": [
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35021": {
+   "id": "35021",
+   "name": "Harding",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Harding",
+    "sentence": "Harding functions as a place people live and work somewhere else within New Mexico: 60.7% of its working residents work outside the county, most of them in Bernalillo. 6.94% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $1,038 against a median household income of $48,553. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+    "state": "SUPPORTED",
+    "role": "a place people live and work somewhere else",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 164,
+    "filled_by_residents": 88,
+    "filled_from_elsewhere": 76,
+    "share_from_elsewhere": 46.3,
+    "origins": [
+     {
+      "place": "Quay",
+      "fips": "35037",
+      "jobs": 16,
+      "share": 9.8
+     },
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 15,
+      "share": 9.1
+     },
+     {
+      "place": "Union",
+      "fips": "35059",
+      "jobs": 7,
+      "share": 4.3
+     },
+     {
+      "place": "Colfax",
+      "fips": "35007",
+      "jobs": 7,
+      "share": 4.3
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 3,
+      "share": 1.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 224,
+    "work_here": 88,
+    "leave": 136,
+    "share_leaving": 60.7,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 30,
+      "share": 13.4
+     },
+     {
+      "place": "Quay",
+      "fips": "35037",
+      "jobs": 22,
+      "share": 9.8
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 14,
+      "share": 6.2
+     },
+     {
+      "place": "Curry",
+      "fips": "35009",
+      "jobs": 10,
+      "share": 4.5
+     },
+     {
+      "place": "Chaves",
+      "fips": "35005",
+      "jobs": 9,
+      "share": 4.0
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Harding",
+     "other": "Bernalillo",
+     "for": "the jobs its residents hold",
+     "mechanism": "60.7% of Harding's working residents work outside the county, 13.4% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    }
+   ],
+   "diffuse_instead": [
+    "46.3% of the jobs here are filled from other counties, but no single county supplies as much as 10% of them. That is a labour shed, not a dependency on one place."
+   ],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "60.7% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "4.1% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "26.6% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "Where the people who work here can live",
+     "grade": "INTERREGIONAL_BOTTLENECK",
+     "plain": "More than half the jobs here are filled by people who live elsewhere, and this county's own housing cannot house them.",
+     "if_it_moved": "Workers could live nearer the work, commutes would shorten, and the pool those employers can hire from would widen.",
+     "then_what_binds": "Serviced land and construction capacity \u2014 neither of which has a measured capacity.",
+     "can_anyone_move_it": "Yes. Housing production responds to land, finance and permitting, which are decisions rather than limits."
+    },
+    {
+     "what": "The absence of work inside the county",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "60.7% of working residents leave to work. Income arrives here; the jobs do not.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established. Why firms do or do not locate here is unobserved, so this reads as a signal rather than a bottleneck.",
+     "why_only_a_signal": "A bottleneck has to answer what happens if it is removed, what binds next, and whether anyone can change it. This answers none of the three."
+    },
+    {
+     "what": "The age of the housing stock",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "68% of homes here were built before 1980.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established",
+     "why_only_a_signal": "Age is not condition. What state these homes are in is not observed."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "MEASURE FIRST",
+     "hypothesis": "Income earned by Harding residents in Bernalillo is a larger share of this county's household income than anything produced inside it.",
+     "why_it_might_matter": "If true, this county's economic prospects are governed by another county's labour market, and local business development would be addressing the wrong variable.",
+     "what_must_be_true": [
+      "the commuting flow is persistent, not a single year",
+      "the wages earned there materially exceed local wages"
+     ],
+     "unknown": "earnings by county of residence are not published",
+     "would_falsify_it": "earnings data showing out-commuters earn about what local jobs pay",
+     "next_action": "Obtain earnings by county of residence, or ask employers in the destination county where their workers live."
+    },
+    {
+     "status": "INVESTIGATE",
+     "hypothesis": "Housing within commuting range is the binding constraint on employment growth here.",
+     "why_it_might_matter": "It would mean the limit on this county's economy is not demand for labour but where that labour can sleep.",
+     "what_must_be_true": [
+      "employers here report unfilled roles",
+      "the commute is already at the edge of tolerance"
+     ],
+     "unknown": "no observation of employer hiring difficulty is held",
+     "would_falsify_it": "employers reporting no difficulty filling roles",
+     "next_action": "Ask a small number of employers what limits their hiring."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  },
+  "35019": {
+   "id": "35019",
+   "name": "Guadalupe",
+   "scale": "COUNTY",
+   "seat": null,
+   "reading": {
+    "place": "Guadalupe",
+    "sentence": "Guadalupe functions as largely self-contained in employment terms within New Mexico: 58% of its working residents work in the county and 65% of jobs here are filled locally. 7.54% of its workers travel 60 minutes or more, against 6.8% statewide. Median rent is $590 against a median household income of $42,750. Observed here: labour relationships, population and age structure, housing stock, tenure and cost burden. Not observed: employment and earnings by employer, local capital deployment.",
+    "state": "SUPPORTED",
+    "role": "largely self-contained in employment terms",
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ]
+   },
+   "works_here": {
+    "total_jobs_here": 1191,
+    "filled_by_residents": 778,
+    "filled_from_elsewhere": 413,
+    "share_from_elsewhere": 34.7,
+    "origins": [
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 72,
+      "share": 6.0
+     },
+     {
+      "place": "Quay",
+      "fips": "35037",
+      "jobs": 56,
+      "share": 4.7
+     },
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 52,
+      "share": 4.4
+     },
+     {
+      "place": "Curry",
+      "fips": "35009",
+      "jobs": 30,
+      "share": 2.5
+     },
+     {
+      "place": "Valencia",
+      "fips": "35061",
+      "jobs": 22,
+      "share": 1.8
+     }
+    ]
+   },
+   "works_elsewhere": {
+    "total_working_residents": 1339,
+    "work_here": 778,
+    "leave": 561,
+    "share_leaving": 41.9,
+    "destinations": [
+     {
+      "place": "Bernalillo",
+      "fips": "35001",
+      "jobs": 162,
+      "share": 12.1
+     },
+     {
+      "place": "San Miguel",
+      "fips": "35047",
+      "jobs": 109,
+      "share": 8.1
+     },
+     {
+      "place": "Santa Fe",
+      "fips": "35049",
+      "jobs": 92,
+      "share": 6.9
+     },
+     {
+      "place": "Torrance",
+      "fips": "35057",
+      "jobs": 54,
+      "share": 4.0
+     },
+     {
+      "place": "Quay",
+      "fips": "35037",
+      "jobs": 32,
+      "share": 2.4
+     }
+    ]
+   },
+   "dependencies": [
+    {
+     "direction": "DEPENDS_ON",
+     "this_place": "Guadalupe",
+     "other": "Bernalillo",
+     "for": "the jobs its residents hold",
+     "mechanism": "41.9% of Guadalupe's working residents work outside the county, 12.1% of them in Bernalillo. Household income here is partly set by a labour market this county does not contain.",
+     "observed": "yes \u2014 LEHD LODES8, 2022",
+     "unknown": "what those residents earn there, which is not published by county of residence",
+     "could_break_it": "contraction in the destination county's employment"
+    }
+   ],
+   "diffuse_instead": [
+    "34.7% of the jobs here are filled from other counties, but no single county supplies as much as 10% of them. That is a labour shed, not a dependency on one place."
+   ],
+   "changing": [
+    {
+     "what": "where residents work",
+     "level": "41.9% of working residents leave the county",
+     "direction": "UNKNOWN",
+     "why_unknown": "one reference year, 2022. A share is not a direction, and a direction cannot be inferred from a single observation.",
+     "as_of": "2022"
+    },
+    {
+     "what": "household turnover",
+     "level": "12.5% moved in the past year",
+     "direction": "UNKNOWN",
+     "why_unknown": "a 5-year ACS average, which cannot date a turn",
+     "as_of": "2020-2024"
+    },
+    {
+     "what": "age structure",
+     "level": "17.2% aged 65 or over",
+     "direction": "RISING",
+     "why": "the 65-and-over share is rising in every economy observed here, at world scale and in this county",
+     "as_of": "2020-2024"
+    }
+   ],
+   "constraints": [
+    {
+     "what": "The age of the housing stock",
+     "grade": "CONSTRAINT_SIGNAL",
+     "plain": "54% of homes here were built before 1980.",
+     "if_it_moved": "UNKNOWN",
+     "then_what_binds": "UNKNOWN",
+     "can_anyone_move_it": "Not established",
+     "why_only_a_signal": "Age is not condition. What state these homes are in is not observed."
+    }
+   ],
+   "capabilities": [
+    {
+     "capability": "Housing construction",
+     "plain": "Builders exist in the region. Whether they have the crews and throughput to build at the scale this county would need \u2014 and whether they would work here at all \u2014 is not measured anywhere.",
+     "exists": "OBSERVED",
+     "can_be_mobilised": "UNKNOWN"
+    },
+    {
+     "capability": "Local capital",
+     "plain": "Who lends in this county, and on what terms, is not published. Neither the existence of local capital nor its availability can be established.",
+     "exists": "UNKNOWN",
+     "can_be_mobilised": "UNKNOWN"
+    }
+   ],
+   "world": [
+    {
+     "world": "Crude benchmarks set outside the United States",
+     "us": "Permian wellhead economics, and oil and gas revenue to the state",
+     "here": "state spending on services in this county",
+     "lands": false,
+     "stops_because": "No allocation of state spending to counties exists. The chain is supported at every step until the last, and the last is not observed by anyone."
+    },
+    {
+     "world": "Freight capacity leaving the national market",
+     "us": "line-haul and delivery cost into New Mexico",
+     "here": "delivered cost of anything trucked in \u2014 food, materials, fuel",
+     "lands": false,
+     "stops_because": "Distance from a distribution point is not held by county, so the differential cost here is a mechanism without a local measure."
+    }
+   ],
+   "opportunities": [
+    {
+     "status": "NOT READY",
+     "hypothesis": null,
+     "why": "No relationship observed here is strong enough to carry an economic hypothesis. That is a statement about the evidence rather than about the place: the honest next step is to measure, not to propose."
+    }
+   ],
+   "coverage": {
+    "can_see": [
+     "labour relationships",
+     "population and age structure",
+     "housing stock, tenure and cost burden",
+     "commuting time"
+    ],
+    "cannot_see": [
+     "employment and earnings by employer",
+     "local capital deployment \u2014 who is lending here, on what terms",
+     "procurement relationships \u2014 what institutions here buy, and from whom",
+     "business transactions \u2014 what firms here sell and to whom",
+     "ownership \u2014 who owns the productive assets, and where the returns go",
+     "what state spending reaches this place"
+    ],
+    "note": "What is and is not observable here \u2014 not how many records exist. A record count is not an economic finding."
+   }
+  }
+ },
+ "refuses": [
+  "No place shows another place's content. Every section is built from this place's own observations or says UNKNOWN.",
+  "A record count is never an economic finding. Coverage states what is and is not observable, not how many rows exist.",
+  "A dependency names one other place only when that place is material on its own; a diffuse inflow is reported as a labour shed instead.",
+  "A constraint is called a bottleneck only when it can say what happens if it moves, what binds next, and whether anyone can move it.",
+  "A world chain that does not reach this place says where it stops.",
+  "An opportunity is a hypothesis with conditions and a falsifier, never a recommendation."
+ ]
+}

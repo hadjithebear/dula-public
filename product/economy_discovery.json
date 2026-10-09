@@ -1,0 +1,2724 @@
+{
+ "artefact": "EC-D · ECONOMIC OPPORTUNITY DISCOVERY",
+ "generated": true,
+ "rebuild": "python pipeline/ec_discovery.py",
+ "discovery_is_a_scan": "every hypothesis below was produced by a RULE walking the shared representation. Nothing is retrieved by keyword and nothing is seeded by name. The construction-materials hypothesis appears because CM_BUILDING_MATERIALS is an INPUT at NATIONAL scope used by housing production, and the localisation rule fires on that shape.",
+ "archetypes_are_portable": "an archetype holds no place's evidence. Each place hypothesis holds its own, and transfers none of it to another region evaluating the same model.",
+ "mechanisms": {
+  "MISSING_CAPABILITY": {
+   "question": "is an activity other productive systems need absent or insufficiently available?",
+   "fires_when": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service."
+  },
+  "SUPPLY_CHAIN_LOCALIZATION": {
+   "question": "could an input sourced elsewhere be produced competitively within the region?",
+   "fires_when": "a component of kind INPUT has scope NATIONAL or GLOBAL and is used by a capability operating locally",
+   "does_not_establish": "that the import is leakage worth eliminating. Distance is one cost among several, and a national supplier may be cheaper delivered than a local one could be produced. Import substitution is a hypothesis about COMPARATIVE cost and nothing here measures it."
+  },
+  "UNMET_DEMAND": {
+   "question": "is there evidence of demand existing suppliers cannot adequately serve?",
+   "fires_when": "a demand-side component is OBSERVED while a supply-side component the same capability needs is constrained, unknown or a bottleneck candidate",
+   "does_not_establish": "that the unserved part is addressable or that anyone would pay a price that works. Observed demand is demand for something at some price from someone, and none of those three is carried by the observation."
+  },
+  "UNDERUTILIZED_CAPACITY": {
+   "question": "could existing facilities, equipment, labour or infrastructure support more activity?",
+   "fires_when": "a component has an observed or partially observed CAPACITY with utilisation UNKNOWN or below it",
+   "does_not_establish": "that additional production would be profitable, or that the slack is available. An asset may be idle because the work is unprofitable, because it is reserved, or because the season is wrong."
+  },
+  "COORDINATION": {
+   "question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fires_when": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity."
+  },
+  "EXPANSION_OR_SUCCESSION": {
+   "question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fires_when": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none."
+  }
+ },
+ "feasibility_states": [
+  {
+   "state": "HYPOTHESIS",
+   "means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "state": "MARKET_VALIDATION_UNDERWAY",
+   "means": "demand, supply or operating questions are being investigated",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "state": "DEMAND_SUPPORTED",
+   "means": "credible evidence supports demand; the business model may still be unresolved",
+   "maps_to": {
+    "evidence": "MARKET_VALIDATED_CANDIDATE",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "state": "OPERATING_FEASIBILITY_SUPPORTED",
+   "means": "evidence supports a plausible operating model under stated conditions",
+   "maps_to": {
+    "evidence": "FEASIBILITY_CANDIDATE",
+    "operator": "LOCALLY_VALIDATED"
+   }
+  },
+  {
+   "state": "DEVELOPMENT_READY",
+   "means": "a credible operator and a supported implementation plan exist",
+   "maps_to": {
+    "evidence": "FEASIBILITY_CANDIDATE",
+    "operator": "OPERATOR_IDENTIFIED"
+   }
+  },
+  {
+   "state": "INVESTMENT_READY",
+   "means": "the existing opportunity ladder's investment requirements are met",
+   "maps_to": {
+    "evidence": "INVESTABLE_OPPORTUNITY",
+    "operator": "INVESTABLE_ENTERPRISE"
+   }
+  },
+  {
+   "state": "CHALLENGED_OR_RETIRED",
+   "means": "contrary evidence undermines the hypothesis",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  }
+ ],
+ "no_competing_ladder": "these market states map onto the two ladders Dula already has -- r38_opportunity.STATUS and the origination operator axis. No third readiness ladder is introduced.",
+ "demand_evidence_classes": [
+  {
+   "cls": "OBSERVED_TRANSACTION",
+   "means": "a purchase that happened, with a quantity"
+  },
+  {
+   "cls": "DOCUMENTED_PROCUREMENT",
+   "means": "a published award or contract"
+  },
+  {
+   "cls": "BUYER_COMMITMENT",
+   "means": "a named buyer stating they will purchase, with terms"
+  },
+  {
+   "cls": "EXPRESSION_OF_INTEREST",
+   "means": "a named buyer saying they might. NOT a commitment."
+  },
+  {
+   "cls": "ESTIMATED",
+   "means": "inferred from a related series, with the inference stated"
+  },
+  {
+   "cls": "HYPOTHESIZED",
+   "means": "proposed; nothing observes it"
+  }
+ ],
+ "partner_roles": {
+  "ESO": "entrepreneur identification, incubation, business development, technical assistance",
+  "INDUSTRY_ORGANIZATION": "market intelligence, supplier relationships, operating requirements",
+  "EXISTING_BUSINESS": "potential expansion, partnership, acquisition or operating role",
+  "BUYER": "demand validation and potential procurement",
+  "CAPITAL_PROVIDER": "financing requirements and investment interest",
+  "GOVERNMENT": "infrastructure, permits, incentives, procurement, public coordination",
+  "COMMUNITY_ORGANIZATION": "local needs, legitimacy, ownership structures, local effects",
+  "SUPPLIER": "production capacity, cost, minimum viable scale, equipment, lead times and what expansion would require",
+  "OPERATOR": "relevant experience, existing assets, operational capability, preferred business model and capital requirement"
+ },
+ "response_effects": {
+  "IDENTIFIES_EXISTING_COMPANY": "reclassify toward expansion rather than new-company formation",
+  "PROVIDES_OPERATING_DATA": "update the operating variables, keeping source and date",
+  "PROCUREMENT_COMMITMENT": "upgrade demand evidence to a commitment",
+  "EXPRESSION_OF_INTEREST": "record interest, which is NOT a commitment",
+  "DEMONSTRATES_INSUFFICIENT_DEMAND": "challenge or retire the hypothesis",
+  "ENTREPRENEUR_INTERESTED": "record an interested lead, NOT a qualified operator",
+  "NO_KNOWLEDGE": "record that this respondent could not help"
+ },
+ "discoveries": [
+  {
+   "id": "DSC_MISS_CM_SERVICED_LAND",
+   "mechanism": "MISSING_CAPABILITY",
+   "mechanism_question": "is an activity other productive systems need absent or insufficiently available?",
+   "fired_because": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service.",
+   "component": "CM_SERVICED_LAND",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Housing production requires land with water, wastewater and road service and the capacity to add homes, and its existence is not observed",
+   "economic_relationship": "CAP_HOUSING cannot be performed without it, and nothing in Dula records whether it is present in the region",
+   "productive_activity_hypothesis": "provision of land with water, wastewater and road service and the capacity to add homes",
+   "economic_variables": [
+    "whether it exists at all",
+    "who would pay for it",
+    "at what price"
+   ],
+   "existing_alternatives": "UNKNOWN — Dula holds no supplier record for this component, which is not the same as there being none",
+   "potential_customers": "whoever performs housing production",
+   "required_capabilities": [
+    "CM_SERVICED_LAND"
+   ],
+   "critical_unknowns": [
+    "no basis recorded",
+    "whether the absence is real or unobserved"
+   ],
+   "counterevidence": [
+    "an absent record in Dula is not an absent service"
+   ],
+   "provenance": [
+    "capability.json CM_SERVICED_LAND",
+    "capability.json CAP_HOUSING"
+   ],
+   "next_validation_action": "establish whether land with water, wastewater and road service and the capacity to add homes exists in the region at all",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_MISS_CM_CONSTRUCTION_CREDIT",
+   "mechanism": "MISSING_CAPABILITY",
+   "mechanism_question": "is an activity other productive systems need absent or insufficiently available?",
+   "fired_because": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service.",
+   "component": "CM_CONSTRUCTION_CREDIT",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Housing production requires construction and project lending available to a builder here, and its existence is not observed",
+   "economic_relationship": "CAP_HOUSING cannot be performed without it, and nothing in Dula records whether it is present in the region",
+   "productive_activity_hypothesis": "provision of construction and project lending available to a builder here",
+   "economic_variables": [
+    "whether it exists at all",
+    "who would pay for it",
+    "at what price"
+   ],
+   "existing_alternatives": "UNKNOWN — Dula holds no supplier record for this component, which is not the same as there being none",
+   "potential_customers": "whoever performs housing production",
+   "required_capabilities": [
+    "CM_CONSTRUCTION_CREDIT"
+   ],
+   "critical_unknowns": [
+    "no basis recorded",
+    "whether the absence is real or unobserved"
+   ],
+   "counterevidence": [
+    "an absent record in Dula is not an absent service"
+   ],
+   "provenance": [
+    "capability.json CM_CONSTRUCTION_CREDIT",
+    "capability.json CAP_HOUSING"
+   ],
+   "next_validation_action": "establish whether construction and project lending available to a builder here exists in the region at all",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_MISS_CM_SUCCESSOR_POOL",
+   "mechanism": "MISSING_CAPABILITY",
+   "mechanism_question": "is an activity other productive systems need absent or insufficiently available?",
+   "fired_because": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service.",
+   "component": "CM_SUCCESSOR_POOL",
+   "capability": "CAP_BIZ_TRANSFER",
+   "system": [],
+   "observed_condition": "Business ownership transfer requires people able and willing to take over or start an operating business, and its existence is not observed",
+   "economic_relationship": "CAP_BIZ_TRANSFER cannot be performed without it, and nothing in Dula records whether it is present in the region",
+   "productive_activity_hypothesis": "provision of people able and willing to take over or start an operating business",
+   "economic_variables": [
+    "whether it exists at all",
+    "who would pay for it",
+    "at what price"
+   ],
+   "existing_alternatives": "UNKNOWN — Dula holds no supplier record for this component, which is not the same as there being none",
+   "potential_customers": "whoever performs business ownership transfer",
+   "required_capabilities": [
+    "CM_SUCCESSOR_POOL"
+   ],
+   "critical_unknowns": [
+    "no basis recorded",
+    "whether the absence is real or unobserved"
+   ],
+   "counterevidence": [
+    "an absent record in Dula is not an absent service"
+   ],
+   "provenance": [
+    "capability.json CM_SUCCESSOR_POOL",
+    "capability.json CAP_BIZ_TRANSFER"
+   ],
+   "next_validation_action": "establish whether people able and willing to take over or start an operating business exists in the region at all",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_MISS_CM_COMMERCIAL_SPACE",
+   "mechanism": "MISSING_CAPABILITY",
+   "mechanism_question": "is an activity other productive systems need absent or insufficiently available?",
+   "fired_because": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service.",
+   "component": "CM_COMMERCIAL_SPACE",
+   "capability": "CAP_BIZ_FORM",
+   "system": [],
+   "observed_condition": "Business formation requires premises a business can occupy on terms it can meet, and its existence is not observed",
+   "economic_relationship": "CAP_BIZ_FORM cannot be performed without it, and nothing in Dula records whether it is present in the region",
+   "productive_activity_hypothesis": "provision of premises a business can occupy on terms it can meet",
+   "economic_variables": [
+    "whether it exists at all",
+    "who would pay for it",
+    "at what price"
+   ],
+   "existing_alternatives": "UNKNOWN — Dula holds no supplier record for this component, which is not the same as there being none",
+   "potential_customers": "whoever performs business formation",
+   "required_capabilities": [
+    "CM_COMMERCIAL_SPACE"
+   ],
+   "critical_unknowns": [
+    "no basis recorded",
+    "whether the absence is real or unobserved"
+   ],
+   "counterevidence": [
+    "an absent record in Dula is not an absent service"
+   ],
+   "provenance": [
+    "capability.json CM_COMMERCIAL_SPACE",
+    "capability.json CAP_BIZ_FORM"
+   ],
+   "next_validation_action": "establish whether premises a business can occupy on terms it can meet exists in the region at all",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_MISS_CM_WORKING_CAPITAL",
+   "mechanism": "MISSING_CAPABILITY",
+   "mechanism_question": "is an activity other productive systems need absent or insufficiently available?",
+   "fired_because": "a component a capability requires has existence UNKNOWN",
+   "does_not_establish": "that anyone would pay for it. A capability Dula cannot see is a gap in Dula's observation before it is a gap in the economy, and an absent record is not an absent service.",
+   "component": "CM_WORKING_CAPITAL",
+   "capability": "CAP_BIZ_EXPAND",
+   "system": [],
+   "observed_condition": "Business expansion requires credit an operating business can draw on to expand, and its existence is not observed",
+   "economic_relationship": "CAP_BIZ_EXPAND cannot be performed without it, and nothing in Dula records whether it is present in the region",
+   "productive_activity_hypothesis": "provision of credit an operating business can draw on to expand",
+   "economic_variables": [
+    "whether it exists at all",
+    "who would pay for it",
+    "at what price"
+   ],
+   "existing_alternatives": "UNKNOWN — Dula holds no supplier record for this component, which is not the same as there being none",
+   "potential_customers": "whoever performs business expansion",
+   "required_capabilities": [
+    "CM_WORKING_CAPITAL"
+   ],
+   "critical_unknowns": [
+    "no basis recorded",
+    "whether the absence is real or unobserved"
+   ],
+   "counterevidence": [
+    "an absent record in Dula is not an absent service"
+   ],
+   "provenance": [
+    "capability.json CM_WORKING_CAPITAL",
+    "capability.json CAP_BIZ_EXPAND"
+   ],
+   "next_validation_action": "establish whether credit an operating business can draw on to expand exists in the region at all",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_SUPP_CM_BUILDING_MATERIALS",
+   "mechanism": "SUPPLY_CHAIN_LOCALIZATION",
+   "mechanism_question": "could an input sourced elsewhere be produced competitively within the region?",
+   "fired_because": "a component of kind INPUT has scope NATIONAL or GLOBAL and is used by a capability operating locally",
+   "does_not_establish": "that the import is leakage worth eliminating. Distance is one cost among several, and a national supplier may be cheaper delivered than a local one could be produced. Import substitution is a hypothesis about COMPARATIVE cost and nothing here measures it.",
+   "component": "CM_BUILDING_MATERIALS",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Building materials delivered to a regional job site is sourced at national scope and is required by housing production",
+   "economic_relationship": "an input crossing a long distance carries freight and lead time into every unit of local output",
+   "productive_activity_hypothesis": "regional production or aggregation of building materials delivered to a regional job site",
+   "economic_variables": [
+    "delivered cost of the national supply",
+    "cost of local production at achievable volume",
+    "freight",
+    "volume required to reach minimum efficient scale"
+   ],
+   "existing_alternatives": "the existing national supply, which is observed to work and whose cost is not held",
+   "potential_customers": "producers performing housing production",
+   "required_capabilities": [
+    "CM_BUILDING_MATERIALS"
+   ],
+   "critical_unknowns": [
+    "what the region currently pays delivered",
+    "what local production would cost",
+    "regional volume at a single point"
+   ],
+   "counterevidence": [
+    "a national supplier may be cheaper delivered than a local one could produce. Import substitution is a comparative-cost claim and nothing here measures either side"
+   ],
+   "provenance": [
+    "capability.json CM_BUILDING_MATERIALS scope=NATIONAL"
+   ],
+   "next_validation_action": "obtain delivered cost of the current supply and an indicative cost of local production at regional volume",
+   "actor_classes_present": {
+    "manufacturer": 8,
+    "processor": 12,
+    "producer": 96
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_SUPP_CM_FARM_INPUTS",
+   "mechanism": "SUPPLY_CHAIN_LOCALIZATION",
+   "mechanism_question": "could an input sourced elsewhere be produced competitively within the region?",
+   "fired_because": "a component of kind INPUT has scope NATIONAL or GLOBAL and is used by a capability operating locally",
+   "does_not_establish": "that the import is leakage worth eliminating. Distance is one cost among several, and a national supplier may be cheaper delivered than a local one could be produced. Import substitution is a hypothesis about COMPARATIVE cost and nothing here measures it.",
+   "component": "CM_FARM_INPUTS",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Fuel, fertilizer and feed delivered to a regional farm is sourced at global scope and is required by regional food production",
+   "economic_relationship": "an input crossing a long distance carries freight and lead time into every unit of local output",
+   "productive_activity_hypothesis": "regional production or aggregation of fuel, fertilizer and feed delivered to a regional farm",
+   "economic_variables": [
+    "delivered cost of the national supply",
+    "cost of local production at achievable volume",
+    "freight",
+    "volume required to reach minimum efficient scale"
+   ],
+   "existing_alternatives": "the existing global supply, which is observed to work and whose cost is not held",
+   "potential_customers": "producers performing regional food production",
+   "required_capabilities": [
+    "CM_FARM_INPUTS"
+   ],
+   "critical_unknowns": [
+    "what the region currently pays delivered",
+    "what local production would cost",
+    "regional volume at a single point"
+   ],
+   "counterevidence": [
+    "a national supplier may be cheaper delivered than a local one could produce. Import substitution is a comparative-cost claim and nothing here measures either side"
+   ],
+   "provenance": [
+    "capability.json CM_FARM_INPUTS scope=GLOBAL"
+   ],
+   "next_validation_action": "obtain delivered cost of the current supply and an indicative cost of local production at regional volume",
+   "actor_classes_present": {
+    "manufacturer": 8,
+    "processor": 12,
+    "producer": 96
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_SUPP_CM_DIESEL",
+   "mechanism": "SUPPLY_CHAIN_LOCALIZATION",
+   "mechanism_question": "could an input sourced elsewhere be produced competitively within the region?",
+   "fired_because": "a component of kind INPUT has scope NATIONAL or GLOBAL and is used by a capability operating locally",
+   "does_not_establish": "that the import is leakage worth eliminating. Distance is one cost among several, and a national supplier may be cheaper delivered than a local one could be produced. Import substitution is a hypothesis about COMPARATIVE cost and nothing here measures it.",
+   "component": "CM_DIESEL",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Diesel at the price actually paid in the eight counties is sourced at global scope and is required by regional food aggregation and distribution",
+   "economic_relationship": "an input crossing a long distance carries freight and lead time into every unit of local output",
+   "productive_activity_hypothesis": "regional production or aggregation of diesel at the price actually paid in the eight counties",
+   "economic_variables": [
+    "delivered cost of the national supply",
+    "cost of local production at achievable volume",
+    "freight",
+    "volume required to reach minimum efficient scale"
+   ],
+   "existing_alternatives": "the existing global supply, which is observed to work and whose cost is not held",
+   "potential_customers": "producers performing regional food aggregation and distribution",
+   "required_capabilities": [
+    "CM_DIESEL"
+   ],
+   "critical_unknowns": [
+    "what the region currently pays delivered",
+    "what local production would cost",
+    "regional volume at a single point"
+   ],
+   "counterevidence": [
+    "a national supplier may be cheaper delivered than a local one could produce. Import substitution is a comparative-cost claim and nothing here measures either side"
+   ],
+   "provenance": [
+    "capability.json CM_DIESEL scope=GLOBAL"
+   ],
+   "next_validation_action": "obtain delivered cost of the current supply and an indicative cost of local production at regional volume",
+   "actor_classes_present": {
+    "manufacturer": 8,
+    "processor": 12,
+    "producer": 96
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_UNME_CM_EFFECTIVE_HOUSING_DEMAND",
+   "mechanism": "UNMET_DEMAND",
+   "mechanism_question": "is there evidence of demand existing suppliers cannot adequately serve?",
+   "fired_because": "a demand-side component is OBSERVED while a supply-side component the same capability needs is constrained, unknown or a bottleneck candidate",
+   "does_not_establish": "that the unserved part is addressable or that anyone would pay a price that works. Observed demand is demand for something at some price from someone, and none of those three is carried by the observation.",
+   "component": "CM_EFFECTIVE_HOUSING_DEMAND",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Households able and willing to pay what a new unit costs is observed, while 10 of the components the same activity needs have unknown capacity",
+   "economic_relationship": "demand that exists cannot be served by capacity nobody has measured",
+   "productive_activity_hypothesis": "supply to households able and willing to pay what a new unit costs",
+   "economic_variables": [
+    "volume demanded",
+    "price the buyer will pay",
+    "delivery and specification requirements",
+    "share currently served"
+   ],
+   "existing_alternatives": "whoever serves this demand today, which Dula does not identify",
+   "potential_customers": "Households able and willing to pay what a new unit costs",
+   "required_capabilities": [
+    "CM_EFFECTIVE_HOUSING_DEMAND"
+   ],
+   "critical_unknowns": [
+    "the share of this demand currently unserved",
+    "whether unserved volume is addressable at a workable price"
+   ],
+   "counterevidence": [
+    "observed demand is demand for something, at some price, from someone. None of those three is carried by the observation",
+    "a missing supplier record does not establish unmet demand"
+   ],
+   "provenance": [
+    "capability.json CM_EFFECTIVE_HOUSING_DEMAND",
+    "capability.json CM_TRADES_LABOR",
+    "capability.json CM_BUILDING_FIRMS",
+    "capability.json CM_SERVICED_LAND"
+   ],
+   "next_validation_action": "establish what share of this demand is currently served, and by whom",
+   "actor_classes_present": {
+    "distributor": 6,
+    "aggregator_food_hub": 12,
+    "processor": 12
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_UNME_CM_INSTITUTIONAL_DEMAND",
+   "mechanism": "UNMET_DEMAND",
+   "mechanism_question": "is there evidence of demand existing suppliers cannot adequately serve?",
+   "fired_because": "a demand-side component is OBSERVED while a supply-side component the same capability needs is constrained, unknown or a bottleneck candidate",
+   "does_not_establish": "that the unserved part is addressable or that anyone would pay a price that works. Observed demand is demand for something at some price from someone, and none of those three is carried by the observation.",
+   "component": "CM_INSTITUTIONAL_DEMAND",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Schools, senior centres and food banks buying regional product is observed, while 8 of the components the same activity needs have unknown capacity",
+   "economic_relationship": "demand that exists cannot be served by capacity nobody has measured",
+   "productive_activity_hypothesis": "supply to schools, senior centres and food banks buying regional product",
+   "economic_variables": [
+    "volume demanded",
+    "price the buyer will pay",
+    "delivery and specification requirements",
+    "share currently served"
+   ],
+   "existing_alternatives": "whoever serves this demand today, which Dula does not identify",
+   "potential_customers": "Schools, senior centres and food banks buying regional product",
+   "required_capabilities": [
+    "CM_INSTITUTIONAL_DEMAND"
+   ],
+   "critical_unknowns": [
+    "the share of this demand currently unserved",
+    "whether unserved volume is addressable at a workable price"
+   ],
+   "counterevidence": [
+    "observed demand is demand for something, at some price, from someone. None of those three is carried by the observation",
+    "a missing supplier record does not establish unmet demand"
+   ],
+   "provenance": [
+    "capability.json CM_INSTITUTIONAL_DEMAND",
+    "capability.json CM_POSTHARVEST",
+    "capability.json CM_INSPECTED_PROCESSING",
+    "capability.json CM_COLD_STORAGE"
+   ],
+   "next_validation_action": "establish what share of this demand is currently served, and by whom",
+   "actor_classes_present": {
+    "distributor": 6,
+    "aggregator_food_hub": 12,
+    "processor": 12
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_UNDE_CM_INSPECTED_PROCESSING",
+   "mechanism": "UNDERUTILIZED_CAPACITY",
+   "mechanism_question": "could existing facilities, equipment, labour or infrastructure support more activity?",
+   "fired_because": "a component has an observed or partially observed CAPACITY with utilisation UNKNOWN or below it",
+   "does_not_establish": "that additional production would be profitable, or that the slack is available. An asset may be idle because the work is unprofitable, because it is reserved, or because the season is wrong.",
+   "component": "CM_INSPECTED_PROCESSING",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Inspected slaughter and cut-and-wrap within reach of northern ranchers has a partially observed capacity and utilisation is unknown",
+   "economic_relationship": "an asset whose throughput nobody measures may have slack, or may be the binding constraint; the same record is consistent with both",
+   "productive_activity_hypothesis": "additional throughput through inspected slaughter and cut-and-wrap within reach of northern ranchers",
+   "economic_variables": [
+    "current throughput",
+    "nameplate capacity",
+    "marginal cost of additional volume",
+    "price for the additional output"
+   ],
+   "existing_alternatives": "the existing operator of inspected slaughter and cut-and-wrap within reach of northern ranchers, who may already be at the limit",
+   "potential_customers": "whoever would buy the additional output",
+   "required_capabilities": [
+    "CM_INSPECTED_PROCESSING"
+   ],
+   "critical_unknowns": [
+    "actual utilisation",
+    "whether slack is seasonal or structural",
+    "whether the owner wants more volume"
+   ],
+   "counterevidence": [
+    "unused capacity does not mean more production would be profitable. An asset may be idle because the work does not pay"
+   ],
+   "provenance": [
+    "capability.json CM_INSPECTED_PROCESSING",
+    "up to 50 lambs/day at Naturally New Mexico Food Products"
+   ],
+   "next_validation_action": "obtain actual throughput against capacity for inspected slaughter and cut-and-wrap within reach of northern ranchers",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_TRADES_LABOR",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_TRADES_LABOR",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Building trades and crews available to work in the region is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of building trades and crews available to work in the region",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Housing production, Business expansion",
+   "required_capabilities": [
+    "CM_TRADES_LABOR"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_TRADES_LABOR used_by=['CAP_HOUSING', 'CAP_BIZ_EXPAND']"
+   ],
+   "next_validation_action": "measure capacity of building trades and crews available to work in the region and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_WATER_SEWER_CAPACITY",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_WATER_SEWER_CAPACITY",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Spare connection capacity in community water and wastewater systems is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of spare connection capacity in community water and wastewater systems",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Housing production, Business expansion",
+   "required_capabilities": [
+    "CM_WATER_SEWER_CAPACITY"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_WATER_SEWER_CAPACITY used_by=['CAP_HOUSING', 'CAP_BIZ_EXPAND']"
+   ],
+   "next_validation_action": "measure capacity of spare connection capacity in community water and wastewater systems and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_ENTITLEMENT_PERMIT",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_ENTITLEMENT_PERMIT",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Zoning approval, entitlement and building permits is required by 3 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of zoning approval, entitlement and building permits",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Housing production, Business formation, Business expansion",
+   "required_capabilities": [
+    "CM_ENTITLEMENT_PERMIT"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_ENTITLEMENT_PERMIT used_by=['CAP_HOUSING', 'CAP_BIZ_FORM', 'CAP_BIZ_EXPAND']"
+   ],
+   "next_validation_action": "measure capacity of zoning approval, entitlement and building permits and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_DELIVERABLE_WATER",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_DELIVERABLE_WATER",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Water actually delivered to irrigators and towns is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of water actually delivered to irrigators and towns",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food production, Housing production",
+   "required_capabilities": [
+    "CM_DELIVERABLE_WATER"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_DELIVERABLE_WATER used_by=['CAP_FOOD_PROD', 'CAP_HOUSING']"
+   ],
+   "next_validation_action": "measure capacity of water actually delivered to irrigators and towns and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_POSTHARVEST",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_POSTHARVEST",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Washing, packing and cooling between the field and a buyer is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of washing, packing and cooling between the field and a buyer",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food production, Regional food aggregation and distribution",
+   "required_capabilities": [
+    "CM_POSTHARVEST"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_POSTHARVEST used_by=['CAP_FOOD_PROD', 'CAP_FOOD_DIST']"
+   ],
+   "next_validation_action": "measure capacity of washing, packing and cooling between the field and a buyer and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_INSPECTED_PROCESSING",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_INSPECTED_PROCESSING",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Inspected slaughter and cut-and-wrap within reach of northern ranchers is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of inspected slaughter and cut-and-wrap within reach of northern ranchers",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food production, Regional food aggregation and distribution",
+   "required_capabilities": [
+    "CM_INSPECTED_PROCESSING"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_INSPECTED_PROCESSING used_by=['CAP_FOOD_PROD', 'CAP_FOOD_DIST']"
+   ],
+   "next_validation_action": "measure capacity of inspected slaughter and cut-and-wrap within reach of northern ranchers and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_COLD_STORAGE",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_COLD_STORAGE",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Cold storage between a northern farm and a northern buyer is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of cold storage between a northern farm and a northern buyer",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food aggregation and distribution, Regional food production",
+   "required_capabilities": [
+    "CM_COLD_STORAGE"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_COLD_STORAGE used_by=['CAP_FOOD_DIST', 'CAP_FOOD_PROD']"
+   ],
+   "next_validation_action": "measure capacity of cold storage between a northern farm and a northern buyer and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_DIESEL",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_DIESEL",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Diesel at the price actually paid in the eight counties is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of diesel at the price actually paid in the eight counties",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food aggregation and distribution, Regional food production",
+   "required_capabilities": [
+    "CM_DIESEL"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_DIESEL used_by=['CAP_FOOD_DIST', 'CAP_FOOD_PROD']"
+   ],
+   "next_validation_action": "measure capacity of diesel at the price actually paid in the eight counties and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_INSTITUTIONAL_DEMAND",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_INSTITUTIONAL_DEMAND",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Schools, senior centres and food banks buying regional product is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of schools, senior centres and food banks buying regional product",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Regional food aggregation and distribution, Regional food production",
+   "required_capabilities": [
+    "CM_INSTITUTIONAL_DEMAND"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_INSTITUTIONAL_DEMAND used_by=['CAP_FOOD_DIST', 'CAP_FOOD_PROD']"
+   ],
+   "next_validation_action": "measure capacity of schools, senior centres and food banks buying regional product and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_SUCCESSOR_POOL",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_SUCCESSOR_POOL",
+   "capability": "CAP_BIZ_TRANSFER",
+   "system": [],
+   "observed_condition": "People able and willing to take over or start an operating business is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of people able and willing to take over or start an operating business",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business ownership transfer, Business formation",
+   "required_capabilities": [
+    "CM_SUCCESSOR_POOL"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_SUCCESSOR_POOL used_by=['CAP_BIZ_TRANSFER', 'CAP_BIZ_FORM']"
+   ],
+   "next_validation_action": "measure capacity of people able and willing to take over or start an operating business and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_COMMERCIAL_SPACE",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_COMMERCIAL_SPACE",
+   "capability": "CAP_BIZ_FORM",
+   "system": [],
+   "observed_condition": "Premises a business can occupy on terms it can meet is required by 3 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of premises a business can occupy on terms it can meet",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business formation, Business expansion, Business ownership transfer",
+   "required_capabilities": [
+    "CM_COMMERCIAL_SPACE"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_COMMERCIAL_SPACE used_by=['CAP_BIZ_FORM', 'CAP_BIZ_EXPAND', 'CAP_BIZ_TRANSFER']"
+   ],
+   "next_validation_action": "measure capacity of premises a business can occupy on terms it can meet and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_BUSINESS_SUPPORT",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_BUSINESS_SUPPORT",
+   "capability": "CAP_BIZ_FORM",
+   "system": [],
+   "observed_condition": "Technical assistance and business-support institutions is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of technical assistance and business-support institutions",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business formation, Business ownership transfer",
+   "required_capabilities": [
+    "CM_BUSINESS_SUPPORT"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_BUSINESS_SUPPORT used_by=['CAP_BIZ_FORM', 'CAP_BIZ_TRANSFER']"
+   ],
+   "next_validation_action": "measure capacity of technical assistance and business-support institutions and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_LOCAL_DEMAND",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_LOCAL_DEMAND",
+   "capability": "CAP_BIZ_FORM",
+   "system": [],
+   "observed_condition": "Customers with money to spend in the region is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of customers with money to spend in the region",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business formation, Business expansion",
+   "required_capabilities": [
+    "CM_LOCAL_DEMAND"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_LOCAL_DEMAND used_by=['CAP_BIZ_FORM', 'CAP_BIZ_EXPAND']"
+   ],
+   "next_validation_action": "measure capacity of customers with money to spend in the region and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_WORKFORCE",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_WORKFORCE",
+   "capability": "CAP_BIZ_EXPAND",
+   "system": [],
+   "observed_condition": "Workers a business can hire and keep is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of workers a business can hire and keep",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business expansion, Business formation",
+   "required_capabilities": [
+    "CM_WORKFORCE"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_WORKFORCE used_by=['CAP_BIZ_EXPAND', 'CAP_BIZ_FORM']"
+   ],
+   "next_validation_action": "measure capacity of workers a business can hire and keep and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_COOR_CM_OPERATING_LICENSE",
+   "mechanism": "COORDINATION",
+   "mechanism_question": "could organisations achieve better economics through shared operations, procurement, infrastructure or market access?",
+   "fired_because": "a component is required by two or more capabilities and its capacity is unknown, so neither knows whether it is competing with the other for it",
+   "does_not_establish": "that the parties would coordinate, or that coordination is cheaper than duplication. Two activities needing one thing is as likely to be rivalry as complementarity.",
+   "component": "CM_OPERATING_LICENSE",
+   "capability": "CAP_BIZ_FORM",
+   "system": [],
+   "observed_condition": "Licences and permissions a business must hold to operate is required by 2 different activities and its capacity is not known to any of them",
+   "economic_relationship": "activities sharing an unmeasured resource cannot tell cooperation from competition for it",
+   "productive_activity_hypothesis": "shared provision or coordinated use of licences and permissions a business must hold to operate",
+   "economic_variables": [
+    "total requirement across the users",
+    "available capacity",
+    "cost of sharing versus duplicating",
+    "who bears the fixed cost"
+   ],
+   "existing_alternatives": "each activity procuring separately, which is what happens now",
+   "potential_customers": "Business formation, Business ownership transfer",
+   "required_capabilities": [
+    "CM_OPERATING_LICENSE"
+   ],
+   "critical_unknowns": [
+    "capacity",
+    "each user's requirement",
+    "whether the parties would coordinate at all"
+   ],
+   "counterevidence": [
+    "two activities needing one thing is as likely to be rivalry as complementarity"
+   ],
+   "provenance": [
+    "capability.json CM_OPERATING_LICENSE used_by=['CAP_BIZ_FORM', 'CAP_BIZ_TRANSFER']"
+   ],
+   "next_validation_action": "measure capacity of licences and permissions a business must hold to operate and each user's call on it",
+   "actor_classes_present": {},
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_TRADES_LABOR",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_TRADES_LABOR",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Building trades and crews available to work in the region is the operating base for housing production, observed as proxy only",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among building trades and crews available to work in the region",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_TRADES_LABOR"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_TRADES_LABOR"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_BUILDING_FIRMS",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_BUILDING_FIRMS",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Firms that can take a housing project from site to occupancy is the operating base for housing production, observed as proxy only",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among firms that can take a housing project from site to occupancy",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_BUILDING_FIRMS"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_BUILDING_FIRMS"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_ARCH_ENGINEERING",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_ARCH_ENGINEERING",
+   "capability": "CAP_HOUSING",
+   "system": [
+    "housing"
+   ],
+   "observed_condition": "Architecture and engineering able to produce a permittable set is the operating base for housing production, observed as proxy only",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among architecture and engineering able to produce a permittable set",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_ARCH_ENGINEERING"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_ARCH_ENGINEERING"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_FARM_OPERATORS",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_FARM_OPERATORS",
+   "capability": "CAP_FOOD_PROD",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "People operating farms and ranches in the eight counties is the operating base for regional food production, observed as observed",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among people operating farms and ranches in the eight counties",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_FARM_OPERATORS"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_FARM_OPERATORS"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_AGGREGATORS",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_AGGREGATORS",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Intermediaries that consolidate small northern lots into buyable volume is the operating base for regional food aggregation and distribution, observed as observed",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among intermediaries that consolidate small northern lots into buyable volume",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_AGGREGATORS"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_AGGREGATORS"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_RURAL_GROCERY",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_RURAL_GROCERY",
+   "capability": "CAP_FOOD_DIST",
+   "system": [
+    "food"
+   ],
+   "observed_condition": "Full-line grocery in single-store valleys is the operating base for regional food aggregation and distribution, observed as observed",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among full-line grocery in single-store valleys",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_RURAL_GROCERY"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_RURAL_GROCERY"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_BUSINESS_OWNERS",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_BUSINESS_OWNERS",
+   "capability": "CAP_BIZ_TRANSFER",
+   "system": [],
+   "observed_condition": "Owners of operating businesses who may exit is the operating base for business ownership transfer, observed as proxy only",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among owners of operating businesses who may exit",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_BUSINESS_OWNERS"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_BUSINESS_OWNERS"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_SUCCESSOR_POOL",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_SUCCESSOR_POOL",
+   "capability": "CAP_BIZ_TRANSFER",
+   "system": [],
+   "observed_condition": "People able and willing to take over or start an operating business is the operating base for business ownership transfer, observed as unknown",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among people able and willing to take over or start an operating business",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_SUCCESSOR_POOL"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_SUCCESSOR_POOL"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  },
+  {
+   "id": "DSC_EXPA_CM_WORKFORCE",
+   "mechanism": "EXPANSION_OR_SUCCESSION",
+   "mechanism_question": "could an existing enterprise expand, transfer ownership, or preserve a productive capability?",
+   "fired_because": "actors of a relevant class are OBSERVED in the population and a constraint records the base ageing, contracting or failing",
+   "does_not_establish": "that any owner intends to sell, or that any firm wants to grow. An intention is a fact about a person and Dula observes none.",
+   "component": "CM_WORKFORCE",
+   "capability": "CAP_BIZ_EXPAND",
+   "system": [],
+   "observed_condition": "Workers a business can hire and keep is the operating base for business expansion, observed as proxy only",
+   "economic_relationship": "a productive capability held by existing operators is lost when they stop, and preserved when someone takes it on",
+   "productive_activity_hypothesis": "expansion, transfer or succession among workers a business can hire and keep",
+   "economic_variables": [
+    "number of operators",
+    "age distribution",
+    "earnings",
+    "acquisition price",
+    "available acquisition finance"
+   ],
+   "existing_alternatives": "the operators themselves, who are already doing this",
+   "potential_customers": "the existing customers of those operators",
+   "required_capabilities": [
+    "CM_WORKFORCE"
+   ],
+   "critical_unknowns": [
+    "any owner's intention to sell or grow",
+    "earnings of any individual operator"
+   ],
+   "counterevidence": [
+    "an intention is a fact about a person, and Dula observes none",
+    "an existing operator may be more efficient than any replacement"
+   ],
+   "provenance": [
+    "capability.json CM_WORKFORCE"
+   ],
+   "next_validation_action": "establish whether any operator intends to exit or expand",
+   "actor_classes_present": {
+    "producer": 96,
+    "rancher": 4,
+    "manufacturer": 8,
+    "distributor": 6
+   },
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   }
+  }
+ ],
+ "discovery_counts": {
+  "total": 35,
+  "by_mechanism": {
+   "MISSING_CAPABILITY": 5,
+   "SUPPLY_CHAIN_LOCALIZATION": 3,
+   "UNMET_DEMAND": 2,
+   "UNDERUTILIZED_CAPACITY": 1,
+   "COORDINATION": 15,
+   "EXPANSION_OR_SUCCESSION": 9
+  }
+ },
+ "hypotheses": [
+  {
+   "id": "PH_NNM_AGGREGATION",
+   "archetype": "AT_AGGREGATION",
+   "place": "Northern New Mexico",
+   "discovered_by": [
+    "DSC_UNME_CM_INSTITUTIONAL_DEMAND",
+    "DSC_COOR_CM_COLD_STORAGE",
+    "DSC_COOR_CM_INSTITUTIONAL_DEMAND",
+    "DSC_EXPA_CM_AGGREGATORS"
+   ],
+   "economic_rationale": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "demand": [
+    {
+     "what": "institutional buyers in the entity population",
+     "value": 97,
+     "evidence": "OBSERVED_TRANSACTION",
+     "basis": "entity population, buyers observed purchasing food",
+     "note": "observed as BUYERS. What they buy, at what price, and how much of it could be regional is not observed."
+    },
+    {
+     "what": "rural grocers",
+     "value": 347,
+     "evidence": "OBSERVED_TRANSACTION",
+     "basis": "SNAP-authorised retailer records"
+    },
+    {
+     "what": "public local-food purchasing (NM Grown)",
+     "value": null,
+     "evidence": "DOCUMENTED_PROCUREMENT",
+     "basis": "CM_PROGRAM_FUNDING, the one component with an OBSERVED committed capacity",
+     "note": "appropriated, and time-limited. Constraint C03 records that local wholesale demand depends on exactly this."
+    },
+    {
+     "what": "volume any buyer would commit to a regional supplier",
+     "value": null,
+     "evidence": "HYPOTHESIZED",
+     "basis": "nothing observes it",
+     "note": "THE decisive unknown. Regional spend is not addressable demand."
+    }
+   ],
+   "supply_and_competition": {
+    "existing_providers": {
+     "distributor": 6,
+     "aggregator_food_hub": 12,
+     "food_bank": 14,
+     "processor": 12
+    },
+    "reading": "6 distributors and 12 aggregator food hubs are already observed, plus 14 food banks of which one runs ~400,000 miles a year. This function is NOT absent. The question is whether its economics work north of Santa Fe, which is a different question from whether anyone does it.",
+    "advantages_of_incumbents": [
+     "existing routes and customers",
+     "vehicles and cold chain already financed",
+     "buyer relationships and compliance already in place"
+    ],
+    "could_an_incumbent_expand": "UNKNOWN, and it is the first question to ask. An existing operator adding stops faces marginal cost; a new entrant faces average cost.",
+    "do_not_infer": "absence of a supplier record in Dula is not absence of a supplier"
+   },
+   "operating_economics": {
+    "model": "ec_interventions.route_economics — the same identity, not a second one",
+    "known": {
+     "route_cost_usd": [
+      341,
+      676
+     ],
+     "miles": 262
+    },
+    "unknown": [
+     "stops per loop",
+     "order value per stop",
+     "contribution margin",
+     "vehicle utilisation",
+     "handling cost per stop"
+    ],
+    "break_even": "computable the moment stops and margin are supplied; the application exposes both as scenario inputs and inserts neither",
+    "worked_floor": "at 10 stops a $341-$676 loop needs $34.10-$67.60 of contribution per stop before anything else is paid for"
+   },
+   "capital_requirements": {
+    "kinds_possibly_required": [
+     "working capital between paying a producer and being paid by an institution",
+     "vehicles and cold chain",
+     "a facility, if aggregation is physical"
+    ],
+    "amounts": "NOT ESTIMATED. No equipment list, no facility and no payment terms are held.",
+    "do_not_invent": "no investment amount or return is stated, because none is derivable"
+   },
+   "development_strategies": [
+    {
+     "name": "An existing distributor expands north",
+     "kind": "EXPANSION",
+     "what_it_requires": [
+      "spare vehicle capacity",
+      "willingness to serve low-density stops",
+      "a price the buyers accept"
+     ],
+     "who_would_do_it": "one of the 6 observed distributors or 12 hubs",
+     "advantages": [
+      "marginal rather than average cost",
+      "no new entity",
+      "existing compliance and relationships"
+     ],
+     "risks": [
+      "the incumbent already judged this unprofitable and turned the buyers away, which is what the record shows"
+     ],
+     "evidence_for_it": "6 distributors and 12 hubs observed; hubs observed refusing distant buyers",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "Backhaul on existing charitable fleet mileage",
+     "kind": "COORDINATION",
+     "what_it_requires": [
+      "spare capacity on existing runs",
+      "permission and insurance to carry third-party product",
+      "schedule compatibility"
+     ],
+     "who_would_do_it": "a food bank already running the geography",
+     "advantages": [
+      "the route cost is already sunk against another purpose",
+      "possibly little or no capital"
+     ],
+     "risks": [
+      "charitable purpose and insurance may forbid it",
+      "schedules built for pantries may not suit kitchens"
+     ],
+     "evidence_for_it": "~400,000 miles a year across 9 counties to 150+ sites, untested as unknown U32",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "A new regional aggregation and distribution company",
+     "kind": "NEW_ENTERPRISE",
+     "what_it_requires": [
+      "capital",
+      "an operator",
+      "buyers committed in advance",
+      "producers able to meet specification at volume"
+     ],
+     "who_would_do_it": "nobody identified",
+     "advantages": [
+      "purpose-built for the geography and the product"
+     ],
+     "risks": [
+      "faces average cost against incumbents' marginal cost",
+      "must win buyers the incumbents already decided not to serve"
+     ],
+     "evidence_for_it": "none beyond the gap itself",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "Shared infrastructure the incumbents use",
+     "kind": "SHARED_INFRASTRUCTURE",
+     "what_it_requires": [
+      "a site",
+      "capital",
+      "enough throughput across users"
+     ],
+     "who_would_do_it": "a public programme or a producer cooperative",
+     "advantages": [
+      "improves the economics of operators who already exist",
+      "does not require anyone to start a company"
+     ],
+     "risks": [
+      "utilisation across a season is unknown",
+      "fixed cost falls on whoever owns it"
+     ],
+     "evidence_for_it": "cold chain recorded as does_not_exist in the far north and northeast; rentable walk-ins observed in Santa Fe",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    }
+   ],
+   "critical_unknowns": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "partners": [
+    "ESO",
+    "EXISTING_BUSINESS",
+    "BUYER",
+    "GOVERNMENT"
+   ],
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   },
+   "responses": [],
+   "history": [],
+   "evidence_is_place_specific": "none of this transfers to another region evaluating the same archetype"
+  },
+  {
+   "id": "PH_NNM_MATERIALS",
+   "archetype": "AT_INPUT_LOCALIZATION",
+   "place": "Northern New Mexico — building materials",
+   "discovered_by": [
+    "DSC_SUPP_CM_BUILDING_MATERIALS"
+   ],
+   "economic_rationale": "This hypothesis was NOT authored. The localisation rule fired on CM_BUILDING_MATERIALS because it is an INPUT held at NATIONAL scope and required by housing production. Housing's observed all-in cost is $502,632 to $526,316 per unit, so any input cost is material to it. That is the whole of the economic rationale, and it is thin on purpose.",
+   "demand": [
+    {
+     "what": "dwelling units in the one observed project",
+     "value": 380,
+     "evidence": "OBSERVED_TRANSACTION",
+     "basis": "S-06, a financed project",
+     "note": "380 units is a pipeline of one. It is not a materials market."
+    },
+    {
+     "what": "regional housing production per year",
+     "value": null,
+     "evidence": "HYPOTHESIZED",
+     "basis": "census building permits are held in data/raw/census_bps and have not been read into an annual production series for these counties",
+     "note": "without it there is no volume, and without volume there is no manufacturing question"
+    },
+    {
+     "what": "any builder's willingness to buy a regional product",
+     "value": null,
+     "evidence": "HYPOTHESIZED",
+     "basis": "nothing observes it"
+    }
+   ],
+   "supply_and_competition": {
+    "existing_providers": {
+     "manufacturer": 8,
+     "processor": 12
+    },
+    "reading": "8 manufacturers and 12 processors are observed in the entity population, but that population was built by the FOOD research. Dula has no construction-materials supplier register at all, and the right reading of that is that Dula has not looked, not that nobody is there.",
+    "advantages_of_incumbents": [
+     "national suppliers have scale, standard products and existing code certification"
+    ],
+    "could_an_incumbent_expand": "UNKNOWN and unasked; no regional manufacturer is identified as making building products",
+    "do_not_infer": "the absence of a materials supplier record is an absence in Dula's research scope, which was food"
+   },
+   "operating_economics": {
+    "model": "NONE. No operating model is offered.",
+    "known": {
+     "housing_all_in_cost_per_unit": [
+      502632,
+      526316
+     ]
+    },
+    "unknown": [
+     "what share of that cost is materials",
+     "delivered price of any material",
+     "regional volume per year",
+     "minimum efficient scale for any product",
+     "freight from the current source",
+     "code and certification requirements",
+     "workforce with the relevant fabrication skills",
+     "equipment cost"
+    ],
+    "break_even": "NOT COMPUTABLE. Both sides are missing, not one."
+   },
+   "capital_requirements": {
+    "kinds_possibly_required": [
+     "equipment",
+     "a facility",
+     "certification",
+     "working capital"
+    ],
+    "amounts": "NOT ESTIMATED",
+    "do_not_invent": "no amount is stated for any of these"
+   },
+   "development_strategies": [
+    {
+     "name": "Existing manufacturer adds a building product",
+     "kind": "EXPANSION",
+     "what_it_requires": [
+      "an existing manufacturer with compatible equipment",
+      "certification for the product",
+      "a builder willing to buy"
+     ],
+     "who_would_do_it": "one of the 8 observed manufacturers, none of which is known to make building products",
+     "advantages": [
+      "equipment, premises and workforce already exist"
+     ],
+     "risks": [
+      "the observed manufacturers are in food, and the overlap may be zero"
+     ],
+     "evidence_for_it": "8 manufacturers observed, sector unverified",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "Coordinated materials procurement across builders",
+     "kind": "COORDINATION",
+     "what_it_requires": [
+      "several builders buying the same thing",
+      "someone to coordinate"
+     ],
+     "who_would_do_it": "a builders' association or a public programme",
+     "advantages": [
+      "no manufacturing risk; buys scale without building a plant"
+     ],
+     "risks": [
+      "regional volume may be too small for a national supplier to discount"
+     ],
+     "evidence_for_it": "none specific to materials",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "A new regional fabrication or modular operation",
+     "kind": "NEW_ENTERPRISE",
+     "what_it_requires": [
+      "volume",
+      "equipment",
+      "certification",
+      "workforce",
+      "a committed builder"
+     ],
+     "who_would_do_it": "nobody identified",
+     "advantages": [
+      "could shorten lead times into a high-cost market"
+     ],
+     "risks": [
+      "every input to the decision is unmeasured"
+     ],
+     "evidence_for_it": "none",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    }
+   ],
+   "critical_unknowns": [
+    "materials share of construction cost",
+    "regional annual housing production",
+    "any delivered materials price",
+    "whether any regional manufacturer could make building products",
+    "code and certification requirements"
+   ],
+   "partners": [
+    "INDUSTRY_ORGANIZATION",
+    "EXISTING_BUSINESS",
+    "GOVERNMENT",
+    "ESO"
+   ],
+   "feasibility": "HYPOTHESIS",
+   "feasibility_means": "an economic rationale exists; commercial feasibility is not established",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   },
+   "responses": [],
+   "history": [
+    {
+     "event": "discovered by the supply-chain localisation rule",
+     "detail": "CM_BUILDING_MATERIALS, kind=INPUT, scope=NATIONAL, used_by=CAP_HOUSING"
+    }
+   ],
+   "evidence_is_place_specific": "none of this transfers to another region evaluating the same archetype"
+  }
+ ],
+ "validation_requests": [
+  {
+   "hypothesis": "PH_NNM_AGGREGATION",
+   "role": "ESO",
+   "role_means": "entrepreneur identification, incubation, business development, technical assistance",
+   "subject": "Regional food aggregation and distribution — Northern New Mexico",
+   "what_we_think": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "what_we_have_not_established": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "questions": [
+    "Are you supporting entrepreneurs or companies working on this productive activity?",
+    "Is there someone you would introduce this question to?",
+    "Have you seen this model tried here before, and what happened?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_AGGREGATION",
+   "role": "EXISTING_BUSINESS",
+   "role_means": "potential expansion, partnership, acquisition or operating role",
+   "subject": "Regional food aggregation and distribution — Northern New Mexico",
+   "what_we_think": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "what_we_have_not_established": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "questions": [
+    "What order density and contribution margin would make this route commercially viable?",
+    "What would have to change for you to serve this geography?",
+    "Would you rather expand into this yourself than see someone else enter?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_AGGREGATION",
+   "role": "BUYER",
+   "role_means": "demand validation and potential procurement",
+   "subject": "Regional food aggregation and distribution — Northern New Mexico",
+   "what_we_think": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "what_we_have_not_established": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "questions": [
+    "What products, volumes, delivery requirements and prices could you realistically procure?",
+    "Is there a commitment you could make, or is this an expression of interest?",
+    "What has stopped you buying regionally before?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_AGGREGATION",
+   "role": "GOVERNMENT",
+   "role_means": "infrastructure, permits, incentives, procurement, public coordination",
+   "subject": "Regional food aggregation and distribution — Northern New Mexico",
+   "what_we_think": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "what_we_have_not_established": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "questions": [
+    "What infrastructure, permitting or procurement decisions bear on this?",
+    "Is there public purchasing that could underwrite early volume?",
+    "What has been tried here with public money before?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_MATERIALS",
+   "role": "INDUSTRY_ORGANIZATION",
+   "role_means": "market intelligence, supplier relationships, operating requirements",
+   "subject": "Regional production of an input currently sourced at distance — Northern New Mexico — building materials",
+   "what_we_think": "This hypothesis was NOT authored. The localisation rule fired on CM_BUILDING_MATERIALS because it is an INPUT held at NATIONAL scope and required by housing production. Housing's observed all-in cost is $502,632 to $526,316 per unit, so any input cost is material to it. That is the whole of the economic rationale, and it is thin on purpose.",
+   "what_we_have_not_established": [
+    "materials share of construction cost",
+    "regional annual housing production",
+    "any delivered materials price",
+    "whether any regional manufacturer could make building products",
+    "code and certification requirements"
+   ],
+   "questions": [
+    "Who already serves this function in the region, including firms we would not see?",
+    "What operating requirements would a new entrant have to meet?",
+    "Is there a reason this does not already exist that we are missing?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_MATERIALS",
+   "role": "EXISTING_BUSINESS",
+   "role_means": "potential expansion, partnership, acquisition or operating role",
+   "subject": "Regional production of an input currently sourced at distance — Northern New Mexico — building materials",
+   "what_we_think": "This hypothesis was NOT authored. The localisation rule fired on CM_BUILDING_MATERIALS because it is an INPUT held at NATIONAL scope and required by housing production. Housing's observed all-in cost is $502,632 to $526,316 per unit, so any input cost is material to it. That is the whole of the economic rationale, and it is thin on purpose.",
+   "what_we_have_not_established": [
+    "materials share of construction cost",
+    "regional annual housing production",
+    "any delivered materials price",
+    "whether any regional manufacturer could make building products",
+    "code and certification requirements"
+   ],
+   "questions": [
+    "What order density and contribution margin would make this route commercially viable?",
+    "What would have to change for you to serve this geography?",
+    "Would you rather expand into this yourself than see someone else enter?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_MATERIALS",
+   "role": "GOVERNMENT",
+   "role_means": "infrastructure, permits, incentives, procurement, public coordination",
+   "subject": "Regional production of an input currently sourced at distance — Northern New Mexico — building materials",
+   "what_we_think": "This hypothesis was NOT authored. The localisation rule fired on CM_BUILDING_MATERIALS because it is an INPUT held at NATIONAL scope and required by housing production. Housing's observed all-in cost is $502,632 to $526,316 per unit, so any input cost is material to it. That is the whole of the economic rationale, and it is thin on purpose.",
+   "what_we_have_not_established": [
+    "materials share of construction cost",
+    "regional annual housing production",
+    "any delivered materials price",
+    "whether any regional manufacturer could make building products",
+    "code and certification requirements"
+   ],
+   "questions": [
+    "What infrastructure, permitting or procurement decisions bear on this?",
+    "Is there public purchasing that could underwrite early volume?",
+    "What has been tried here with public money before?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  },
+  {
+   "hypothesis": "PH_NNM_MATERIALS",
+   "role": "ESO",
+   "role_means": "entrepreneur identification, incubation, business development, technical assistance",
+   "subject": "Regional production of an input currently sourced at distance — Northern New Mexico — building materials",
+   "what_we_think": "This hypothesis was NOT authored. The localisation rule fired on CM_BUILDING_MATERIALS because it is an INPUT held at NATIONAL scope and required by housing production. Housing's observed all-in cost is $502,632 to $526,316 per unit, so any input cost is material to it. That is the whole of the economic rationale, and it is thin on purpose.",
+   "what_we_have_not_established": [
+    "materials share of construction cost",
+    "regional annual housing production",
+    "any delivered materials price",
+    "whether any regional manufacturer could make building products",
+    "code and certification requirements"
+   ],
+   "questions": [
+    "Are you supporting entrepreneurs or companies working on this productive activity?",
+    "Is there someone you would introduce this question to?",
+    "Have you seen this model tried here before, and what happened?"
+   ],
+   "the_honest_position": "We have identified economic conditions consistent with this model. We have NOT established that it is viable and we are not recommending it.",
+   "we_are_not_claiming": "that you have agreed to anything. You appear in our research because your public role fits this question.",
+   "no_message_is_sent": "Dula prepares this. Sending it is a human act."
+  }
+ ],
+ "response_demonstration": {
+  "hypothesis": {
+   "id": "PH_NNM_AGGREGATION__FIXTURE",
+   "archetype": "AT_AGGREGATION",
+   "place": "Northern New Mexico",
+   "discovered_by": [
+    "DSC_UNME_CM_INSTITUTIONAL_DEMAND",
+    "DSC_COOR_CM_COLD_STORAGE",
+    "DSC_COOR_CM_INSTITUTIONAL_DEMAND",
+    "DSC_EXPA_CM_AGGREGATORS"
+   ],
+   "economic_rationale": "A 262-mile northern loop costs $341-$676 on documented per-mile inputs, and the region's distribution condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers. Demand is observed (97 institutional buyers, 347 grocers) and the capacity of every component that would serve it is unknown. That is a gap in measurement before it is a gap in the market, and it is why this is a hypothesis.",
+   "demand": [
+    {
+     "what": "institutional buyers in the entity population",
+     "value": 97,
+     "evidence": "OBSERVED_TRANSACTION",
+     "basis": "entity population, buyers observed purchasing food",
+     "note": "observed as BUYERS. What they buy, at what price, and how much of it could be regional is not observed."
+    },
+    {
+     "what": "rural grocers",
+     "value": 347,
+     "evidence": "OBSERVED_TRANSACTION",
+     "basis": "SNAP-authorised retailer records"
+    },
+    {
+     "what": "public local-food purchasing (NM Grown)",
+     "value": null,
+     "evidence": "DOCUMENTED_PROCUREMENT",
+     "basis": "CM_PROGRAM_FUNDING, the one component with an OBSERVED committed capacity",
+     "note": "appropriated, and time-limited. Constraint C03 records that local wholesale demand depends on exactly this."
+    },
+    {
+     "what": "volume any buyer would commit to a regional supplier",
+     "value": null,
+     "evidence": "HYPOTHESIZED",
+     "basis": "nothing observes it",
+     "note": "THE decisive unknown. Regional spend is not addressable demand."
+    },
+    {
+     "what": "interested in regional produce if delivery is weekly",
+     "value": null,
+     "evidence": "EXPRESSION_OF_INTEREST",
+     "basis": "[fixture] an institutional buyer, 2026-10-08",
+     "note": "NOT a commitment, and does not advance feasibility"
+    }
+   ],
+   "supply_and_competition": {
+    "existing_providers": {
+     "distributor": 6,
+     "aggregator_food_hub": 12,
+     "food_bank": 14,
+     "processor": 12
+    },
+    "reading": "6 distributors and 12 aggregator food hubs are already observed, plus 14 food banks of which one runs ~400,000 miles a year. This function is NOT absent. The question is whether its economics work north of Santa Fe, which is a different question from whether anyone does it.",
+    "advantages_of_incumbents": [
+     "existing routes and customers",
+     "vehicles and cold chain already financed",
+     "buyer relationships and compliance already in place"
+    ],
+    "could_an_incumbent_expand": "A named company was identified by [fixture] a regional ESO. The question moves from 'is there anyone' to 'would they'.",
+    "do_not_infer": "absence of a supplier record in Dula is not absence of a supplier"
+   },
+   "operating_economics": {
+    "model": "ec_interventions.route_economics — the same identity, not a second one",
+    "known": {
+     "route_cost_usd": [
+      341,
+      676
+     ],
+     "miles": 262
+    },
+    "unknown": [
+     "order value per stop",
+     "vehicle utilisation",
+     "handling cost per stop"
+    ],
+    "break_even": "computable the moment stops and margin are supplied; the application exposes both as scenario inputs and inserts neither",
+    "worked_floor": "at 10 stops a $341-$676 loop needs $34.10-$67.60 of contribution per stop before anything else is paid for",
+    "supplied": [
+     {
+      "source": "[fixture] a distributor",
+      "date": "2026-10-08",
+      "data": {
+       "stops per loop": 9,
+       "contribution margin": 0.18
+      },
+      "status": "SUPPLIED BY A RESPONDENT, not observed by Dula"
+     }
+    ]
+   },
+   "capital_requirements": {
+    "kinds_possibly_required": [
+     "working capital between paying a producer and being paid by an institution",
+     "vehicles and cold chain",
+     "a facility, if aggregation is physical"
+    ],
+    "amounts": "NOT ESTIMATED. No equipment list, no facility and no payment terms are held.",
+    "do_not_invent": "no investment amount or return is stated, because none is derivable"
+   },
+   "development_strategies": [
+    {
+     "name": "An existing distributor expands north",
+     "kind": "EXPANSION",
+     "what_it_requires": [
+      "spare vehicle capacity",
+      "willingness to serve low-density stops",
+      "a price the buyers accept"
+     ],
+     "who_would_do_it": "one of the 6 observed distributors or 12 hubs",
+     "advantages": [
+      "marginal rather than average cost",
+      "no new entity",
+      "existing compliance and relationships"
+     ],
+     "risks": [
+      "the incumbent already judged this unprofitable and turned the buyers away, which is what the record shows"
+     ],
+     "evidence_for_it": "6 distributors and 12 hubs observed; hubs observed refusing distant buyers | [fixture] a regional ESO: an existing distributor already serves part of this geography",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE.",
+     "strengthened_by_response": true
+    },
+    {
+     "name": "Backhaul on existing charitable fleet mileage",
+     "kind": "COORDINATION",
+     "what_it_requires": [
+      "spare capacity on existing runs",
+      "permission and insurance to carry third-party product",
+      "schedule compatibility"
+     ],
+     "who_would_do_it": "a food bank already running the geography",
+     "advantages": [
+      "the route cost is already sunk against another purpose",
+      "possibly little or no capital"
+     ],
+     "risks": [
+      "charitable purpose and insurance may forbid it",
+      "schedules built for pantries may not suit kitchens"
+     ],
+     "evidence_for_it": "~400,000 miles a year across 9 counties to 150+ sites, untested as unknown U32",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "A new regional aggregation and distribution company",
+     "kind": "NEW_ENTERPRISE",
+     "what_it_requires": [
+      "capital",
+      "an operator",
+      "buyers committed in advance",
+      "producers able to meet specification at volume"
+     ],
+     "who_would_do_it": "nobody identified",
+     "advantages": [
+      "purpose-built for the geography and the product"
+     ],
+     "risks": [
+      "faces average cost against incumbents' marginal cost",
+      "must win buyers the incumbents already decided not to serve"
+     ],
+     "evidence_for_it": "none beyond the gap itself",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    },
+    {
+     "name": "Shared infrastructure the incumbents use",
+     "kind": "SHARED_INFRASTRUCTURE",
+     "what_it_requires": [
+      "a site",
+      "capital",
+      "enough throughput across users"
+     ],
+     "who_would_do_it": "a public programme or a producer cooperative",
+     "advantages": [
+      "improves the economics of operators who already exist",
+      "does not require anyone to start a company"
+     ],
+     "risks": [
+      "utilisation across a season is unknown",
+      "fixed cost falls on whoever owns it"
+     ],
+     "evidence_for_it": "cold chain recorded as does_not_exist in the far north and northeast; rentable walk-ins observed in Santa Fe",
+     "preferred": false,
+     "why_not_ranked": "ranking these needs the operating economics of each, and none is held. The comparison is of what each would REQUIRE."
+    }
+   ],
+   "critical_unknowns": [
+    "order value per stop",
+    "stops per loop",
+    "any distributor's margin",
+    "whether an incumbent would expand",
+    "whether buyers would commit volume"
+   ],
+   "partners": [
+    "ESO",
+    "EXISTING_BUSINESS",
+    "BUYER",
+    "GOVERNMENT"
+   ],
+   "feasibility": "CHALLENGED_OR_RETIRED",
+   "feasibility_means": "contrary evidence undermines the hypothesis",
+   "maps_to": {
+    "evidence": "SIGNAL",
+    "operator": "ARCHETYPE_HYPOTHESIZED"
+   },
+   "responses": [
+    {
+     "respondent": "[fixture] a regional ESO",
+     "role": "ESO",
+     "effect": "IDENTIFIES_EXISTING_COMPANY",
+     "means": "reclassify toward expansion rather than new-company formation",
+     "detail": "an existing distributor already serves part of this geography",
+     "data": null,
+     "source_date": "2026-10-08",
+     "changed": [
+      "EXPANSION strategy strengthened; supply coverage updated"
+     ],
+     "feasibility_before": "HYPOTHESIS",
+     "feasibility_after": "HYPOTHESIS"
+    },
+    {
+     "respondent": "[fixture] a distributor",
+     "role": "EXISTING_BUSINESS",
+     "effect": "PROVIDES_OPERATING_DATA",
+     "means": "update the operating variables, keeping source and date",
+     "detail": "route accounting for a northern run",
+     "data": {
+      "stops per loop": 9,
+      "contribution margin": 0.18
+     },
+     "source_date": "2026-10-08",
+     "changed": [
+      "stops per loop moved from unknown to supplied",
+      "contribution margin moved from unknown to supplied"
+     ],
+     "feasibility_before": "HYPOTHESIS",
+     "feasibility_after": "HYPOTHESIS"
+    },
+    {
+     "respondent": "[fixture] an institutional buyer",
+     "role": "BUYER",
+     "effect": "EXPRESSION_OF_INTEREST",
+     "means": "record interest, which is NOT a commitment",
+     "detail": "interested in regional produce if delivery is weekly",
+     "data": null,
+     "source_date": "2026-10-08",
+     "changed": [
+      "interest recorded; feasibility unchanged"
+     ],
+     "feasibility_before": "HYPOTHESIS",
+     "feasibility_after": "HYPOTHESIS"
+    },
+    {
+     "respondent": "[fixture] an industry organisation",
+     "role": "INDUSTRY_ORGANIZATION",
+     "effect": "DEMONSTRATES_INSUFFICIENT_DEMAND",
+     "means": "challenge or retire the hypothesis",
+     "detail": "institutional order sizes in these counties are below the volume any route could recover its cost from",
+     "data": null,
+     "source_date": "2026-10-08",
+     "changed": [
+      "hypothesis challenged; prior demand evidence RETAINED beside it"
+     ],
+     "feasibility_before": "HYPOTHESIS",
+     "feasibility_after": "CHALLENGED_OR_RETIRED"
+    }
+   ],
+   "history": [
+    {
+     "event": "response: IDENTIFIES_EXISTING_COMPANY",
+     "detail": "an existing distributor already serves part of this geography",
+     "source": "[fixture] a regional ESO",
+     "date": "2026-10-08"
+    },
+    {
+     "event": "response: PROVIDES_OPERATING_DATA",
+     "detail": "route accounting for a northern run",
+     "source": "[fixture] a distributor",
+     "date": "2026-10-08"
+    },
+    {
+     "event": "response: EXPRESSION_OF_INTEREST",
+     "detail": "interested in regional produce if delivery is weekly",
+     "source": "[fixture] an institutional buyer",
+     "date": "2026-10-08"
+    },
+    {
+     "event": "response: DEMONSTRATES_INSUFFICIENT_DEMAND",
+     "detail": "institutional order sizes in these counties are below the volume any route could recover its cost from",
+     "source": "[fixture] an industry organisation",
+     "date": "2026-10-08"
+    }
+   ],
+   "evidence_is_place_specific": "none of this transfers to another region evaluating the same archetype",
+   "fixture": "A LABELLED TEST FIXTURE. No organisation has been contacted and no response below is real. It exists to show what a reply would change.",
+   "contrary_evidence": [
+    {
+     "source": "[fixture] an industry organisation",
+     "role": "INDUSTRY_ORGANIZATION",
+     "detail": "institutional order sizes in these counties are below the volume any route could recover its cost from",
+     "date": "2026-10-08"
+    }
+   ]
+  },
+  "applied": [
+   {
+    "respondent": "[fixture] a regional ESO",
+    "role": "ESO",
+    "effect": "IDENTIFIES_EXISTING_COMPANY",
+    "means": "reclassify toward expansion rather than new-company formation",
+    "detail": "an existing distributor already serves part of this geography",
+    "data": null,
+    "source_date": "2026-10-08",
+    "changed": [
+     "EXPANSION strategy strengthened; supply coverage updated"
+    ],
+    "feasibility_before": "HYPOTHESIS",
+    "feasibility_after": "HYPOTHESIS"
+   },
+   {
+    "respondent": "[fixture] a distributor",
+    "role": "EXISTING_BUSINESS",
+    "effect": "PROVIDES_OPERATING_DATA",
+    "means": "update the operating variables, keeping source and date",
+    "detail": "route accounting for a northern run",
+    "data": {
+     "stops per loop": 9,
+     "contribution margin": 0.18
+    },
+    "source_date": "2026-10-08",
+    "changed": [
+     "stops per loop moved from unknown to supplied",
+     "contribution margin moved from unknown to supplied"
+    ],
+    "feasibility_before": "HYPOTHESIS",
+    "feasibility_after": "HYPOTHESIS"
+   },
+   {
+    "respondent": "[fixture] an institutional buyer",
+    "role": "BUYER",
+    "effect": "EXPRESSION_OF_INTEREST",
+    "means": "record interest, which is NOT a commitment",
+    "detail": "interested in regional produce if delivery is weekly",
+    "data": null,
+    "source_date": "2026-10-08",
+    "changed": [
+     "interest recorded; feasibility unchanged"
+    ],
+    "feasibility_before": "HYPOTHESIS",
+    "feasibility_after": "HYPOTHESIS"
+   },
+   {
+    "respondent": "[fixture] an industry organisation",
+    "role": "INDUSTRY_ORGANIZATION",
+    "effect": "DEMONSTRATES_INSUFFICIENT_DEMAND",
+    "means": "challenge or retire the hypothesis",
+    "detail": "institutional order sizes in these counties are below the volume any route could recover its cost from",
+    "data": null,
+    "source_date": "2026-10-08",
+    "changed": [
+     "hypothesis challenged; prior demand evidence RETAINED beside it"
+    ],
+    "feasibility_before": "HYPOTHESIS",
+    "feasibility_after": "CHALLENGED_OR_RETIRED"
+   }
+  ],
+  "note": "A LABELLED TEST FIXTURE. No organisation has been contacted and no response below is real. It exists to show what a reply would change."
+ },
+ "learning": {
+  "lessons": [
+   {
+    "archetype": "AT_AGGREGATION",
+    "place": "Northern New Mexico",
+    "outcome": "CHALLENGED",
+    "because": [
+     "institutional order sizes in these counties are below the volume any route could recover its cost from"
+    ],
+    "evidence": [
+     "[fixture] a regional ESO",
+     "[fixture] a distributor",
+     "[fixture] an institutional buyer",
+     "[fixture] an industry organisation"
+    ],
+    "transfers": "the QUESTION transfers: wherever this archetype is evaluated next, ask order density and committed volume early, because that is what settled it here",
+    "does_not_transfer": "the ANSWER does not. A different region has different distances, buyers and density, and this archetype has not failed there because it failed here."
+   }
+  ],
+  "rule": "a result is evidence about a PLACE and a question about an ARCHETYPE. The question carries; the answer does not.",
+  "what_is_preserved": [
+   "the original hypothesis",
+   "the evidence for it",
+   "the evidence against it",
+   "every response and its source",
+   "the feasibility state before and after each response",
+   "the reason for advancement or retirement"
+  ]
+ },
+ "counts": {
+  "discoveries": 35,
+  "hypotheses": 2,
+  "validation_requests": 8,
+  "real_responses": 0,
+  "fixture_responses": 4
+ },
+ "the_position": "35 discoveries from six mechanisms, two developed into place hypotheses, both at HYPOTHESIS. No organisation has been contacted, no real response is recorded, and no opportunity is investable. What the module produces is a set of questions with addresses on them."
+}

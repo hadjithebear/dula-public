@@ -1,0 +1,2029 @@
+{
+ "language_contract": {
+  "intelligence": "Economics for someone who has never heard of this model. No identifiers, no state names, no development history.",
+  "model": "The analytical reasoning: mechanisms, classifications, rivals.",
+  "evidence": "Exact: sources, vintages, geographies, limitations."
+ },
+ "reading": {
+  "lede": "New Mexico's economy is organised around a handful of places that other places depend on, and a public budget funded by a corner of the state that the rest of it cannot see into.",
+  "paragraphs": [
+   "Its labour markets do not follow its county lines. Los Alamos County holds about 18,200 private-sector jobs and roughly 58% of them are filled by people who live elsewhere \u2014 mostly Santa Fe, then Bernalillo and Rio Arriba. Torrance County sends 47% of its working residents to Bernalillo. Several northern counties export half their workforce daily and import the income.",
+   "Average private earnings at those workplaces differ by a factor of about three and a half across sixty miles \u2014 $11,370 a month in Los Alamos against $3,288 in San Miguel. How much of that gap is the same work paid differently, and how much is different work, is not established: these are county averages over different mixes of jobs. What is established is that around 45% of working residents in Rio Arriba and Mora hold jobs outside their county, and that what they earn there is not published.",
+   "The state's public finances run the other way. Oil and gas produced in two or three southeastern counties fund a large share of the budget that pays for services everywhere. Where that money finally lands is not published by anyone \u2014 which means the largest internal transfer in the state economy cannot be traced to a place."
+  ],
+  "most_important_unknown": "Where state spending lands. Everything else about New Mexico's public economy is downstream of a number nobody publishes."
+ },
+ "key_findings": [
+  {
+   "finding": "One county supplies jobs for a region, and cannot house the people who fill them.",
+   "detail": "Los Alamos County holds 18,206 private jobs against 7,715 filled by its own residents. About 57.6% commute in.",
+   "so_what": "Employment growth there is a housing and transport question in four other counties, not a business-recruitment question in one.",
+   "basis": "observed",
+   "diagram": "LOSALAMOS_LABOUR"
+  },
+  {
+   "finding": "Average earnings at workplaces differ several-fold across short distances, and what explains the gap is not established.",
+   "detail": "Los Alamos $11,370 a month against San Miguel $3,288 \u2014 a factor of 3.5. These are county averages over different occupation and industry mixes, so they do not establish that the same work pays differently.",
+   "so_what": "Before treating the gap as an access problem, it is worth knowing whether it is composition. Earnings by occupation within each county would separate the two, and would change which intervention makes sense.",
+   "basis": "observed",
+   "diagram": null
+  },
+  {
+   "finding": "The public budget is funded by a corner of the state and spent invisibly across all of it.",
+   "detail": "Oil and gas from the southeast fund a large share of state revenue. No published figure allocates state spending to counties.",
+   "so_what": "Any assessment of what a place receives from the state \u2014 or of what it would lose if energy revenue fell \u2014 currently rests on nothing.",
+   "basis": "mechanism",
+   "diagram": "PUBLIC_FINANCE"
+  },
+  {
+   "finding": "Several counties function as places people live rather than places people work, and the largest case is not in the north.",
+   "detail": "Sandoval sends 59.6% of its working residents to Bernalillo and Valencia 57.0% \u2014 larger dependencies than anything in the northern counties. San Miguel 54%, Torrance 73% in total, Mora and Rio Arriba around 45%.",
+   "so_what": "Their labour demand sits in another county. Measuring local business formation there describes a minority of what determines local employment.",
+   "basis": "observed",
+   "diagram": null
+  },
+  {
+   "finding": "Where locally generated value ends up is unobservable.",
+   "detail": "$5.28bn of federal work was performed in Los Alamos County in one year; $75M went to recipients registered there. Neither figure says who ultimately received the value.",
+   "so_what": "Retention \u2014 the question any regional development strategy turns on \u2014 cannot currently be measured anywhere in the state.",
+   "basis": "observed",
+   "diagram": null
+  }
+ ],
+ "earnings": {
+  "unit": "average monthly private earnings",
+  "rows": [
+   {
+    "place": "Los Alamos",
+    "value": 11370,
+    "share_of_top": 1.0
+   },
+   {
+    "place": "Bernalillo",
+    "value": 5469,
+    "share_of_top": 0.481
+   },
+   {
+    "place": "Santa Fe",
+    "value": 5429,
+    "share_of_top": 0.477
+   },
+   {
+    "place": "Rio Arriba",
+    "value": 4885,
+    "share_of_top": 0.43
+   },
+   {
+    "place": "Taos",
+    "value": 4179,
+    "share_of_top": 0.368
+   },
+   {
+    "place": "Mora",
+    "value": 3984,
+    "share_of_top": 0.35
+   },
+   {
+    "place": "San Miguel",
+    "value": 3288,
+    "share_of_top": 0.289
+   }
+  ],
+  "top": {
+   "place": "Los Alamos",
+   "value": 11370,
+   "share_of_top": 1.0
+  },
+  "bottom": {
+   "place": "San Miguel",
+   "value": 3288,
+   "share_of_top": 0.289
+  },
+  "ratio": 3.5,
+  "caveat": "Measured where the job is, not where the worker lives, and averaged over different mixes of work."
+ },
+ "labour_gap": {
+  "place": "Los Alamos",
+  "metrics": [
+   {
+    "value": 18206,
+    "unit": "",
+    "label": "private jobs located here",
+    "note": null,
+    "kind": "count"
+   },
+   {
+    "value": 7715,
+    "unit": "",
+    "label": "of them filled by people who live here",
+    "note": null,
+    "kind": "count"
+   },
+   {
+    "value": 10491,
+    "unit": "",
+    "label": "filled by people who commute in",
+    "note": "a lower bound: the employment series behind it counts private employers only, so adding public employment could only widen it",
+    "kind": "count"
+   }
+  ],
+  "share": 57.6
+ },
+ "diagrams": {
+  "STATE_SYSTEM": {
+   "id": "STATE_SYSTEM",
+   "title": "How New Mexico works",
+   "nodes": [
+    {
+     "id": "SE",
+     "label": "Southeastern energy",
+     "kind": "PLACE",
+     "state": "SUPPORTED",
+     "sub": "funds the state budget",
+     "metric": null
+    },
+    {
+     "id": "FISC",
+     "label": "State public finance",
+     "kind": "ACTOR",
+     "state": "SUPPORTED",
+     "sub": null,
+     "metric": null
+    },
+    {
+     "id": "ABQ",
+     "label": "Albuquerque",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "the state's employment centre",
+     "metric": null
+    },
+    {
+     "id": "LA",
+     "label": "Los Alamos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "a regional employment centre",
+     "metric": null
+    },
+    {
+     "id": "NORTH",
+     "label": "Northern counties",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "send workers out; receive income back",
+     "metric": null
+    },
+    {
+     "id": "HOUSE",
+     "label": "Housing",
+     "kind": "SYSTEM",
+     "state": "SUPPORTED",
+     "sub": "where the commuting households live",
+     "metric": null
+    },
+    {
+     "id": "PLACES",
+     "label": "Services in every county",
+     "kind": "OUTCOME",
+     "state": "UNKNOWN",
+     "sub": "the spending that funds them cannot be traced to a place",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "SE",
+     "to": "FISC",
+     "label": "oil and gas revenue",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": null
+    },
+    {
+     "from": "FISC",
+     "to": "PLACES",
+     "label": "appropriations",
+     "state": "UNKNOWN",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "the break: no allocation of state spending to counties exists"
+    },
+    {
+     "from": "NORTH",
+     "to": "LA",
+     "label": "workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 10491,
+     "note": null
+    },
+    {
+     "from": "NORTH",
+     "to": "ABQ",
+     "label": "workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "observed for several counties; Torrance sends 46.7% of its workers here"
+    },
+    {
+     "from": "LA",
+     "to": "NORTH",
+     "label": "earnings carried home",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "the worker flow is observed; earnings by county of residence are not"
+    },
+    {
+     "from": "HOUSE",
+     "to": "NORTH",
+     "label": "where those households can live",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": null
+    }
+   ],
+   "legend_note": "Solid lines are observed. Dashed lines are supported by a mechanism without being measured. Broken lines are relationships nothing held can establish. Line thickness means a measured size, and almost nothing here has one."
+  },
+  "LOSALAMOS_LABOUR": {
+   "id": "LOSALAMOS_LABOUR",
+   "title": "The Los Alamos labour system",
+   "reading": "Los Alamos County holds 18,206 private-sector jobs and about 57.6% of them are filled by people who live in other counties. Its labour market is regional; its tax base and its housing are not.",
+   "nodes": [
+    {
+     "id": "LA",
+     "label": "Los Alamos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "18,206 jobs located here",
+     "metric": 18206
+    },
+    {
+     "id": "35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "24.4% of the jobs here",
+     "metric": null
+    },
+    {
+     "id": "35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "9.1% of the jobs here",
+     "metric": null
+    },
+    {
+     "id": "35039",
+     "label": "Rio Arriba",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "8.7% of the jobs here",
+     "metric": null
+    },
+    {
+     "id": "35043",
+     "label": "Sandoval",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6.4% of the jobs here",
+     "metric": null
+    },
+    {
+     "id": "INC",
+     "label": "Household income in those counties",
+     "kind": "OUTCOME",
+     "state": "SUPPORTED",
+     "sub": "earnings follow the worker home",
+     "metric": null
+    },
+    {
+     "id": "HOU",
+     "label": "Housing near the work",
+     "kind": "SYSTEM",
+     "state": "UNKNOWN",
+     "sub": "capacity to add homes is not observed",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "35049",
+     "to": "LA",
+     "label": "4,436 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 4436,
+     "note": null
+    },
+    {
+     "from": "35001",
+     "to": "LA",
+     "label": "1,651 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1651,
+     "note": null
+    },
+    {
+     "from": "35039",
+     "to": "LA",
+     "label": "1,590 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1590,
+     "note": null
+    },
+    {
+     "from": "35043",
+     "to": "LA",
+     "label": "1,174 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1174,
+     "note": null
+    },
+    {
+     "from": "LA",
+     "to": "INC",
+     "label": "wages paid here, spent there",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "the flow of workers is observed; what they earn by county of residence is not published"
+    },
+    {
+     "from": "HOU",
+     "to": "LA",
+     "label": "limits who can take these jobs",
+     "state": "UNKNOWN",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "nothing held measures housing capacity in this labour shed"
+    }
+   ],
+   "not_observed": [
+    "what the commuters earn, by the county they live in",
+    "housing capacity anywhere in the labour shed"
+   ]
+  },
+  "PUBLIC_FINANCE": {
+   "id": "PUBLIC_FINANCE",
+   "title": "How public money reaches places",
+   "reading": "A large share of what New Mexico's government spends is funded by oil and gas produced in two or three southeastern counties. Where that spending finally lands cannot be traced: no published figure allocates state spending to counties. It is the single largest unmeasured relationship in the state's economy.",
+   "nodes": [
+    {
+     "id": "WORLD",
+     "label": "World energy prices and federal royalty rules",
+     "kind": "WORLD_FORCE",
+     "state": "OBSERVED",
+     "sub": null,
+     "metric": null
+    },
+    {
+     "id": "SE",
+     "label": "Oil and gas production in southeastern New Mexico",
+     "kind": "PLACE",
+     "state": "SUPPORTED",
+     "sub": "production by county is not held",
+     "metric": null
+    },
+    {
+     "id": "REV",
+     "label": "State revenue",
+     "kind": "ACTOR",
+     "state": "SUPPORTED",
+     "sub": null,
+     "metric": null
+    },
+    {
+     "id": "CAP",
+     "label": "State fiscal capacity",
+     "kind": "ACTOR",
+     "state": "SUPPORTED",
+     "sub": null,
+     "metric": null
+    },
+    {
+     "id": "LAND",
+     "label": "Where the spending lands",
+     "kind": "UNKNOWN",
+     "state": "UNKNOWN",
+     "sub": "no allocation of state spending to places exists",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "WORLD",
+     "to": "SE",
+     "label": "sets what production is worth",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": null
+    },
+    {
+     "from": "SE",
+     "to": "REV",
+     "label": "royalties and taxes",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": null
+    },
+    {
+     "from": "REV",
+     "to": "CAP",
+     "label": "funds the budget",
+     "state": "SUPPORTED",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": null
+    },
+    {
+     "from": "CAP",
+     "to": "LAND",
+     "label": "appropriations",
+     "state": "UNKNOWN",
+     "magnitude_state": "MAGNITUDE_UNKNOWN",
+     "magnitude": null,
+     "note": "this is the break. Public money raised in one part of the state pays for services across all of it, and no published figure says where."
+    }
+   ],
+   "not_observed": [
+    "state spending by county of benefit",
+    "oil and gas production by county"
+   ]
+  }
+ },
+ "world_to_nm": {
+  "id": "WORLD_TO_NM",
+  "title": "What reaches New Mexico from outside it",
+  "channels": [
+   {
+    "channel": "Federal science spending",
+    "enters": "Los Alamos County payrolls",
+    "lands_on": "jobs and earnings across the northern counties",
+    "followed_to": "jobs and earnings, by county",
+    "stops": "who ultimately receives the value is not observable",
+    "state": "OBSERVED",
+    "strength": 1
+   },
+   {
+    "channel": "Water and snowpack",
+    "enters": "the Rio Grande basin",
+    "lands_on": "irrigated production",
+    "followed_to": "the basin",
+    "stops": "deliveries to particular ditches are not published",
+    "state": "UNKNOWN",
+    "strength": 2
+   },
+   {
+    "channel": "Energy and royalties",
+    "enters": "the state budget",
+    "lands_on": "public services everywhere",
+    "followed_to": "the budget",
+    "stops": "no allocation of spending to places",
+    "state": "UNKNOWN",
+    "strength": 3
+   },
+   {
+    "channel": "Freight capacity",
+    "enters": "the cost of anything trucked in",
+    "lands_on": "input costs for food, fuel and materials",
+    "followed_to": "national rates",
+    "stops": "no New Mexico freight measure exists",
+    "state": "UNKNOWN",
+    "strength": 4
+   }
+  ],
+  "note": "Ordered by how far each can be followed with held evidence, not by how important it is likely to be."
+ },
+ "blind_spots": [
+  {
+   "gap": "Where state spending lands",
+   "why_it_matters": "It prevents tracing the state's largest internal redistribution. No county can be told what it receives, and no one can estimate what a fall in energy revenue would cost a particular place.",
+   "status": {
+    "label": "Published too coarsely to use here",
+    "note": "The figure exists for a wider area and cannot be divided down without inventing the division."
+   }
+  },
+  {
+   "gap": "Who owns what, and where the returns go",
+   "why_it_matters": "Without it, nobody can say whether value generated in a place stays there. It is the question regional development exists to answer and no public source reaches it.",
+   "status": {
+    "label": "No source anywhere measures this",
+    "note": null
+   }
+  },
+  {
+   "gap": "What commuters earn, by the county they live in",
+   "why_it_matters": "The worker flows are observed; the income they carry home is not. It is the difference between knowing people leave and knowing what their leaving is worth.",
+   "status": {
+    "label": "Public data cannot answer this",
+    "note": "The data exists, is current and is at the right geography \u2014 and it measures something else. More of it would not help."
+   }
+  },
+  {
+   "gap": "Employment and earnings outside nine counties",
+   "why_it_matters": "Two thirds of New Mexico's counties have no employer-level data here at all, including the energy counties that fund the state.",
+   "status": {
+    "label": "Evidence exists and has not been gathered",
+    "note": "A source could answer this; the work of acquiring it has not been done."
+   }
+  }
+ ],
+ "investigation": [
+  {
+   "if": "housing limits the reach of the Los Alamos labour market",
+   "questions": [
+    "Where do the roughly 10,500 in-commuters actually live, street by street rather than county by county?",
+    "How does housing cost compare with earnings by the county workers commute from?",
+    "Which commutes are closest to the point where a worker would refuse the job?"
+   ],
+   "would_settle": "whether adding housing, or adding transport, changes who can take these jobs"
+  },
+  {
+   "if": "state spending is the largest untraced flow in the state",
+   "questions": [
+    "What does the capital outlay list show by project location?",
+    "Can operating spending be attributed to a county at all, by any agency, for any programme?"
+   ],
+   "would_settle": "whether the fiscal chain can be closed at its last link or whether it is closed only for capital"
+  }
+ ],
+ "place_visuals": {
+  "35049": {
+   "id": "PLACE_35049",
+   "title": "Where Santa Fe's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "14.4% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35043",
+     "label": "Sandoval",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "7.5% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "63,008 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "18.6% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35028",
+     "label": "Los Alamos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "7.5% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "9,089 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 9089,
+     "note": null
+    },
+    {
+     "from": "I35043",
+     "to": "HERE",
+     "label": "4,757 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 4757,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "10,940 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 10940,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35028",
+     "label": "4,436 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 4436,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 63008,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 58913,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "37.3%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "41.4%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35047": {
+   "id": "PLACE_35047",
+   "title": "Where San Miguel's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6,525 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "18.6% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "17.9% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "445 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 445,
+     "note": null
+    },
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "380 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 380,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,683 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1683,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "1,613 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1613,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 6525,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 9035,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "54.2%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "36.6%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35028": {
+   "id": "PLACE_35028",
+   "title": "Where Los Alamos's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "24.4% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "9.1% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35039",
+     "label": "Rio Arriba",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "8.7% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Los Alamos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "18,206 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "10.4% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.4% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "4,436 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 4436,
+     "note": null
+    },
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "1,651 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1651,
+     "note": null
+    },
+    {
+     "from": "I35039",
+     "to": "HERE",
+     "label": "1,590 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1590,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,032 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1032,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "536 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 536,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 18206,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 9969,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "22.6%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "57.6%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35001": {
+   "id": "PLACE_35001",
+   "title": "Where Bernalillo's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35043",
+     "label": "Sandoval",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "10.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35061",
+     "label": "Valencia",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "350,760 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35043",
+     "label": "Sandoval",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.6% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35043",
+     "to": "HERE",
+     "label": "37,746 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 37746,
+     "note": null
+    },
+    {
+     "from": "I35061",
+     "to": "HERE",
+     "label": "16,927 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 16927,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35043",
+     "label": "13,437 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 13437,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 350760,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 290146,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "14.0%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "28.9%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35025": {
+   "id": "PLACE_35025",
+   "title": "Where Lea's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35015",
+     "label": "Eddy",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.7% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Lea",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "31,168 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35015",
+     "label": "Eddy",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "7.9% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.4% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35015",
+     "to": "HERE",
+     "label": "1,764 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1764,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35015",
+     "label": "2,074 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 2074,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,424 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1424,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 31168,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 26200,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "24.6%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "36.6%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35057": {
+   "id": "PLACE_35057",
+   "title": "Where Torrance's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "25.2% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "17.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Torrance",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "2,921 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "46.7% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "7.1% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "735 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 735,
+     "note": null
+    },
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "519 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 519,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,799 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1799,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "273 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 273,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 2921,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 3855,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "72.6%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "63.8%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35039": {
+   "id": "PLACE_35039",
+   "title": "Where Rio Arriba's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "19.5% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "8.2% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35043",
+     "label": "Sandoval",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Rio Arriba",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "8,474 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "17.9% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35028",
+     "label": "Los Alamos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "16.5% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "15.1% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "1,652 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1652,
+     "note": null
+    },
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "698 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 698,
+     "note": null
+    },
+    {
+     "from": "I35043",
+     "to": "HERE",
+     "label": "492 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 492,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "1,725 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1725,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35028",
+     "label": "1,590 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1590,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,461 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1461,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 8474,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 9651,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "64.2%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "59.3%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35033": {
+   "id": "PLACE_35033",
+   "title": "Where Mora's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35047",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "14.0% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.2% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.7% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Mora",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "707 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35047",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "18.4% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "13.1% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "10.5% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35047",
+     "to": "HERE",
+     "label": "99 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 99,
+     "note": null
+    },
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "37 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 37,
+     "note": null
+    },
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "33 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 33,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35047",
+     "label": "213 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 213,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "152 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 152,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "122 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 122,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 707,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 1157,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "67.2%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "46.4%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35055": {
+   "id": "PLACE_35055",
+   "title": "Where Taos's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.3% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.9% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Taos",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "10,256 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "11.5% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "5.7% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "547 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 547,
+     "note": null
+    },
+    {
+     "from": "I35049",
+     "to": "HERE",
+     "label": "500 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 500,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "1,128 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 1128,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "557 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 557,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 10256,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 9786,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "30.8%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "34.0%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35021": {
+   "id": "PLACE_35021",
+   "title": "Where Harding's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35037",
+     "label": "Quay",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "9.8% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35047",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "9.1% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35059",
+     "label": "Union",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.3% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Harding",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "164 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "13.4% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35037",
+     "label": "Quay",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "9.8% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6.2% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35037",
+     "to": "HERE",
+     "label": "16 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 16,
+     "note": null
+    },
+    {
+     "from": "I35047",
+     "to": "HERE",
+     "label": "15 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 15,
+     "note": null
+    },
+    {
+     "from": "I35059",
+     "to": "HERE",
+     "label": "7 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 7,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "30 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 30,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35037",
+     "label": "22 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 22,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "14 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 14,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 164,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 224,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "60.7%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "46.3%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  },
+  "35019": {
+   "id": "PLACE_35019",
+   "title": "Where Guadalupe's workers come from and go",
+   "nodes": [
+    {
+     "id": "I35047",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6.0% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35037",
+     "label": "Quay",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.7% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "I35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "4.4% of jobs here",
+     "metric": null
+    },
+    {
+     "id": "HERE",
+     "label": "Guadalupe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "1,191 jobs located here",
+     "metric": null
+    },
+    {
+     "id": "O35001",
+     "label": "Bernalillo",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "12.1% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35047",
+     "label": "San Miguel",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "8.1% of residents work there",
+     "metric": null
+    },
+    {
+     "id": "O35049",
+     "label": "Santa Fe",
+     "kind": "PLACE",
+     "state": "OBSERVED",
+     "sub": "6.9% of residents work there",
+     "metric": null
+    }
+   ],
+   "edges": [
+    {
+     "from": "I35047",
+     "to": "HERE",
+     "label": "72 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 72,
+     "note": null
+    },
+    {
+     "from": "I35037",
+     "to": "HERE",
+     "label": "56 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 56,
+     "note": null
+    },
+    {
+     "from": "I35001",
+     "to": "HERE",
+     "label": "52 workers",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 52,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35001",
+     "label": "162 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 162,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35047",
+     "label": "109 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 109,
+     "note": null
+    },
+    {
+     "from": "HERE",
+     "to": "O35049",
+     "label": "92 residents",
+     "state": "OBSERVED",
+     "magnitude_state": "MAGNITUDE_OBSERVED",
+     "magnitude": 92,
+     "note": null
+    }
+   ],
+   "metrics": [
+    {
+     "value": 1191,
+     "unit": "",
+     "label": "jobs located here",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": 1339,
+     "unit": "",
+     "label": "working residents",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "41.9%",
+     "unit": "",
+     "label": "of residents work outside the county",
+     "note": null,
+     "kind": "count"
+    },
+    {
+     "value": "34.7%",
+     "unit": "",
+     "label": "of jobs here are filled from outside",
+     "note": null,
+     "kind": "count"
+    }
+   ],
+   "not_observed": "What those workers earn, by the county they live in, is not published."
+  }
+ },
+ "state_words": {
+  "AVAILABLE_WRONG_CONCEPT": {
+   "label": "Public data cannot answer this",
+   "note": "The data exists, is current and is at the right geography \u2014 and it measures something else. More of it would not help."
+  },
+  "AVAILABLE_NOT_INGESTED": {
+   "label": "Evidence exists and has not been gathered",
+   "note": "A source could answer this; the work of acquiring it has not been done."
+  },
+  "AVAILABLE_INSUFFICIENT_RESOLUTION": {
+   "label": "Published too coarsely to use here",
+   "note": "The figure exists for a wider area and cannot be divided down without inventing the division."
+  },
+  "REQUIRES_ADMINISTRATIVE_SOURCE": {
+   "label": "Held by an institution, not published",
+   "note": "Someone has these records. They are not in a public dataset."
+  },
+  "REQUIRES_TRANSACTIONAL_SOURCE": {
+   "label": "Only an operator's own books would show it",
+   "note": "Not public and not purchasable."
+  },
+  "REQUIRES_FIELD_OBSERVATION": {
+   "label": "Needs direct observation",
+   "note": "It is a behaviour, not a statistic."
+  },
+  "REQUIRES_SITUATED_KNOWLEDGE": {
+   "label": "Needs a relationship, not a dataset",
+   "note": null
+  },
+  "NOT_CURRENTLY_OBSERVABLE": {
+   "label": "No source anywhere measures this",
+   "note": null
+  },
+  "AVAILABLE_INGESTED": {
+   "label": "Observed",
+   "note": null
+  },
+  "UNOBSERVED": {
+   "label": "Not yet observed here",
+   "note": null
+  },
+  "MECHANISM_ONLY": {
+   "label": "The mechanism holds; its size here is unmeasured",
+   "note": null
+  },
+  "MECHANISM_SUPPORTED": {
+   "label": "Supported by a mechanism, not measured directly",
+   "note": null
+  },
+  "OBSERVED": {
+   "label": "Directly observed",
+   "note": null
+  },
+  "OBSERVED_ONE_SIDED": {
+   "label": "Observed at one end only",
+   "note": null
+  },
+  "CONSTRAINT_SIGNAL": {
+   "label": "Evidence is incomplete",
+   "note": "It looks like a constraint and cannot yet be shown to be one."
+  },
+  "INTERREGIONAL_BOTTLENECK": {
+   "label": "Likely a genuine bottleneck across several places",
+   "note": null
+  },
+  "STATEWIDE_BOTTLENECK": {
+   "label": "Likely a genuine statewide bottleneck",
+   "note": null
+  },
+  "CONSEQUENTIAL_PARAMETER": {
+   "label": "Matters, but nobody identified can move it",
+   "note": null
+  },
+  "LEVERAGE_POINT": {
+   "label": "Someone could move this",
+   "note": null
+  },
+  "UNKNOWN": {
+   "label": "Not known",
+   "note": null
+  }
+ }
+}

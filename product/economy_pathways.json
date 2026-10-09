@@ -1,0 +1,547 @@
+{
+ "artefact": "EC-P · CROSS-SYSTEM PATHWAYS",
+ "generated": true,
+ "rebuild": "python pipeline/ec_pathways.py",
+ "engine": "transmission.py (R3.3) — one epistemic ladder, not a second one",
+ "financial_model": "r38_feasibility._annuity (R3.13) — one financial model, not a second one",
+ "what_a_hinge_is": "one quantity, in units, that converts a physical or institutional condition into money. Where its value is unknown, the BOUND it would have to come in under is computed instead, because that needs the ends and not the link.",
+ "pathways": [
+  {
+   "id": "PW_WATER_HOUSING_FINANCE",
+   "title": "Water → Housing → Finance",
+   "systems": [
+    "water",
+    "housing",
+    "finance"
+   ],
+   "initiating_condition": {
+    "what": "Water stress in New Mexico",
+    "state": "OBSERVED AND CURRENTLY MET",
+    "evidence": "regime RG_WATER_STRESS_NM: 79.25% of state area in D2 or worse, against a threshold of 50% sustained for 12 weeks",
+    "source": "US Drought Monitor, held weekly"
+   },
+   "actors": [
+    {
+     "actor": "210 active community water systems",
+     "role": "service provider",
+     "observed": true,
+     "note": "161,122 connections; 160 of 210 serve under 500 people"
+    },
+    {
+     "actor": "acequias and irrigation districts",
+     "role": "allocation institution",
+     "observed": "PARTIALLY",
+     "note": "729 named conveyances and 204 points of diversion are mapped; allocation and delivery records are not held"
+    },
+    {
+     "actor": "housing developer",
+     "role": "buyer of service",
+     "observed": true,
+     "note": "one observed project: 380 units, $191-200m"
+    },
+    {
+     "actor": "county and state",
+     "role": "gap funder",
+     "observed": true,
+     "note": "deed-restriction purchase $2-7.5m; $4.9m predevelopment grant"
+    },
+    {
+     "actor": "bondholders",
+     "role": "lender",
+     "observed": "PARTIALLY",
+     "note": "a $230m authorisation is observed; the coupon and term are not"
+    }
+   ],
+   "resources": [
+    "CM_DELIVERABLE_WATER",
+    "CM_WATER_SEWER_CAPACITY",
+    "CM_SERVICED_LAND",
+    "CM_ENTITLEMENT_PERMIT",
+    "CM_PROJECT_EQUITY",
+    "CM_CONSTRUCTION_CREDIT"
+   ],
+   "edges": [
+    {
+     "from": "UPPER RIO GRANDE BASIN CONDITION",
+     "to": "WATER DELIVERED TO TOWNS AND IRRIGATORS",
+     "mechanism": "snowpack and runoff set what is physically present in the basin; what reaches a headgate or a municipal intake is then decided by storage, priority administration and conveyance",
+     "state": "SOURCE_GROUNDED",
+     "carries": "QUANTITY_LINK",
+     "traversable": false,
+     "traversable_at": "ASSOCIATION_ESTIMATED",
+     "state_means": "a source is held that bears on it, without measuring it",
+     "does_not_license": null,
+     "geography_from": "ASSET",
+     "geography_to": "ASSET",
+     "lag": "LAGGED",
+     "knowledge": [
+      "DIRECTION",
+      "EXISTENCE"
+     ],
+     "held": [
+      "hydrology",
+      "drought",
+      "nm_acequias"
+     ],
+     "actors": [],
+     "relationship": null,
+     "association": null,
+     "bounds": {
+      "lower": 12.9,
+      "upper": 90.9,
+      "point": null,
+      "denominator_known": true,
+      "why_no_point": "across 30 water years the SAME inch of peak snowpack produced between 12.9 and 90.9 thousand acre-feet of April-July flow -- a factor of seven. The basin does not convert snow to water at a rate anyone can state.",
+      "width": 78.0,
+      "is_not": "a point estimate, and must not be collapsed to one by taking a midpoint"
+     },
+     "alternative_explanations": [
+      "antecedent soil moisture",
+      "dust-on-snow timing",
+      "upstream storage operations",
+      "priority calls in a dry year"
+     ],
+     "falsifier": "an acequia or municipal delivery series that tracks basin condition closely enough to make the factor-of-seven spread an artefact of aggregation",
+     "next_decisive_observation": "acequia and irrigation-district records of allocated and delivered water with dates, and municipal supply reports. Gate G_DELIVERABLE_WATER.",
+     "why": "the physical chain above delivery is well measured -- four gauges daily since 1990, the full Drought Monitor record, SNOTEL back to 1990 -- and delivery itself is observed nowhere. Physical water is not legally available water is not deliverable water."
+    },
+    {
+     "from": "COMMUNITY WATER AND WASTEWATER SYSTEM",
+     "to": "SPARE CONNECTION CAPACITY",
+     "mechanism": "a new dwelling must be connected to a system that has the headroom to serve it and is willing to; absent that, the land is not serviced land",
+     "state": "SOURCE_GROUNDED",
+     "carries": "QUANTITY_LINK",
+     "traversable": false,
+     "traversable_at": "ASSOCIATION_ESTIMATED",
+     "state_means": "a source is held that bears on it, without measuring it",
+     "does_not_license": null,
+     "geography_from": "ASSET",
+     "geography_to": "ASSET",
+     "lag": "UNKNOWN_LAG",
+     "knowledge": [
+      "EXISTENCE"
+     ],
+     "held": [
+      "admin_housing"
+     ],
+     "actors": [],
+     "relationship": null,
+     "association": null,
+     "bounds": null,
+     "alternative_explanations": [
+      "wells and septic, which change what can be built",
+      "a system willing to extend at the developer's cost",
+      "a moratorium that is institutional rather than physical"
+     ],
+     "falsifier": "a published per-system capacity register showing headroom, which would move this edge to an observed quantity in one step",
+     "next_decisive_observation": "per-system permitted capacity, current demand, and the system's own statement of how many new connections it will accept and on what terms. NMED capacity-development reviews hold much of this and are obtainable by public-records request.",
+     "why": "EPA SDWIS observes 210 active community water systems across the eight counties, 161,122 service connections and 373,733 people served, and 160 of the 210 serve under 500 people. It says nothing about spare capacity, extension cost, or willingness to serve. A service area, a line nearby or a system's existence is not capacity, and connections SERVED is not connections AVAILABLE."
+    },
+    {
+     "from": "SPARE CONNECTION CAPACITY",
+     "to": "PER-UNIT DEVELOPMENT COST",
+     "mechanism": "where capacity is short, service is bought: a connection fee, a line extension, a share of a plant upgrade, or on-site well and septic. Whichever it is, it lands in the project's all-in cost per unit.",
+     "state": "REPRESENTED",
+     "carries": "QUANTITY_LINK",
+     "traversable": false,
+     "traversable_at": "ASSOCIATION_ESTIMATED",
+     "state_means": "the model can express this edge. Nothing more.",
+     "does_not_license": null,
+     "geography_from": "ASSET",
+     "geography_to": "ASSET",
+     "lag": "CONTEMPORANEOUS",
+     "knowledge": [],
+     "held": [],
+     "actors": [],
+     "relationship": null,
+     "association": null,
+     "bounds": null,
+     "alternative_explanations": [],
+     "falsifier": "a development budget for a northern New Mexico project with water and wastewater broken out, showing the line is immaterial",
+     "next_decisive_observation": "the water and sewer line items in a filed development budget, or the utility's published connection-fee schedule and extension policy",
+     "why": "Dula observes no connection fee, no extension cost and no project water budget. The edge is REPRESENTED -- the model can express it and measures nothing about it -- which is the honest state and is why the hinge below is a BOUND on this cost rather than an estimate of it."
+    }
+   ],
+   "hinge": {
+    "name": "water and wastewater connection cost per dwelling unit",
+    "unit": "USD per unit, one-off capital",
+    "state": "UNKNOWN — and deliberately not estimated",
+    "why_this_is_the_hinge": "it is the one quantity that converts a water condition into project economics. Everything upstream of it is hydrology and institutions; everything downstream is arithmetic Dula already does.",
+    "what_is_computable_without_it": "the BOUND. The restricted rent supports a known principal at a given coupon, and the all-in cost per unit is observed, so the difference is the most this project could pay for anything else -- water service included -- before the rent stops covering debt service.",
+    "bound": [
+     {
+      "coupon_pct": 3.0,
+      "principal_the_rent_supports": 630435,
+      "headroom_low_cost": 127803,
+      "headroom_high_cost": 104119
+     },
+     {
+      "coupon_pct": 3.25,
+      "principal_the_rent_supports": 608039,
+      "headroom_low_cost": 105407,
+      "headroom_high_cost": 81723
+     },
+     {
+      "coupon_pct": 3.5,
+      "principal_the_rent_supports": 586819,
+      "headroom_low_cost": 84188,
+      "headroom_high_cost": 60504
+     },
+     {
+      "coupon_pct": 3.75,
+      "principal_the_rent_supports": 566702,
+      "headroom_low_cost": 64071,
+      "headroom_high_cost": 40387
+     },
+     {
+      "coupon_pct": 4.0,
+      "principal_the_rent_supports": 547620,
+      "headroom_low_cost": 44988,
+      "headroom_high_cost": 21304
+     },
+     {
+      "coupon_pct": 4.25,
+      "principal_the_rent_supports": 529507,
+      "headroom_low_cost": 26876,
+      "headroom_high_cost": 3192
+     },
+     {
+      "coupon_pct": 4.5,
+      "principal_the_rent_supports": 512306,
+      "headroom_low_cost": 9675,
+      "headroom_high_cost": -14010
+     },
+     {
+      "coupon_pct": 4.75,
+      "principal_the_rent_supports": 495960,
+      "headroom_low_cost": -6671,
+      "headroom_high_cost": -30355
+     },
+     {
+      "coupon_pct": 5.0,
+      "principal_the_rent_supports": 480419,
+      "headroom_low_cost": -22213,
+      "headroom_high_cost": -45897
+     },
+     {
+      "coupon_pct": 5.25,
+      "principal_the_rent_supports": 465633,
+      "headroom_low_cost": -36998,
+      "headroom_high_cost": -60683
+     },
+     {
+      "coupon_pct": 5.5,
+      "principal_the_rent_supports": 451559,
+      "headroom_low_cost": -51073,
+      "headroom_high_cost": -74757
+     },
+     {
+      "coupon_pct": 5.75,
+      "principal_the_rent_supports": 438154,
+      "headroom_low_cost": -64478,
+      "headroom_high_cost": -88162
+     },
+     {
+      "coupon_pct": 6.0,
+      "principal_the_rent_supports": 425379,
+      "headroom_low_cost": -77253,
+      "headroom_high_cost": -100937
+     }
+    ],
+    "reading": "At a 4.00% coupon the project can absorb $44,988 per unit on the low cost estimate and $21,304 on the high one. At 4.50% the high estimate has NO room at all, and at 5.00% neither does. So the question 'can this site be served?' becomes a question a utility can answer: is a connection worth more or less than about $21,000 a unit?",
+    "inputs": {
+     "all_in_cost_per_unit": {
+      "value": [
+       502632,
+       526316
+      ],
+      "state": "OBSERVED",
+      "source": "S-06",
+      "unit": "USD per unit"
+     },
+     "rent_ceiling": {
+      "value": 2445,
+      "state": "BENCHMARK",
+      "source": "S-21",
+      "unit": "USD per unit per month",
+      "note": "HUD 2024 four-person 80% limit x 30% / 12"
+     },
+     "term": {
+      "value": 35,
+      "state": "ASSUMPTION",
+      "unit": "years"
+     },
+     "coupon": {
+      "state": "ASSUMPTION",
+      "unit": "percent",
+      "note": "not published for this issue; the bound is shown across a band"
+     }
+    },
+    "what_it_does_not_establish": "that any connection cost exists, or that this project faces one. The bound says what would fit, not what is there."
+   },
+   "financial_consequence": {
+    "mechanism": "a connection cost is capital. It raises all-in cost per unit, which raises debt service per unit, which is paid out of a rent the deed restriction caps. The cap does not move, so the cost lands entirely on feasibility.",
+    "computed_on": "r38_feasibility._annuity, the R3.13 model",
+    "consequence_if_cost_exceeds_bound": "the project does not become unaffordable to the tenant -- the rent is capped either way. It becomes unfinanceable without more subordinate or grant capital, which is candidate R1 and is why a water constraint shows up as a CAPITAL requirement rather than as a rent increase."
+   },
+   "development_implication": {
+    "what": "if connection capacity is the binding constraint, the investable object is the water system upgrade, not the building",
+    "status": "NOT ESTABLISHED",
+    "why": "whether capacity binds is unknown -- CM_WATER_SEWER_CAPACITY capacity and utilization are both UNKNOWN, and its constraint state is UNKNOWN. A bottleneck is not demonstrated by a system being small.",
+    "what_would_establish_it": "a per-system capacity register showing systems at or near their permitted limit in places where housing is proposed"
+   },
+   "unknowns": [
+    "water delivered to any town or acequia, in any period (G_DELIVERABLE_WATER)",
+    "spare connection capacity of any community water system",
+    "any connection fee or line-extension cost in the region",
+    "the bond coupon and term for the observed project",
+    "whether any water system has refused or conditioned a housing connection"
+   ],
+   "gate": {
+    "edges": 3,
+    "traversable": 0,
+    "closed": true,
+    "weakest": "REPRESENTED",
+    "reading": "the pathway is not traversable end to end. The hinge below it is still computable as a BOUND, because a bound needs the ends and not the link."
+   }
+  },
+  {
+   "id": "PW_FOOD_DISTRIBUTION_MARKETS",
+   "title": "Food → Distribution → Markets",
+   "systems": [
+    "food",
+    "transportation",
+    "finance"
+   ],
+   "initiating_condition": {
+    "what": "Northern produce does not reliably reach northern institutional and retail buyers",
+    "state": "CONSTRAINT C02, confidence medium",
+    "evidence": "model/constraints.yaml C02; capacity condition exists_uneconomic",
+    "source": "Phase 2 desk research"
+   },
+   "actors": [
+    {
+     "actor": "141 producers",
+     "role": "supplier",
+     "observed": true
+    },
+    {
+     "actor": "8 hubs and aggregators",
+     "role": "consolidator",
+     "observed": true
+    },
+    {
+     "actor": "The Food Depot",
+     "role": "existing fleet operator",
+     "observed": true,
+     "note": "~400k miles/yr, 9 counties, 150+ sites"
+    },
+    {
+     "actor": "institutional buyers (schools, hospitals)",
+     "role": "buyer",
+     "observed": true,
+     "note": "97 institutional buyers in the entity population"
+    },
+    {
+     "actor": "rural grocers",
+     "role": "buyer",
+     "observed": true,
+     "note": "347 grocers"
+    }
+   ],
+   "resources": [
+    "CM_AGGREGATORS",
+    "CM_DELIVERY_FLEET",
+    "CM_COLD_STORAGE",
+    "CM_ROAD_NETWORK",
+    "CM_DIESEL",
+    "CM_INSTITUTIONAL_DEMAND",
+    "CM_PROGRAM_FUNDING"
+   ],
+   "edges": [
+    {
+     "from": "NORTHERN PRODUCER",
+     "to": "AGGREGATOR OR HUB",
+     "mechanism": "product is consolidated so that a buyer can place one order instead of many, and a vehicle can carry a full load instead of a partial one",
+     "state": "RELATIONSHIP_OBSERVED",
+     "carries": "FLOW",
+     "traversable": false,
+     "traversable_at": "FLOW_OBSERVED",
+     "state_means": "a named link between two specific nodes is observed, with no quantity crossing it",
+     "does_not_license": "FLOW_OBSERVED",
+     "geography_from": "PRODUCTION",
+     "geography_to": "ASSET",
+     "lag": "CONTEMPORANEOUS",
+     "knowledge": [
+      "DIRECTION",
+      "EXISTENCE"
+     ],
+     "held": [
+      "nass_census_of_ag",
+      "farm_to_school"
+     ],
+     "actors": [],
+     "relationship": "141 producers sell through 8 hubs (ev:P2A-57..P2A-60, P2A-93)",
+     "association": null,
+     "bounds": null,
+     "alternative_explanations": [],
+     "falsifier": "hub purchase records showing the producer relationships are nominal and carry no volume",
+     "next_decisive_observation": "hub purchase volumes by producer and season -- the quantity that would move this edge from a named relationship to an observed flow",
+     "why": "the RELATIONSHIPS are observed and named. No quantity is observed crossing any of them, so this is RELATIONSHIP_OBSERVED and not FLOW_OBSERVED."
+    },
+    {
+     "from": "AGGREGATOR OR HUB",
+     "to": "INSTITUTIONAL AND RETAIL BUYER",
+     "mechanism": "a delivery route carries consolidated product to buyers; the route's cost is largely fixed per loop and is recovered across its stops",
+     "state": "SOURCE_GROUNDED",
+     "carries": "FLOW",
+     "traversable": false,
+     "traversable_at": "FLOW_OBSERVED",
+     "state_means": "a source is held that bears on it, without measuring it",
+     "does_not_license": null,
+     "geography_from": "ASSET",
+     "geography_to": "ASSET",
+     "lag": "CONTEMPORANEOUS",
+     "knowledge": [
+      "EXISTENCE"
+     ],
+     "held": [
+      "farm_to_school",
+      "nm_school_local_suppliers"
+     ],
+     "actors": [],
+     "relationship": null,
+     "association": null,
+     "bounds": {
+      "lower": 341,
+      "upper": 676,
+      "point": null,
+      "denominator_known": true,
+      "why_no_point": "a 262-mile northern loop costs $341-$676 on documented per-mile inputs. The spread is the input range, not a measured variance.",
+      "width": 335,
+      "is_not": "a point estimate, and must not be collapsed to one by taking a midpoint"
+     },
+     "alternative_explanations": [
+      "backhaul on an existing route rather than a dedicated loop",
+      "buyer collection instead of delivery",
+      "a third party already serving the same stops"
+     ],
+     "falsifier": "a distributor's route accounting showing northern stops recover their share of loop cost at current order sizes",
+     "next_decisive_observation": "stops per loop and order value per stop, from a distributor's own route records. Two numbers decide this edge.",
+     "why": "the loop COST has a documented range and the loop REVENUE has nothing. The condition is recorded as exists_uneconomic: hubs and distributors exist and turn away distant buyers."
+    }
+   ],
+   "hinge": {
+    "name": "distribution cost per stop on a northern loop",
+    "unit": "USD per stop per delivery",
+    "state": "COMPUTABLE FROM ONE OBSERVED RANGE AND ONE UNKNOWN",
+    "why_this_is_the_hinge": "a loop's cost is fixed; what decides whether it pays is how many stops share it and what each stop buys. Cost per stop is the quantity that turns a route into an enterprise economics question.",
+    "observed": {
+     "loop_cost_usd": [
+      341,
+      676
+     ],
+     "loop_miles": 262,
+     "source": "model/capacity.yaml distribution, ev:P2A-17..P2A-25",
+     "state": "DOCUMENTED PER-MILE INPUTS, not a measured route cost"
+    },
+    "unknown": {
+     "stops_per_loop": "UNKNOWN",
+     "order_value_per_stop": "UNKNOWN",
+     "gross_margin": "UNKNOWN",
+     "why": "no distributor route record is held"
+    },
+    "cost_per_stop": [
+     {
+      "stops": 3,
+      "low": 113.67,
+      "high": 225.33
+     },
+     {
+      "stops": 5,
+      "low": 68.2,
+      "high": 135.2
+     },
+     {
+      "stops": 8,
+      "low": 42.62,
+      "high": 84.5
+     },
+     {
+      "stops": 10,
+      "low": 34.1,
+      "high": 67.6
+     },
+     {
+      "stops": 12,
+      "low": 28.42,
+      "high": 56.33
+     },
+     {
+      "stops": 15,
+      "low": 22.73,
+      "high": 45.07
+     },
+     {
+      "stops": 20,
+      "low": 17.05,
+      "high": 33.8
+     }
+    ],
+    "break_even_order_value": {
+     "identity": "order value per stop = cost per stop ÷ gross margin",
+     "state": "ACCOUNTING IDENTITY — true by construction, empty until margin is observed",
+     "worked": "at 10 stops the loop costs $34.10 to $67.60 a stop. A distributor keeping 20 cents on the dollar would need $171 to $338 of product per stop just to cover the driving. Whether northern rural orders reach that is exactly what 'small rural orders' asserts and nothing measures.",
+     "margin_not_supplied": "no margin is assumed here. The 20-cent figure above is shown as an ARITHMETIC ILLUSTRATION of the identity and is labelled as one; it is not Dula's estimate of any distributor's margin."
+    },
+    "shared_infrastructure_question": {
+     "what": "The Food Depot already drives about 400,000 miles a year across nine northern counties to more than 150 sites.",
+     "why_it_matters": "if local product could ride an existing route, the relevant cost is MARGINAL -- incremental handling and time -- not the $341-$676 of a dedicated loop. That is a different investment question with a different answer.",
+     "state": "UNTESTED",
+     "unknown_id": "U32",
+     "next_observation": "whether any of that mileage has capacity and permission to carry local product, and at what incremental cost per stop"
+    }
+   },
+   "financial_consequence": {
+    "mechanism": "distribution cost is subtracted from a producer's realised price or added to a buyer's delivered cost. Where the loop cannot be recovered, the trade does not happen at all -- which is what 'hubs turn away distant buyers' describes.",
+    "who_bears_it": "UNKNOWN. Whether the producer, the hub or the buyer absorbs it is not observed, and it determines which party an intervention should reach.",
+    "investment_form": "shared cold storage or shared routing is a capital object with an operating economics. Neither can be underwritten while stops per loop and order value per stop are unknown."
+   },
+   "development_implication": {
+    "what": "shared distribution infrastructure or routing coordination",
+    "status": "CANDIDATE, NOT INVESTABLE",
+    "why": "the cost side has a documented range and the revenue side has nothing. An investment case needs both, and CM_AGGREGATORS and CM_DELIVERY_FLEET are OBSERVED to exist with capacity UNKNOWN."
+   },
+   "unknowns": [
+    "stops per loop on any northern route",
+    "order value per stop",
+    "any distributor's gross margin",
+    "whether existing fleet mileage could carry local product (U32)",
+    "quantities crossing any of the 141 producer-to-hub relationships"
+   ],
+   "gate": {
+    "edges": 2,
+    "traversable": 0,
+    "closed": true,
+    "weakest": "SOURCE_GROUNDED",
+    "reading": "the pathway is not traversable end to end. The hinge below it is still computable as a BOUND, because a bound needs the ends and not the link."
+   }
+  }
+ ],
+ "gate_summary": {
+  "PW_WATER_HOUSING_FINANCE": {
+   "edges": 3,
+   "traversable": 0,
+   "closed": true,
+   "weakest": "REPRESENTED",
+   "reading": "the pathway is not traversable end to end. The hinge below it is still computable as a BOUND, because a bound needs the ends and not the link."
+  },
+  "PW_FOOD_DISTRIBUTION_MARKETS": {
+   "edges": 2,
+   "traversable": 0,
+   "closed": true,
+   "weakest": "SOURCE_GROUNDED",
+   "reading": "the pathway is not traversable end to end. The hinge below it is still computable as a BOUND, because a bound needs the ends and not the link."
+  }
+ }
+}

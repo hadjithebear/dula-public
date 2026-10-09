@@ -1,0 +1,1113 @@
+/* DULA INTELLIGENCE V0.1 — quiet, spatial, warm. Not a terminal, not a dashboard, not a chat.
+ * The palette is the corrected alpha's. The structure is new, because the durable object is new. */
+:root{
+  --paper:#faf6f0; --paper-2:#f3ece2; --paper-3:#ede4d6; --ink:#2b2420; --ink-2:#6b5f55; --ink-3:#9a8d81;
+  --line:#e3d8c9; --line-2:#d2c3af;
+  --clay:#b4552d; --clay-soft:#e8d2c4;
+  --water:#3d7a8c; --water-soft:#cfe2e6;
+  --sage:#6f7f5c; --sand:#d9c39a; --stone:#8a8178; --warn:#9a6b1f;
+  --shadow:0 1px 2px rgba(43,36,32,.06), 0 8px 28px rgba(43,36,32,.07);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+
+/* ================================================================ HOME */
+#home{display:none;height:100vh;overflow-y:auto}
+body.home #home{display:block}
+body.home #work{display:none}
+.home-in{max-width:46rem;margin:0 auto;padding:11vh 32px 80px}
+.wordmark{font-family:var(--serif);font-size:42px;letter-spacing:.16em;color:var(--clay);font-weight:600;
+  margin:0 0 10px}
+.tagline{font-family:var(--serif);font-size:25px;line-height:1.3;color:var(--ink);margin:0 0 34px;
+  font-weight:400;max-width:26rem}
+.askbox{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line-2);
+  border-radius:14px;padding:4px 6px 4px 18px;box-shadow:var(--shadow)}
+.askbox:focus-within{border-color:var(--clay);box-shadow:0 0 0 3px rgba(180,85,45,.10),var(--shadow)}
+.askbox input{flex:1 1 auto;border:0;outline:0;background:none;font-size:16.5px;padding:14px 0;
+  color:var(--ink);min-width:0}
+.askbox input::placeholder{color:var(--ink-3)}
+.go{border:0;background:var(--clay);color:#fff;border-radius:10px;padding:11px 17px;font-size:14px;
+  cursor:pointer;flex:0 0 auto}
+.go:hover{background:#9d4725}
+.entry{display:flex;gap:9px;margin:16px 0 0;flex-wrap:wrap}
+.chip{border:1px solid var(--line-2);background:var(--paper-2);color:var(--ink-2);border-radius:999px;
+  padding:7px 14px;font-size:13px;cursor:pointer}
+.chip:hover{border-color:var(--clay);color:var(--clay);background:#fff}
+.recent-h{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;margin:52px 0 4px;border-top:1px solid var(--line);padding-top:22px}
+.rec{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);
+  cursor:pointer}
+.rec:hover .rec-t{color:var(--clay)}
+.rec-t{font-family:var(--serif);font-size:19px;margin:0;flex:1 1 auto;min-width:0}
+.rec-m{font-size:12px;color:var(--ink-3);flex:0 0 auto;white-space:nowrap}
+.rec-del{border:0;background:none;color:var(--line-2);cursor:pointer;font-size:15px;padding:0 4px}
+.rec-del:hover{color:var(--clay)}
+.rec-sub{font-size:12.5px;color:var(--ink-3);margin:3px 0 0}
+.empty{color:var(--ink-3);font-size:14px;padding:16px 0 0}
+
+/* ================================================================ THE PLACE WORKSPACE
+ * V0.6 PASS 1. One canvas, edge to edge. The place is the page; text is annotation or drawer. */
+#work{display:none}
+body.work #work{display:block;height:100vh;overflow:hidden;position:relative}
+
+.ws-top{display:flex;align-items:center;gap:9px;padding:14px 26px 0;flex:0 0 auto}
+.ws-top .mark{font-family:var(--serif);font-size:15px;letter-spacing:.14em;color:var(--clay);
+  font-weight:600;cursor:pointer;border:0;background:none;padding:0}
+.ws-sep{color:var(--line-2);font-size:14px}
+.ws-grow{flex:1 1 auto}
+.ws-top .scope{font-size:12px;color:var(--ink-3);letter-spacing:.03em;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46%}
+
+/* primary navigation. Seven ways of asking about one place, on one rule. */
+.ws-nav{display:flex;gap:2px;padding:11px 22px 0;flex:0 0 auto;flex-wrap:wrap}
+.wsn{border:1px solid transparent;background:none;color:var(--ink-2);font:inherit;font-size:13px;
+  padding:6px 12px 7px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.wsn:hover:not([disabled]){background:var(--paper-2)}
+.wsn.on{background:#fff;border-color:var(--clay);color:var(--clay);box-shadow:var(--shadow)}
+.wsn[disabled]{cursor:default;color:var(--ink-3)}
+.wsn.st-EMPTY_BY_EVIDENCE{text-decoration:line-through;text-decoration-thickness:1px}
+.wsn.st-PENDING{border-style:dashed;border-color:var(--line-2)}
+.wsn.st-NEEDS_UPSTREAM{color:var(--ink-3)}
+
+.ws-head{padding:12px 26px 8px;flex:0 0 auto;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.ws-place{font-family:var(--serif);font-size:38px;line-height:1;margin:0;font-weight:500;
+  letter-spacing:-.012em}
+.ws-q{font-size:15px;color:var(--ink-2);margin:0;flex:1 1 14rem}
+.ws-crumb{font-size:12px;color:var(--ink-3);margin:0}
+.ws-crumb .cr{border:0;background:none;padding:0;color:var(--ink-3);font:inherit;cursor:pointer}
+.ws-crumb .cr:hover{color:var(--clay)}
+.ws-crumb .cr.here{color:var(--ink-2)}
+
+/* subject focus. Focus means quieten the rest, never delete it. */
+.ws-subj{display:flex;gap:6px;flex:0 0 auto;flex-wrap:wrap}
+.wsj{border:1px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;
+  padding:5px 13px;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.wsj:hover:not([disabled]){border-color:var(--clay);color:var(--clay)}
+#wsSubj .wsj.on{background:var(--clay);border-color:var(--clay);color:#fff}
+.wsj[disabled]{cursor:default;color:var(--ink-3);border-style:dashed;background:none}
+
+/* the annotation that may sit on the canvas. Short, authored, and about what is drawn. */
+.ws-note{position:absolute;top:14px;right:18px;max-width:19rem;font-size:12px;line-height:1.5;
+  color:var(--ink-2);background:rgba(250,246,240,.9);border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;pointer-events:none}
+.ws-note:empty{display:none}
+.ws-note b{display:block;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--clay);font-weight:600;margin-bottom:4px}
+.ws-note .wsn-q{pointer-events:auto}
+.ws-proj{position:absolute;top:14px;left:18px}
+
+/* ============================ THE INVESTIGATION DRAWER
+ * The old narrative column, in full, now opened rather than imposed. */
+.invdrawer{position:fixed;top:0;right:0;bottom:0;width:min(27rem,42vw);display:flex;
+  flex-direction:column;background:var(--paper);border-left:1px solid var(--line-2);
+  box-shadow:-14px 0 40px rgba(43,36,32,.10);transform:translateX(101%);
+  transition:transform .22s cubic-bezier(.4,0,.2,1);z-index:6}
+body.inv-open .invdrawer{transform:none}
+.invd-top{display:flex;align-items:center;padding:16px 22px 6px;flex:0 0 auto}
+.invd-k{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);
+  font-weight:600}
+.invd-top .close{margin-left:auto;border:0;background:none;font-size:16px;color:var(--ink-3);
+  cursor:pointer}
+.icon{border:1px solid var(--line);background:#fff;color:var(--ink-2);border-radius:8px;cursor:pointer;
+  font-size:12px;padding:5px 10px;flex:0 0 auto}
+.icon:hover{border-color:var(--clay);color:var(--clay)}
+.icon.on{background:var(--clay);color:#fff;border-color:var(--clay)}
+
+.doc{position:relative;flex:1 1 auto;min-height:0;overflow-y:auto;padding:4px 26px 16px;
+  overscroll-behavior:contain;transition:opacity .15s}
+.doc.busy{opacity:.42}
+.inv-head{padding:18px 0 2px}
+.inv-kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);
+  font-weight:600;margin-bottom:6px}
+.inv-title{font-family:var(--serif);font-size:26px;line-height:1.18;margin:0 0 2px;font-weight:500;
+  letter-spacing:-.01em}
+.inv-q{font-size:13px;color:var(--ink-3);margin:0}
+
+.sec{border-top:1px solid var(--line);margin-top:16px}
+.sec > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:15px 0 11px}
+.sec > summary::-webkit-details-marker{display:none}
+.sec-h{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sec-n{font-size:10.5px;color:var(--line-2);margin-left:auto;font-variant-numeric:tabular-nums}
+.sec > summary::before{content:"+";color:var(--line-2);font-size:13px;width:10px}
+.sec[open] > summary::before{content:"–"}
+.sec[open] > summary .sec-h{color:var(--clay)}
+.sec.unknown[open] > summary .sec-h{color:var(--warn)}
+
+.item{margin:0 0 15px;position:relative;padding-left:0}
+.item-t{margin:0 0 3px;font-size:15px;line-height:1.5;color:var(--ink)}
+.sec.read .item-t{font-size:16.5px;line-height:1.52}
+.item-s{margin:0;font-size:13.6px;line-height:1.5;color:var(--ink-2)}
+.state{display:inline;font-size:13.6px;color:var(--ink-3);font-style:italic;margin-right:5px}
+.item-foot{display:flex;gap:10px;align-items:center;margin-top:3px}
+.src{border:0;background:none;padding:0;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--line-2);cursor:pointer;font-family:var(--sans);text-align:left}
+.src:hover{color:var(--clay)}
+.explore{border:0;background:none;padding:0;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--water);cursor:pointer}
+.explore:hover{text-decoration:underline}
+.srcmeta{font-size:12px;color:var(--ink-3);margin:2px 0 0;font-family:var(--mono)}
+a.openlink{color:var(--water);font-size:12px;text-decoration:none;border-bottom:1px solid var(--water-soft)}
+
+.retr{border-left:2px solid var(--water-soft);padding-left:12px}
+.held{border-left:2px solid var(--line);padding-left:12px}
+
+/* persistent interaction. The alpha put follow-ups below a 2,500-character answer; nobody saw them. */
+.actionbar{flex:0 0 auto;display:flex;gap:7px;padding:10px 22px 16px;overflow-x:auto;
+  border-top:1px solid var(--line);background:var(--paper-2);scrollbar-width:none}
+.actionbar::-webkit-scrollbar{display:none}
+.act{white-space:nowrap}
+.act{border:1px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;
+  padding:6px 13px;font-size:12.5px;cursor:pointer}
+.act:hover{border-color:var(--clay);color:var(--clay)}
+.ask{flex:0 0 auto;padding:9px 26px 16px;background:none;max-width:44rem}
+.ask .askbox{box-shadow:none;border-radius:11px;padding:2px 4px 2px 14px}
+.ask .askbox input{font-size:15px;padding:11px 0}
+.ask .go{padding:9px 14px;font-size:13px}
+
+/* ================================================================ CANVAS */
+.canvas{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--paper);
+  position:relative;height:100vh}
+.canvas-head{padding:20px 30px 8px;flex:0 0 auto}
+.canvas-h{font-family:var(--serif);font-size:19px;margin:0;font-weight:500}
+.canvas-s{font-size:12.5px;color:var(--ink-3);margin:2px 0 0}
+.stagewrap{flex:1 1 auto;min-height:0;overflow:hidden;display:flex;align-items:center;
+  justify-content:center;padding:0 18px;position:relative}
+svg#stage{width:100%;height:100%;max-height:100%}
+.canvas-foot{flex:0 0 auto;display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  padding:8px 26px 4px;font-size:11px;color:var(--ink-2);border-top:1px solid var(--line)}
+.canvas-foot:empty{display:none;padding:0;border:0}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;
+  vertical-align:middle;background:var(--line-2)}
+.foot-note{color:var(--ink-3);max-width:34rem}
+
+.sysnode circle{fill:#fff;stroke:var(--line-2);stroke-width:1.5}
+.sysnode .sys-k{font-size:13px;fill:var(--ink);font-family:var(--sans)}
+.sysnode .sys-d{font-size:11px;fill:var(--ink-3);font-family:var(--sans)}
+.sysline{stroke:var(--line-2);stroke-width:1.5}
+.sysnode.observed circle{fill:var(--water);stroke:var(--water)}
+.sysnode.computed circle{fill:var(--clay);stroke:var(--clay)}
+.sysnode.unobserved circle{fill:#fff;stroke:var(--line-2);stroke-dasharray:2.5 2.5}
+.sysnode.absent circle{fill:var(--paper-3);stroke:var(--line);stroke-dasharray:2 3}
+.sysnode.classified circle{fill:var(--sand);stroke:var(--sand)}
+.legend-dot.s-observed{background:var(--water)}
+.legend-dot.s-computed{background:var(--clay)}
+.legend-dot.s-unobserved{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.legend-dot.s-absent{background:var(--paper-3);box-shadow:inset 0 0 0 1.5px var(--line)}
+.legend-dot.s-classified{background:var(--sand)}
+.county{fill:#f7f2ea;stroke:var(--line-2);stroke-width:1}
+.county.active{fill:var(--water-soft);stroke:var(--water)}
+.reach{stroke:var(--water);stroke-width:3;fill:none}
+.gauge circle{fill:var(--water);stroke:#fff;stroke-width:2}
+.gauge text{font-size:12px;fill:var(--ink-2);font-family:var(--sans)}
+.stocknode rect{fill:#fff;stroke:var(--line-2);stroke-width:1.5}
+.stocknode.retrieved rect{fill:var(--water-soft);stroke:var(--water)}
+.stocknode .sn-k{font-size:13.5px;fill:var(--ink);text-anchor:middle;font-family:var(--sans)}
+.stocknode .sn-v{font-size:11.5px;fill:var(--ink-3);text-anchor:middle;font-family:var(--sans)}
+.delta{font-size:15px;fill:var(--clay);font-family:var(--sans)}
+.warrant-edge{stroke:var(--line-2);stroke-width:1.5;stroke-dasharray:4 4;fill:none}
+.warrant-edge.dashed{stroke-dasharray:3 5}
+
+/* ================================================================ DRAWER + TRACE */
+/* The inspector is a sheet over the LOWER half, so the map it refers to stays on screen. */
+.drawer{position:absolute;left:0;right:0;bottom:0;top:42%;background:rgba(250,246,240,.985);
+  padding:22px 30px 26px;overflow-y:auto;display:none;border-top:1px solid var(--line-2);
+  box-shadow:0 -10px 30px rgba(43,36,32,.08)}
+.drawer.open{display:block}
+.drawer h4{font-family:var(--serif);font-size:18px;margin:0 0 4px;font-weight:500}
+.drawer .close{position:absolute;top:18px;right:22px;border:0;background:none;font-size:18px;
+  color:var(--ink-3);cursor:pointer}
+.ev-row{display:grid;grid-template-columns:9rem 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--line);
+  font-size:13.5px}
+.ev-k{color:var(--ink-3);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
+.trace{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);white-space:pre-wrap;line-height:1.5}
+.saved{font-size:11px;color:var(--sage);white-space:nowrap;flex:0 0 auto;max-width:7rem;overflow:hidden;text-overflow:ellipsis}
+.err{font-size:12.5px;color:var(--clay)}
+.narrow-only{display:none}
+@media (max-width:900px){
+  /* §U. Narrow does not mean small type. The drawer takes the whole width when it is open, the
+     place title steps down one size, and nothing is scaled. */
+  .invdrawer{width:100vw}
+  .ws-place{font-size:28px}
+  .ws-nav{padding-left:16px;padding-right:16px}
+  .ws-head{padding:12px 18px 8px}
+  .ws-top{padding-left:16px;padding-right:16px}
+}
+
+/* the turn's answer, above the durable structure */
+.sec.lead{border-top:1px solid var(--clay-soft);margin-top:18px}
+.lead-h{padding:15px 0 11px}
+.lead-h .sec-h{color:var(--clay)}
+.sec.lead .item-t{font-size:16.5px;line-height:1.52}
+
+.hitarea{fill:transparent}
+.sysnode.hit{cursor:pointer}
+.sysnode.hit:hover .hitarea{fill:rgba(180,85,45,.055)}
+.sysnode.hit:hover .sys-k{fill:var(--clay)}
+
+.canvas .back{display:none;border:1px solid var(--line);background:#fff;color:var(--ink-2);
+  border-radius:8px;cursor:pointer;font-size:12px;padding:5px 10px}
+body.canvas-open .canvas .back{display:block}
+
+.drawer-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;padding-top:16px;
+  border-top:1px solid var(--line)}
+
+/* research panel + source reader */
+.drawer h5{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--clay);
+  font-weight:600;margin:22px 0 8px}
+.tag{display:inline-block;margin-left:8px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+.passage{border-left:2px solid var(--water-soft);padding:2px 0 2px 12px;margin:0 0 12px}
+.linklike{border:0;background:none;padding:0;color:var(--water);cursor:pointer;font-size:13.5px;
+  text-align:left;font-family:inherit}
+.linklike:hover{text-decoration:underline}
+.act.working{pointer-events:none;color:var(--ink-3);border-style:dashed}
+
+/* ================================================================ THE PLACE MAP */
+.county{fill:#f7f2ea;stroke:var(--line-2);stroke-width:1}
+.county.here{fill:#fbf7f1;stroke:var(--ink-3);stroke-width:1.6}
+/* V0.6 PASS 2. The density wash is the atlas base, so it is one warm ramp, far back, and the teal
+ * is given up to the water layer where it belongs. It is a measurement of where people were counted
+ * and nothing else; the legend and the layer contract both say so. */
+.tract{stroke:var(--paper);stroke-width:.6}
+.tract.b0{fill:#f7f3ec}
+.tract.b1{fill:#f0e9dd}
+.tract.b2{fill:#e7dcc9}
+.tract.b3{fill:#dccdb3}
+.acequia{stroke:var(--water);stroke-width:1.4;fill:none;opacity:.75}
+.placeline{fill:none;stroke:var(--clay);stroke-width:2.2;stroke-linejoin:round}
+.mk{cursor:pointer}
+.mk polygon,.mk rect,.mk circle{fill:#fff;stroke:var(--ink-2);stroke-width:1.8}
+.mk .xmark{stroke:var(--ink-2);stroke-width:1.8;fill:none}
+.mk.circle circle{fill:var(--sand);stroke:var(--stone)}
+.mk.triangle polygon{fill:var(--sage);stroke:var(--sage)}
+.mk.square rect{fill:var(--clay-soft);stroke:var(--clay)}
+.mk.diamond polygon{fill:var(--water-soft);stroke:var(--water)}
+.mk.dot circle{fill:var(--line-2);stroke:none}
+.mk:hover polygon,.mk:hover rect,.mk:hover circle{stroke:var(--clay);stroke-width:2}
+.mk.sel polygon,.mk.sel rect,.mk.sel circle{stroke:var(--clay);stroke-width:2.6}
+.mk .cnt{font-size:14px;font-weight:600;fill:var(--ink);text-anchor:middle;font-family:var(--sans);pointer-events:none}
+.selring{fill:none;stroke:var(--clay);stroke-width:1.5;stroke-dasharray:3 3}
+.legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.lg{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink-2)}
+.lgm{width:13px;height:13px;overflow:visible}
+.lgm polygon,.lgm rect,.lgm circle{fill:#fff;stroke:var(--ink-2);stroke-width:1.4}
+.lgm .xmark{stroke:var(--ink-2);stroke-width:1.8;fill:none}
+.lgt{width:11px;height:11px;background:linear-gradient(90deg,#f6f1e8,#9cc2c4);display:inline-block;border-radius:2px}
+.lga{width:14px;height:0;border-top:1.6px solid var(--water);display:inline-block}
+.layerbar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.lyr{border:1px solid var(--line);background:#fff;color:var(--ink-3);border-radius:999px;
+  padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:var(--sans)}
+.lyr:hover{border-color:var(--clay);color:var(--clay)}
+.lyr.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lyrn{opacity:.6;font-variant-numeric:tabular-nums}
+.canvas-foot{align-items:flex-start;gap:10px;flex-wrap:wrap}
+svg#stage{touch-action:none;cursor:grab}
+svg#stage:active{cursor:grabbing}
+/* §9. When there is genuinely nothing to draw, the document takes the width rather than holding it. */
+body.work.no-canvas #work{grid-template-columns:1fr}
+body.work.no-canvas .canvas{display:none}
+.sysline-btn{border:0;background:none;padding:0;color:var(--water);cursor:pointer;font-size:11px;
+  letter-spacing:.07em;text-transform:uppercase}
+.sysline-btn:hover{text-decoration:underline}
+
+/* the place read: one block per system */
+.sysblock{border-top:1px solid var(--line);padding:14px 0 2px}
+.sysblock-h{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.sysblock-h .sec-h{color:var(--clay)}
+.item-t.nk{color:var(--ink-2)}
+.nklab{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);
+  margin-right:4px}
+
+.spoke{stroke:var(--line-2);stroke-width:1}
+.hub{fill:var(--ink-3);stroke:#fff;stroke-width:1}
+.canvas-foot .foot-note{flex-basis:100%;margin:2px 0 0}
+
+/* On a narrow screen the utilities compress so the canvas switch stays reachable. */
+@media (max-width:900px){
+  .bar{padding:12px 14px 8px;gap:7px}
+  .bar .icon{padding:5px 8px;font-size:11.5px}
+  .bar .scope,.bar .saved{display:none}
+  .doc{padding:4px 16px 14px}
+  .actionbar,.ask{padding-left:16px;padding-right:16px}
+}
+
+.stage-n{font-size:19px;fill:var(--ink);text-anchor:middle;font-family:var(--sans);font-weight:600}
+.sysnode.classified circle{fill:var(--sand);stroke:var(--stone);stroke-width:1.5}
+.sysnode.unobserved circle{fill:#fff}
+body.drawer-open .canvas-foot{opacity:.25}
+
+.drawer code{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:var(--paper-2);
+  padding:2px 5px;border-radius:4px;word-break:break-all}
+
+/* ================================================================ RESET 0.2
+ * The map earned its space in the last pass. What was left was the left pane: finding, method, source
+ * and unknown were all set at nearly the same weight, so a place overview read like an audit. The
+ * hierarchy below is the whole fix -- FINDING loud, method quiet, knowledge boundary marked, provenance
+ * one click away -- and it is typography and spacing, not cards. Dula is an atlas, not a dashboard.
+ */
+.holdline{margin:2px 0 0;font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.sysblock{border-top:1px solid var(--line);padding:17px 0 6px}
+.sysblock-h{display:flex;align-items:baseline;gap:12px;margin-bottom:7px}
+.sys-read{margin:0;font-family:var(--serif);font-size:17.5px;line-height:1.38;color:var(--ink)}
+.sys-how{margin:5px 0 0;font-size:12.8px;line-height:1.52;color:var(--ink-3)}
+.sys-nk{margin:11px 0 0;font-size:14.6px;line-height:1.45;color:var(--ink-2)}
+.sys-nk .nklab{margin-right:7px}
+.sys-nk-p{margin:0 0 9px;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.scopetag{display:inline-block;font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:5px;white-space:nowrap;
+  background:var(--paper-2)}
+.sys-foot{display:flex;align-items:baseline;gap:14px;margin:10px 0 0}
+.howknow{border:0;background:none;padding:0;color:var(--ink-3);font-size:11.5px;cursor:pointer;
+  border-bottom:1px solid var(--line-2)}
+.howknow:hover{color:var(--clay);border-color:var(--clay)}
+.also{font-size:11px;color:var(--ink-3)}
+.sysline-btn{font-size:11.5px;letter-spacing:.02em}
+
+/* THE PATH. Never a mystery which place you are in, and one click back to it. */
+.bar .scope{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap}
+.cr{border:0;background:none;padding:0 2px;font-size:12px;color:var(--water);cursor:pointer;
+  font-family:inherit;max-width:12rem;overflow:hidden;text-overflow:ellipsis}
+.cr:hover{text-decoration:underline}
+.cr.here{color:var(--ink-2);cursor:default;text-decoration:none}
+.crsep{color:var(--line-2);font-size:11px;padding:0 1px}
+.canv-sys{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--clay);border-left:1px solid var(--line-2);margin-left:11px;padding-left:11px;
+  vertical-align:2px}
+
+/* A SELECTED OBJECT. The pane is about the thing, and the geography of each figure is on its face. */
+.obj-head{margin-bottom:12px}
+.obj-what{margin:0 0 4px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.obj-m{margin:0 0 7px;font-size:14.4px;line-height:1.46;color:var(--ink)}
+.obj-m.county-only{color:var(--ink-2)}
+.warn-block .sec-h{color:var(--warn)}
+.warn-block{background:linear-gradient(90deg,rgba(154,107,31,.05),transparent 70%);
+  padding-left:12px;margin-left:-12px}
+.nk-block .sec-h{color:var(--warn)}
+.precision{margin:12px 0 0;font-size:12.5px;line-height:1.52;color:var(--ink-3);
+  border-left:2px solid var(--line-2);padding-left:11px}
+.src.tiny{font-size:10px;padding:0 4px;opacity:.75}
+.memlist{display:flex;flex-direction:column;gap:0}
+.mem{display:flex;align-items:baseline;gap:10px;padding:5px 0;border-top:1px solid var(--line)}
+.mem-n{font-size:13.6px;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.mem-t{font-size:11px;color:var(--ink-3);flex:0 0 auto}
+.fieldlist{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px}
+.fld{font-size:11px;color:var(--ink-3);border:1px dashed var(--line-2);border-radius:4px;
+  padding:2px 7px;background:var(--paper)}
+.drawer-lead{font-size:13px;color:var(--ink-2);margin:2px 0 14px;line-height:1.5}
+
+/* INSIDE A SYSTEM. The system's own geography is emphasised; everything else recedes but stays, because
+   losing the city outline would also lose the reader's sense of where they are. */
+.lyr-counties.quiet,.lyr-tracts.quiet,.lyr-acequias.quiet,.lyr-food.quiet,.lyr-orgs.quiet{opacity:.22}
+.lyr-tracts.em .tract{stroke-width:.7}
+.lyr-acequias.em .acequia{stroke-width:2.6;opacity:1}
+.placeline.em{stroke-width:2.4}
+.aceq{cursor:pointer}
+.acequia-hit{stroke:transparent;stroke-width:12;fill:none}
+.aceq:hover .acequia{stroke-width:3;opacity:1}
+.aceq.sel .acequia{stroke:var(--clay);stroke-width:3.4;opacity:1}
+.tract.mk{cursor:pointer}
+.tract.mk:hover{stroke:var(--clay);stroke-width:1.4}
+.tract.mk.sel{stroke:var(--clay);stroke-width:2.2}
+.mk .cnt.big{font-size:20px}
+.armlab{font-size:11px;fill:var(--ink-2);text-anchor:middle;font-family:var(--sans);
+  letter-spacing:.04em;pointer-events:none}
+
+/* COMPOSITION, AND THE EDGE OF IT. Counts of observed roles, deliberately NOT joined by arrows: Dula
+   holds no verified transaction, so an arrow would claim the one thing that is missing. The boundary is
+   drawn as a boundary. */
+.compband{border-bottom:1px solid var(--line);padding:0 0 13px;margin:0 0 12px}
+.comp-h{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--clay);
+  font-weight:600;margin-bottom:9px}
+.comp-sub{text-transform:none;letter-spacing:.01em;color:var(--ink-3);font-weight:400;font-size:11px;
+  margin-left:9px}
+.comprow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.comp{display:flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:#fff;
+  border-radius:9px;padding:6px 11px 6px 8px;cursor:pointer;font-family:inherit}
+.comp:hover{border-color:var(--clay)}
+.comp.on{border-color:var(--clay);background:var(--clay-soft)}
+.compm{width:16px;height:16px;flex:0 0 auto}
+.compm polygon,.compm rect,.compm circle{fill:#fff;stroke:var(--ink-2);stroke-width:1.6}
+.compm .xmark{stroke:var(--ink-2);stroke-width:1.6;fill:none}
+.compn{font-size:16px;font-weight:600;color:var(--ink)}
+.compl{font-size:11.5px;color:var(--ink-2)}
+.boundary{border-top:1px dashed var(--line-2);padding-top:10px}
+.bnd-line{display:flex;gap:11px;align-items:baseline;margin-bottom:5px}
+.bnd-lab{flex:0 0 7.2rem;font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.bnd-line.nope .bnd-lab{color:var(--warn)}
+.bnd-v{font-size:12.6px;color:var(--ink-2);line-height:1.45}
+.bnd-line.nope .bnd-v b{color:var(--ink)}
+.bnd-why{margin:8px 0 0 8.2rem;font-size:11.5px;line-height:1.5;color:var(--ink-3)}
+@media (max-width:900px){.bnd-lab{flex-basis:5.4rem}.bnd-why{margin-left:0}}
+.sec.regional > summary .sec-h{color:var(--ink-3)}
+.sec.regional[open] > summary .sec-h{color:var(--clay)}
+.lead.read .sys-read:not(:first-of-type){margin-top:16px}
+.sel-outline{fill:rgba(180,85,45,.14);stroke:var(--clay);stroke-width:2.4;pointer-events:none}
+.sel-line{fill:none;stroke:var(--clay);stroke-width:3.4;pointer-events:none}
+.cr{flex:0 0 auto;max-width:none}
+.cr.here{flex:0 1 auto;min-width:0}
+.sec.regional > summary .sec-h{text-transform:none;letter-spacing:.015em;font-size:12.5px;
+  font-weight:500;color:var(--ink-2)}
+
+/* ================================================================ V0.3A — DISCOVERY
+ * A candidate is a thing to investigate. Nothing in this block is allowed to look like a rating: no
+ * colour runs from bad to good, no badge says strong or weak, and the only emphasis is on what cuts
+ * AGAINST an operator, because that is the part a reader is most likely to skip.
+ */
+.statusline{margin:10px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.5}
+.statustag{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--clay);border:1px solid var(--clay-soft);background:#fff;border-radius:4px;
+  padding:2px 7px;margin-right:8px;font-weight:600}
+.candrow{border-top:1px solid var(--line);padding:11px 0 9px;cursor:pointer}
+.candrow:first-of-type{border-top:0}
+.candrow:hover .cand-n{color:var(--clay)}
+.cand-n{margin:0;font-family:var(--serif);font-size:16.5px;line-height:1.3}
+.cand-m{margin:3px 0 0;font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.cand-w{margin:5px 0 0;font-size:13px;color:var(--ink-2);line-height:1.45}
+.cand-x{margin:5px 0 0;font-size:13px;color:var(--warn);line-height:1.45}
+.candrow.retr{border-left:2px dashed var(--line-2);padding-left:11px}
+.pathrow{display:flex;gap:7px;flex-wrap:wrap;margin:2px 0 8px}
+.pathchip{font-size:11.5px;border:1px solid var(--line-2);border-radius:999px;padding:4px 11px;
+  color:var(--ink-2);background:var(--paper)}
+.pathchip b{font-weight:600;color:var(--ink-3);margin-left:6px;text-transform:lowercase}
+.pathchip.contradicted b,.pathchip.evidence_against b{color:var(--warn)}
+.pathchip.no_candidate_found b{color:var(--ink-3);font-style:italic}
+.searcharea path{fill:none;stroke:var(--clay);stroke-width:1.1;stroke-dasharray:5 4;opacity:.45}
+.mk.cand .candring{fill:rgba(180,85,45,.10);stroke:var(--clay);stroke-width:1.8}
+.mk.cand .canddot{fill:var(--clay);stroke:none}
+.mk.cand.retr .candring{fill:none;stroke-dasharray:3 3}
+.mk.cand.sel .candring{stroke-width:3}
+.mk.cand:hover .candring{stroke-width:2.6}
+.fieldq{padding:15px 0 10px}
+.fq-lab{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;margin:12px 0 3px}
+.answered{border-left:2px solid var(--clay-soft);padding-left:13px;margin-top:10px}
+.fq-form{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.fq-form input{flex:1 1 13rem;min-width:0;border:1px solid var(--line-2);border-radius:8px;
+  padding:8px 11px;font-size:13px;font-family:inherit;background:#fff;color:var(--ink)}
+.fq-form input:focus{outline:0;border-color:var(--clay)}
+.fq-save{flex:0 0 auto}
+.linkbtn{border:0;background:none;padding:0;color:var(--ink-3);font-size:11.5px;cursor:pointer;
+  border-bottom:1px solid var(--line-2);font-family:inherit}
+.linkbtn:hover{color:var(--clay);border-color:var(--clay)}
+
+/* ================================================================ V0.3B — DISCOVERY
+ * Provenance is a SHAPE (a broken ring was retrieved, a solid one was held) and the capability state is
+ * a WEIGHT. Neither is a colour running from bad to good, because neither is a judgement about a firm.
+ */
+.candrow.disc{border-left:2px dashed var(--clay);padding-left:11px}
+.strip{display:flex;flex-direction:column}
+.striprow{display:grid;grid-template-columns:9.5rem 1fr;gap:12px;padding:7px 0;
+  border-top:1px solid var(--line)}
+.strip-k{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;padding-top:2px}
+.striprow.on .strip-k{color:var(--clay)}
+.strip-v{font-size:13px;line-height:1.45;color:var(--ink-3)}
+.striprow.on .strip-v{color:var(--ink)}
+.comp.lyrtoggle{padding:6px 13px}
+.mk.cand.cap-indicated .candring{stroke-width:2.4;fill:rgba(180,85,45,.16)}
+.mk.cand.cap-unknown .candring{fill:none;stroke-dasharray:2 3}
+.mk.cand.retr .canddot{fill:#fff;stroke:var(--clay);stroke-width:1.6}
+
+/* ================================================================ V0.3B.1 — PRECISION IS VISIBLE
+ * A dashed region means "somewhere in this town". A solid mark means "here". The difference is the
+ * whole point: a reader must be able to see which records have a real location without reading a word.
+ */
+/* V0.6 PASS 3. A town aggregate: a settlement mark exactly on the held centroid, and the count in
+ * type beside it. There is no disc, because an area would be a claim about extent. */
+.mk.coll{cursor:pointer}
+.coll-hit{fill:transparent;stroke:none}
+.settle{fill:#fff;stroke:var(--ink-2);stroke-width:1.6}
+.settle-c{fill:var(--ink-2);stroke:none}
+.mk.coll:hover .settle,.mk.coll.sel .settle{stroke:var(--clay);stroke-width:2.2}
+.mk.coll:hover .settle-c,.mk.coll.sel .settle-c{fill:var(--clay)}
+.coll-town{font-family:var(--sans);font-size:9.5px;letter-spacing:.14em;fill:var(--ink-2);
+  pointer-events:none}
+.coll-town.sm{font-size:11px;letter-spacing:.01em;fill:var(--ink)}
+.coll-n{font-family:var(--serif);font-size:25px;fill:var(--ink);pointer-events:none;
+  font-variant-numeric:tabular-nums}
+.coll-l{font-family:var(--mono);font-size:8.5px;fill:var(--ink-3);letter-spacing:.07em;
+  pointer-events:none}
+.coll-l.sm{font-family:var(--sans);font-size:11px;fill:var(--ink-3)}
+.coll-p{font-family:var(--mono);font-size:8.5px;fill:var(--ink-3);letter-spacing:.07em;
+  pointer-events:none}
+.mk.exact polygon,.mk.exact rect,.mk.exact circle{stroke-width:2}
+/* the bands of a place page never blend */
+.band-h{display:flex;align-items:baseline;gap:10px;margin:22px 0 2px}
+.band-h .sec-h{color:var(--clay)}
+.band-why{font-size:11.5px;color:var(--ink-3);margin:0 0 8px;line-height:1.5}
+.statechip{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  border:1px solid var(--line-2);border-radius:999px;padding:2px 9px;background:var(--paper)}
+.ctx-block{border-left:2px solid var(--line-2);padding-left:13px;margin-top:6px}
+.ctx-geo{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);
+  font-weight:600;margin:0 0 3px}
+.universe{font-size:11px;color:var(--ink-3);margin:2px 0 0}
+/* .coll-area / .coll-area2 are gone with the uncertainty discs they drew (V0.6 PASS 3). */
+
+/* ================================================================ V0.3C · PORTFOLIO + SYSTEM VIEW
+ * §55. A living development map, not network-analysis software. The same warm atlas language as the
+ * rest: paper, one ink, clay for the thing you selected. §30/§68: nothing here is coloured for
+ * quality, and the only thing a weight or a dash says is how strong the record is. */
+.viewtog{display:inline-flex;gap:2px;background:var(--paper-3);border:1px solid var(--line-2);
+  border-radius:999px;padding:2px;margin-left:12px;vertical-align:middle}
+.vtg{border:0;background:none;color:var(--ink-2);font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;padding:5px 13px;border-radius:999px;cursor:pointer}
+.vtg.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(43,36,32,.08)}
+.vtg[disabled]{opacity:.4;cursor:default}
+
+.sysview{font-family:var(--sans)}
+.sv-col{fill:var(--ink-3);font-size:9.5px;letter-spacing:.14em;text-anchor:middle}
+.sv-n rect,.sv-n path{fill:#fff;stroke:var(--line-2);stroke-width:1}
+.sv-opportunity rect{fill:var(--paper-2);stroke:var(--ink-3)}
+.sv-condition path{fill:#fff;stroke:var(--stone);stroke-width:1.2}
+.sv-actor rect{fill:var(--paper);stroke:var(--line-2)}
+.sv-n.sv-sel rect,.sv-n.sv-sel path{stroke:var(--clay);stroke-width:2}
+.sv-n{cursor:pointer}
+.sv-n:hover rect,.sv-n:hover path{stroke:var(--clay)}
+.sv-lab{fill:var(--ink);font-size:10.5px;text-anchor:middle}
+.sv-st{fill:var(--ink-3);font-size:8.5px;letter-spacing:.07em;text-anchor:middle}
+.sv-line{fill:none;stroke:var(--ink-3)}
+.sv-head{fill:var(--ink-3);stroke:none}
+.sv-head.open{fill:none;stroke:var(--ink-3);stroke-width:1.2}
+.sv-q{fill:var(--ink-3);font-size:11px}
+.sv-ek{fill:var(--ink-3);font-size:8.5px;letter-spacing:.05em;text-anchor:middle}
+.sv-empty{fill:var(--ink-3);font-size:13px;text-anchor:middle;font-family:var(--serif)}
+.svleg{display:flex;gap:16px;flex-wrap:wrap;color:var(--ink-3);font-size:11px;margin-top:6px}
+.svl{display:inline-flex;align-items:center;gap:6px}
+
+/* ---- the portfolio page. §56: no KPI cards. */
+.pane{display:block}
+.v3c-kicker{color:var(--ink-3);font-size:10.5px;letter-spacing:.14em;margin:0 0 6px;
+  text-transform:uppercase}
+.pane.pf h2,.pane.cond h2,.pane.rel h2,.pane.v3c-mem h2{font-family:var(--serif);font-size:23px;
+  line-height:1.25;margin:2px 0 10px;font-weight:500}
+.pf-place{color:var(--ink-2);font-size:13.5px;margin:0 0 4px}
+.pf-geo{display:block;color:var(--ink-3);font-size:11.5px;letter-spacing:.04em;margin-top:3px}
+.pf-not{color:var(--ink-3);font-size:12.5px;margin:0 0 20px;font-style:italic}
+.pf-thesis{border-left:2px solid var(--clay);padding:2px 0 2px 14px;margin:0 0 6px}
+.pf-thesis.none{border-left-color:var(--line-2)}
+.pf-thesis p{margin:0 0 6px;font-size:15px}
+.pf-sub,.cp-sub{color:var(--ink-2);font-size:12.5px;margin:0 0 6px}
+.pf-list{display:flex;flex-direction:column;gap:7px;margin:0 0 6px}
+.pfm,.pfc{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:11px 13px;cursor:pointer;font-family:inherit}
+.pfm:hover,.pfc:hover{border-color:var(--clay)}
+.pfm-t,.pfc-t{display:block;font-size:14.5px;color:var(--ink);line-height:1.35}
+.pfm-m,.pfc-m{display:block;margin-top:5px;color:var(--ink-3);font-size:11.5px}
+.pfm-r{display:block;margin-top:5px;color:var(--ink-2);font-size:12.5px}
+.pfm-o,.pfm-c{margin-left:8px;letter-spacing:.04em}
+.pfm-a{margin-left:8px;color:var(--warn)}
+.pf-flag{border:1px dashed var(--line-2);border-radius:9px;padding:10px 13px;margin:0 0 7px;
+  background:var(--paper-2)}
+.pf-flag p{margin:0 0 4px;font-size:14px}
+.pf-unk{margin:0 0 14px;padding-left:18px;color:var(--ink-2);font-size:13px}
+.pf-unk li{margin:0 0 5px}
+.pf-unk b{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-right:4px}
+.band-h.quiet{color:var(--ink-3)}
+
+/* ---- a condition, and a relationship. The chain is drawn as a chain. */
+.cp-what{color:var(--ink-2);font-size:13px;margin:0 0 8px}
+.cp-desc{font-size:14.5px;margin:0 0 10px}
+.cp-state{font-size:13px;color:var(--ink-2);margin:0 0 16px}
+.cp-geoblock{font-size:14px;margin:0 0 6px}
+.cp-list{margin:0 0 14px;padding-left:18px;font-size:13.5px}
+.cp-list li{margin:0 0 7px}
+.cp-note{display:block;color:var(--ink-3);font-size:11.5px}
+.cp-geo{margin-left:8px;color:var(--ink-3);font-size:11px;letter-spacing:.04em}
+.cp-geo.none{font-style:italic}
+.cp-isnot{color:var(--ink-3);font-size:12px;font-style:italic;margin:16px 0 0;
+  border-top:1px solid var(--line);padding-top:10px}
+.rel-chain{margin:4px 0 14px}
+.rel-step{display:flex;align-items:baseline;gap:9px;background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:10px 12px}
+.rel-step.rel-HYPOTHESIZED{border-style:dashed}
+.rel-step.rel-UNKNOWN{border-style:dotted}
+.rel-n{font-family:var(--mono);font-size:10px;color:var(--ink-3);flex:0 0 auto;min-width:30px}
+.rel-t{flex:1 1 auto;font-size:13.5px}
+.rel-arrow{text-align:center;color:var(--ink-3);font-size:14px;line-height:1.1;margin:2px 0}
+.relbtn{border:0;background:none;color:var(--clay);font:inherit;font-size:13.5px;cursor:pointer;
+  padding:0;text-align:left}
+.relbtn:hover{text-decoration:underline}
+.st-OBSERVED{background:var(--water-soft);color:#245a68}
+.st-SUPPORTED{background:var(--paper-3);color:var(--ink-2)}
+.st-HYPOTHESIZED{background:#fff;color:var(--ink-3);border:1px dashed var(--line-2)}
+.st-UNKNOWN{background:#fff;color:var(--ink-3);border:1px dotted var(--line-2)}
+/* V0.6. CONTRADICTED used to be a rust badge, which made rust read as "bad" -- the one thing the
+ * canonical colour rule forbids, since rust is reserved for selection, attention and Dula's own
+ * action. Contradiction is not a warning light, it is a direction of evidence, so it says so in
+ * structure and words: struck through, in the ordinary ink, with a visible mark. */
+.st-CONTRADICTED{background:#fff;color:var(--ink-2);border:1px solid var(--ink-3);
+  text-decoration:line-through;text-decoration-thickness:1px}
+.st-CONTRADICTED::after{content:" \2715";text-decoration:none;display:inline-block;
+  font-size:9px;margin-left:3px;vertical-align:1px}
+
+/* The same idea inside the two diagrams: the line keeps its style and gains a strike. */
+.sv-strike,.cv-strike{stroke:var(--ink-2);stroke-width:1.2;fill:none}
+.sv-e.sv-contradicted .sv-line,.cv-b.cv-contradicted rect{stroke:var(--ink-3)}
+
+/* §53. The direct lane is fenced, so a reader can see at a glance that it is a different kind
+ * of claim from the condition chain above it. */
+.direct-lane{border:1px solid var(--line-2);border-radius:9px;padding:11px 13px;
+  background:var(--paper-2);margin:0 0 14px}
+.direct-lane p{margin:0 0 6px;font-size:13.5px}
+.pf-wrong{border-left:2px solid var(--line-2);padding:2px 0 2px 13px;margin:0 0 10px}
+.pf-wrong p{margin:0 0 5px;font-size:13.5px}
+.wrong-id{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ================================================================ V0.4 · THE WORLD SURFACE
+ * §B. The causal story is the object. A stop is drawn stopping, and an unknown is drawn as something
+ * to go and learn rather than as a hole. */
+.chainview{font-family:var(--sans)}
+.cv-b rect{fill:#fff;stroke:var(--line-2)}
+.cv-b{cursor:default}
+.cv-b[data-kind="unknown"],.cv-b[data-kind="condition"],.cv-b[data-kind="force"]{cursor:pointer}
+.cv-b[data-kind="unknown"] rect{stroke:var(--clay);fill:none}
+.cv-b[data-kind="force"] rect{fill:var(--paper-2);stroke:var(--ink-3)}
+.cv-b[data-kind="stop"] rect{stroke:var(--ink-3);fill:var(--paper-3)}
+.cv-b[data-kind="branch"] rect{stroke:var(--line-2);fill:none}
+.cv-b[data-kind="condition"] rect{stroke:var(--stone);stroke-width:1.4}
+.cv-b:hover rect{stroke:var(--clay)}
+.cv-t{fill:var(--ink);font-size:13px;text-anchor:middle}
+.cv-s{fill:var(--ink-3);font-size:10.5px;text-anchor:middle;letter-spacing:.03em}
+.cv-g{fill:var(--ink-3);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.cv-n{fill:var(--ink-3);font-size:9px;text-anchor:middle;font-style:italic}
+.cv-l{stroke:var(--ink-3);fill:none}
+.cv-a{fill:var(--ink-3)}
+.cv-br{stroke:var(--line-2);fill:none;stroke-dasharray:3 4}
+.cv-empty{fill:var(--ink-3);font-size:13px;text-anchor:middle;font-family:var(--serif)}
+.hzbar{display:flex;align-items:center;gap:4px;margin:0 0 10px}
+.hz{border:1px solid var(--line-2);background:var(--paper-2);color:var(--ink-2);border-radius:999px;
+  padding:5px 13px;font-size:11.5px;letter-spacing:.06em;cursor:pointer}
+.hz.on{background:var(--clay);color:#fff;border-color:var(--clay)}
+.hz-q{color:var(--ink-3);font-size:11.5px;margin-left:8px;flex:1 1 auto}
+.wf{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:11px 13px;cursor:pointer;font-family:inherit;margin:0 0 7px}
+.wf:hover{border-color:var(--clay)}
+.wf-t{display:block;font-size:14.5px;color:var(--ink);line-height:1.35}
+.wf-m{display:block;margin-top:5px;color:var(--ink-3);font-size:11.5px}
+.wf-v,.wf-o{margin-left:8px}
+.wf-s{display:block;margin-top:4px;color:var(--ink-2);font-size:12.5px}
+.cv-step{margin:0 0 8px}
+.cv-stop{border:1px dashed var(--line-2);border-radius:9px;padding:10px 13px;
+  background:var(--paper-2);margin:0 0 14px}
+.cv-stop p{margin:0 0 5px;font-size:14px}
+.pane.unknown h2{color:var(--clay)}
+.cv-b[data-kind="branches"] rect{stroke:var(--ink-3);fill:var(--paper-2);stroke-dasharray:5 4}
+.cv-b[data-kind="branches"]{cursor:pointer}
+
+/* ================================================================ V0.6 · THE SHELL */
+/* ================================================================ V0.6 · STAGE 1 · WORLD */
+/* §1. The fence is the most important mark on this screen. It is what stops the left half being read
+ * as a map, and it is drawn and labelled rather than implied. */
+.wv-fence{fill:none;stroke:var(--line-2);stroke-width:1;stroke-dasharray:3 4;rx:10}
+.wv-fence-l{fill:var(--ink-3);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em}
+.wv-fence-s{fill:var(--ink-3);font-size:10px}
+.wv-band{fill:var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.09em}
+.wv-band.quiet{fill:var(--ink-3)}
+.wv-f{cursor:pointer}
+.wv-hit{fill:transparent;rx:6}
+.wv-f:hover .wv-hit,.wv-f:focus .wv-hit{fill:#fff;stroke:var(--line-2)}
+.wv-n{fill:var(--ink);font-size:11px}
+.wv-n.big{font-family:var(--serif);font-size:14px;fill:var(--ink)}
+.wv-s{fill:var(--ink-3);font-size:9.5px}
+.wv-c{fill:none;stroke:var(--ink-3)}
+.wv-term{stroke:var(--ink-3);stroke-width:1.6}
+.wv-rail{stroke:var(--line-2);stroke-width:1}
+.wv-tick{fill:var(--clay);stroke:none}
+.wv-land{cursor:pointer}
+.wv-land-l{fill:var(--ink-2);font-size:11px}
+.wv-geo-f{fill:#fff;stroke:var(--line-2);stroke-width:1;rx:10}
+.wv-geo-l{fill:var(--ink);font-family:var(--serif);font-size:16px}
+.wv-geo-s{fill:var(--ink-3);font-size:10px}
+.wv-empty{fill:var(--ink-3);font-size:14px;text-anchor:middle}
+.worldview text{text-anchor:start}
+.worldview .wv-empty{text-anchor:middle}
+/* The place outline is scaled into its frame, and a hairline scaled with it would vanish. The stroke
+ * is held at its drawn weight instead, so the boundary reads the same here as on the map stage. */
+.wv-geo *{vector-effect:non-scaling-stroke}
+
+/* ================================================================ V0.6 PASS 7 · THE PLACE PROJECTED */
+/* The place, kept as a watermark behind the projection: the reader has changed the question, not
+ * the subject. Faint enough that it never competes with the composition in front of it. */
+.ps-ghost{opacity:.09}
+.ps-ghost .placeline{stroke-width:1.4}
+.placesystem text{text-anchor:middle;font-family:var(--sans)}
+.ps-head{font-family:var(--serif);font-size:23px;fill:var(--ink)}
+.ps-band{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;fill:var(--ink-3)}
+/* The disc is the frame around a role glyph, never the glyph itself, so the shape palette must not
+ * reach it -- a filled disc would read as a mark whose size meant something. */
+.placesystem .mk circle.ps-disc,.ps-disc{fill:#fff;stroke:var(--line-2);stroke-width:1}
+.ps-role{cursor:pointer}
+.ps-role:hover .ps-disc,.ps-role.sel .ps-disc{stroke:var(--clay);stroke-width:1.8}
+.ps-n{font-family:var(--serif);font-size:27px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.ps-l{font-size:12.5px;fill:var(--ink)}
+.ps-m{font-size:10.5px;fill:var(--ink-3)}
+.ps-gline{stroke:var(--line-2);fill:none}
+.ps-q{font-size:13px;fill:var(--ink-3);font-family:var(--sans)}
+.ps-gaph{font-family:var(--mono);font-size:9px;letter-spacing:.13em;fill:var(--ink-3)}
+.ps-foot{font-size:14px;fill:var(--ink)}
+.ps-why{font-size:11.5px;fill:var(--ink-3)}
+.placesystem .ps-why.left,.placesystem .ps-nk,.placesystem .ps-nt,
+.placesystem .ps-nn{text-anchor:start}
+.ps-nk{font-family:var(--mono);font-size:9px;letter-spacing:.13em;fill:var(--ink-3)}
+.ps-need.have .ps-nk{fill:var(--sage)}
+.ps-nt{font-family:var(--serif);font-size:18px;fill:var(--ink)}
+.ps-nn{font-size:12.5px;fill:var(--ink-2)}
+.ps-empty{fill:var(--ink-3);font-size:15px;text-anchor:middle}
+
+.ws-headl{flex:1 1 20rem;min-width:0}
+.ws-stage{margin:5px 0 0;font-size:12.5px;color:var(--ink-3);display:flex;gap:9px;align-items:baseline;
+  flex-wrap:wrap}
+.ws-stage:empty{display:none}
+.ws-sl{color:var(--ink-2)}
+.ws-sl:empty{display:none}
+.ws-ss{color:var(--ink-3)}
+.foot-more{border:1px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:999px;
+  padding:4px 11px;font-size:11px;cursor:pointer;flex:0 0 auto}
+.foot-more:hover{border-color:var(--clay);color:var(--clay)}
+/* PASS 2. The atlas base: everything behind the economics is quiet enough to carry it. */
+.lyr-counties .county{fill:#f6f1e9;stroke:var(--line);stroke-width:.8}
+.lyr-counties .county.here{fill:#f1ebe0}
+.lyr-acequias .acequia{stroke:var(--water);stroke-width:1.1;opacity:.5}
+.lyr-tracts{opacity:.5}
+.lyr-tracts.em{opacity:1}
+/* the composition band inside the workspace foot stays one row high */
+.canvas-foot .compband{margin:0}
+.canvas-foot .boundary{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-top:4px}
+.canvas-foot .bnd-line{margin:0}
+/* the workspace foot is a single compact strip, whatever it is carrying */
+.canvas-foot .comp-h{font-size:10.5px}
+.canvas-foot .comp-sub{font-size:10.5px}
+.canvas-foot .comp{padding:3px 9px;font-size:11px}
+.canvas-foot .layerbar{margin:0}
+.canvas-foot .lyr{font-size:10.5px;padding:3px 9px}
+.canvas-foot .legend{font-size:10.5px}
+.canvas-foot .bnd-line{font-size:11px}
+
+/* ================================================================ THE SPECIMEN FIELD
+ * Production implementation of the approved S1r board. Type and marks share one coordinate system,
+ * which is why the editorial text is drawn in the field rather than stacked above it. */
+.specimen text{font-family:var(--sans);fill:var(--ink)}
+.sp-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;fill:var(--ink-3)}
+.sp-kick.clay{fill:var(--clay)}
+.sp-lead{font-family:var(--serif);font-weight:500;fill:var(--ink)}
+.sp-disp{font-family:var(--serif);font-weight:300;fill:var(--ink);font-variant-numeric:tabular-nums}
+.sp-disp.quiet{fill:var(--ink-3)}
+.sp-count{font-family:var(--serif);fill:var(--ink);font-variant-numeric:tabular-nums}
+.sp-body{font-size:13.5px;fill:var(--ink-2)}
+.sp-body.sm{font-size:11.5px;fill:var(--ink-3)}
+.sp-meta{font-size:11px;fill:var(--ink-3)}
+.sp-colophon{font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;fill:var(--ink-3)}
+.sp-num{font-family:var(--mono);font-size:9px;fill:var(--ink-3)}
+.sp-num.mid{text-anchor:middle;fill:var(--ink)}
+.sp-rule{stroke:var(--line-2);stroke-width:1;fill:none}
+.sp-rule.ink{stroke:var(--ink);stroke-width:1.1}
+.sp-ring{fill:var(--paper);stroke:var(--ink);stroke-width:1}
+.sp-hit{fill:transparent}
+.sp-empty{fill:var(--ink-3);font-size:15px;text-anchor:middle}
+/* mark character: the five role shapes, at one size, from the map's own vocabulary */
+.sp-marks polygon,.sp-marks rect,.sp-marks circle{stroke-width:1}
+.sp-c .sp-marks circle{fill:var(--sand);stroke:var(--stone)}
+.sp-c .sp-marks polygon{fill:var(--sage);stroke:var(--sage)}
+.sp-c .sp-marks rect{fill:var(--clay);stroke:var(--clay);opacity:.72}
+.sp-c .sp-marks path{stroke:var(--ink-2);stroke-width:1.2}
+.sp-c[data-id="moved"] .sp-marks polygon{fill:var(--water);stroke:var(--water);opacity:.7}
+.sp-c[data-id="produced"] .sp-marks polygon{fill:var(--sage);stroke:var(--sage);opacity:1}
+.sp-c,.sp-reg,.sp-unknown{cursor:pointer;transition:opacity .16s}
+.sp-c:focus,.sp-reg:focus,.sp-unknown:focus{outline:none}
+.sp-c:focus .sp-ring,.sp-reg:focus .sp-hit{stroke:var(--clay);stroke-width:2}
+.sp-reg:focus .sp-hit,.sp-reg:hover .sp-hit,.sp-unknown:focus .sp-hit,.sp-unknown:hover .sp-hit{
+  fill:#fff;stroke:var(--line-2)}
+.sp-c:hover .sp-ring{stroke:var(--clay);stroke-width:2}
+.sp-unknown:focus text,.sp-unknown:hover text{fill:var(--clay)}
+/* the warrant breakdown, behind the one sentence */
+.warrants{margin:14px 0 6px}
+.wr{position:relative;display:flex;align-items:baseline;gap:10px;padding:5px 0;
+  border-top:1px solid var(--line)}
+.wr-n{font-family:var(--serif);font-size:17px;min-width:3rem;font-variant-numeric:tabular-nums}
+.wr-k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-3)}
+.wr-bar{position:absolute;left:0;bottom:0;height:2px;background:var(--line-2)}
+.sp-c .sp-hit{fill:transparent;stroke:none}
+.sp-c:hover .sp-hit,.sp-c:focus .sp-hit{fill:rgba(255,255,255,.5);stroke:var(--line-2);
+  stroke-dasharray:3 4}
+/* §4A. The register row lights with its cluster, from pointer or keyboard, through one class. */
+.sp-reg.linked .sp-hit{fill:#fff;stroke:var(--clay)}
+.sp-reg.linked .sp-kick,.sp-c.linked .sp-kick{fill:var(--clay)}
+.sp-c.linked .sp-ring{stroke:var(--clay);stroke-width:2}
+.sp-c:focus .sp-hit{fill:rgba(255,255,255,.55);stroke:var(--clay);stroke-width:1.6;
+  stroke-dasharray:none}
+.sp-reg{cursor:pointer}
+
+/* ================================================================ THE SURVEY SHEET
+ * Production implementation of the approved O1r board. Cartography subordinate to the question:
+ * every layer is held, every role is declared, and nothing is drawn that Dula does not have. */
+.survey text{font-family:var(--sans);fill:var(--ink)}
+.ov-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;fill:var(--ink-3)}
+.ov-kick.clay{fill:var(--clay)}
+.ov-lead{font-family:var(--serif);font-weight:500;fill:var(--ink)}
+.ov-disp{font-family:var(--serif);font-weight:300;fill:var(--ink);font-variant-numeric:tabular-nums}
+.ov-count{font-family:var(--serif);font-size:27px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.ov-count.sm{font-size:21px}
+.ov-body{font-size:11px;fill:var(--ink-2)}
+.ov-body.sm{font-size:10.5px}
+.ov-body.quiet{fill:var(--ink-3)}
+.ov-colophon{font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;fill:var(--ink-3)}
+.ov-rule{stroke:var(--line-2);stroke-width:1;fill:none}
+.ov-rule.ink{stroke:var(--ink);stroke-width:1.1}
+.ov-rule.hair{stroke:var(--line);stroke-width:.7}
+.ov-boundary{fill:none;stroke:var(--clay);stroke-width:2.2;stroke-linejoin:round}
+.ov-ghost{fill:none;stroke:var(--ink-3);stroke-width:.9;vector-effect:non-scaling-stroke}
+.ov-aceq{fill:none;stroke:var(--water);stroke-width:1.4;opacity:.85;vector-effect:non-scaling-stroke}
+.ov-pt{fill:var(--ink);stroke:none}
+.ov-mark{fill:#fff;stroke:var(--ink);stroke-width:2}
+.ov-dot{fill:var(--ink)}
+.ov-lead-line{stroke:var(--ink-3);stroke-width:.8;fill:none}
+.ov-hit{fill:transparent;stroke:none}
+.ov-empty{fill:var(--ink-3);font-size:15px;text-anchor:middle}
+.ov-agg,.ov-row,.ov-off{cursor:pointer}
+.ov-agg:focus,.ov-row:focus,.ov-off:focus{outline:none}
+.ov-agg:focus .ov-mark,.ov-agg:hover .ov-mark{stroke:var(--clay);stroke-width:2.6}
+.ov-agg:focus .ov-hit{fill:rgba(180,85,45,.08)}
+.ov-row:focus .ov-hit,.ov-row:hover .ov-hit,.ov-row.linked .ov-hit,
+.ov-off:focus .ov-hit,.ov-off:hover .ov-hit{fill:#fff;stroke:var(--clay)}
+.ov-row:focus .ov-kick,.ov-row.linked .ov-kick{fill:var(--clay)}
+.ov-thumb{transition:opacity .16s;cursor:pointer}
+.ov-thumb.linked .ov-ghost{stroke:var(--clay);stroke-width:1.5}
+.ov-thumb.linked .ov-kick{fill:var(--clay)}
+
+/* ---------------------------------------------------------------- C1r · THE INVESTIGATION BOARD */
+.iv-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;fill:var(--ink-2)}
+.iv-kick.clay{fill:var(--clay)}
+.iv-kick.rust{fill:var(--clay)}
+.iv-kick.quiet{fill:var(--ink-3)}
+.iv-lead{font-family:var(--serif);fill:var(--ink);font-weight:500}
+.iv-body{font-family:var(--sans);font-size:12.5px;fill:var(--ink)}
+.iv-body.quiet{fill:var(--ink-3);font-size:11.5px}
+.iv-rule{stroke:var(--ink);stroke-width:1;fill:none}
+.iv-rule.clay{stroke:var(--clay)}
+.iv-rule.hair{stroke:var(--rule);stroke-width:.6}
+.iv-hit{fill:transparent;stroke:none}
+.iv-colophon{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;fill:var(--ink-3)}
+
+.iv-cond,.iv-actor,.iv-resp,.iv-socket,.iv-axis,.iv-extent{cursor:pointer}
+.iv-cond:focus,.iv-actor:focus,.iv-resp:focus,.iv-socket:focus,.iv-axis:focus,
+.iv-extent:focus{outline:none}
+.iv-cond:focus .iv-hit,.iv-cond:hover .iv-hit,.iv-cond.linked .iv-hit,
+.iv-actor:focus .iv-hit,.iv-actor:hover .iv-hit,.iv-actor.linked .iv-hit,
+.iv-socket:focus .iv-hit,.iv-socket:hover .iv-hit,.iv-socket.linked .iv-hit,
+.iv-axis:focus .iv-hit,.iv-axis:hover .iv-hit,.iv-axis.linked .iv-hit,
+.iv-extent:focus .iv-hit,.iv-extent:hover .iv-hit,
+.iv-resp:focus .iv-hit,.iv-resp:hover .iv-hit{fill:rgba(180,85,45,.07)}
+.iv-cond:focus .iv-cond-edge,.iv-cond.linked .iv-cond-edge{stroke-width:4}
+.iv-socket:focus .iv-corner,.iv-socket.linked .iv-corner{stroke:var(--clay);stroke-width:1.8}
+.iv-axis:focus .iv-kick,.iv-axis.linked .iv-kick{fill:var(--clay)}
+
+/* the condition: a rust edge, never a filled box — a box would read as a container of findings */
+.iv-cond-edge{stroke:var(--clay);stroke-width:2.5;fill:none}
+.iv-cond-name{font-family:var(--serif);font-size:19px;fill:var(--ink);font-weight:500}
+
+/* the broken extent: it reaches, then dissolves */
+.iv-extent-line{fill:none;stroke-linecap:round;color:var(--ink-3)}
+.iv-repeat{pointer-events:none}
+.iv-rel{stroke:var(--ink-2);fill:none;color:var(--ink-2)}
+.iv-dep{stroke:var(--ink-2)}
+.iv-hollow{fill:none;stroke:var(--ink);stroke-width:1.2}
+
+.iv-resp-box{fill:none;stroke:var(--clay);stroke-width:1;stroke-dasharray:4 4;opacity:.75}
+
+/* the socket: dashed corner brackets, never a closed container */
+.iv-corner{stroke:var(--ink-2);stroke-width:1;fill:none}
+.iv-val{font-family:var(--serif);font-size:21px;fill:var(--ink)}
+.iv-unit{font-family:var(--mono);font-size:8.5px;letter-spacing:.11em;fill:var(--ink-3)}
+.iv-empty{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;fill:var(--ink-3)}
+.iv-op{font-family:var(--serif);font-size:20px;fill:var(--ink-2);text-anchor:middle}
+.iv-break{stroke:var(--clay);stroke-width:1.6;fill:none}
+
+.iv-spine{stroke:var(--clay);stroke-width:.8;stroke-dasharray:1.5 4;fill:none}
+.iv-axis-arm{stroke:var(--ink-2);fill:none}
+.iv-axis-dot{fill:var(--clay)}
+.iv-band-n{font-family:var(--serif);font-size:26px;fill:var(--ink)}
+.iv-need-n{font-family:var(--mono);font-size:9.5px;fill:var(--clay)}
+.iv-fixture-band{fill:var(--clay);opacity:.9}
+.iv-fixture-t{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;fill:#fff}
+
+/* ---------------------------------------------------------------- X2 · THE SOUNDING */
+.sd-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;fill:var(--ink-2)}
+.sd-kick.clay{fill:var(--clay)}
+.sd-kick.quiet{fill:var(--ink-3)}
+.sd-lead{font-family:var(--serif);fill:var(--ink);font-weight:500}
+.sd-body{font-family:var(--sans);font-size:12.5px;fill:var(--ink)}
+.sd-body.quiet{fill:var(--ink-3);font-size:11.5px}
+.sd-claim{font-family:var(--sans);font-size:13px;fill:var(--ink)}
+.sd-rule{stroke:var(--ink);stroke-width:1;fill:none}
+.sd-rule.hair{stroke:var(--rule);stroke-width:.6}
+.sd-hit{fill:transparent;stroke:none}
+.sd-colophon{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;fill:var(--ink-3)}
+
+.sd-strat-l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;fill:var(--ink)}
+.sd-strat-s{font-family:var(--sans);font-size:11px;fill:var(--ink-3)}
+
+/* the sounding itself: one width, style carries the state */
+.sd-seg{stroke:var(--ink);fill:none;stroke-linecap:butt}
+.sd-origin{fill:var(--ink)}
+.sd-terminus{stroke:var(--clay);stroke-width:3;fill:none;stroke-linecap:round}
+.sd-cross{stroke:var(--clay);fill:none}
+.sd-resp-box{fill:none;stroke:var(--ink-3);stroke-width:.8;stroke-dasharray:3 3}
+
+/* the membrane: its treatment is the claim about whether anything crosses */
+.sd-membrane{stroke:none}
+.sd-membrane.solid{fill:var(--ink);opacity:.82}
+.sd-membrane.broken{fill:var(--ink);opacity:.82;
+  mask:repeating-linear-gradient(to right,#000 0 54px,transparent 54px 72px)}
+.sd-membrane.unknown{color:var(--ink-2);stroke:var(--ink-3);stroke-width:.5}
+
+.sd-stratum,.sd-step,.sd-gate,.sd-cond,.sd-resp{cursor:pointer}
+.sd-stratum:focus,.sd-step:focus,.sd-gate:focus,.sd-cond:focus,.sd-resp:focus{outline:none}
+.sd-stratum:focus .sd-hit,.sd-stratum:hover .sd-hit,.sd-stratum.linked .sd-hit,
+.sd-step:focus .sd-hit,.sd-step:hover .sd-hit,.sd-step.linked .sd-hit,
+.sd-gate:focus .sd-hit,.sd-gate:hover .sd-hit,
+.sd-cond:focus .sd-hit,.sd-cond:hover .sd-hit,
+.sd-resp:focus .sd-hit,.sd-resp:hover .sd-hit{fill:rgba(180,85,45,.07)}
+.sd-stratum:focus .sd-strat-l,.sd-stratum.linked .sd-strat-l,
+.sd-step:focus .sd-kick,.sd-step.linked .sd-kick{fill:var(--clay)}
+
+.sd-fixture-band{fill:var(--clay);opacity:.9}
+.sd-fixture-t{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;fill:#fff}
+.sd-research{cursor:pointer}
+.sd-research:focus{outline:none}
+.sd-research:focus .sd-hit,.sd-research:hover .sd-hit{fill:rgba(180,85,45,.07)}
+
+/* ---------------------------------------------------------------- L1r2 · THE DEVELOPMENTAL LOOP
+ * The only family whose subject is Dula rather than a place. FOUR CHANNELS carry the six
+ * COMPOSITIONAL statuses, and not one of them is a channel the epistemic grammar uses:
+ *
+ *   FILL         a frame is filled only where a specimen plate is mounted
+ *   INNER MARK   a sheet (approved, not built), a numeral (machinery), gates (specified + empty)
+ *   BRACKET      solid where the slot is reachable, broken where Dula has not traversed it
+ *   RETURN ARC   drawn only where a return has actually closed
+ *
+ * Line STYLE and WIDTH are set inline from grammar.js and must never be set here. The one exception
+ * is `.lp-state.solid`, which is RETURN A's observed state and carries no dash attribute to override.
+ */
+.lp-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;fill:var(--ink-2)}
+.lp-kick.rust{fill:var(--clay)}
+.lp-lead{font-family:var(--serif);fill:var(--ink);font-weight:500}
+.lp-body{font-family:var(--sans);font-size:12.5px;fill:var(--ink)}
+.lp-note{font-family:var(--sans);font-size:10.5px;fill:var(--ink-3)}
+.lp-micro{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:var(--ink-3)}
+.lp-micro.rust{fill:var(--clay)}
+.lp-strat{font-family:var(--mono);font-size:10.5px;letter-spacing:.17em;fill:var(--ink)}
+.lp-strat.rust{fill:var(--clay)}
+.lp-strat.small{font-size:9.5px;letter-spacing:.14em;fill:var(--ink-2)}
+.lp-strat-s{font-family:var(--sans);font-size:11px;fill:var(--ink-3)}
+.lp-colophon{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;fill:var(--ink-3)}
+.lp-hit{fill:transparent;stroke:none}
+
+/* rules. `ink` divides the section's own parts; `hair` divides one stratum from the next. */
+.lp-rule{stroke:var(--line-2);stroke-width:.6;fill:none}
+.lp-rule.ink{stroke:var(--ink);stroke-width:1}
+.lp-rule.hair{stroke:var(--line);stroke-width:.6}
+
+/* the two poles. PLACE0 is populated by its quantities and PLACE1 is empty because nothing is held
+ * in it, so neither pole is filled: a filled pole would make PLACE1 look merely unfinished. */
+.lp-pole-outline{fill:none;stroke-width:1}
+.lp-pole-outline.held{stroke:var(--ink)}
+/* PLACE1 is drawn BROKEN because Dula holds nothing in it -- the grammar's UNKNOWN, set inline
+ * from grammar.js. No dash is written here, so there is no second source of line style. */
+.lp-pole-outline.unreached{stroke:var(--ink-3)}
+.lp-fact-n{font-family:var(--serif);font-size:22px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.lp-fact-t{font-family:var(--sans);font-size:11.5px;fill:var(--ink-2)}
+
+/* the descent: ONE width, style from the grammar, set inline. */
+.lp-descent{stroke:var(--ink);fill:none;stroke-linecap:butt}
+.lp-origin{fill:var(--ink)}
+.lp-terminus{stroke:var(--clay);stroke-width:3;fill:none;stroke-linecap:round}
+.lp-state{stroke:var(--ink-2);stroke-width:1.2;fill:none}
+
+/* CHANNEL 1 · FILL — and nothing else in this family may use it on a frame. */
+.lp-plate{fill:var(--paper-2);stroke:none}
+.lp-plate-edge{fill:none;stroke:var(--ink);stroke-width:1}
+.lp-inst{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;fill:var(--ink-3)}
+
+/* CHANNEL 2 · INNER MARK */
+/* the sheet is a MARK, not a state: a hairline rectangle, never a dashed one, because a dash here
+ * would be read as uncertainty rather than as "a board exists and was not built" */
+.lp-sheet{fill:none;stroke:var(--ink-3);stroke-width:.8}
+.lp-sheet-t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;fill:var(--ink-2)}
+.lp-numeral{font-family:var(--serif);font-size:26px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.lp-gate{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;fill:var(--ink-2)}
+
+/* CHANNEL 3 · BRACKET — the dash is set inline, from grammar.js, so a broken bracket and a BROKEN
+ * epistemic line are the same stroke and cannot drift apart. */
+.lp-bracket{fill:none;stroke:var(--ink-2);stroke-width:1.1}
+
+/* CHANNEL 4 · RETURN ARC — drawn only where a return has closed at least once. */
+.lp-arc{fill:none;stroke:var(--clay);stroke-width:1.4}
+.lp-arc-return{fill:none;stroke:var(--clay);stroke-width:1.4}
+.lp-arc-tick{fill:none;stroke:var(--clay);stroke-width:1.4;stroke-linejoin:round}
+
+.lp-mount-t{font-family:var(--serif);font-size:13.5px;fill:var(--ink);font-weight:500}
+.lp-cap{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;fill:var(--ink-3)}
+.lp-cap.rust{fill:var(--clay)}
+.lp-objid{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:var(--ink-3)}
+
+/* ---- the reduced compositions. Each keeps the ink of the family it depicts. */
+.lp-mini{pointer-events:none}
+.lp-ground{fill:none;stroke:var(--ink-2);stroke-width:.7}
+.lp-centroid{fill:var(--ink)}
+.lp-figure{font-family:var(--serif);font-size:15px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.lp-fp{fill:none;stroke:var(--line-2);stroke-width:.5}
+.lp-fp.area{stroke:var(--stone);stroke-width:.7}
+.lp-aceq{fill:none;stroke:var(--water);stroke-width:.7}
+/* S1r: one mark is one held record, at a constant radius. No connector exists in this miniature. */
+.lp-ring{fill:none;stroke:var(--line-2);stroke-width:.6}
+.lp-mark{fill:var(--stone);stroke:none}
+.lp-mark[data-role="produced"]{fill:var(--sage)}
+.lp-mark[data-role="moved"]{fill:var(--water)}
+.lp-mark[data-role="processed"]{fill:var(--sand)}
+.lp-mark[data-role="institution"]{fill:var(--ink-2)}
+/* X2: one width, style per step, an honest terminus, and a membrane whose treatment is the claim. */
+.lp-seg{stroke:var(--ink);fill:none;stroke-linecap:butt}
+.lp-hair{stroke:var(--line);stroke-width:.4;fill:none}
+.lp-membrane{fill:var(--ink-2);stroke:none;opacity:.8}
+.lp-cross{stroke:var(--clay);fill:none}
+/* C1r: dashed corners, never a closed container; the break sits on the operation that fails. */
+.lp-corner{stroke:var(--ink-2);stroke-width:.8;fill:none}
+.lp-socket-v{font-family:var(--serif);font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.lp-socket-e{font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;fill:var(--ink-3)}
+.lp-op{font-family:var(--serif);font-size:12px;fill:var(--ink-2)}
+.lp-break{stroke:var(--clay);stroke-width:1.4;fill:none}
+/* the one dash in this block, and it is C1r's own: it mirrors `.iv-spine` exactly, so the miniature
+ * cannot drift from the family it depicts. test_loop asserts the two stay identical. */
+.lp-spine{stroke:var(--clay);stroke-width:.7;stroke-dasharray:1.5 4;fill:none}
+.lp-arm{stroke:var(--ink-2);stroke-width:.7;fill:none}
+/* C1r marks an uncoupled axis in RUST, not with a dash, and the miniature does the same */
+.lp-arm.uncoupled{stroke:var(--clay)}
+
+/* interaction. RUST is attention, never a verdict: a station is not worse for being selected. */
+.lp-mount,.lp-pole,.lp-return{cursor:pointer}
+.lp-mount:focus,.lp-pole:focus,.lp-return:focus{outline:none}
+.lp-mount:focus .lp-hit,.lp-mount:hover .lp-hit,.lp-mount.linked .lp-hit,
+.lp-pole:focus .lp-hit,.lp-pole:hover .lp-hit,.lp-pole.linked .lp-hit,
+.lp-return:focus .lp-hit,.lp-return:hover .lp-hit{fill:rgba(180,85,45,.07)}
+.lp-mount:focus .lp-mount-t,.lp-mount.linked .lp-mount-t{fill:var(--clay)}
+.lp-mount:focus .lp-bracket,.lp-mount.linked .lp-bracket{stroke:var(--clay);stroke-width:1.8}
+.lp-mount:focus .lp-plate-edge,.lp-mount.linked .lp-plate-edge{stroke:var(--clay);stroke-width:1.8}
+.lp-pole:focus .lp-pole-outline,.lp-pole.linked .lp-pole-outline{stroke:var(--clay)}
+
+/* THE LOOP IS A SECTION, AND A SECTION IS READ BY SCROLLING IT.
+ * Every other family composes to roughly the stage's own proportion, so `.stagewrap` fitting the
+ * whole drawing into view is right for them. The loop is deliberately taller than it is wide -- the
+ * strata ARE the argument -- and fitting it into the stage shrank it to an unreadable thumbnail.
+ * The SVG keeps its viewBox aspect with height:auto, so nothing here rescales the composition. */
+body.loop-canvas .stagewrap{overflow-y:auto;align-items:flex-start;justify-content:center;
+  padding:10px 18px 24px}
+body.loop-canvas svg#stage{height:auto;max-height:none;cursor:default}
+body.loop-canvas svg#stage:active{cursor:default}

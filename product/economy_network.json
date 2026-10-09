@@ -1,0 +1,1133 @@
+{
+ "artefact": "EC-N · PRODUCTION NETWORKS AND DEVELOPMENT MECHANISMS",
+ "generated": true,
+ "rebuild": "python pipeline/ec_network.py",
+ "relationship_types": {
+  "INPUT_PURCHASE": "one productive activity purchases goods or services from another",
+  "OUTPUT_SALE": "a producer supplies a buyer or market",
+  "SHARED_INFRASTRUCTURE": "several activities depend on the same physical asset or system",
+  "LABOR": "activities employ, compete for, or develop related workforce capabilities",
+  "FINANCIAL": "capital providers finance productive activities or assets",
+  "INSTITUTIONAL": "rules, procurement or public institutions affect the activity",
+  "KNOWLEDGE": "technical knowledge, research or training contributes to production",
+  "MARKET": "activities serve overlapping, complementary or competing markets",
+  "CAPACITY_DEPENDENCY": "one activity requires another capability to operate or expand",
+  "POTENTIAL_DEVELOPMENT": "a proposed investment could establish or change a connection"
+ },
+ "evidence_classes": {
+  "LOCALLY_OBSERVED": "observed between named actors in this geography",
+  "STATE_OBSERVED": "observed in New Mexico, not at this geography",
+  "NATIONALLY_MODELLED": "a national coefficient or pattern. NOT a local transaction.",
+  "ESTIMATED": "inferred from a related observation, with the inference stated",
+  "HYPOTHETICAL": "proposed; nothing observes it"
+ },
+ "lever_kinds": {
+  "CAPACITY_EXPANSION": "increase the output an existing activity can produce",
+  "COST_REDUCTION": "reduce input, logistics, energy or financing cost",
+  "MARKET_ACCESS": "connect producers to additional buyers",
+  "COORDINATION": "raise utilisation or cut transaction cost through shared operation",
+  "CAPITAL_ACCESS": "enable an investment that is otherwise financially constrained",
+  "CAPABILITY_DEVELOPMENT": "establish a workforce, technical or organisational capability",
+  "INFRASTRUCTURE": "improve a shared asset that enables production",
+  "ENTERPRISE_FORMATION": "develop a productive activity that does not exist",
+  "ACQUISITION_SUCCESSION": "preserve or expand an existing capability under new ownership",
+  "INSTITUTIONAL_CHANGE": "modify rules, procurement practice or financing structure"
+ },
+ "effect_classes": {
+  "OBSERVED_EFFECT": "the effect has been observed to occur",
+  "ACCOUNTING_IMPLICATION": "follows by arithmetic from observed quantities",
+  "MODELLED_SCENARIO": "computed under stated assumptions supplied as inputs",
+  "HYPOTHESISED": "proposed; the mechanism is stated and nothing measures it",
+  "CAUSAL_IMPACT": "identified by a stated design. NOTHING in Dula occupies this class."
+ },
+ "io": {
+  "framework": "x = Ax + y",
+  "what_is_computed": "B — commodity-by-industry direct requirements, B[c,i] = Use[c,i] / T018[i]",
+  "what_is_not": {
+   "industry_by_industry_A": "requires the Make/Supply matrix, which is not held",
+   "leontief_inverse": "requires A",
+   "multipliers": "require the inverse and a defensible regionalisation of it",
+   "local_supply_share": "demand generated is not demand met"
+  },
+  "identity_checked": "total intermediate + value added = total industry output, to within the table's rounding, for every industry used",
+  "classification": "rows are COMMODITIES, columns are INDUSTRIES, and they are different classifications",
+  "year": "2023",
+  "geography": "UNITED STATES"
+ },
+ "networks": [
+  {
+   "id": "NET_HOUSING",
+   "title": "Housing production",
+   "geoid": "35001",
+   "activities": [
+    {
+     "id": "ACT_CONSTRUCTION",
+     "name": "Residential and non-residential construction",
+     "system": "housing",
+     "geography": "35001 (county)",
+     "produces": "completed buildings and structures",
+     "output_unit": "dwelling units; $ of work",
+     "inputs": [
+      {
+       "what": "building materials",
+       "evidence": "NATIONALLY_MODELLED",
+       "detail": [
+        {
+         "commodity_code": "332",
+         "commodity": "Fabricated metal products",
+         "used_usd_millions": 180563.0,
+         "coefficient_per_dollar_of_output": 0.07739
+        },
+        {
+         "commodity_code": "327",
+         "commodity": "Nonmetallic mineral products",
+         "used_usd_millions": 146888.0,
+         "coefficient_per_dollar_of_output": 0.06296
+        },
+        {
+         "commodity_code": "321",
+         "commodity": "Wood products",
+         "used_usd_millions": 104687.0,
+         "coefficient_per_dollar_of_output": 0.04487
+        },
+        {
+         "commodity_code": "326",
+         "commodity": "Plastics and rubber products",
+         "used_usd_millions": 65910.0,
+         "coefficient_per_dollar_of_output": 0.02825
+        }
+       ],
+       "note": "national coefficients: what construction buys per dollar of output across the United States, not what is bought here"
+      },
+      {
+       "what": "construction labour",
+       "evidence": "LOCALLY_OBSERVED",
+       "quantity": 21223,
+       "unit": "jobs",
+       "source": "County Business Patterns 2023",
+       "note": "jobs located in construction establishments here. Not a count of available crews, and not a capacity."
+      },
+      {
+       "what": "serviced land",
+       "evidence": "HYPOTHETICAL",
+       "note": "CM_SERVICED_LAND existence is UNKNOWN. No parcel, zoning or entitlement data is ingested."
+      },
+      {
+       "what": "water and wastewater connection",
+       "evidence": "NATIONALLY_MODELLED",
+       "note": "42 active community water systems are observed in THIS county by name; their spare capacity is not. R3.20 reported 210 here, which is the eight-county northern figure and excludes this county."
+      },
+      {
+       "what": "construction credit",
+       "evidence": "HYPOTHETICAL",
+       "note": "CM_CONSTRUCTION_CREDIT is UNKNOWN. No local lending to construction is observed."
+      }
+     ],
+     "process": "design, entitlement, site servicing, structure, fit-out and handover. The sequence matters: credit available after an entitlement lapses is not credit available.",
+     "buyers": [
+      {
+       "what": "households and investors buying or renting completed units",
+       "evidence": "ESTIMATED",
+       "note": "ACS gives tenure and cost burden; no transaction is observed"
+      },
+      {
+       "what": "public and restricted-rent programmes",
+       "evidence": "LOCALLY_OBSERVED",
+       "source": "S-06, one financed project",
+       "note": "the one project Dula holds with a published cost and structure"
+      }
+     ],
+     "suppliers": [
+      {
+       "what": "building-materials suppliers",
+       "evidence": "HYPOTHETICAL",
+       "note": "no materials supplier register is held for this region. Dula's research scope was food."
+      }
+     ],
+     "infrastructure": [
+      "water and wastewater systems",
+      "roads",
+      "electricity"
+     ],
+     "capital": {
+      "observed": [
+       "a $230m conduit authorisation on one project"
+      ],
+      "unobserved": [
+       "construction lending",
+       "developer equity",
+       "land finance"
+      ]
+     },
+     "institutions": [
+      "county and municipal entitlement",
+      "building code",
+      "NM MFA"
+     ],
+     "households": {
+      "mechanism": "employment and earnings in construction; the cost of housing itself",
+      "observed": {
+       "construction_jobs": 21223,
+       "construction_payroll_usd": 1377846000
+      }
+     },
+     "external": [
+      "materials and equipment manufactured outside the region",
+      "interest rates",
+      "national construction input prices"
+     ],
+     "actors_observed": 0,
+     "capacity": {
+      "state": "UNKNOWN",
+      "why": "no builder's throughput, crew count or pipeline is observed"
+     },
+     "note": null
+    },
+    {
+     "id": "ACT_MATERIALS",
+     "name": "Building-materials manufacture",
+     "system": "manufacturing",
+     "geography": "35001 (county)",
+     "produces": "fabricated metal, mineral, wood and plastic products used in construction",
+     "output_unit": "$ of shipments",
+     "inputs": [
+      {
+       "what": "raw and intermediate materials",
+       "evidence": "NATIONALLY_MODELLED",
+       "note": "pattern known nationally; no local input purchase is observed"
+      },
+      {
+       "what": "manufacturing labour",
+       "evidence": "LOCALLY_OBSERVED",
+       "quantity": 11789,
+       "unit": "jobs",
+       "source": "County Business Patterns 2023"
+      },
+      {
+       "what": "energy",
+       "evidence": "LOCALLY_OBSERVED",
+       "quantity": 1395,
+       "unit": "utility jobs",
+       "source": "County Business Patterns 2023",
+       "note": "utility EMPLOYMENT is observed. Energy price, reliability and industrial supply are not."
+      },
+      {
+       "what": "production equipment",
+       "evidence": "HYPOTHETICAL"
+      }
+     ],
+     "process": "forming, fabrication, finishing, certification and delivery",
+     "buyers": [
+      {
+       "what": "construction firms",
+       "evidence": "NATIONALLY_MODELLED",
+       "note": "construction buys these commodities nationally. Whether this county's construction buys from this county's manufacturers is not observed."
+      }
+     ],
+     "suppliers": [
+      {
+       "what": "upstream materials producers",
+       "evidence": "HYPOTHETICAL"
+      }
+     ],
+     "infrastructure": [
+      "industrial premises",
+      "electricity",
+      "road freight"
+     ],
+     "capital": {
+      "observed": [],
+      "unobserved": [
+       "equipment finance",
+       "working capital"
+      ]
+     },
+     "institutions": [
+      "product certification and building code compliance"
+     ],
+     "households": {
+      "mechanism": "manufacturing employment and wages",
+      "observed": {
+       "manufacturing_jobs": 11789
+      }
+     },
+     "external": [
+      "national suppliers who currently serve this market"
+     ],
+     "actors_observed": 18,
+     "capacity": {
+      "state": "UNKNOWN",
+      "why": "18 manufacturers are identified here and all were found by the FOOD research. None is known to make building products, and no capacity is held for any of them."
+     },
+     "note": null
+    }
+   ],
+   "relationships": [
+    {
+     "id": "REL_CONSTR_MATERIALS",
+     "kind": "INPUT_PURCHASE",
+     "kind_means": "one productive activity purchases goods or services from another",
+     "from": "ACT_CONSTRUCTION",
+     "to": "ACT_MATERIALS",
+     "mechanism": "construction buys fabricated metal, mineral and wood products as a direct input to every structure",
+     "evidence": "NATIONALLY_MODELLED",
+     "evidence_means": "a national coefficient or pattern. NOT a local transaction.",
+     "geography": "UNITED STATES",
+     "period": "2023",
+     "unit": "dollars of commodity per dollar of construction output",
+     "quantity": 0.2135,
+     "source": "BEA Use table, Summary, 2023",
+     "limits": "a national average. It does not establish that any of this is bought in New Mexico, let alone from a firm in this county.",
+     "conditions": [
+      "a local supplier exists",
+      "it can meet code and certification",
+      "its delivered price beats the incumbent's"
+     ],
+     "note": null
+    },
+    {
+     "id": "REL_CONSTR_LABOR",
+     "kind": "LABOR",
+     "kind_means": "activities employ, compete for, or develop related workforce capabilities",
+     "from": "ACT_CONSTRUCTION",
+     "to": "ACT_MATERIALS",
+     "mechanism": "both draw on regional trades and industrial labour, so expansion in one can bid against the other rather than complement it",
+     "evidence": "ESTIMATED",
+     "evidence_means": "inferred from a related observation, with the inference stated",
+     "geography": "35001 (county)",
+     "period": "2023",
+     "unit": "jobs",
+     "quantity": 33012,
+     "source": "County Business Patterns 2023",
+     "limits": "employment in each is observed; competition between them for the same workers is inferred from the shared occupational base, not measured.",
+     "conditions": [
+      "the skills are actually substitutable"
+     ],
+     "note": null
+    },
+    {
+     "id": "REL_WATER_HOUSING",
+     "kind": "SHARED_INFRASTRUCTURE",
+     "kind_means": "several activities depend on the same physical asset or system",
+     "from": "ACT_CONSTRUCTION",
+     "to": "community water and wastewater systems",
+     "mechanism": "a dwelling cannot be occupied without a water and wastewater connection, so system headroom caps servable units regardless of demand",
+     "evidence": "LOCALLY_OBSERVED",
+     "evidence_means": "observed between named actors in this geography",
+     "geography": "35001 (county)",
+     "period": "2026",
+     "unit": "service connections",
+     "quantity": 213225,
+     "source": "EPA SDWIS via data/raw/admin_housing, joined on county served",
+     "limits": "connections SERVED is observed. Connections AVAILABLE is not, so this establishes the dependency and not its tightness.",
+     "conditions": [
+      "a system is willing to serve the site"
+     ],
+     "note": null
+    },
+    {
+     "id": "REL_FINANCE_HOUSING",
+     "kind": "FINANCIAL",
+     "kind_means": "capital providers finance productive activities or assets",
+     "from": "capital providers",
+     "to": "ACT_CONSTRUCTION",
+     "mechanism": "development is financed before it is sold, so the cost and availability of credit sets which projects are feasible",
+     "evidence": "HYPOTHETICAL",
+     "evidence_means": "proposed; nothing observes it",
+     "geography": "35001 (county)",
+     "period": null,
+     "unit": null,
+     "quantity": null,
+     "source": null,
+     "limits": "no construction lending in this county is observed at any volume or price.",
+     "conditions": [
+      "a lender active in this market",
+      "terms a project's rent can carry"
+     ],
+     "note": null
+    }
+   ],
+   "direct_requirements": {
+    "industry": "23",
+    "industry_name": "Construction",
+    "year": "2023",
+    "matrix": "B — COMMODITY by INDUSTRY direct requirements",
+    "definition": "B[c,i] = Use[c,i] / total industry output[i]",
+    "unit": "dollars of commodity per dollar of industry output",
+    "identity": {
+     "industry": "23",
+     "year": "2023",
+     "total_intermediate": 1115337.0,
+     "value_added": 1217670.0,
+     "total_industry_output": 2333007.0,
+     "sum_of_parts": 2333007.0,
+     "difference": 0.0,
+     "closes": true,
+     "unit": "millions of dollars, basic prices",
+     "tolerance": 2.0,
+     "tolerance_why": "BEA publishes rounded millions; a difference inside the rounding is the table's precision, not an error"
+    },
+    "intermediate_share_of_output": 0.4781,
+    "value_added_share_of_output": 0.5219,
+    "top_inputs": [
+     {
+      "commodity_code": "332",
+      "commodity": "Fabricated metal products",
+      "used_usd_millions": 180563.0,
+      "coefficient_per_dollar_of_output": 0.07739
+     },
+     {
+      "commodity_code": "327",
+      "commodity": "Nonmetallic mineral products",
+      "used_usd_millions": 146888.0,
+      "coefficient_per_dollar_of_output": 0.06296
+     },
+     {
+      "commodity_code": "321",
+      "commodity": "Wood products",
+      "used_usd_millions": 104687.0,
+      "coefficient_per_dollar_of_output": 0.04487
+     },
+     {
+      "commodity_code": "5412OP",
+      "commodity": "Miscellaneous professional, scientific, and technical services",
+      "used_usd_millions": 78578.0,
+      "coefficient_per_dollar_of_output": 0.03368
+     },
+     {
+      "commodity_code": "335",
+      "commodity": "Electrical equipment, appliances, and components",
+      "used_usd_millions": 75428.0,
+      "coefficient_per_dollar_of_output": 0.03233
+     },
+     {
+      "commodity_code": "324",
+      "commodity": "Petroleum and coal products",
+      "used_usd_millions": 71044.0,
+      "coefficient_per_dollar_of_output": 0.03045
+     },
+     {
+      "commodity_code": "333",
+      "commodity": "Machinery",
+      "used_usd_millions": 69780.0,
+      "coefficient_per_dollar_of_output": 0.02991
+     },
+     {
+      "commodity_code": "326",
+      "commodity": "Plastics and rubber products",
+      "used_usd_millions": 65910.0,
+      "coefficient_per_dollar_of_output": 0.02825
+     }
+    ],
+    "classification": {
+     "rows": "COMMODITIES",
+     "columns": "INDUSTRIES",
+     "why_it_matters": "a commodity is a thing made; an industry is an establishment class that makes things. They are not interchangeable, and the row and column labels here are different classifications even where the code looks the same."
+    },
+    "geography": "UNITED STATES",
+    "not_a_local_transaction": "these are national average purchase patterns. Nothing here is a purchase made in Bernalillo County, and no coefficient may be presented as one.",
+    "what_cannot_be_computed": {
+     "industry_by_industry_A": "requires the Make/Supply matrix, which this repository does not hold. Only Use tables are on disk.",
+     "leontief_inverse": "requires A, so it is not computable",
+     "multipliers": "require the Leontief inverse AND a defensible regionalisation of it. Neither is available, and none is computed.",
+     "local_supply_share": "nothing here says what share of a local industry's inputs could be bought locally. Demand generated is not demand met."
+    },
+    "source": {
+     "publisher": "Bureau of Economic Analysis",
+     "table": "Use of Commodities by Industries, Supply-Use Framework, Summary",
+     "year": "2023",
+     "unit": "millions of dollars, basic prices",
+     "provenance": "data/raw/bea_io/provenance.json"
+    }
+   },
+   "sector_context": {
+    "construction": {
+     "code": "23",
+     "name": "Construction",
+     "employment": 21223,
+     "establishments": 1534,
+     "payroll_usd_thousands": 1377846
+    },
+    "manufacturing": {
+     "code": "31-33",
+     "name": "Manufacturing",
+     "employment": 11789,
+     "establishments": 518,
+     "payroll_usd_thousands": 692073
+    },
+    "utilities": {
+     "code": "22",
+     "name": "Utilities",
+     "employment": 1395,
+     "establishments": 21,
+     "payroll_usd_thousands": 163685
+    },
+    "wholesale": {
+     "code": "42",
+     "name": "Wholesale trade",
+     "employment": 11614,
+     "establishments": 704,
+     "payroll_usd_thousands": 769601
+    }
+   }
+  },
+  {
+   "id": "NET_FOOD",
+   "title": "Food production and distribution",
+   "geoid": "35001",
+   "activities": [
+    {
+     "id": "ACT_FOOD_PROD",
+     "name": "Regional food production",
+     "system": "food",
+     "geography": "northern counties",
+     "produces": "raw agricultural product",
+     "output_unit": "lb; head; cases",
+     "inputs": [
+      {
+       "what": "irrigated land and delivered water",
+       "evidence": "NATIONALLY_MODELLED",
+       "note": "acequia conveyances are mapped; delivery is not observed"
+      },
+      {
+       "what": "farm labour",
+       "evidence": "LOCALLY_OBSERVED",
+       "source": "Census of Agriculture"
+      }
+     ],
+     "process": "growing, raising, harvest",
+     "buyers": [
+      {
+       "what": "aggregators and hubs",
+       "evidence": "LOCALLY_OBSERVED",
+       "source": "entity relationships",
+       "note": "141 producers are named as selling through 8 hubs; no volume crosses any of those edges"
+      }
+     ],
+     "suppliers": [
+      {
+       "what": "farm inputs",
+       "evidence": "NATIONALLY_MODELLED"
+      }
+     ],
+     "infrastructure": [
+      "acequias and irrigation works",
+      "farm roads"
+     ],
+     "capital": {
+      "observed": [
+       "farm land and buildings value"
+      ],
+      "unobserved": [
+       "operating credit"
+      ]
+     },
+     "institutions": [
+      "acequia governance",
+      "NM Grown purchasing"
+     ],
+     "households": {
+      "mechanism": "farm household income from realised price",
+      "observed": {
+       "note": "no producer's realised price is held"
+      }
+     },
+     "external": [
+      "commodity prices",
+      "fuel"
+     ],
+     "actors_observed": 93,
+     "capacity": {
+      "state": "UNKNOWN",
+      "why": "no producer's output is observed"
+     },
+     "note": null
+    },
+    {
+     "id": "ACT_FOOD_DIST",
+     "name": "Aggregation and distribution",
+     "system": "food",
+     "geography": "northern counties to Albuquerque",
+     "produces": "delivered product at a buyer's dock",
+     "output_unit": "stops; cases delivered",
+     "inputs": [
+      {
+       "what": "route cost",
+       "evidence": "STATE_OBSERVED",
+       "quantity": null,
+       "source": "model/capacity.yaml, documented per-mile inputs",
+       "note": "$341-$676 for a 262-mile northern loop"
+      },
+      {
+       "what": "cold storage",
+       "evidence": "NATIONALLY_MODELLED",
+       "note": "facilities observed in Santa Fe; capacity unknown"
+      },
+      {
+       "what": "working capital",
+       "evidence": "HYPOTHETICAL",
+       "note": "the gap between paying a producer and being paid by an institution"
+      }
+     ],
+     "process": "consolidate, store, route, deliver, invoice",
+     "buyers": [
+      {
+       "what": "institutional buyers and grocers in this county",
+       "evidence": "LOCALLY_OBSERVED",
+       "quantity": 226,
+       "unit": "buyers",
+       "source": "entity population",
+       "note": "observed as BUYERS of food. What they buy and from whom is not observed."
+      }
+     ],
+     "suppliers": [
+      {
+       "what": "northern producers",
+       "evidence": "LOCALLY_OBSERVED",
+       "source": "entity relationships"
+      }
+     ],
+     "infrastructure": [
+      "road network",
+      "cold chain",
+      "vehicles"
+     ],
+     "capital": {
+      "observed": [],
+      "unobserved": [
+       "vehicles",
+       "facility",
+       "working capital"
+      ]
+     },
+     "institutions": [
+      "institutional procurement rules",
+      "food safety certification"
+     ],
+     "households": {
+      "mechanism": "producer realised price; grocery availability",
+      "observed": {
+       "note": "neither is observed"
+      }
+     },
+     "external": [
+      "diesel price",
+      "national distributors serving the same buyers"
+     ],
+     "actors_observed": 8,
+     "capacity": {
+      "state": "UNKNOWN",
+      "why": "no route's utilisation is observed"
+     },
+     "note": null
+    }
+   ],
+   "relationships": [
+    {
+     "id": "REL_PROD_HUB",
+     "kind": "OUTPUT_SALE",
+     "kind_means": "a producer supplies a buyer or market",
+     "from": "ACT_FOOD_PROD",
+     "to": "ACT_FOOD_DIST",
+     "mechanism": "producers consolidate through hubs so a buyer can place one order",
+     "evidence": "LOCALLY_OBSERVED",
+     "evidence_means": "observed between named actors in this geography",
+     "geography": "northern counties",
+     "period": "2024",
+     "unit": "named relationships",
+     "quantity": 258,
+     "source": "entity relationships",
+     "limits": "the pairs are named and carry NO quantity, so nothing can be summed across them",
+     "conditions": [
+      "producers meet buyer specification"
+     ],
+     "note": null
+    },
+    {
+     "id": "REL_DIST_BUYER",
+     "kind": "MARKET",
+     "kind_means": "activities serve overlapping, complementary or competing markets",
+     "from": "ACT_FOOD_DIST",
+     "to": "institutional buyers and grocers",
+     "mechanism": "delivered product reaches a dock on a schedule a kitchen can plan",
+     "evidence": "LOCALLY_OBSERVED",
+     "evidence_means": "observed between named actors in this geography",
+     "geography": "35001 (county)",
+     "period": "2024",
+     "unit": "buyers observed",
+     "quantity": 226,
+     "source": "entity population",
+     "limits": "buyers are observed to EXIST. No purchase, volume or price is held.",
+     "conditions": [
+      "a price the buyer accepts",
+      "delivery they can receive"
+     ],
+     "note": null
+    },
+    {
+     "id": "REL_FUEL_DIST",
+     "kind": "INPUT_PURCHASE",
+     "kind_means": "one productive activity purchases goods or services from another",
+     "from": "ACT_FOOD_DIST",
+     "to": "fuel and vehicle operation",
+     "mechanism": "route cost is largely distance and fuel, and is incurred whether or not the stops are worth serving",
+     "evidence": "STATE_OBSERVED",
+     "evidence_means": "observed in New Mexico, not at this geography",
+     "geography": "northern New Mexico",
+     "period": "2024",
+     "unit": "USD per 262-mile loop",
+     "quantity": null,
+     "source": "model/capacity.yaml ev:P2A-17..P2A-25",
+     "limits": "documented per-mile inputs, not a measured route cost",
+     "conditions": [],
+     "note": null
+    },
+    {
+     "id": "REL_COLD_SHARED",
+     "kind": "SHARED_INFRASTRUCTURE",
+     "kind_means": "several activities depend on the same physical asset or system",
+     "from": "ACT_FOOD_DIST",
+     "to": "cold storage",
+     "mechanism": "several producers and distributors would draw on the same cooling capacity, so utilisation across a season decides whether it pays",
+     "evidence": "HYPOTHETICAL",
+     "evidence_means": "proposed; nothing observes it",
+     "geography": "northern counties",
+     "period": null,
+     "unit": null,
+     "quantity": null,
+     "source": null,
+     "limits": "no facility's throughput or slack is observed",
+     "conditions": [
+      "enough volume in one catchment"
+     ],
+     "note": null
+    }
+   ],
+   "route_economics": {
+    "model": "ec_interventions.route_economics — the same identity, not a second one",
+    "observed_route_cost_usd": [
+     341,
+     676
+    ],
+    "miles": 262,
+    "table": [
+     {
+      "stops": 3,
+      "low": {
+       "stops": 3,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 113.67,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 3,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 225.33,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 5,
+      "low": {
+       "stops": 5,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 68.2,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 5,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 135.2,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 8,
+      "low": {
+       "stops": 8,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 42.62,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 8,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 84.5,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 10,
+      "low": {
+       "stops": 10,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 34.1,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 10,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 67.6,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 12,
+      "low": {
+       "stops": 12,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 28.42,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 12,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 56.33,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 15,
+      "low": {
+       "stops": 15,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 22.73,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 15,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 45.07,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 20,
+      "low": {
+       "stops": 20,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 17.05,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 20,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 33.8,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     }
+    ],
+    "unresolved": [
+     "stops per loop",
+     "order value per stop",
+     "contribution margin",
+     "vehicle utilisation",
+     "payment timing"
+    ],
+    "do_not_conclude": "a route cost alone does not make distribution unprofitable. That needs the revenue side, and none of it is held."
+   }
+  }
+ ],
+ "materials_market_scale": {
+  "geoid": "35001",
+  "year": 2023,
+  "observed": {
+   "construction_jobs": 21223,
+   "construction_payroll_usd": 1377846000,
+   "source": "County Business Patterns 2023"
+  },
+  "national_ratios": {
+   "compensation_over_output": 0.3189,
+   "materials_commodities_per_dollar_of_output": 0.295,
+   "source": "BEA Use table 2023"
+  },
+  "chain": "observed payroll → model-dependent output estimate → model-dependent intermediate-input estimate",
+  "estimated": {
+   "implied_construction_output_usd": 4320533383,
+   "materials_purchase_usd": 1274557348,
+   "state": "MODEL-DEPENDENT ESTIMATE — not a measurement and not a bound"
+  },
+  "error_direction": {
+   "established": false,
+   "one_term_with_a_known_sign": "CBP payroll excludes employer-paid benefits and proprietors' income while the BEA ratio is built from compensation that includes benefits, which on its own understates output",
+   "terms_with_no_established_sign": [
+    "local labour productivity against the national average",
+    "local industry composition inside construction, where compensation-to-output differs by subsector",
+    "local employment structure -- subcontracting, self-employment, and the share of work done by payroll employees",
+    "the intermediate-input coefficient, a national average purchase pattern applied to a local output estimate"
+   ],
+   "total": "NO ESTABLISHED DIRECTION",
+   "r320_said": "that these figures were a FLOOR. R3.21 withdraws that: a floor is a claim about the total error, and the argument for it accounted for one term and ignored four."
+  },
+  "what_is_not_claimed": [
+   "that any of this is currently bought locally",
+   "that any of it could be",
+   "that a local supplier would be cheaper delivered than the incumbent",
+   "a multiplier, a leakage figure, or a job-creation estimate",
+   "an actual Bernalillo transaction",
+   "verified local demand",
+   "an addressable market size",
+   "imports available for substitution",
+   "potential revenue for a new manufacturer",
+   "a lower bound or a floor in either direction"
+  ],
+  "the_real_question": "not how large the purchase is, but at what DELIVERED PRICE a local producer could win any of it. That needs the incumbent's delivered price and a local cost of production, and neither is held."
+ },
+ "levers": [
+  {
+   "id": "LV_MATERIALS_EXPAND",
+   "kind": "CAPACITY_EXPANSION",
+   "kind_means": "increase the output an existing activity can produce",
+   "current_condition": "construction here generates an estimated $1,274,557,348 of materials-commodity purchasing a year, and no regional producer of building products is identified",
+   "proposed_change": "an existing manufacturer adds a building-product line",
+   "mechanism": "an existing plant has premises, power and a workforce already financed, so it faces the marginal cost of a new line rather than the average cost of a new company",
+   "affected_variables": [
+    "delivered materials price",
+    "lead time",
+    "construction input cost"
+   ],
+   "actors_required": [
+    "a manufacturer with compatible equipment",
+    "a builder willing to buy",
+    "a certifier"
+   ],
+   "investment_or_coordination": "equipment and certification. No amount is held.",
+   "potential_outcomes": {
+    "financial": "UNKNOWN — no price, cost or margin is held on either side",
+    "development": "a productive capability the region does not currently have"
+   },
+   "validation": [
+    "the incumbent supplier's delivered price into this market",
+    "whether any observed manufacturer has compatible equipment",
+    "code and certification requirements for the product"
+   ],
+   "effect_class": "HYPOTHESISED",
+   "effect_means": "proposed; the mechanism is stated and nothing measures it",
+   "counterfactual": "construction continues to buy from existing national suppliers, which it does today at a price nobody here has recorded",
+   "attaches_to": "R10"
+  },
+  {
+   "id": "LV_PROCUREMENT_COORD",
+   "kind": "COORDINATION",
+   "kind_means": "raise utilisation or cut transaction cost through shared operation",
+   "current_condition": "institutional demand is recorded as fragmented into small awards; a northern loop costs $341-$676 against those orders",
+   "proposed_change": "buyers in one catchment place a combined order",
+   "mechanism": "route cost is fixed per loop. Fewer, larger stops raise the contribution per stop without changing the driving.",
+   "affected_variables": [
+    "required contribution per stop",
+    "order value per stop",
+    "vehicle utilisation"
+   ],
+   "actors_required": [
+    "institutional buyers",
+    "a funded coordinator",
+    "a distributor"
+   ],
+   "investment_or_coordination": "coordinator time. Likely little capital.",
+   "potential_outcomes": {
+    "financial": "computable the moment stops and margin are supplied",
+    "development": "market access for producers who cannot reach these buyers alone"
+   },
+   "validation": [
+    "stops per loop and order value per stop from a distributor",
+    "whether procurement rules permit a combined award"
+   ],
+   "effect_class": "ACCOUNTING_IMPLICATION",
+   "effect_means": "follows by arithmetic from observed quantities",
+   "counterfactual": "hubs continue to turn away distant buyers, which is the condition the research already records",
+   "attaches_to": "R4"
+  },
+  {
+   "id": "LV_WATER_CAPACITY",
+   "kind": "INFRASTRUCTURE",
+   "kind_means": "improve a shared asset that enables production",
+   "current_condition": "41 retail community water systems serve 213,225 connections in this county; spare capacity is observed for none of them",
+   "proposed_change": "per-system capacity is established and, where short, extended",
+   "mechanism": "an unpriceable connection risk is priced as a refusal. A known cost can be financed; an unknown one cannot be underwritten at any price.",
+   "affected_variables": [
+    "per-unit development cost",
+    "servable units"
+   ],
+   "actors_required": [
+    "community water systems",
+    "NMED",
+    "developers"
+   ],
+   "investment_or_coordination": "a capacity study first; upgrade cost unknown",
+   "potential_outcomes": {
+    "financial": "the project's capital and operating headroom are the SAME money, and a connection cost consumes both",
+    "development": "servable land where there is now an unpriceable risk"
+   },
+   "validation": [
+    "NMED capacity-development reviews",
+    "the water and sewer lines in a filed development budget"
+   ],
+   "effect_class": "HYPOTHESISED",
+   "effect_means": "proposed; the mechanism is stated and nothing measures it",
+   "counterfactual": "sites are abandoned at the risk stage, which cannot be counted",
+   "attaches_to": "R1"
+  }
+ ],
+ "effect_chains": [
+  {
+   "id": "PR_MATERIALS",
+   "intervention": "LV_MATERIALS_EXPAND — a regional building-product line",
+   "steps": [
+    {
+     "step": "construction's materials purchasing is of a size worth contesting",
+     "variable": "materials commodity purchase",
+     "direction": "n/a",
+     "class": "ACCOUNTING_IMPLICATION",
+     "basis": "national coefficient 0.295 per dollar of output applied to an output estimated from local payroll and the national compensation ratio",
+     "observed": false,
+     "limits": "output is estimated, not observed, and the estimate is MODEL-DEPENDENT with no established error direction -- it is not a bound"
+    },
+    {
+     "step": "a local producer wins some of it",
+     "variable": "local share of materials purchase",
+     "direction": "up",
+     "class": "HYPOTHESISED",
+     "observed": false,
+     "limits": "requires a delivered price below the incumbent's, which is not held"
+    },
+    {
+     "step": "delivered materials cost to builders falls",
+     "variable": "construction input cost",
+     "direction": "down",
+     "class": "HYPOTHESISED",
+     "observed": false,
+     "limits": "a new entrant may be dearer, not cheaper. Proximity is not price."
+    },
+    {
+     "step": "project feasibility improves",
+     "variable": "per-unit development cost",
+     "direction": "down",
+     "class": "HYPOTHESISED",
+     "observed": false,
+     "limits": "materials are one line in a budget whose other lines are unobserved"
+    },
+    {
+     "step": "more housing is produced",
+     "variable": "dwelling units completed",
+     "direction": "up",
+     "class": "HYPOTHESISED",
+     "observed": false,
+     "limits": "housing production is constrained by land, water, labour and credit as well, and none of those is measured here"
+    },
+    {
+     "step": "household housing cost falls",
+     "variable": "rent and price",
+     "direction": "down",
+     "class": "HYPOTHESISED",
+     "observed": false,
+     "limits": "NOT SUPPORTED AT ALL. Supply reaching price depends on the whole market, and on the one financed project Dula holds the rent is CAPPED by a deed restriction and would not move."
+    }
+   ],
+   "strongest_class": "HYPOTHESISED",
+   "counterfactual": "builders continue buying from national suppliers. Dula cannot say at what price, so the comparison the whole chain rests on is unavailable.",
+   "stops_at": "step 2. Everything after the accounting implication is a hypothesis, and the last step is contradicted by the one housing project actually held.",
+   "reading": "a chain is only as strong as its weakest step, and no step here is observed. What follows is an accounting implication and a sequence of hypotheses, not a development outcome."
+  }
+ ],
+ "two_perspectives": {
+  "name": "A regional building-product line",
+  "financial": {
+   "revenue": "UNKNOWN — no price or volume",
+   "costs": "UNKNOWN — no cost of production",
+   "capital": "UNKNOWN — no equipment list",
+   "return_potential": "NOT COMPUTABLE, and no figure is offered",
+   "risk": [
+    "the incumbent is cheaper delivered",
+    "certification fails",
+    "regional volume is below minimum efficient scale"
+   ]
+  },
+  "development": {
+   "productive_capacity": "a capability the region does not currently have",
+   "local_capabilities": "fabrication skills and certification",
+   "employment": "manufacturing jobs, count UNKNOWN",
+   "household_effect": "HYPOTHESISED and weak: the one housing project held has a rent capped by deed restriction, so a cheaper input would not reach a tenant as a lower rent"
+  },
+  "portfolio": {
+   "complementary": [
+    "materials supply and housing production share a demand chain"
+   ],
+   "competing": [
+    "both draw on regional industrial and trades labour",
+    "both would seek capital in the same small market"
+   ],
+   "state": "NEITHER IS DEMONSTRATED. The shared-capacity gate is unmet: no capacity is known on either side."
+  },
+  "why_both": "an intervention may raise regional productive capacity without producing an investable cash flow, and an enterprise may earn an attractive return while adding little regional capacity. Reporting one as the other is how development money gets spent on deals and investment money gets spent on programmes."
+ },
+ "counts": {
+  "networks": 2,
+  "activities": 4,
+  "relationships": 8,
+  "by_evidence": {
+   "LOCALLY_OBSERVED": 3,
+   "STATE_OBSERVED": 1,
+   "NATIONALLY_MODELLED": 1,
+   "ESTIMATED": 1,
+   "HYPOTHETICAL": 2
+  },
+  "levers": 3
+ },
+ "the_position": "Two production networks, four activities, eight typed relationships. One accounting implication, and everything beyond it a hypothesis. The framework can now say what an activity requires and who it trades with; it still cannot say what anything costs here."
+}

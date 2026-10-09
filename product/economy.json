@@ -1,0 +1,2705 @@
+{
+ "class": "PUBLIC",
+ "what_this_is": "economic research. The world model's own states, the structure and evidence state of two transmission chains, the distribution of one employer's payroll by county of residence, the household-buffer components and their refusals, and regional market structure.",
+ "what_this_is_not": "it carries no opportunity economics, no financial assumption, no portfolio construction, no marketed asset and no asking price. Those are INTERNAL under \u00a710, are held outside every published artefact, and are not deployed.",
+ "readings": [
+  {
+   "claim": "This region is one federal appropriation with a county attached.",
+   "visual": "INCOME_BY_RESIDENCE",
+   "what_it_says": "One employer paid $1,853m of salary across six named counties. $819m of it \u2014 40.1% \u2014 accrues to residents of Los Alamos County, and 50.7% to residents of other named counties.",
+   "what_works_against_it": "$187m, 9.2% of salaries, is unattributed in the operator's own table and the report does not explain it. It is counted as neither retained nor exported."
+  },
+  {
+   "claim": "Residence sorts by earnings, so the county retains the top of one employer's distribution and exports the rest.",
+   "visual": "SALARY_PER_EMPLOYEE",
+   "what_it_says": "A laboratory employee living in Los Alamos earns $151,611 on average; one living in Rio Arriba earns $92,548. A 64% spread for one employer in one year.",
+   "what_works_against_it": "the two figures come from two sources reporting the same FY2025 payroll \u2014 salaries from the operator's own page, employee counts from a newspaper's reading of the same report. R-08 returns NOT_EVALUATED on the ratio because the repository holds no indicator_id for an operator-published figure, so the kernel declines to certify rather than passing."
+  },
+  {
+   "claim": "A world rate change can be carried to the 30-year mortgage rate and cannot be carried into this region.",
+   "visual": "CHAIN_TCR01",
+   "what_it_says": "+100bp of policy lands as +0.10 to +0.37 percentage points on the 30-year mortgage rate, three steps out. The next step requires regional construction and conduit terms, and the world model records that parameter as UNKNOWN.",
+   "what_works_against_it": "the chain is supported again on the far side of the break. Both ends are measured and the magnitude still cannot cross, which is the condition most likely to tempt a reader into joining them."
+  },
+  {
+   "claim": "A published 10% price advantage exists for regional suppliers and is observed to fail.",
+   "visual": "CHAIN_TCR02",
+   "what_it_says": "On competitive acquisitions over $100,000 a 10% adjustment factor is added to the evaluated price of any bidder that is not a Northern New Mexico small business. Four of the five small-business subcontractors the cleanup contractor names are headquartered outside New Mexico.",
+   "what_works_against_it": "the named awards are nuclear-qualified specialities with a thin national supplier base, so the divergence may be specialism rather than regional capability failure. Not excluded by any evidence held."
+  },
+  {
+   "claim": "Household economic security cannot be reported for this region, and the reason is not caution.",
+   "visual": "BUFFER_COMPONENTS",
+   "what_it_says": "The buffer is labelled INCOMPLETE_HOUSEHOLD_RESOURCE_VIEW with no score. Two of its five components are partially measured and three are not measured at all.",
+   "what_works_against_it": "no score. Collapsing five components of which three are unmeasured would present absence as a value."
+  }
+ ],
+ "income_by_residence": {
+  "unit": "USD of FY2025 salary",
+  "geography": "county of residence",
+  "rows": [
+   {
+    "label": "Los Alamos",
+    "value": 819000000.0,
+    "display": "$819m",
+    "dir": "5,402 staff",
+    "mark": true
+   },
+   {
+    "label": "Santa Fe",
+    "value": 515000000.0,
+    "display": "$515m",
+    "dir": "4,089 staff",
+    "mark": false
+   },
+   {
+    "label": "Rio Arriba",
+    "value": 231000000.0,
+    "display": "$231m",
+    "dir": "2,496 staff",
+    "mark": false
+   },
+   {
+    "label": "Bernalillo",
+    "value": 133000000.0,
+    "display": "$133m",
+    "dir": "staff not published",
+    "mark": false
+   },
+   {
+    "label": "Sandoval",
+    "value": 92000000.0,
+    "display": "$92m",
+    "dir": "staff not published",
+    "mark": false
+   },
+   {
+    "label": "Taos",
+    "value": 28000000.0,
+    "display": "$28m",
+    "dir": "314 staff",
+    "mark": false
+   }
+  ],
+  "caveat": "$187m (9.2%) is unattributed in the source and is not shown."
+ },
+ "salary_per_employee": {
+  "unit": "USD per employee per year",
+  "geography": "county of residence",
+  "rows": [
+   {
+    "label": "Los Alamos",
+    "value": 151611,
+    "display": "$151,611",
+    "dir": "5,402 staff",
+    "mark": true
+   },
+   {
+    "label": "Santa Fe",
+    "value": 125948,
+    "display": "$125,948",
+    "dir": "4,089 staff",
+    "mark": false
+   },
+   {
+    "label": "Rio Arriba",
+    "value": 92548,
+    "display": "$92,548",
+    "dir": "2,496 staff",
+    "mark": false
+   },
+   {
+    "label": "Taos",
+    "value": 89172,
+    "display": "$89,172",
+    "dir": "314 staff",
+    "mark": false
+   }
+  ],
+  "caveat": "R-08 returns NOT_EVALUATED on this ratio: both inputs describe one payroll and one year, and the kernel holds no indicator_id for an operator-published figure, so it declines to certify rather than passing."
+ },
+ "chains": [
+  {
+   "id": "TCR01",
+   "title": "Global financing conditions -> Northern New Mexico housing feasibility",
+   "force": "interest_rates",
+   "support_shape": "HOLE_IN_THE_MIDDLE",
+   "support_shape_means": "both ends are supported and the magnitude cannot cross. This is worse than it looks: it means the model can measure the cause and measure the consequence and still not relate them, so a reader who sees both ends will be tempted to join them and must not",
+   "stops_at": "TCR01-L2",
+   "supported_downstream": [
+    "regional_exposure",
+    "domain_mechanism",
+    "entity_capability"
+   ],
+   "rival": "TCR02 -- construction input costs rather than financing cost. The same per-unit figure of roughly $500,000 appears in a 60-key hotel project on a different site with a different capital structure, which is consistent with a cost driver that is not financing. NOT EXCLUDED, and no construction cost index for the county was obtained.",
+   "what_must_be_true": [
+    "the residential mortgage rate moves regional construction and conduit terms together with it (L2, UNKNOWN -- this is the gate)",
+    "the full cost is debt-financed (OBSERVED for this project: the structure states it eliminates developer equity)",
+    "operating expense fits inside $95 to $201 per unit per month at the favourable corners (UNKNOWN, and implausible)",
+    "the 380 units lease at the restricted rents (UNKNOWN)"
+   ],
+   "opportunity_or_threat": "BOTH, and they are not symmetric. The THREAT is that every housing project in this county needs gap capital because rents do not carry cost, so a rate rise removes projects rather than repricing them -- which is what the declared identity means by 'the marginal project that becomes infeasible'. The OPPORTUNITY is subordinate or gap capital, and it exists only if some layer in a real stack prices between the public senior and an equity return. ONE DOCUMENT DECIDES WHICH.",
+   "diagram": {
+    "title": "Global financing conditions -> Northern New Mexico housing feasibility",
+    "nodes": [
+     {
+      "id": "n0",
+      "label": "monetary policy rate",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n1",
+      "label": "the 30-year mortgage rate",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n2",
+      "label": "construction and acquisition loan terms in Nor",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n3",
+      "label": "project financing cost",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n4",
+      "label": "per-unit debt service on a Los Alamos workforc",
+      "sub": "",
+      "state": "UNKNOWN"
+     },
+     {
+      "id": "n5",
+      "label": "per-unit debt service",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n6",
+      "label": "whether a restricted rent can carry the projec",
+      "sub": "",
+      "state": "UNKNOWN"
+     },
+     {
+      "id": "n7",
+      "label": "project feasibility at market terms",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n8",
+      "label": "who can build workforce housing in the county ",
+      "sub": "",
+      "state": "UNKNOWN"
+     },
+     {
+      "id": "n9",
+      "label": "who can build",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n10",
+      "label": "whether housing supply responds to the region'",
+      "sub": "",
+      "state": "UNKNOWN"
+     }
+    ],
+    "edges": [
+     {
+      "from": "n0",
+      "to": "n1",
+      "state": "SUPPORTED",
+      "magnitude_state": "MAGNITUDE_ESTIMATED",
+      "label": "World variable"
+     },
+     {
+      "from": "n1",
+      "to": "n2",
+      "state": "UNKNOWN",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Channel"
+     },
+     {
+      "from": "n3",
+      "to": "n4",
+      "state": "SUPPORTED",
+      "magnitude_state": "MAGNITUDE_ESTIMATED",
+      "label": "Regional exposure"
+     },
+     {
+      "from": "n5",
+      "to": "n6",
+      "state": "SUPPORTED",
+      "magnitude_state": "MAGNITUDE_ESTIMATED",
+      "label": "Mechanism"
+     },
+     {
+      "from": "n7",
+      "to": "n8",
+      "state": "OBSERVED",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Capability"
+     },
+     {
+      "from": "n9",
+      "to": "n10",
+      "state": "UNKNOWN",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "System effect"
+     }
+    ]
+   },
+   "links": [
+    {
+     "id": "TCR01-L1",
+     "level": "market_variable",
+     "from": "monetary policy rate",
+     "to": "the 30-year mortgage rate",
+     "state": "ESTIMATED",
+     "direction": "+",
+     "params": [
+      "QP-RATES"
+     ],
+     "note": "the only three-order quantified path in the world model. The interval is wide by construction: three time-series associations composed under a monotonicity guard, which is a minimum guard and not a correct treatment of dependence between the steps.",
+     "evidence": [
+      "WORLD_MODEL_V0_5 \u00a7V: QP-RATES, 3 of 3 steps, +100bp policy gives +0.10 to +0.37 pp on the 30-year mortgage rate, 3-month lag, PLAUSIBLY_TRANSPORTABLE"
+     ]
+    },
+    {
+     "id": "TCR01-L2",
+     "level": "transmission_channel",
+     "from": "the 30-year mortgage rate",
+     "to": "construction and acquisition loan terms in Northern New Mexico",
+     "state": "UNKNOWN",
+     "direction": "+",
+     "params": [
+      "CONSTRUCTION_LOAN_TERMS_NNM"
+     ],
+     "note": "THE GATE. WORLD_MODEL_V0_5 \u00a7S names this exact parameter as UNKNOWN and records that it is what stops WR031 from reaching WR034. The residential mortgage rate is not a construction or conduit-bond rate, and no held source observes regional construction loan terms.",
+     "evidence": []
+    },
+    {
+     "id": "TCR01-L3",
+     "level": "regional_exposure",
+     "from": "project financing cost",
+     "to": "per-unit debt service on a Los Alamos workforce housing project",
+     "state": "ESTIMATED",
+     "direction": "+",
+     "params": [
+      "rate",
+      "term",
+      "share_debt_financed"
+     ],
+     "note": "the magnitude is arithmetic on an ASSUMED coupon, because L2 is UNKNOWN. This link is ESTIMATED in the sense the forces layer means -- a stated calculation over stated parameters -- and it is not an observation.",
+     "evidence": [
+      "R3.8 S-06: 380 units at $191-200m, $503,000-$526,000 per unit, no developer equity",
+      "r38_feasibility: $2,244-$2,679 per unit per month over 35 years at 4-5%, with the rate and term declared as assumptions"
+     ]
+    },
+    {
+     "id": "TCR01-L4",
+     "level": "domain_mechanism",
+     "from": "per-unit debt service",
+     "to": "whether a restricted rent can carry the project",
+     "state": "ESTIMATED",
+     "direction": "-",
+     "params": [
+      "ami_ceiling",
+      "operating_expense"
+     ],
+     "note": "two corners fail on debt outright; two leave $95 to $201 a month to cover every operating cost. NO NEW MEXICO MULTIFAMILY OPERATING-EXPENSE FIGURE WAS OBTAINED, so the denominator of the declared identity is absent.",
+     "evidence": [
+      "R3.8 S-21: HUD 2024 four-person 80% limit for Los Alamos County $97,800, giving a $2,445 monthly gross housing ceiling",
+      "r38_feasibility: headroom of -$234, -$113, +$95, +$201 across the four cost-and-rate corners"
+     ]
+    },
+    {
+     "id": "TCR01-L5",
+     "level": "entity_capability",
+     "from": "project feasibility at market terms",
+     "to": "who can build workforce housing in the county at all",
+     "state": "OBSERVED",
+     "direction": "?",
+     "params": [],
+     "note": "this link is OBSERVED and it is observed as a REFUSAL BY THE MARKET. A capital structure built to eliminate equity is the clearest statement available that equity cannot be paid at these terms.",
+     "evidence": [
+      "R3.8 S-06: the structure eliminates developer equity, uses tax-exempt 501(c)(3) conduit debt, takes a $7.5m county purchase of deed restrictions and a $4.9m state predevelopment grant, returns excess cash flow to the county and transfers ownership after repayment",
+      "R3.8 S-07: the county's privately approved pipeline had produced 5 completed units against 934 potential"
+     ]
+    },
+    {
+     "id": "TCR01-L6",
+     "level": "system_effect",
+     "from": "who can build",
+     "to": "whether housing supply responds to the region's labour demand",
+     "state": "UNKNOWN",
+     "direction": "?",
+     "params": [],
+     "note": "380 units are financed into a county whose approved private pipeline had completed five. Whether they lease, and at what rent, is the absorption question no source answers. ABSORPTION IS THE UNOBSERVED ACTOR RESPONSE HERE, which is the same empty slot R3.3 found across the whole engine.",
+     "evidence": []
+    }
+   ]
+  },
+  {
+   "id": "TCR02",
+   "title": "Federal industrial policy -> regional production capability",
+   "force": "federal_procurement",
+   "support_shape": "STOPS_WITH_AN_INFERENCE_BEYOND",
+   "support_shape_means": "support runs out at a level, and what lies beyond it is an INFERENCE from accounting rather than a measurement. The direction beyond the break is arguable and the magnitude is not available at all",
+   "stops_at": "TCR02-L5",
+   "supported_downstream": [],
+   "rival": "the named out-of-state awards are nuclear-qualified specialities with a thin national supplier base, in which case the divergence is specialism rather than regional capability failure and qualification investment would change nothing. NOT EXCLUDED by any evidence retrieved.",
+   "what_must_be_true": [
+    "the appropriation is sustained (OBSERVED as a level, not forecast)",
+    "purchasing can be decomposed by category (L5, UNKNOWN -- this is the gate)",
+    "qualification rather than price is what excludes regional firms (OBSERVED for N3B's named awards; not established generally)",
+    "a regional firm can carry working capital on cost-reimbursable terms (UNKNOWN)"
+   ],
+   "opportunity_or_threat": "OPPORTUNITY, and it is the only additive one in the region. The advantage is 10 percentage points of evaluated price with a three-employee qualification bar. The threat is concentration: this is one buyer and one appropriation, and seven of ten R3.8 candidates already depend on it.",
+   "diagram": {
+    "title": "Federal industrial policy -> regional production capability",
+    "nodes": [
+     {
+      "id": "n0",
+      "label": "federal nuclear-security appropriation",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n1",
+      "label": "the laboratory operator's budget",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n2",
+      "label": "operator budget",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n3",
+      "label": "purchases from New Mexico businesses",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n4",
+      "label": "purchasing by the operator and the cleanup con",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n5",
+      "label": "the price a Northern New Mexico small business",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n6",
+      "label": "a 10% evaluated-price advantage",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n7",
+      "label": "which firms actually win the work",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n8",
+      "label": "qualification requirements",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n9",
+      "label": "regional productive capability",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n10",
+      "label": "regional capability",
+      "sub": "",
+      "state": "OBSERVED"
+     },
+     {
+      "id": "n11",
+      "label": "income that was not previously regional",
+      "sub": "",
+      "state": "UNKNOWN"
+     }
+    ],
+    "edges": [
+     {
+      "from": "n0",
+      "to": "n1",
+      "state": "OBSERVED",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "World variable"
+     },
+     {
+      "from": "n2",
+      "to": "n3",
+      "state": "OBSERVED",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Channel"
+     },
+     {
+      "from": "n4",
+      "to": "n5",
+      "state": "OBSERVED",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Regional exposure"
+     },
+     {
+      "from": "n6",
+      "to": "n7",
+      "state": "OBSERVED",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Mechanism"
+     },
+     {
+      "from": "n8",
+      "to": "n9",
+      "state": "UNKNOWN",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "Capability"
+     },
+     {
+      "from": "n10",
+      "to": "n11",
+      "state": "CONDITIONAL",
+      "magnitude_state": "MAGNITUDE_UNKNOWN",
+      "label": "System effect"
+     }
+    ]
+   },
+   "links": [
+    {
+     "id": "TCR02-L1",
+     "level": "market_variable",
+     "from": "federal nuclear-security appropriation",
+     "to": "the laboratory operator's budget",
+     "state": "OBSERVED",
+     "direction": "+",
+     "params": [],
+     "note": "observed as a level and a direction. No appropriation forecast is held and none is produced.",
+     "evidence": [
+      "R3.8 S-01: FY2025 budget $5.28bn, up from $5.24bn in FY2024",
+      "R3.8 S-03: the director attributes growth to sustained geopolitical tensions and bipartisan support"
+     ]
+    },
+    {
+     "id": "TCR02-L2",
+     "level": "transmission_channel",
+     "from": "operator budget",
+     "to": "purchases from New Mexico businesses",
+     "state": "OBSERVED",
+     "direction": "?",
+     "params": [],
+     "note": "DIRECTION IS '?' DELIBERATELY. The budget rose while recorded procurement fell, and the director states the cause: from 2024 multiyear contracts were introduced and the full value of each is recorded in the award year. The series records AWARD EVENTS, not annual purchasing, so no annual flow can be read off it and no direction can be inferred from it.",
+     "evidence": [
+      "R3.8 S-01, S-02: $752.5m from New Mexico businesses in FY2025, $318m of it from in-state small businesses",
+      "R3.8 S-03: laboratory-wide procurement $2.30bn, $1.90bn, $1.60bn across FY2023-25 while the budget rose"
+     ]
+    },
+    {
+     "id": "TCR02-L3",
+     "level": "regional_exposure",
+     "from": "purchasing by the operator and the cleanup contractor",
+     "to": "the price a Northern New Mexico small business is evaluated at",
+     "state": "OBSERVED",
+     "direction": "+",
+     "params": [],
+     "note": "THE ONLY QUANTIFIED, PUBLISHED, PLACE-SPECIFIC ECONOMIC ADVANTAGE FOUND ANYWHERE IN THIS REGION. It is a contract term, not an estimate.",
+     "evidence": [
+      "R3.8 S-04: a 10% adjustment factor is ADDED to the evaluated total price of offerors that are NOT Northern New Mexico small business concerns, on competitive acquisitions over $100,000; qualification is three or more FTE with 51% resident in the region plus a local facility; seven counties plus the eight regional Pueblos"
+     ]
+    },
+    {
+     "id": "TCR02-L4",
+     "level": "domain_mechanism",
+     "from": "a 10% evaluated-price advantage",
+     "to": "which firms actually win the work",
+     "state": "OBSERVED",
+     "direction": "?",
+     "params": [],
+     "note": "the mechanism is OBSERVED TO FAIL. A 10% price preference exists and out-of-state small firms win anyway, so price is not the binding constraint. The named work is radiological control and canyon soil remediation under nuclear-quality conditions, which is a qualification constraint.",
+     "evidence": [
+      "R3.8 S-05: of the five small-business subcontractors N3B names publicly, four are headquartered outside New Mexico -- Nome Alaska, Chandler Arizona, Knoxville Tennessee"
+     ]
+    },
+    {
+     "id": "TCR02-L5",
+     "level": "entity_capability",
+     "from": "qualification requirements",
+     "to": "regional productive capability",
+     "state": "UNKNOWN",
+     "direction": "?",
+     "params": [],
+     "note": "no certification, bonding, quality-programme or working-capital cost was obtained for any regional firm, and neither buyer publishes spend by category or NAICS -- the code is set per solicitation. So the gap between the preference a regional firm can claim and the capability it would need CANNOT BE SIZED.",
+     "evidence": []
+    },
+    {
+     "id": "TCR02-L6",
+     "level": "system_effect",
+     "from": "regional capability",
+     "to": "income that was not previously regional",
+     "state": "INFERRED",
+     "direction": "+",
+     "params": [],
+     "note": "INFERRED, not observed. Procurement captured regionally is additive income in a way that housing is not, because housing relocates payroll that is already regional. The DIRECTION follows from the accounting; the MAGNITUDE depends on L5, which is UNKNOWN.",
+     "evidence": [
+      "R3.8 S-01, S-02: salary per laboratory employee sorts by county of residence -- $151,611 in Los Alamos, $125,948 in Santa Fe, $92,548 in Rio Arriba"
+     ]
+    }
+   ]
+  }
+ ],
+ "world": {
+  "claims": [
+   {
+    "claim": "A 100 basis point rise in the policy rate lands as +0.10 to +0.37 percentage points on the 30-year mortgage rate, three steps out, with a three-month lag.",
+    "grade": "ESTIMATED",
+    "kind": "CYCLICAL",
+    "source": "WORLD_MODEL_V0_5 \u00a7V, path QP-RATES, 3 of 3 steps, PLAUSIBLY_TRANSPORTABLE. Three time-series associations composed under a monotonicity guard.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "A 10% rise in Brent lands as +0.56% to +1.61% on truckload freight PPI, two steps out, with a six-month lag.",
+    "grade": "ESTIMATED",
+    "kind": "CYCLICAL",
+    "source": "WORLD_MODEL_V0_5 \u00a7V, path QP-ENERGY-FREIGHT, 2 of 2 steps",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "The world model holds ZERO identified causal estimates of anything. All nine of its quantified relationships are time-series associations over US aggregates.",
+    "grade": "OBSERVED",
+    "kind": "NOT_DETERMINABLE",
+    "source": "WORLD_MODEL_V0_5 \u00a7AD, the quantification bottleneck verdict. Not determinable as structural or cyclical because an association over an aggregate does not separate the two -- that separation is exactly what identification would buy.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "Quantification is NOT the binding constraint on this model. Nine new estimates left every configuration pair indistinguishable, every circuit state unchanged, every historical episode verdict unchanged and every loop classification unchanged. One of nine changed a conclusion.",
+    "grade": "OBSERVED",
+    "kind": "NOT_DETERMINABLE",
+    "source": "WORLD_MODEL_V0_5 \u00a7A and \u00a7AD. A tested and rejected hypothesis, not an opinion. Not a structural/cyclical question at all -- it is a property of the model.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "Quantitatively traversable circuits: zero. Two are partially quantified, one refuses at a named step, nine are not quantified. 58 of 95 edges are magnitude-unknown.",
+    "grade": "OBSERVED",
+    "kind": "NOT_DETERMINABLE",
+    "source": "WORLD_MODEL_V0_5 \u00a7V and \u00a7AE. A model property.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "A rate rise is structurally distinguishable from a credit contraction: there is no route from the policy rate to small-firm credit TIGHTENING, and there is one to small-firm credit DEMAND.",
+    "grade": "OBSERVED",
+    "kind": "STRUCTURAL",
+    "source": "WORLD_MODEL_V0_5 \u00a7A, via WR106. Structural because it is a property of the represented topology, not of a current reading.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "Where value is created and where capital moves cannot be answered by this model. The capital allocation step is a decision among seven represented branches with no probability attached to any, and national firm finance and regional retention are not joined anywhere.",
+    "grade": "OBSERVED",
+    "kind": "NOT_DETERMINABLE",
+    "source": "WORLD_MODEL_V0_5 \u00a7O. The retention share is computable (median about 0.40 since 2000, IQR 0.35-0.50) and was REFUSED as a behavioural parameter, because assigning an accounting decomposition to a behavioural edge would change what it means.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "Sustained federal nuclear-security appropriation is the dominant world force acting on this region, and it is a policy quantity rather than a market one.",
+    "grade": "OBSERVED",
+    "kind": "STRUCTURAL",
+    "source": "R3.8 S-01, S-03: a $5.28bn budget rising from $5.24bn, attributed by the operator's director to sustained geopolitical tensions and bipartisan support for the national security mission.",
+    "antecedent": null,
+    "rival": null
+   },
+   {
+    "claim": "Over five to twenty years the region's exposure is to appropriation policy rather than to the business cycle, so the usual cyclical reasoning is the wrong frame for it.",
+    "grade": "CONDITIONAL",
+    "kind": "STRUCTURAL",
+    "source": "R3.8 S-01, S-18",
+    "antecedent": "IF the appropriation remains the dominant external flow, which is true today at $5.28bn against the next largest identified external flow of about $300m in regional film production",
+    "rival": null
+   },
+   {
+    "claim": "No appropriation forecast is held and none is produced. A twenty-year view of this region is a view about one legislature's choices.",
+    "grade": "OBSERVED",
+    "kind": "NOT_DETERMINABLE",
+    "source": "nothing in the world model or the R3 line forecasts an appropriation, and the model holds no political-economy object at all.",
+    "antecedent": null,
+    "rival": null
+   }
+  ],
+  "by_grade": {
+   "OBSERVED": 7,
+   "ESTIMATED": 2,
+   "CONDITIONAL": 1,
+   "HYPOTHESIS": 0
+  },
+  "by_kind": {
+   "STRUCTURAL": 3,
+   "CYCLICAL": 2,
+   "BOTH": 0,
+   "NOT_DETERMINABLE": 5
+  },
+  "explains_well": "the TOPOLOGY of transmission: which routes exist, which do not, and where a magnitude would have to attach. That is why it can state that a rate rise and a credit contraction are different objects, and why it refuses to compose two true numbers across a seam it cannot join.",
+  "cannot_explain": "magnitude with identification, and therefore almost everything a forecast would need. It holds no identified causal estimate, no probability on any allocation branch, and no political object -- while the force that dominates this particular region is a political one.",
+  "honest_frame": "Dula's world model is a map of mechanisms with very few measured distances. Used as a map it is good: it tells you which way a change can travel and where the road ends. Used as a forecast it would be fiction, and its own v0.5 verdict says so more sharply than any outside critic would."
+ },
+ "identity": {
+  "name": "WX_GLOBAL_RATES_FINANCING",
+  "declared_by": "wm_read.world_to_x()['WX_GLOBAL_RATES_FINANCING'], authored before R3.6 and untouched by this phase",
+  "declared_identity": {
+   "numerator": "annual debt service on a project",
+   "denominator": "project net operating income",
+   "actor": "the borrower, and the lender setting terms",
+   "boundary": "one project in one county",
+   "unit": "ratio",
+   "marginal_vs_total": "the marginal project that becomes infeasible, not the average of financed projects",
+   "behavioural_link": ""
+  },
+  "numerator_status": "POPULATED BY R3.8 FROM AN ASSUMED COUPON. Per-unit annual debt service of $26,900-$32,100 for one project in one county, computed over a stated rate band and term because the actual coupon is not published.",
+  "denominator_status": "ABSENT. Project net operating income requires an operating expense figure for comparable New Mexico multifamily, and none was obtained.",
+  "marginal_term_status": "the identity specifies the MARGINAL project that becomes infeasible, not the average. R3.8 examined one project that is proceeding, which is inside the margin by construction. The marginal project is unobserved.",
+  "verdict": "THE IDENTITY IS NAMED AND NOT POPULATED. One of three terms is computed from an assumption, one is absent, and the term that carries the identity's economic meaning -- marginality -- is unobserved.",
+  "not_a_crossing": "R3.3's engine refused R3.2's crossing on the ground that a rate is not a flow and n=6 is not an estimate. The same discipline applies here: an assumed coupon is not an observed term, and a single proceeding project is not the margin. What this phase establishes is narrower and useful -- the world model and the market research independently named the SAME missing parameter, from opposite ends.",
+  "what_would_populate_it": [
+   "the Coyote Mesa bond ordinance: the actual coupon and term",
+   "an operating-expense figure for comparable New Mexico multifamily",
+   "one project that did NOT proceed, which is where the margin is"
+  ]
+ },
+ "household_buffer": {
+  "reused_from": "r36_underwrite.buffer_view(), built in R3.6 and not modified here",
+  "label": "INCOMPLETE_HOUSEHOLD_RESOURCE_VIEW",
+  "score": null,
+  "source_refusal_verbatim": "no score. Collapsing five components of which three are unmeasured would present absence as a value.",
+  "source_why_incomplete_verbatim": "two of five buffer components are partially measured and three are not measured at all. This is not a buffer.",
+  "components": {
+   "FLOW_BUFFER": {
+    "measured": "PARTIALLY",
+    "why_not_computable": "the components held are county medians from different distributions. They cannot be subtracted."
+   },
+   "LIQUIDITY_BUFFER": {
+    "measured": false,
+    "why_not_computable": "no held source observes household liquidity below the national sector account."
+   },
+   "SERVICE_BUFFER": {
+    "measured": "PARTIALLY",
+    "why_not_computable": "coverage is not access, and PLACES is a modelled estimate rather than a measurement of the county."
+   },
+   "RISK_EXPOSURE": {
+    "measured": false,
+    "why_not_computable": "no held source observes household-level variance."
+   },
+   "ADAPTIVE_CAPACITY": {
+    "measured": false,
+    "why_not_computable": "observed mobility is what happened, not what was possible."
+   }
+  },
+  "mapping_to_the_brief": {
+   "FLOW_BUFFER": "the brief's flow buffer. PARTIALLY measured: income, rent and SNAP receipt are held; transport, utilities, food, healthcare, childcare and non-housing debt service are not.",
+   "RESERVE_BUFFER": "the brief's reserve buffer is the module's LIQUIDITY_BUFFER. NOT measured at all -- no held source observes household liquidity below the national sector account.",
+   "SERVICE_ACCESS": "the brief's service access is the module's SERVICE_BUFFER. PARTIALLY measured."
+  },
+  "the_refusals_that_still_hold": [
+   "no index. Collapsing five components of which three are unmeasured would present absence as a value.",
+   "no subtraction of county medians. They come from different distributions and cannot be subtracted -- the invalid operation R3.8 \u00a73 withdrew in another form.",
+   "no counting of a potential opportunity as realised income."
+  ]
+ },
+ "markets": [
+  {
+   "id": "M1",
+   "name": "Nuclear-security research operations and its supply chain",
+   "what_is_produced": "weapons-programme research, plutonium pit manufacturing capability, and legacy environmental remediation",
+   "who_produces_it": "Triad National Security LLC (operator, 16,487 regular employees and 1,378 contractors) and N3B Los Alamos (legacy cleanup)",
+   "who_buys_it": "the National Nuclear Security Administration and DOE Environmental Management. ONE BUYER, federally appropriated.",
+   "where_the_customers_are": "Washington. The customer is not regional and is not a market in any price-discovering sense.",
+   "where_the_suppliers_are": "about half of procurement is in New Mexico; the one source naming small-business subcontractors names four of five outside the state",
+   "inputs_required": "nuclear-qualified construction and services, radiological control labour, equipment, IT, commodities",
+   "how_revenue_enters_the_region": "federal appropriation to the operator, then payroll ($2.04bn) and procurement ($752.5m NM), plus $141m gross receipts tax",
+   "where_value_leaves": "50.7% of salary is earned by residents of other named counties and 9.2% is unattributed (laboratory_incidence); roughly half of procurement is spent outside New Mexico",
+   "bottleneck": "qualification. Nuclear-quality work requires certifications that a regional firm with three employees does not hold, which is why a 10% price preference has not produced regional capture.",
+   "what_is_changing": "the budget is rising ($5.24bn to $5.28bn) while procurement RECORDING has shifted to multiyear award-year accounting. Employment dipped 16,547 to 16,487, attributed in part to the autumn federal shutdown.",
+   "concentration": "EXTREME. One buyer, one appropriation, one operator.",
+   "evidence": [
+    "S-01",
+    "S-02",
+    "S-03",
+    "S-04",
+    "S-05"
+   ]
+  },
+  {
+   "id": "M2",
+   "name": "Los Alamos workforce housing",
+   "what_is_produced": "rental housing for households at 60-120% of area median income",
+   "who_produces_it": "a private developer under a 501(c)(3) conduit structure (Coyote Mesa, 380 units); the county as land owner and subsidiser; Los Alamos Public Schools as owner of the North Mesa site",
+   "who_buys_it": "laboratory employees and contractors. The operator states more than 65% of its 16,487 employees live outside the county.",
+   "where_the_customers_are": "Santa Fe (4,089 laboratory employees), Rio Arriba (2,496), Taos (314), and elsewhere",
+   "inputs_required": "land (county- or school-district-owned), infrastructure, construction labour competing with laboratory construction",
+   "capital_required": "approximately $191-200m for 380 units -- $503,000 to $526,000 PER UNIT -- financed with up to $230m of tax-exempt workforce housing revenue bonds, NO DEVELOPER EQUITY, a $7.5m county deed-restriction purchase and a $4.9m state predevelopment grant",
+   "how_revenue_enters_the_region": "it does not. This market RECIRCULATES laboratory payroll that is currently spent on housing in other counties.",
+   "where_value_leaves": "construction procurement and bond interest",
+   "bottleneck": "COST, not demand. See r38_feasibility: per-unit development cost is approximately equal to the county's median existing home value, and no plausible restricted rent covers it.",
+   "what_is_changing": "380 units are entering a county whose entire approved private pipeline had produced 5 completed units. A 60-key extended-stay hotel is separately targeting seasonal interns and post-docs.",
+   "concentration": "the demand is one employer's workforce",
+   "evidence": [
+    "S-06",
+    "S-07",
+    "S-08",
+    "S-01",
+    "S-02"
+   ]
+  },
+  {
+   "id": "M3",
+   "name": "Santa Fe rental housing and the Midtown redevelopment",
+   "what_is_produced": "market-rate and workforce rental housing, film production space, and live-work industrial space",
+   "who_produces_it": "private developers on city land; the city as land owner and infrastructure provider",
+   "who_buys_it": "renters at $1,700-1,800 median asking rent; film productions; small industrial and laboratory tenants",
+   "where_the_customers_are": "Santa Fe County, plus the 4,089 laboratory employees resident there",
+   "inputs_required": "the city's internal spine roads and utilities, ESTIMATED AT ABOUT $54m AND UNFUNDED",
+   "how_revenue_enters_the_region": "film production spending rose from about $70m (FY2016) to over $300m (FY2022) -- genuinely external revenue. Retail was 25% of county taxable receipts in Q1 FY26.",
+   "where_value_leaves": "accommodation and food services employment fell 6.4% to 10,010",
+   "bottleneck": "the $54m infrastructure gap, and Class A absorption: the trade association reports Class A rents and occupancy saw the biggest decrease over the past year while deliveries decline substantially in 2026-2027",
+   "what_is_changing": "129 units opened at ArtHouse; a 98-unit workforce project is in administrative approval; 24.8 of 64 acres were offered for sale or lease; a studio expansion projects over 1,000 jobs",
+   "concentration": "film is a credit-driven sector dependent on state incentive policy",
+   "evidence": [
+    "S-09",
+    "S-10",
+    "S-18"
+   ]
+  },
+  {
+   "id": "M4",
+   "name": "Rio Arriba's taxable economy and extraction exposure",
+   "what_is_produced": "oil and gas extraction, retail trade, construction, health care, professional services",
+   "who_produces_it": "about 755 private establishments (down from a record 836 in January 2022); construction has the most establishments (53)",
+   "who_buys_it": "for extraction, national commodity markets; for retail, residents and through-traffic; for professional services, substantially the laboratory complex",
+   "where_the_customers_are": "outside the county for extraction and for the 2,496 residents employed by the laboratory",
+   "how_revenue_enters_the_region": "extraction royalties and receipts; $231m of laboratory salary earned by county residents; federal and state transfers",
+   "where_value_leaves": "the county's own jobs are 59.2% held by non-residents, and 64.2% of the New Mexico jobs its residents hold are located outside it",
+   "bottleneck": "NOT ESTABLISHED. Three federal products disagree about the county's labour force and none reconciles them (r38_correct).",
+   "what_is_changing": "matched taxable gross receipts rose $59.6m (29.8%) in one quarter, with extraction moving from 11% to 23% of the total. NO CAUSE WAS FOUND FOR THIS AND IT IS THEREFORE NOT INTERPRETED.",
+   "concentration": "extraction at 23% of taxable receipts is a price-exposed quarter of the tax base; the laboratory is the largest single employer of residents after public administration",
+   "r32_status": "UNRESOLVED MOVEMENT. One quarter, no production cross-check against Oil Conservation Division data, no cause identified. Treated as a measurement event, not an economic one.",
+   "evidence": [
+    "S-16",
+    "S-17",
+    "S-01",
+    "S-02"
+   ]
+  },
+  {
+   "id": "M5",
+   "name": "Local food into institutions",
+   "what_is_produced": "produce, meat, nuts and eggs for schools, early childcare and senior centres, and food banks",
+   "who_produces_it": "nearly 300 approved suppliers across 27 counties",
+   "who_buys_it": "approximately 150 institutional buyers in 31 counties, through one state programme",
+   "where_the_customers_are": "statewide; county-level buyer detail was not retrieved",
+   "inputs_required": "aggregation, cold storage, processing, refrigerated transport -- funded in 2025-2026 by $3.5m of federal RFSI across 18 recipients and $1.6m of state HFFF across 25 projects",
+   "how_revenue_enters_the_region": "it does not. This is substitution of local for non-local supply inside existing institutional budgets.",
+   "bottleneck": "PROGRAMME SCALE AND FUNDING DURABILITY. Total programme sales were just over $4.4m STATEWIDE in FY2026, and the January 2026 UNM evaluation names securing recurring funding as a critical next step.",
+   "what_is_changing": "the largest new aggregation and processing facility identified is in Albuquerque's South Valley, not in the north",
+   "concentration": "one programme, one appropriation, no recurring funding",
+   "evidence": [
+    "S-14",
+    "S-15"
+   ],
+   "the_honest_ceiling": "$4.4m of statewide annual programme sales cannot support a significant capital project in one region. This market is real, documented, and SMALL."
+  }
+ ],
+ "procurement": {
+  "buyers": [
+   {
+    "buyer": "Triad National Security, LLC",
+    "role": "laboratory operator (M&O prime)",
+    "nm_procurement_fy2025": 752500000,
+    "nm_small_business_fy2025": 318000000,
+    "evidence": "S-01, S-02"
+   },
+   {
+    "buyer": "N3B Los Alamos (Newport News Nuclear BWXT-Los Alamos)",
+    "role": "legacy cleanup contractor, a SEPARATE buyer from the operator",
+    "annual_planned_purchases": 290000000,
+    "small_business_share": 0.8,
+    "evidence": "S-05"
+   }
+  ],
+  "by_fiscal_year": {
+   "2023": 2300000000.0,
+   "2024": 1900000000.0,
+   "2025": 1600000000.0
+  },
+  "discontinuity": {
+   "observed": "laboratory-wide procurement fell $700m, or 30.4%, from FY2023 to FY2025, while the budget ROSE from $5.24bn to $5.28bn.",
+   "r32_rule_applied": "do not interpret the movement before finding its cause.",
+   "cause_found": true,
+   "cause": "the operator's director states that from 2024 the laboratory began extending one-year contracts to two and three years, and THE FULL VALUE OF EACH MULTIYEAR CONTRACT IS RECORDED IN THE YEAR IT IS AWARDED. Especially common in construction.",
+   "who_says_so": "Thom Mason, laboratory director, quoted in the Santa Fe New Mexican (S-03). This is the MEASURED PARTY explaining its own series, which is evidence and not proof.",
+   "independent_comment": "a UNM finance professor called the decline 'a little bit disappointing' and said worry would be premature unless it persisted several years: 'procurement numbers do tend to be lumpy.'",
+   "the_consequence_that_matters": "UNDER AWARD-YEAR ACCOUNTING THE SERIES RECORDS AWARD EVENTS, NOT ANNUAL PURCHASING. So $752.5m is not FY2025's purchasable demand, and neither is any other single year's figure. ANY SUPPLIER THESIS SIZED OFF ONE YEAR OF THIS SERIES IS SIZING A BOOKKEEPING CONVENTION.",
+   "this_is_the_third_time": "R3.2 found the FY2019 'leakage' trend was a prime contractor re-registering from New Mexico to Ohio. R3.6 found a BDS county employment break that would have reported 284% growth that never happened. Now an award-year accounting change. Three for three: every large movement in a published series examined in this programme has had a reporting cause."
+  },
+  "preference": {
+   "rule": "a 10% adjustment factor is ADDED to the evaluated total price of any offeror that is NOT a Northern New Mexico small business concern, on competitive acquisitions over $100,000.",
+   "qualification_bar": "a small business with an operative business location in Northern New Mexico using Northern New Mexico labour; the representations form asks for three or more FTE of which 51% reside in the region, plus a local facility.",
+   "counties_covered": [
+    "Taos",
+    "Santa Fe",
+    "Rio Arriba",
+    "Sandoval",
+    "Mora",
+    "San Miguel",
+    "Los Alamos"
+   ],
+   "plus": "the eight regional Pueblos, with a separate preference for the Triad Pueblo business alliance (San Ildefonso, Ohkay Owingeh, Acoma).",
+   "why_this_matters": "it is a QUANTIFIED, PUBLISHED competitive advantage with a low qualification bar -- three employees and a local facility. R3.7 treated regional supplier development as an unsized signal. The advantage is 10 percentage points of evaluated price.",
+   "what_it_is_not": "a set-aside. It changes evaluated price, not award, and no published figure states how many awards it has decided.",
+   "evidence": "S-04"
+  },
+  "reframing": {
+   "observation": "N3B awarded more than 80% of nearly $290m to small businesses. Of the five small-business awardees it names, FOUR ARE HEADQUARTERED OUTSIDE NEW MEXICO -- Nome Alaska, Chandler Arizona, Knoxville Tennessee, and one unstated.",
+   "inference": "SMALL-BUSINESS STATUS AND REGIONAL LOCATION ARE DIFFERENT THINGS, and in the one place the data names firms, they diverge sharply. A high small-business percentage is not evidence of regional capture.",
+   "what_this_implies_for_the_opportunity": "the binding constraint on regional supplier participation is CAPABILITY AND QUALIFICATION, not preference. The preference already exists and is priced at 10%; out-of-state small firms are winning anyway. Adding preference would not change it; building qualified regional capacity might.",
+   "rival": "N3B operates under a different contract with different preference terms from the operator's. Its named awards are radiological control and canyon soil remediation -- nuclear-qualified specialities with a thin national supplier base. The divergence may be specialism, not a general regional failure. NOT EXCLUDED.",
+   "evidence": "S-05, S-04"
+  },
+  "what_is_purchased": {
+   "named_from_evidence": [
+    "environmental remediation and canyon soil investigation",
+    "radiological control technicians",
+    "NQA-1 nuclear-quality construction",
+    "construction (named by the director as where multiyear awards concentrate)",
+    "commodities",
+    "equipment",
+    "information technology",
+    "services",
+    "occupational health services for subcontractors"
+   ],
+   "not_established": "a spend-by-category or spend-by-NAICS table. Neither the operator nor N3B publishes one, and the NAICS code is set per solicitation by the procurement specialist. WITHOUT IT NO CATEGORY CAN BE SIZED."
+  }
+ },
+ "provenance": [
+  {
+   "id": "S-01",
+   "source": "FY2025 Economic Impact on New Mexico",
+   "publisher": "Los Alamos National Laboratory (Triad National Security, LLC)",
+   "url": "https://www.lanl.gov/media/newsletters/connections/0226-economic-impact",
+   "access_date": "2026-10-08",
+   "time_period": "FY2025 (2024-10-01 to 2025-09-30); survey data calendar 2024",
+   "unit": "USD; persons",
+   "geography": "New Mexico, with county-of-residence detail",
+   "coverage": "the laboratory operator only. Excludes N3B and other site contractors.",
+   "limitations": "self-reported by the contractor; no published methodology statement; county salary figures sum to $1.853bn against a stated $2.04bn total, leaving $187m (9.2%) unattributed and unexplained",
+   "does_not_support": "any statement about where laboratory salary is SPENT. It records the county of RESIDENCE of the earner, which is not where the money is spent, saved or taxed beyond GRT."
+  },
+  {
+   "id": "S-02",
+   "source": "Albuquerque Journal report on the FY2025 economic impact report",
+   "publisher": "Albuquerque Journal",
+   "url": "https://www.abqjournal.com/business/report-los-alamos-national-laboratory-spent-nearly-3-billion-in-new-mexico-in-fy25/2971102",
+   "access_date": "2026-10-08",
+   "time_period": "FY2025",
+   "unit": "persons; USD",
+   "geography": "New Mexico, four counties",
+   "coverage": "the laboratory operator only",
+   "limitations": "secondary reporting; the employee counts by county are not on the operator's public summary page and could not be cross-checked there",
+   "does_not_support": "a small-business procurement TREND. One year only, and other reports give conflicting small-business totals for FY2024 ($636m and $942m) that are plainly different definitions."
+  },
+  {
+   "id": "S-03",
+   "source": "Santa Fe New Mexican report on the FY2025 economic impact report",
+   "publisher": "The Santa Fe New Mexican",
+   "url": "https://www.santafenewmexican.com/news/business/new-lanl-economic-report-shows-small-drop-in-santa-fe-county-workers/article_957c0eed-ec64-4433-8878-466f/article.html",
+   "access_date": "2026-10-08",
+   "time_period": "FY2023 to FY2025",
+   "unit": "USD; persons",
+   "geography": "New Mexico; Santa Fe County",
+   "coverage": "laboratory-wide procurement, all locations",
+   "limitations": "secondary; the director's explanation is an assertion by the measured party and is not independently verified",
+   "does_not_support": "treating any single year's procurement total as that year's purchasable demand. Under award-year accounting the series is a record of AWARD EVENTS, not of annual purchasing."
+  },
+  {
+   "id": "S-04",
+   "source": "Regional Purchasing Program and the prime contract representations form",
+   "publisher": "Los Alamos National Laboratory / Triad National Security, LLC",
+   "url": "https://www.lanl.gov/engage/business/small-business/regional-purchasing",
+   "access_date": "2026-10-08",
+   "time_period": "current under the Triad prime contract effective 2018-11-01",
+   "unit": "percentage points of evaluated price",
+   "geography": "Northern New Mexico: Taos, Santa Fe, Rio Arriba, Sandoval, Mora, San Miguel and Los Alamos counties, plus the eight regional Pueblos",
+   "coverage": "competitive acquisitions above $100,000",
+   "limitations": "a preference is not a set-aside: it changes evaluated price, not award. No published figure states how many awards it has decided.",
+   "does_not_support": "a claim that any specific award was or would be won because of it. The preference is an evaluated-price adjustment and the award still turns on responsiveness, capability and price."
+  },
+  {
+   "id": "S-05",
+   "source": "N3B small business procurement reporting",
+   "publisher": "N3B Los Alamos (Newport News Nuclear BWXT-Los Alamos) / DOE EM",
+   "url": "https://n3b-la.com/n3b-surpasses-small-business-goals-amid-record-procurements/",
+   "access_date": "2026-10-08",
+   "time_period": "one fiscal year, year not stated in the excerpt",
+   "unit": "USD and percent",
+   "geography": "Los Alamos site",
+   "coverage": "the legacy cleanup contract only, separate from the laboratory operator",
+   "limitations": "the fiscal year is not stated in the text retrieved; contract value is reported inconsistently across sources as $1.4bn and $2.1bn over ten years",
+   "does_not_support": "a Northern New Mexico supplier opportunity. Of the five named small-business awardees, FOUR ARE HEADQUARTERED OUTSIDE NEW MEXICO. Small-business status and regional location are different things, and this source shows them diverging."
+  },
+  {
+   "id": "S-06",
+   "source": "Coyote Mesa / A-8-A DP Road workforce housing project",
+   "publisher": "Incorporated County of Los Alamos; Servitas (developer); Los Alamos Reporter; Boomtown Los Alamos",
+   "url": "https://servitas.com/coyote-mesa",
+   "access_date": "2026-10-08",
+   "time_period": "transfer 2026-03-11; construction kickoff autumn 2026; 30 months",
+   "unit": "units; USD; percent of area median income",
+   "geography": "Los Alamos County, A-8-A parcel on DP Road",
+   "coverage": "one project",
+   "limitations": "figures differ between sources and the bond ordinance itself was not retrieved; the count of units deed-restricted at 120% AMI is reported as both 98 and 63",
+   "does_not_support": "a construction cost per square foot. It supports a cost PER UNIT for one project under one financing structure, inclusive of land treatment, infrastructure and financing, which is not a builder's hard-cost figure."
+  },
+  {
+   "id": "S-07",
+   "source": "Los Alamos County housing plans, pipeline and needs analysis",
+   "publisher": "Incorporated County of Los Alamos",
+   "url": "https://www.losalamosnm.gov/Community/Housing/Housing-development",
+   "access_date": "2026-10-08",
+   "time_period": "2024-2029 target; pipeline status 2026",
+   "unit": "units",
+   "geography": "Los Alamos County",
+   "coverage": "projects the county supports or has approved; excludes unapproved private activity",
+   "limitations": "the county's page may lag recent council actions; 'potential' units are not entitlements",
+   "does_not_support": "absorption. A unit target and a pipeline are supply plans; neither establishes that the units will be leased or bought at the rents and prices the projects assume."
+  },
+  {
+   "id": "S-08",
+   "source": "Los Alamos downtown commercial redevelopment projects",
+   "publisher": "Incorporated County of Los Alamos; Los Alamos Daily Post; Los Alamos Reporter",
+   "url": "https://losalamosreporter.com/2026/06/25/county-council-hears-presentation-on-1735-central-avenue-redevelopment-project-and-high-level-terms-for-proposed-local-economic-development-act-leda-public-participation-agreement/",
+   "access_date": "2026-10-08",
+   "time_period": "site plan approved 2026-07-22; LEDA terms heard 2026-06 and 2026-07",
+   "unit": "USD; rooms; square feet; jobs",
+   "geography": "Los Alamos County; two downtown sites, identified by project name rather than street address under PIERCE-04",
+   "coverage": "two projects",
+   "limitations": "the county project page lists a $6m LEDA application against a $4m grant described elsewhere, and the county records and press coverage give DIFFERENT street numbers on Central Avenue for the same building; job and tax figures are the DEVELOPER'S estimates",
+   "does_not_support": "a Los Alamos retail or hospitality vacancy rate. The only figure found is 10% downtown in 2021, more than five years old, and it excluded two of the largest properties."
+  },
+  {
+   "id": "S-09",
+   "source": "Santa Fe Midtown District redevelopment",
+   "publisher": "City of Santa Fe; The Santa Fe New Mexican",
+   "url": "https://santafenm.gov/community-development/metropolitan-redevelopment-agency/midtown",
+   "access_date": "2026-10-08",
+   "time_period": "Phase 1 2024-2026",
+   "unit": "acres; units; USD; tenants",
+   "geography": "City of Santa Fe, 64-acre former college campus",
+   "coverage": "one site",
+   "limitations": "sources are dated between late 2025 and 2026 and conflict on status; several approvals could not be confirmed as completed",
+   "does_not_support": "that the 24.8 acres are available. Tracts were offered and exclusive negotiation agreements were requested; the outcome was not confirmed in any source retrieved."
+  },
+  {
+   "id": "S-10",
+   "source": "Santa Fe rental market, 2026",
+   "publisher": "Apartment Association of New Mexico; RentCafe (Yardi Matrix); Point2Homes; Zumper; Apartments.com; Rentometer",
+   "url": "https://www.aanm.org/news/2026-new-mexico-multifamily-outlook-stability-returns-but-challenges-remain",
+   "access_date": "2026-10-08",
+   "time_period": "2026, with 2026-2027 outlook",
+   "unit": "USD per month",
+   "geography": "Santa Fe",
+   "coverage": "marketed rental units only; not the whole stock, and not contract rents",
+   "limitations": "the trackers disagree by roughly $1,000 on a typical unit; some mix single-family rentals into an apartment average",
+   "does_not_support": "a rent for Los Alamos or Rio Arriba. No tracker figure for either county was retrieved, and Santa Fe's rents cannot be transferred to a different housing market."
+  },
+  {
+   "id": "S-11",
+   "source": "Opportunity Enterprise Housing Development Program",
+   "publisher": "New Mexico Finance Authority",
+   "url": "https://www.nmfinance.com/opportunity-enterprise-housing-development-revolving-fund/",
+   "access_date": "2026-10-08",
+   "time_period": "2026 rounds",
+   "unit": "USD; percent interest",
+   "geography": "New Mexico",
+   "coverage": "housing development projects statewide",
+   "limitations": "round dates conflict between the authority's own pages (one says the next round opens 2026-08-06, another lists Round 5 as 2026-04-02 to 2026-05-14); approval is discretionary",
+   "does_not_support": "availability to any particular project. The programme is competitive, discretionary and round-based, and the published concern is that rural applications are not winning."
+  },
+  {
+   "id": "S-12",
+   "source": "Ventana Fund and the Preservation Loan Fund",
+   "publisher": "Ventana Fund (CDFI); MFA Housing New Mexico",
+   "url": "https://housingnm.org/developers/rental/ventana-fund",
+   "access_date": "2026-10-08",
+   "time_period": "current",
+   "unit": "USD; percent interest",
+   "geography": "New Mexico",
+   "coverage": "affordable rental housing development and preservation",
+   "limitations": "Ventana's five-year goal figures are a plan, not a record of lending; no 2026 origination volume was retrieved",
+   "does_not_support": "a cost of capital for a market-rate project. Both instruments carry affordability restrictions that bind rents."
+  },
+  {
+   "id": "S-13",
+   "source": "Local Economic Development Act and the Job Training Incentive Program",
+   "publisher": "New Mexico Economic Development Department; Legislative Finance Committee",
+   "url": "https://edd.newmexico.gov/grants/local-economic-development-act/",
+   "access_date": "2026-10-08",
+   "time_period": "current",
+   "unit": "USD; percent of wages",
+   "geography": "New Mexico, with rural and frontier tiers",
+   "coverage": "statewide, discretionary",
+   "limitations": "LEDA is explicitly discretionary -- 'the amount of investment is at the discretion of the Executive Branch'; a 2023 legislative request asked the State Auditor to review transparency in verifying job creation claims under both programmes",
+   "does_not_support": "a capital stack. Neither programme provides project equity or permanent debt; both reimburse specified costs after the fact."
+  },
+  {
+   "id": "S-14",
+   "source": "NM Grown institutional purchasing programme, FY2026",
+   "publisher": "New Mexico Farmers' Marketing Association; University of New Mexico evaluation",
+   "url": "https://www.newmexicofma.org/docs/NM_Grown_Evaluation_Final_Report_-_January_2026.pdf",
+   "access_date": "2026-10-08",
+   "time_period": "FY2026, with an FY23-FY25 evaluation",
+   "unit": "USD; suppliers; buyers",
+   "geography": "New Mexico, 31 counties of buyers and 27 of suppliers",
+   "coverage": "K-12 schools, early childcare and senior centres, and food banks purchasing through the programme. Excludes hospitals and private food service.",
+   "limitations": "programme sales only; purchases made outside the programme are not counted, and county-level buyer detail was not retrieved",
+   "does_not_support": "a Rio Arriba or Santa Fe county market size. $4.4m is the STATEWIDE programme total across 31 counties. It is also the ceiling on this channel, not a floor: it is what the programme actually moved."
+  },
+  {
+   "id": "S-15",
+   "source": "Mid-supply-chain food infrastructure grants",
+   "publisher": "New Mexico Department of Agriculture (RFSI); New Mexico Economic Development Department (Healthy Food Financing Fund)",
+   "url": "https://edd.newmexico.gov/grants/healthy-food-financing-fund/fy-2026-hfff-awardees/",
+   "access_date": "2026-10-08",
+   "time_period": "FY2024 to FY2026; RFSI projects must complete by 2026-12-16",
+   "unit": "USD; projects",
+   "geography": "New Mexico",
+   "coverage": "awarded projects only",
+   "limitations": "awards are not completions; the FY2026 awardee page's layout is disordered and individual project details were not verified",
+   "does_not_support": "a Northern New Mexico aggregation gap. The largest new facility identified is in Albuquerque, and no comparable Rio Arriba or Santa Fe facility, nor its absence, was established."
+  },
+  {
+   "id": "S-16",
+   "source": "Quarterly Economic Summary, Rio Arriba County",
+   "publisher": "New Mexico Economic Development Department",
+   "url": "https://edd.newmexico.gov/wp-content/uploads/2026/03/January-2026-Economic-Summary-Rio-Arriba.pdf",
+   "access_date": "2026-10-08",
+   "time_period": "Q1 FY2026 against Q4 FY2025 and Q1 FY2025",
+   "unit": "USD; percent of total",
+   "geography": "Rio Arriba County",
+   "coverage": "taxable receipts reported to the state and matched to the county",
+   "limitations": "A SINGLE QUARTER. The published PDF could not be parsed directly and these figures are as reported in secondary summaries of it; the statewide context (5.8% MTGR growth, 25 of 33 counties positive) was read from the document's own bookmarks. Not verified against Oil Conservation Division production data.",
+   "does_not_support": "a trend, a production increase, or an economic expansion. One quarter of taxable receipts in an extraction county moves with price and with the timing of large taxable purchases. R3.2 established in this repository that a receipts or registration movement is not an economic movement until the cause is found."
+  },
+  {
+   "id": "S-17",
+   "source": "Rio Arriba County economic profile",
+   "publisher": "Data USA (Census/BLS derived); FRED (BLS LAUS); Trading Economics (BLS)",
+   "url": "https://datausa.io/profile/geo/rio-arriba-county-nm",
+   "access_date": "2026-10-08",
+   "time_period": "2023-2026",
+   "unit": "persons; establishments; USD",
+   "geography": "Rio Arriba County",
+   "coverage": "resident employment, not jobs located in the county",
+   "limitations": "republished by aggregators rather than read from the primary tables; sector figures are 2024",
+   "does_not_support": "the labour-force reconciliation R3.7 attempted. These are resident-side counts from a different product again, and adding a fourth incompatible measurement does not reconcile the first three."
+  },
+  {
+   "id": "S-18",
+   "source": "Santa Fe economic structure and the film sector",
+   "publisher": "City of Santa Fe Film Office; Santa Fe County; New Mexico EDD quarterly summary; IBISWorld",
+   "url": "https://santafenm.gov/news/midtown-takes-bold-step-forward-with-film-studio-expansion",
+   "access_date": "2026-10-08",
+   "time_period": "FY2016 to Q1 FY2026",
+   "unit": "USD; percent; jobs",
+   "geography": "Santa Fe city and county",
+   "coverage": "the Santa Fe region for film; the county for receipts",
+   "limitations": "the film spending series ends at FY2022 and the job projection for the Midtown studio expansion is a projection, not an observation",
+   "does_not_support": "that film spending continued rising after FY2022. The series stops there and nothing retrieved extends it."
+  },
+  {
+   "id": "S-19",
+   "source": "Marketed businesses for sale, Santa Fe city and county",
+   "publisher": "BizBuySell; BusinessBroker.net; Sunbelt Network; a Santa Fe brokerage",
+   "url": "https://www.bizbuysell.com/new-mexico/santa-fe-county-businesses-for-sale/",
+   "access_date": "2026-10-08",
+   "time_period": "current listings",
+   "unit": "USD",
+   "geography": "Santa Fe city and county. NO ESPANOLA OR RIO ARRIBA LISTINGS WERE FOUND.",
+   "coverage": "publicly marketed businesses only. Most small-business sales are never publicly listed, so this is a biased and partial view of the market.",
+   "limitations": "listing figures conflict across sites for the same business (one frozen-treat franchise appears at $275,000 on one site and $150,000 on another); some listings are stale or under contract; no listing was independently verified",
+   "does_not_support": "that any of these is available at the price shown, that the financials are accurate, or that acquiring one would preserve or expand regional productive capability. No owner intention is known and none was sought."
+  },
+  {
+   "id": "S-20",
+   "source": "Marketed commercial and industrial property, Espanola and Rio Arriba County",
+   "publisher": "Crexi; PropertyShark; Land.com; CommercialSearch; 42Floors; Realmo; CityFeet",
+   "url": "https://www.crexi.com/properties/NM/Rio_Arriba_County",
+   "access_date": "2026-10-08",
+   "time_period": "current listings",
+   "unit": "USD; square feet; acres",
+   "geography": "Espanola and Rio Arriba County",
+   "coverage": "marketed property only; a thin market with very few listings",
+   "limitations": "aggregators disagree on price for the same parcel -- 1000 La Joya appears at $600,000 on one and $1,100,000 on another, and a 1,820 sq ft building at both $250,000 and $270,000; no zoning, condition, utility or environmental status was verified for any site",
+   "does_not_support": "development feasibility for any site. Zoning, utilities, access, environmental condition and entitlement were not verified for a single one of these parcels, and a listing is not a feasibility study."
+  },
+  {
+   "id": "S-21",
+   "source": "HUD area median family income and income limits, Los Alamos County",
+   "publisher": "U.S. Department of Housing and Urban Development (via a HUD-data summary and third-party republications)",
+   "url": "https://www.huduser.gov/portal/datasets/home-datasets/files/HOME_IncomeLmts_State_NM_2025.pdf",
+   "access_date": "2026-10-08",
+   "time_period": "2024",
+   "unit": "USD per year",
+   "geography": "Los Alamos County, New Mexico",
+   "coverage": "the county as a HUD income-limit area",
+   "limitations": "FY2026 LIMITS COULD NOT BE CONFIRMED. Retrieved sources conflicted sharply -- $79,900, $97,800 and $63,100 all appear as a four-person 80% figure on different pages, and one HUD table's own column labels do not line up with its values. Only the 2024 HUD-based pair is used.",
+   "does_not_support": "a 2026 eligibility determination for any programme, or an AMI for any other county. It is used here only to test an order of magnitude against a published development cost."
+  }
+ ],
+ "conflicts": [
+  {
+   "id": "S-05",
+   "conflict": "contract value stated as both $1.4bn and $2.1bn over ten years"
+  },
+  {
+   "id": "S-06",
+   "conflict": "$191m / $197m / $200m cost; 98 vs 63 units at 120% AMI; $7.5m vs $2m county contribution"
+  },
+  {
+   "id": "S-08",
+   "conflict": "$4m vs $6m LEDA; two different street numbers for one building"
+  },
+  {
+   "id": "S-21",
+   "conflict": "four-person 80% limit reported as $79,900, $97,800 and $63,100 on different pages"
+  }
+ ],
+ "workflow": {
+  "id": "WF-HOUSING-FINANCE",
+  "title": "How financing conditions reach Northern New Mexico housing",
+  "why_this_one": "it is the only chain in the model with evidence at both ends and a named, single missing parameter in the middle, and the only opportunity that reached a feasibility answer. Every other candidate stops earlier.",
+  "steps": [
+   {
+    "n": 1,
+    "stage": "ECONOMIC CONDITION",
+    "question": "What is the world doing that could reach this region?",
+    "plain": "When the policy rate rises by one percentage point, the thirty-year mortgage rate rises by roughly a tenth to four tenths of a point, about three months later. That is the furthest Dula can follow a rate change with a measured size on every step.",
+    "evidence_state": "ESTIMATED",
+    "figures": [
+     {
+      "label": "pass-through of a 100bp policy rise",
+      "value": "+0.10 to +0.37 percentage points",
+      "unit": "percentage points on the 30-year mortgage rate",
+      "geography": "United States",
+      "period": "3-month lag",
+      "source": "WORLD_MODEL_V0_5 \u00a7V, path QP-RATES"
+     }
+    ],
+    "caveat": "three time-series associations composed under a monotonicity guard. The interval is wide on purpose and is a minimum guard, not a correct treatment of dependence between the steps.",
+    "next": null
+   },
+   {
+    "n": 2,
+    "stage": "THE HINGE",
+    "question": "Does that reach a developer in Los Alamos?",
+    "plain": "No, and this is the single most consequential gap in the regional model. A thirty-year residential mortgage rate is not what a housing project borrows at. Projects here borrow through tax-exempt conduit bonds and construction facilities, and no source Dula holds reports what those actually cost in Northern New Mexico. So the model can watch the world rate move and cannot say what it does to a project.",
+    "evidence_state": "UNKNOWN",
+    "what_it_costs_the_reader": "every figure downstream of this point rests on an ASSUMED cost of capital. The feasibility answer below is computed at 4% and 5% because the real number is not published anywhere Dula can reach.",
+    "figures": [],
+    "caveat": "the world model named this parameter as the blocker before any of the market research existed, and the market research arrived at the same gap from the opposite direction.",
+    "next": {
+     "evidence_needed": "the coupon and term on one real local housing bond",
+     "where_it_may_come_from": "the Coyote Mesa bond ordinance, a public county council document, or any comparable New Mexico conduit issue",
+     "what_it_would_enable": "replacing the assumed 4-5% band with an observed rate, which turns the feasibility answer below from an argument into an underwriting \u2014 and would be the first time a world rate change could be carried into a project in this region"
+    }
+   },
+   {
+    "n": 3,
+    "stage": "MARKET CONSEQUENCE",
+    "question": "What does it cost to build here, and can rent carry it?",
+    "plain": "A workforce apartment in Los Alamos County costs about $503,000 to $526,000 to build, all in. The median existing home in the same county is worth $495,800. It costs roughly the price of a house to build an apartment, and that single comparison explains everything about how these projects are financed.",
+    "evidence_state": "OBSERVED",
+    "figures": [
+     {
+      "label": "all-in development cost",
+      "value": "$503,000 to $526,000",
+      "unit": "USD per unit",
+      "geography": "Los Alamos County",
+      "period": "2026 project",
+      "source": "S-06"
+     },
+     {
+      "label": "county median existing home value",
+      "value": "$495,800",
+      "unit": "USD",
+      "geography": "Los Alamos County",
+      "period": "ACS 2020-2024",
+      "source": "held ACS B25077"
+     },
+     {
+      "label": "county median gross rent",
+      "value": "$1,375",
+      "unit": "USD per month",
+      "geography": "Los Alamos County",
+      "period": "ACS 2020-2024",
+      "source": "held ACS B25064"
+     }
+    ],
+    "caveat": "the per-unit figure is all-in \u2014 land treatment, infrastructure, financing and issuance \u2014 and is not a builder's hard cost.",
+    "next": null
+   },
+   {
+    "n": 4,
+    "stage": "FEASIBILITY",
+    "question": "Does the restricted rent cover the debt?",
+    "plain": "Barely, or not at all, depending on the rate nobody has published. At a 4% coupon the rent ceiling leaves $95 to $201 a month per unit after debt service; at 5% it is $113 to $234 a month SHORT. The headroom at the favourable corners then has to pay for management, maintenance, insurance, reserves and vacancy \u2014 and nothing plausible fits in $201 a month.",
+    "evidence_state": "CALCULATED ON AN ASSUMPTION",
+    "figures": [
+     {
+      "label": "80%-of-AMI gross housing ceiling",
+      "value": "$2,445",
+      "unit": "USD per month",
+      "geography": "Los Alamos County",
+      "period": "HUD 2024 four-person limit",
+      "source": "S-21"
+     },
+     {
+      "label": "per-unit debt service",
+      "value": "$2,244 to $2,679",
+      "unit": "USD per month",
+      "geography": "Los Alamos County",
+      "period": "35-year level payment at 4% and 5%",
+      "source": "computed; rate and term are declared assumptions"
+     },
+     {
+      "label": "headroom against the ceiling",
+      "value": "+$201, +$95, \u2212$113, \u2212$234",
+      "unit": "USD per unit per month",
+      "geography": "Los Alamos County",
+      "period": "four cost-and-rate corners",
+      "source": "computed"
+     }
+    ],
+    "caveat": "the rate and the 35-year term are ASSUMPTIONS, not observations, because of the hinge at step 2. No operating-expense figure for comparable New Mexico multifamily was obtained, so the headroom cannot be tested against a real budget.",
+    "next": {
+     "evidence_needed": "an operating-expense figure per unit per month for comparable New Mexico multifamily",
+     "where_it_may_come_from": "an MFA-financed property's audited operating statement, or a state housing agency underwriting standard",
+     "what_it_would_enable": "net operating income, and therefore cash flow, valuation and any return expectation \u2014 three of the fifteen financial terms are blocked by this one figure"
+    }
+   }
+  ],
+  "chain_behind_it": "TCR01",
+  "what_the_reader_should_conclude": "Workforce housing in Los Alamos is needed, is being built, and cannot be financed on its rents. The project going ahead does so with no developer equity, tax-exempt conduit debt, a county purchase of deed restrictions and a state predevelopment grant, with the residual going to the county. A structure built to eliminate equity is the market stating that equity cannot be paid.",
+  "what_the_reader_should_not_conclude": "that the figures at step 4 are an underwriting. Two of the three inputs are assumptions forced by the gap at step 2, and the term that carries the economic meaning \u2014 the MARGINAL project, the one that does not go ahead \u2014 is unobserved. Every project anyone can see is one that proceeded."
+ },
+ "interactive": {
+  "title": "What happens if construction financing costs change",
+  "opportunity_link": {
+   "candidate": "R1",
+   "name": "Subordinate and gap capital for workforce housing",
+   "what_the_table_shows": "the principal a restricted rent can actually carry at each coupon, and therefore how much of the unit cost it cannot. That remainder is the gap R1 exists to fill.",
+   "per_unit_gap_by_rate": [
+    {
+     "rate_pct": 3.0,
+     "carryable_per_unit": 630435,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 3.25,
+     "carryable_per_unit": 608039,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 3.5,
+     "carryable_per_unit": 586819,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 3.75,
+     "carryable_per_unit": 566702,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 4.0,
+     "carryable_per_unit": 547620,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 4.25,
+     "carryable_per_unit": 529507,
+     "gap_low_cost": 0,
+     "gap_high_cost": 0
+    },
+    {
+     "rate_pct": 4.5,
+     "carryable_per_unit": 512306,
+     "gap_low_cost": 0,
+     "gap_high_cost": 14010
+    },
+    {
+     "rate_pct": 4.75,
+     "carryable_per_unit": 495960,
+     "gap_low_cost": 6671,
+     "gap_high_cost": 30355
+    },
+    {
+     "rate_pct": 5.0,
+     "carryable_per_unit": 480419,
+     "gap_low_cost": 22213,
+     "gap_high_cost": 45897
+    },
+    {
+     "rate_pct": 5.25,
+     "carryable_per_unit": 465633,
+     "gap_low_cost": 36998,
+     "gap_high_cost": 60683
+    },
+    {
+     "rate_pct": 5.5,
+     "carryable_per_unit": 451559,
+     "gap_low_cost": 51073,
+     "gap_high_cost": 74757
+    },
+    {
+     "rate_pct": 5.75,
+     "carryable_per_unit": 438154,
+     "gap_low_cost": 64478,
+     "gap_high_cost": 88162
+    },
+    {
+     "rate_pct": 6.0,
+     "carryable_per_unit": 425379,
+     "gap_low_cost": 77253,
+     "gap_high_cost": 100937
+    },
+    {
+     "rate_pct": 6.25,
+     "carryable_per_unit": 413197,
+     "gap_low_cost": 89434,
+     "gap_high_cost": 113119
+    },
+    {
+     "rate_pct": 6.5,
+     "carryable_per_unit": 401575,
+     "gap_low_cost": 101056,
+     "gap_high_cost": 124740
+    },
+    {
+     "rate_pct": 6.75,
+     "carryable_per_unit": 390481,
+     "gap_low_cost": 112150,
+     "gap_high_cost": 135835
+    },
+    {
+     "rate_pct": 7.0,
+     "carryable_per_unit": 379885,
+     "gap_low_cost": 122747,
+     "gap_high_cost": 146431
+    },
+    {
+     "rate_pct": 7.25,
+     "carryable_per_unit": 369758,
+     "gap_low_cost": 132873,
+     "gap_high_cost": 156558
+    },
+    {
+     "rate_pct": 7.5,
+     "carryable_per_unit": 360075,
+     "gap_low_cost": 142556,
+     "gap_high_cost": 166240
+    },
+    {
+     "rate_pct": 7.75,
+     "carryable_per_unit": 350812,
+     "gap_low_cost": 151820,
+     "gap_high_cost": 175504
+    },
+    {
+     "rate_pct": 8.0,
+     "carryable_per_unit": 341945,
+     "gap_low_cost": 160687,
+     "gap_high_cost": 184371
+    },
+    {
+     "rate_pct": 8.25,
+     "carryable_per_unit": 333453,
+     "gap_low_cost": 169179,
+     "gap_high_cost": 192863
+    },
+    {
+     "rate_pct": 8.5,
+     "carryable_per_unit": 325316,
+     "gap_low_cost": 177316,
+     "gap_high_cost": 201000
+    },
+    {
+     "rate_pct": 8.75,
+     "carryable_per_unit": 317514,
+     "gap_low_cost": 185118,
+     "gap_high_cost": 208802
+    },
+    {
+     "rate_pct": 9.0,
+     "carryable_per_unit": 310031,
+     "gap_low_cost": 192601,
+     "gap_high_cost": 216285
+    }
+   ],
+   "why_this_is_the_link": "the regional financing mechanism and the candidate are the same arithmetic seen from two ends. A coupon rise does not make this opportunity more attractive -- it makes it LARGER AND HARDER, because the gap grows while the evidence that anything can be charged for filling it does not.",
+   "what_it_still_does_not_establish": "whether any coupon is payable on that subordinate layer. The gap is computable; the price of filling it is not, and that single unknown is what keeps R1 at feasibility rather than underwriting."
+  },
+  "model": "r38_feasibility._annuity, the same function behind the static four corners",
+  "equation": "level annual payment = P \u00d7 r / (1 \u2212 (1+r)^\u2212n), divided by twelve",
+  "adjustable": {
+   "name": "assumed construction / conduit coupon",
+   "default": 4.5,
+   "min": 3.0,
+   "max": 9.0,
+   "step": 0.25,
+   "unit": "percent",
+   "state": "ANALYST ASSUMPTION",
+   "why_adjustable": "because the model does not hold it. CONSTRUCTION_LOAN_TERMS_NNM is UNKNOWN, so every figure downstream of it is conditional on a number the analyst chooses rather than one Dula observed.",
+   "warning": "MOVING THIS SLIDER DOES NOT TELL YOU WHAT LENDERS CHARGE. It tells you what the project's arithmetic does IF the coupon were that. No source Dula holds reports actual Northern New Mexico construction or conduit terms, and a number you picked is not a market quote."
+  },
+  "fixed_inputs": [
+   {
+    "name": "all-in cost per unit",
+    "value": "$502,632 to $526,316",
+    "state": "OBSERVED",
+    "source": "S-06",
+    "note": "380 units at $191m to $200m, all in"
+   },
+   {
+    "name": "term",
+    "value": "35 years",
+    "state": "ASSUMPTION",
+    "source": "declared in r38_feasibility",
+    "note": "a conventional long-dated tax-exempt housing bond term. The actual term is not published."
+   },
+   {
+    "name": "share debt-financed",
+    "value": "100%",
+    "state": "OBSERVED",
+    "source": "S-06",
+    "note": "not a free assumption: the developer's own page states the structure eliminates developer equity."
+   },
+   {
+    "name": "80%-of-AMI gross housing ceiling",
+    "value": "$2,445",
+    "state": "BENCHMARK",
+    "source": "S-21",
+    "note": "HUD 2024 four-person 80% limit of $97,800 \u00d7 30% \u00f7 12. FY2026 limits were not confirmed."
+   }
+  ],
+  "verification_table": [
+   {
+    "rate_pct": 3.0,
+    "low_cost": {
+     "debt_service": 1949,
+     "headroom": 496
+    },
+    "high_cost": {
+     "debt_service": 2041,
+     "headroom": 404
+    }
+   },
+   {
+    "rate_pct": 3.25,
+    "low_cost": {
+     "debt_service": 2021,
+     "headroom": 424
+    },
+    "high_cost": {
+     "debt_service": 2116,
+     "headroom": 329
+    }
+   },
+   {
+    "rate_pct": 3.5,
+    "low_cost": {
+     "debt_service": 2094,
+     "headroom": 351
+    },
+    "high_cost": {
+     "debt_service": 2193,
+     "headroom": 252
+    }
+   },
+   {
+    "rate_pct": 3.75,
+    "low_cost": {
+     "debt_service": 2169,
+     "headroom": 276
+    },
+    "high_cost": {
+     "debt_service": 2271,
+     "headroom": 174
+    }
+   },
+   {
+    "rate_pct": 4.0,
+    "low_cost": {
+     "debt_service": 2244,
+     "headroom": 201
+    },
+    "high_cost": {
+     "debt_service": 2350,
+     "headroom": 95
+    }
+   },
+   {
+    "rate_pct": 4.25,
+    "low_cost": {
+     "debt_service": 2321,
+     "headroom": 124
+    },
+    "high_cost": {
+     "debt_service": 2430,
+     "headroom": 15
+    }
+   },
+   {
+    "rate_pct": 4.5,
+    "low_cost": {
+     "debt_service": 2399,
+     "headroom": 46
+    },
+    "high_cost": {
+     "debt_service": 2512,
+     "headroom": -67
+    }
+   },
+   {
+    "rate_pct": 4.75,
+    "low_cost": {
+     "debt_service": 2478,
+     "headroom": -33
+    },
+    "high_cost": {
+     "debt_service": 2595,
+     "headroom": -150
+    }
+   },
+   {
+    "rate_pct": 5.0,
+    "low_cost": {
+     "debt_service": 2558,
+     "headroom": -113
+    },
+    "high_cost": {
+     "debt_service": 2679,
+     "headroom": -234
+    }
+   },
+   {
+    "rate_pct": 5.25,
+    "low_cost": {
+     "debt_service": 2639,
+     "headroom": -194
+    },
+    "high_cost": {
+     "debt_service": 2764,
+     "headroom": -319
+    }
+   },
+   {
+    "rate_pct": 5.5,
+    "low_cost": {
+     "debt_service": 2722,
+     "headroom": -277
+    },
+    "high_cost": {
+     "debt_service": 2850,
+     "headroom": -405
+    }
+   },
+   {
+    "rate_pct": 5.75,
+    "low_cost": {
+     "debt_service": 2805,
+     "headroom": -360
+    },
+    "high_cost": {
+     "debt_service": 2937,
+     "headroom": -492
+    }
+   },
+   {
+    "rate_pct": 6.0,
+    "low_cost": {
+     "debt_service": 2889,
+     "headroom": -444
+    },
+    "high_cost": {
+     "debt_service": 3025,
+     "headroom": -580
+    }
+   },
+   {
+    "rate_pct": 6.25,
+    "low_cost": {
+     "debt_service": 2974,
+     "headroom": -529
+    },
+    "high_cost": {
+     "debt_service": 3114,
+     "headroom": -669
+    }
+   },
+   {
+    "rate_pct": 6.5,
+    "low_cost": {
+     "debt_service": 3060,
+     "headroom": -615
+    },
+    "high_cost": {
+     "debt_service": 3204,
+     "headroom": -759
+    }
+   },
+   {
+    "rate_pct": 6.75,
+    "low_cost": {
+     "debt_service": 3147,
+     "headroom": -702
+    },
+    "high_cost": {
+     "debt_service": 3296,
+     "headroom": -851
+    }
+   },
+   {
+    "rate_pct": 7.0,
+    "low_cost": {
+     "debt_service": 3235,
+     "headroom": -790
+    },
+    "high_cost": {
+     "debt_service": 3387,
+     "headroom": -942
+    }
+   },
+   {
+    "rate_pct": 7.25,
+    "low_cost": {
+     "debt_service": 3324,
+     "headroom": -879
+    },
+    "high_cost": {
+     "debt_service": 3480,
+     "headroom": -1035
+    }
+   },
+   {
+    "rate_pct": 7.5,
+    "low_cost": {
+     "debt_service": 3413,
+     "headroom": -968
+    },
+    "high_cost": {
+     "debt_service": 3574,
+     "headroom": -1129
+    }
+   },
+   {
+    "rate_pct": 7.75,
+    "low_cost": {
+     "debt_service": 3503,
+     "headroom": -1058
+    },
+    "high_cost": {
+     "debt_service": 3668,
+     "headroom": -1223
+    }
+   },
+   {
+    "rate_pct": 8.0,
+    "low_cost": {
+     "debt_service": 3594,
+     "headroom": -1149
+    },
+    "high_cost": {
+     "debt_service": 3763,
+     "headroom": -1318
+    }
+   },
+   {
+    "rate_pct": 8.25,
+    "low_cost": {
+     "debt_service": 3685,
+     "headroom": -1240
+    },
+    "high_cost": {
+     "debt_service": 3859,
+     "headroom": -1414
+    }
+   },
+   {
+    "rate_pct": 8.5,
+    "low_cost": {
+     "debt_service": 3778,
+     "headroom": -1333
+    },
+    "high_cost": {
+     "debt_service": 3956,
+     "headroom": -1511
+    }
+   },
+   {
+    "rate_pct": 8.75,
+    "low_cost": {
+     "debt_service": 3870,
+     "headroom": -1425
+    },
+    "high_cost": {
+     "debt_service": 4053,
+     "headroom": -1608
+    }
+   },
+   {
+    "rate_pct": 9.0,
+    "low_cost": {
+     "debt_service": 3964,
+     "headroom": -1519
+    },
+    "high_cost": {
+     "debt_service": 4151,
+     "headroom": -1706
+    }
+   }
+  ],
+  "operating_model": {
+   "title": "What the restricted rent can carry once the project has to be operated",
+   "unit": "one unit, one month",
+   "statement_order": [
+    "gross_housing_ceiling",
+    "utility_allowance",
+    "net_collectible_rent",
+    "vacancy_loss",
+    "effective_gross_income",
+    "operating_expenses",
+    "net_operating_income",
+    "debt_service",
+    "cash_after_debt_service"
+   ],
+   "defaults_are_zero": "the three unknown lines default to ZERO. At zero this statement reproduces the published four corners exactly, which is the point: the published result is a FLOOR, and every real value for these lines makes it worse.",
+   "adjustable_unknowns": [
+    {
+     "name": "tenant-paid utility allowance",
+     "key": "utility_allowance",
+     "default": 0,
+     "min": 0,
+     "max": 350,
+     "step": 5,
+     "unit": "$ per unit per month",
+     "state": "UNKNOWN",
+     "why": "HUD's 80% limit is a GROSS housing cost: rent plus tenant-paid utilities. The project collects the ceiling MINUS this allowance, so a non-zero value lowers every rent figure in the model.",
+     "obtain_from": "the utility allowance schedule published by the public housing authority for Los Alamos County, or the schedule in the project's own regulatory agreement.",
+     "range_basis": "EXPLORATION BOUNDS, NOT AN ESTIMATE. Dula holds no utility allowance schedule for this county and does not guess one."
+    },
+    {
+     "name": "vacancy and collection loss",
+     "key": "vacancy",
+     "default": 0,
+     "min": 0,
+     "max": 15,
+     "step": 0.5,
+     "unit": "percent of rent",
+     "state": "UNKNOWN",
+     "why": "rent is collected on occupied units. Absorption of 380 units in a county of this size is the question nobody retrieved has answered.",
+     "obtain_from": "the project's lease-up reporting to the county, or a Los Alamos / Santa Fe multifamily vacancy series.",
+     "range_basis": "EXPLORATION BOUNDS, NOT AN ESTIMATE."
+    },
+    {
+     "name": "operating expenses",
+     "key": "opex",
+     "default": 0,
+     "min": 0,
+     "max": 900,
+     "step": 10,
+     "unit": "$ per unit per month",
+     "state": "UNKNOWN",
+     "why": "management, maintenance, insurance, reserves and any payment in lieu of property tax. r38_feasibility excludes all of it and records that NO New Mexico multifamily operating-expense figure was obtained.",
+     "obtain_from": "the operating pro forma in the bond Official Statement, or New Mexico Mortgage Finance Authority owner-reported operating data for comparable restricted properties.",
+     "range_basis": "EXPLORATION BOUNDS, NOT AN ESTIMATE. No figure is held, so no sensitivity range here is defensible and none is offered."
+    }
+   ],
+   "the_inversion": {
+    "what_it_is": "the largest per-unit monthly operating budget consistent with paying debt service out of the restricted rent -- the ceiling less debt service. It needs NO estimate of operating cost, because it is the bound an estimate would have to fit inside.",
+    "why_it_is_the_honest_form": "an invented operating expense would produce a precise NOI and a precise DSCR, both fictional. The bound is arithmetic on observed cost and a published rent limit, and a reader can test it against any operating budget they already know.",
+    "by_rate": [
+     {
+      "rate_pct": 3.0,
+      "low_cost": 495.66,
+      "high_cost": 403.8
+     },
+     {
+      "rate_pct": 3.25,
+      "low_cost": 423.86,
+      "high_cost": 328.62
+     },
+     {
+      "rate_pct": 3.5,
+      "low_cost": 350.77,
+      "high_cost": 252.09
+     },
+     {
+      "rate_pct": 3.75,
+      "low_cost": 276.43,
+      "high_cost": 174.25
+     },
+     {
+      "rate_pct": 4.0,
+      "low_cost": 200.86,
+      "high_cost": 95.12
+     },
+     {
+      "rate_pct": 4.25,
+      "low_cost": 124.1,
+      "high_cost": 14.74
+     },
+     {
+      "rate_pct": 4.5,
+      "low_cost": 46.17,
+      "high_cost": -66.86
+     },
+     {
+      "rate_pct": 4.75,
+      "low_cost": -32.89,
+      "high_cost": -149.65
+     },
+     {
+      "rate_pct": 5.0,
+      "low_cost": -113.05,
+      "high_cost": -233.58
+     },
+     {
+      "rate_pct": 5.25,
+      "low_cost": -194.27,
+      "high_cost": -318.64
+     },
+     {
+      "rate_pct": 5.5,
+      "low_cost": -276.54,
+      "high_cost": -404.78
+     },
+     {
+      "rate_pct": 5.75,
+      "low_cost": -359.8,
+      "high_cost": -491.97
+     },
+     {
+      "rate_pct": 6.0,
+      "low_cost": -444.04,
+      "high_cost": -580.17
+     },
+     {
+      "rate_pct": 6.25,
+      "low_cost": -529.21,
+      "high_cost": -669.35
+     },
+     {
+      "rate_pct": 6.5,
+      "low_cost": -615.28,
+      "high_cost": -759.49
+     },
+     {
+      "rate_pct": 6.75,
+      "low_cost": -702.23,
+      "high_cost": -850.53
+     },
+     {
+      "rate_pct": 7.0,
+      "low_cost": -790.02,
+      "high_cost": -942.45
+     },
+     {
+      "rate_pct": 7.25,
+      "low_cost": -878.62,
+      "high_cost": -1035.23
+     },
+     {
+      "rate_pct": 7.5,
+      "low_cost": -967.99,
+      "high_cost": -1128.81
+     },
+     {
+      "rate_pct": 7.75,
+      "low_cost": -1058.11,
+      "high_cost": -1223.18
+     },
+     {
+      "rate_pct": 8.0,
+      "low_cost": -1148.95,
+      "high_cost": -1318.3
+     },
+     {
+      "rate_pct": 8.25,
+      "low_cost": -1240.48,
+      "high_cost": -1414.14
+     },
+     {
+      "rate_pct": 8.5,
+      "low_cost": -1332.67,
+      "high_cost": -1510.67
+     },
+     {
+      "rate_pct": 8.75,
+      "low_cost": -1425.49,
+      "high_cost": -1607.87
+     },
+     {
+      "rate_pct": 9.0,
+      "low_cost": -1518.91,
+      "high_cost": -1705.69
+     }
+    ]
+   },
+   "no_coverage_ratio": {
+    "what_is_not_computed": "a debt service coverage ratio, at any rate",
+    "why": "a coverage ratio is net operating income over debt service. CASH_FLOW is NOT_ESTABLISHED in the financial lens because no operating expense for comparable New Mexico multifamily is held, so there is no numerator. A ratio computed with operating expenses set to zero is the rent ceiling divided by debt service wearing a finance word, and it would read as an underwriting result to anyone who skipped the label.",
+    "what_replaces_it": "the bound: the largest operating budget the restricted rent leaves room for. It needs no numerator, because it IS the numerator's upper limit."
+   },
+   "verification_table": [
+    {
+     "rate_pct": 3.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 1949.34,
+      "cash_after_debt_service": 495.66,
+      "max_operating_expense_covered": 495.66
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2041.2,
+      "cash_after_debt_service": 403.8,
+      "max_operating_expense_covered": 403.8
+     }
+    },
+    {
+     "rate_pct": 3.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2021.14,
+      "cash_after_debt_service": 423.86,
+      "max_operating_expense_covered": 423.86
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2116.38,
+      "cash_after_debt_service": 328.62,
+      "max_operating_expense_covered": 328.62
+     }
+    },
+    {
+     "rate_pct": 3.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2094.23,
+      "cash_after_debt_service": 350.77,
+      "max_operating_expense_covered": 350.77
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2192.91,
+      "cash_after_debt_service": 252.09,
+      "max_operating_expense_covered": 252.09
+     }
+    },
+    {
+     "rate_pct": 3.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2168.57,
+      "cash_after_debt_service": 276.43,
+      "max_operating_expense_covered": 276.43
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2270.75,
+      "cash_after_debt_service": 174.25,
+      "max_operating_expense_covered": 174.25
+     }
+    },
+    {
+     "rate_pct": 4.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2244.14,
+      "cash_after_debt_service": 200.86,
+      "max_operating_expense_covered": 200.86
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2349.88,
+      "cash_after_debt_service": 95.12,
+      "max_operating_expense_covered": 95.12
+     }
+    },
+    {
+     "rate_pct": 4.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2320.9,
+      "cash_after_debt_service": 124.1,
+      "max_operating_expense_covered": 124.1
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2430.26,
+      "cash_after_debt_service": 14.74,
+      "max_operating_expense_covered": 14.74
+     }
+    },
+    {
+     "rate_pct": 4.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2398.83,
+      "cash_after_debt_service": 46.17,
+      "max_operating_expense_covered": 46.17
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2511.86,
+      "cash_after_debt_service": -66.86,
+      "max_operating_expense_covered": -66.86
+     }
+    },
+    {
+     "rate_pct": 4.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2477.89,
+      "cash_after_debt_service": -32.89,
+      "max_operating_expense_covered": -32.89
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2594.65,
+      "cash_after_debt_service": -149.65,
+      "max_operating_expense_covered": -149.65
+     }
+    },
+    {
+     "rate_pct": 5.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2558.05,
+      "cash_after_debt_service": -113.05,
+      "max_operating_expense_covered": -113.05
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2678.58,
+      "cash_after_debt_service": -233.58,
+      "max_operating_expense_covered": -233.58
+     }
+    },
+    {
+     "rate_pct": 5.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2639.27,
+      "cash_after_debt_service": -194.27,
+      "max_operating_expense_covered": -194.27
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2763.64,
+      "cash_after_debt_service": -318.64,
+      "max_operating_expense_covered": -318.64
+     }
+    },
+    {
+     "rate_pct": 5.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2721.54,
+      "cash_after_debt_service": -276.54,
+      "max_operating_expense_covered": -276.54
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2849.78,
+      "cash_after_debt_service": -404.78,
+      "max_operating_expense_covered": -404.78
+     }
+    },
+    {
+     "rate_pct": 5.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2804.8,
+      "cash_after_debt_service": -359.8,
+      "max_operating_expense_covered": -359.8
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2936.97,
+      "cash_after_debt_service": -491.97,
+      "max_operating_expense_covered": -491.97
+     }
+    },
+    {
+     "rate_pct": 6.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2889.04,
+      "cash_after_debt_service": -444.04,
+      "max_operating_expense_covered": -444.04
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3025.17,
+      "cash_after_debt_service": -580.17,
+      "max_operating_expense_covered": -580.17
+     }
+    },
+    {
+     "rate_pct": 6.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 2974.21,
+      "cash_after_debt_service": -529.21,
+      "max_operating_expense_covered": -529.21
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3114.35,
+      "cash_after_debt_service": -669.35,
+      "max_operating_expense_covered": -669.35
+     }
+    },
+    {
+     "rate_pct": 6.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3060.28,
+      "cash_after_debt_service": -615.28,
+      "max_operating_expense_covered": -615.28
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3204.49,
+      "cash_after_debt_service": -759.49,
+      "max_operating_expense_covered": -759.49
+     }
+    },
+    {
+     "rate_pct": 6.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3147.23,
+      "cash_after_debt_service": -702.23,
+      "max_operating_expense_covered": -702.23
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3295.53,
+      "cash_after_debt_service": -850.53,
+      "max_operating_expense_covered": -850.53
+     }
+    },
+    {
+     "rate_pct": 7.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3235.02,
+      "cash_after_debt_service": -790.02,
+      "max_operating_expense_covered": -790.02
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3387.45,
+      "cash_after_debt_service": -942.45,
+      "max_operating_expense_covered": -942.45
+     }
+    },
+    {
+     "rate_pct": 7.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3323.62,
+      "cash_after_debt_service": -878.62,
+      "max_operating_expense_covered": -878.62
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3480.23,
+      "cash_after_debt_service": -1035.23,
+      "max_operating_expense_covered": -1035.23
+     }
+    },
+    {
+     "rate_pct": 7.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3412.99,
+      "cash_after_debt_service": -967.99,
+      "max_operating_expense_covered": -967.99
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3573.81,
+      "cash_after_debt_service": -1128.81,
+      "max_operating_expense_covered": -1128.81
+     }
+    },
+    {
+     "rate_pct": 7.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3503.11,
+      "cash_after_debt_service": -1058.11,
+      "max_operating_expense_covered": -1058.11
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3668.18,
+      "cash_after_debt_service": -1223.18,
+      "max_operating_expense_covered": -1223.18
+     }
+    },
+    {
+     "rate_pct": 8.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3593.95,
+      "cash_after_debt_service": -1148.95,
+      "max_operating_expense_covered": -1148.95
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3763.3,
+      "cash_after_debt_service": -1318.3,
+      "max_operating_expense_covered": -1318.3
+     }
+    },
+    {
+     "rate_pct": 8.25,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3685.48,
+      "cash_after_debt_service": -1240.48,
+      "max_operating_expense_covered": -1240.48
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3859.14,
+      "cash_after_debt_service": -1414.14,
+      "max_operating_expense_covered": -1414.14
+     }
+    },
+    {
+     "rate_pct": 8.5,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3777.67,
+      "cash_after_debt_service": -1332.67,
+      "max_operating_expense_covered": -1332.67
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3955.67,
+      "cash_after_debt_service": -1510.67,
+      "max_operating_expense_covered": -1510.67
+     }
+    },
+    {
+     "rate_pct": 8.75,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3870.49,
+      "cash_after_debt_service": -1425.49,
+      "max_operating_expense_covered": -1425.49
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 4052.87,
+      "cash_after_debt_service": -1607.87,
+      "max_operating_expense_covered": -1607.87
+     }
+    },
+    {
+     "rate_pct": 9.0,
+     "low_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 3963.91,
+      "cash_after_debt_service": -1518.91,
+      "max_operating_expense_covered": -1518.91
+     },
+     "high_cost": {
+      "gross_housing_ceiling": 2445,
+      "utility_allowance": 0.0,
+      "net_collectible_rent": 2445.0,
+      "vacancy_loss": 0.0,
+      "effective_gross_income": 2445.0,
+      "operating_expenses": 0.0,
+      "net_operating_income": 2445.0,
+      "debt_service": 4150.69,
+      "cash_after_debt_service": -1705.69,
+      "max_operating_expense_covered": -1705.69
+     }
+    }
+   ]
+  },
+  "breakeven": {
+   "low_cost_pct": 4.646,
+   "high_cost_pct": 4.295,
+   "means": "the coupon at which the 80%-of-AMI ceiling exactly covers debt service and nothing remains for any operating cost. Above it the project cannot service its debt from restricted rent at all.",
+   "solved_how": "bisection on the same annuity function, to three decimals"
+  },
+  "what_changes_when_you_move_it": [
+   "per-unit monthly debt service, on both cost estimates",
+   "the headroom against the 80%-of-AMI ceiling, and its sign",
+   "whether the project clears its debt from restricted rent at all",
+   "how much subordinate or grant capital per unit would be needed to close the gap"
+  ],
+  "what_does_not_change": [
+   "the all-in cost per unit \u2014 it is observed, and financing cost is not construction cost",
+   "the rent ceiling \u2014 it is set by the income distribution of the county and a HUD formula, not by the lender",
+   "the capital structure \u2014 no developer equity, whatever the coupon",
+   "who takes the residual \u2014 the county, by the terms of the structure"
+  ],
+  "what_cannot_be_completed": [
+   {
+    "output": "net operating income",
+    "blocked_by": "no operating-expense figure for comparable New Mexico multifamily",
+    "consequence": "headroom is the closest available proxy and it is NOT NOI: it is what is left before any operating cost, not after."
+   },
+   {
+    "output": "debt service coverage ratio",
+    "blocked_by": "NOI, above",
+    "consequence": "DSCR = NOI / debt service. The denominator moves with this slider and the numerator does not exist, so no coverage ratio is computed at any rate. Dividing the ceiling by debt service would LOOK like a DSCR and would be a rent-to-debt ratio."
+   },
+   {
+    "output": "equity requirement and investor return",
+    "blocked_by": "the structure eliminates developer equity",
+    "consequence": "there is no equity position to size or to return. This is not a missing figure; it is an absent instrument."
+   },
+   {
+    "output": "what lenders would actually charge",
+    "blocked_by": "CONSTRUCTION_LOAN_TERMS_NNM is UNKNOWN",
+    "consequence": "this is the parameter the slider stands in for. The slider explores consequences; it does not discover the rate."
+   }
+  ]
+ }
+}

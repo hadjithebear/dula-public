@@ -1,0 +1,3134 @@
+{
+ "phase": "10J",
+ "subject": "how an economic change moves from where it arises into a place, and what a region is for that purpose",
+ "boundary_types": {
+  "ADMINISTRATIVE": "a jurisdiction. An observation unit, and not automatically an economy.",
+  "LABOR": "the set of places connected by where people live and where they work",
+  "HOUSING": "a market in which the same dwellings compete for the same buyers",
+  "SUPPLY_CHAIN": "the places an input passes through on its way to a use",
+  "WATERSHED": "a hydrological system",
+  "ENERGY": "a production, refining and distribution system",
+  "FREIGHT": "a corridor or route system",
+  "FINANCIAL": "a set of lenders, borrowers and claims",
+  "INDUSTRIAL": "a cluster of related production",
+  "PROCUREMENT": "who buys from whom under what rules",
+  "INSTITUTIONAL": "a set of organisations whose decisions bind on each other",
+  "MARKET": "a set of buyers and sellers of one thing",
+  "RESEARCH": "a boundary drawn for one question and not claimed beyond it"
+ },
+ "boundaries": [
+  {
+   "boundary_id": "BND_ADMIN_35028",
+   "name": "Los Alamos County",
+   "boundary_type": "ADMINISTRATIVE",
+   "purpose": "the jurisdiction, as a publisher of statistics defines it",
+   "geographies": [
+    "35028"
+   ],
+   "geography_count": 1,
+   "actors": [
+    "AC_FIRM",
+    "AC_WORKER"
+   ],
+   "circuits": [
+    "CIR_LABOR"
+   ],
+   "markets": [],
+   "resources": [],
+   "time_resolution": "annual",
+   "external_dependencies": [],
+   "internal_relationships": [],
+   "why_economically_meaningful": "It is the unit almost every published statistic uses, which makes it the unit a reader will assume. That is a reason to state it explicitly, not a reason to treat it as an economy.",
+   "known_blind_spots": [
+    "it contains one dominant employer and most of that employer's workforce lives elsewhere, so county-level aggregates describe a workplace rather than a community"
+   ],
+   "derived_from": "administrative definition \u2014 geography GIVEN",
+   "observed_coverage": null,
+   "structure": null,
+   "is_a_functional_region": null
+  },
+  {
+   "boundary_id": "BND_ADMIN_35049",
+   "name": "Santa Fe County",
+   "boundary_type": "ADMINISTRATIVE",
+   "purpose": "the jurisdiction",
+   "geographies": [
+    "35049"
+   ],
+   "geography_count": 1,
+   "actors": [
+    "AC_HOUSEHOLD",
+    "AC_WORKER"
+   ],
+   "circuits": [
+    "CIR_HOUSEHOLD"
+   ],
+   "markets": [],
+   "resources": [],
+   "time_resolution": "annual",
+   "external_dependencies": [],
+   "internal_relationships": [],
+   "why_economically_meaningful": "Household income, housing and local taxation are administered at this boundary even where the economy that produces the income is not inside it.",
+   "known_blind_spots": [
+    "a substantial share of its residents' earnings is produced at a workplace outside it"
+   ],
+   "derived_from": "administrative definition \u2014 geography GIVEN",
+   "observed_coverage": null,
+   "structure": null,
+   "is_a_functional_region": null
+  },
+  {
+   "boundary_id": "BND_LABOUR_35028",
+   "name": "The Los Alamos labour region",
+   "boundary_type": "LABOR",
+   "purpose": "the set of counties that directly exchange a material share of workers with Los Alamos",
+   "geographies": [
+    "35001",
+    "35028",
+    "35039",
+    "35049"
+   ],
+   "geography_count": 4,
+   "actors": [
+    "AC_WORKER",
+    "AC_FIRM"
+   ],
+   "circuits": [
+    "CIR_LABOR",
+    "CIR_HOUSEHOLD"
+   ],
+   "markets": [
+    "labour"
+   ],
+   "resources": [],
+   "time_resolution": "annual (LODES 2022)",
+   "external_dependencies": [
+    "whoever funds the employers inside it"
+   ],
+   "internal_relationships": [
+    "35039->35028",
+    "35049->35028",
+    "35028->35001"
+   ],
+   "why_economically_meaningful": "Where someone works and where they live are different places here, and the counties that supply that workforce experience a change in Los Alamos employment directly, through their own residents' income. The boundary is drawn by that relationship rather than around it.",
+   "known_blind_spots": [
+    "earnings by origin county are not held at this resolution",
+    "residents who work outside New Mexico are not in this table",
+    "it is a labour boundary and says nothing about housing or credit"
+   ],
+   "derived_from": "commuting flows, LODES 2022 \u2014 geography DISCOVERED",
+   "observed_coverage": null,
+   "structure": "CONNECTED_REGION",
+   "is_a_functional_region": true
+  },
+  {
+   "boundary_id": "BND_LABOUR_35013",
+   "name": "The Do\u00f1a Ana commuting set",
+   "boundary_type": "LABOR",
+   "purpose": "the set of counties that directly exchange a material share of workers with Do\u00f1a Ana",
+   "geographies": [
+    "35013",
+    "35023",
+    "35029",
+    "35035",
+    "35051",
+    "48141"
+   ],
+   "geography_count": 6,
+   "actors": [
+    "AC_WORKER",
+    "AC_FIRM"
+   ],
+   "circuits": [
+    "CIR_LABOR",
+    "CIR_HOUSEHOLD"
+   ],
+   "markets": [
+    "labour"
+   ],
+   "resources": [],
+   "time_resolution": "annual (LODES 2022)",
+   "external_dependencies": [
+    "whoever funds the employers inside it"
+   ],
+   "internal_relationships": [
+    "35035->35013",
+    "35029->35013",
+    "35051->35013",
+    "35023->35013",
+    "48141->35013"
+   ],
+   "why_economically_meaningful": "A substantial share of the jobs located in Do\u00f1a Ana are filled from another state, which makes it the clearest held case of an economic relationship that an administrative boundary cuts through. The relationship is the finding; the set is not a system.",
+   "known_blind_spots": [
+    "NOT A FUNCTIONAL REGION. None of the 5 non-seed members exchanges a material share of workers with any other. A change in one of them reaches the hub and stops. It is a STAR, which means a change in one member cannot reach another through this structure. The boundary is declared so the relationship can be asked about; it is not a system.",
+    "earnings by origin county are not held at this resolution",
+    "residents who work outside New Mexico are not in this table",
+    "it is a labour boundary and says nothing about housing or credit"
+   ],
+   "derived_from": "commuting flows, LODES 2022 \u2014 geography DISCOVERED",
+   "observed_coverage": null,
+   "structure": "STAR",
+   "is_a_functional_region": false
+  }
+ ],
+ "classifications": {
+  "TRANSMISSION_IN": "the event originates outside this boundary and lands inside it",
+  "TRANSMISSION_OUT": "the event originates inside this boundary and lands outside it",
+  "INTERNAL": "both ends are inside. Within the boundary this is movement among its own actors, and it is eligible to be read as propagation \u2014 but only after an intervention, and only with a counterfactual.",
+  "EXTERNAL": "neither end is inside. The boundary is not party to it."
+ },
+ "value_directions": {
+  "INFLOW": "value, resources or effects enter the boundary",
+  "OUTFLOW": "value, resources or effects leave the boundary",
+  "CIRCULATES": "value stays inside for a further round",
+  "NOT_APPLICABLE": "the boundary is not party to this event"
+ },
+ "events": [
+  {
+   "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+   "kind": "LABOUR_AND_THE_INCOME_ATTACHED_TO_IT",
+   "origin_geography": "35028",
+   "destination_geography": "35049",
+   "magnitude": 4436,
+   "unit": "jobs",
+   "period": "2022",
+   "mechanism": "People who live in Santa Fe County hold jobs located in Los Alamos County. The work is performed at the workplace; the income accrues at the residence.",
+   "source": "LEHD LODES8 OD, NM, JT00, 2022, aggregated to county pairs",
+   "actors": [
+    "AC_WORKER",
+    "AC_FIRM"
+   ],
+   "note": "Stored once. Everything boundary-relative below is computed against this single record."
+  },
+  {
+   "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+   "kind": "LABOUR_AND_THE_INCOME_ATTACHED_TO_IT",
+   "origin_geography": "35013",
+   "destination_geography": "48141",
+   "magnitude": 7849,
+   "unit": "jobs",
+   "period": "2022",
+   "mechanism": "People who live in El Paso County, Texas hold jobs located in Do\u00f1a Ana County, New Mexico.",
+   "source": "LEHD LODES8 OD, NM, JT00, 2022",
+   "actors": [
+    "AC_WORKER",
+    "AC_FIRM"
+   ],
+   "note": "The clearest held case of an economic relationship that an administrative boundary cuts."
+  }
+ ],
+ "boundary_relativity": [
+  {
+   "event": {
+    "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+    "kind": "LABOUR_AND_THE_INCOME_ATTACHED_TO_IT",
+    "origin_geography": "35028",
+    "destination_geography": "35049",
+    "magnitude": 4436,
+    "unit": "jobs",
+    "period": "2022",
+    "mechanism": "People who live in Santa Fe County hold jobs located in Los Alamos County. The work is performed at the workplace; the income accrues at the residence.",
+    "source": "LEHD LODES8 OD, NM, JT00, 2022, aggregated to county pairs",
+    "actors": [
+     "AC_WORKER",
+     "AC_FIRM"
+    ],
+    "note": "Stored once. Everything boundary-relative below is computed against this single record."
+   },
+   "readings": [
+    {
+     "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+     "boundary_id": "BND_ADMIN_35028",
+     "boundary_name": "Los Alamos County",
+     "boundary_type": "ADMINISTRATIVE",
+     "classification": "TRANSMISSION_OUT",
+     "classification_means": "the event originates inside this boundary and lands outside it",
+     "value_direction": "OUTFLOW",
+     "value_means": "value, resources or effects leave the boundary",
+     "origin_inside": true,
+     "destination_inside": false,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+     "boundary_id": "BND_ADMIN_35049",
+     "boundary_name": "Santa Fe County",
+     "boundary_type": "ADMINISTRATIVE",
+     "classification": "TRANSMISSION_IN",
+     "classification_means": "the event originates outside this boundary and lands inside it",
+     "value_direction": "INFLOW",
+     "value_means": "value, resources or effects enter the boundary",
+     "origin_inside": false,
+     "destination_inside": true,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+     "boundary_id": "BND_LABOUR_35028",
+     "boundary_name": "The Los Alamos labour region",
+     "boundary_type": "LABOR",
+     "classification": "INTERNAL",
+     "classification_means": "both ends are inside. Within the boundary this is movement among its own actors, and it is eligible to be read as propagation \u2014 but only after an intervention, and only with a counterfactual.",
+     "value_direction": "CIRCULATES",
+     "value_means": "value stays inside for a further round",
+     "origin_inside": true,
+     "destination_inside": true,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+     "boundary_id": "BND_LABOUR_35013",
+     "boundary_name": "The Do\u00f1a Ana commuting set",
+     "boundary_type": "LABOR",
+     "classification": "EXTERNAL",
+     "classification_means": "neither end is inside. The boundary is not party to it.",
+     "value_direction": "NOT_APPLICABLE",
+     "value_means": "the boundary is not party to this event",
+     "origin_inside": false,
+     "destination_inside": false,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS, which is stored once. Changing the boundary changes the reading and not the event."
+    }
+   ],
+   "distinct_classifications": [
+    "EXTERNAL",
+    "INTERNAL",
+    "TRANSMISSION_IN",
+    "TRANSMISSION_OUT"
+   ],
+   "classification_changes_with_boundary": true,
+   "event_stored_once": true,
+   "proof": "The same event is INTERNAL to the labour region, an outflow of income from the county that pays it and an inflow to the county where that income is spent. None of those readings is more correct than the others, and none of them required a second copy of the event."
+  },
+  {
+   "event": {
+    "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+    "kind": "LABOUR_AND_THE_INCOME_ATTACHED_TO_IT",
+    "origin_geography": "35013",
+    "destination_geography": "48141",
+    "magnitude": 7849,
+    "unit": "jobs",
+    "period": "2022",
+    "mechanism": "People who live in El Paso County, Texas hold jobs located in Do\u00f1a Ana County, New Mexico.",
+    "source": "LEHD LODES8 OD, NM, JT00, 2022",
+    "actors": [
+     "AC_WORKER",
+     "AC_FIRM"
+    ],
+    "note": "The clearest held case of an economic relationship that an administrative boundary cuts."
+   },
+   "readings": [
+    {
+     "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+     "boundary_id": "BND_ADMIN_35028",
+     "boundary_name": "Los Alamos County",
+     "boundary_type": "ADMINISTRATIVE",
+     "classification": "EXTERNAL",
+     "classification_means": "neither end is inside. The boundary is not party to it.",
+     "value_direction": "NOT_APPLICABLE",
+     "value_means": "the boundary is not party to this event",
+     "origin_inside": false,
+     "destination_inside": false,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+     "boundary_id": "BND_ADMIN_35049",
+     "boundary_name": "Santa Fe County",
+     "boundary_type": "ADMINISTRATIVE",
+     "classification": "EXTERNAL",
+     "classification_means": "neither end is inside. The boundary is not party to it.",
+     "value_direction": "NOT_APPLICABLE",
+     "value_means": "the boundary is not party to this event",
+     "origin_inside": false,
+     "destination_inside": false,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+     "boundary_id": "BND_LABOUR_35028",
+     "boundary_name": "The Los Alamos labour region",
+     "boundary_type": "LABOR",
+     "classification": "EXTERNAL",
+     "classification_means": "neither end is inside. The boundary is not party to it.",
+     "value_direction": "NOT_APPLICABLE",
+     "value_means": "the boundary is not party to this event",
+     "origin_inside": false,
+     "destination_inside": false,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA, which is stored once. Changing the boundary changes the reading and not the event."
+    },
+    {
+     "event_id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+     "boundary_id": "BND_LABOUR_35013",
+     "boundary_name": "The Do\u00f1a Ana commuting set",
+     "boundary_type": "LABOR",
+     "classification": "INTERNAL",
+     "classification_means": "both ends are inside. Within the boundary this is movement among its own actors, and it is eligible to be read as propagation \u2014 but only after an intervention, and only with a counterfactual.",
+     "value_direction": "CIRCULATES",
+     "value_means": "value stays inside for a further round",
+     "origin_inside": true,
+     "destination_inside": true,
+     "value_accrues_to": "destination",
+     "not_a_second_event": "This is a reading of event EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA, which is stored once. Changing the boundary changes the reading and not the event."
+    }
+   ],
+   "distinct_classifications": [
+    "EXTERNAL",
+    "INTERNAL"
+   ],
+   "classification_changes_with_boundary": true,
+   "event_stored_once": true,
+   "proof": "The same event is INTERNAL to the labour region, an outflow of income from the county that pays it and an inflow to the county where that income is spent. None of those readings is more correct than the others, and none of them required a second copy of the event."
+  }
+ ],
+ "measures": {
+  "VOLUME": "how many jobs move along this edge. An absolute magnitude.",
+  "DEPENDENCE": "what share of the DEPENDENT side's economy this edge is. A share with a named denominator.",
+  "CENTRALITY": "how many other places this node connects to above a stated threshold. A count of counterparties, not a weight.",
+  "CONCENTRATION": "how much of a place's flow runs through its single largest counterparty. A share of its own total."
+ },
+ "structures": {
+  "CONNECTED_REGION": "members are connected to each other as well as to the seed, so a change can reach more than one of them",
+  "STAR": "every member connects to the seed and to no other member. A hub with spokes is a set of bilateral relationships, not a region.",
+  "BILATERAL": "one other place, which is a relationship and not a region",
+  "SINGLETON": "nothing qualified; the seed is alone"
+ },
+ "connectivity": [
+  {
+   "seed": "35028",
+   "seed_name": "Los Alamos",
+   "members": [
+    "Bernalillo",
+    "Los Alamos",
+    "Rio Arriba",
+    "Santa Fe"
+   ],
+   "non_seed_members": 3,
+   "edges_among_members": [
+    {
+     "from": "35001",
+     "to": "35049",
+     "from_name": "Bernalillo",
+     "to_name": "Santa Fe",
+     "jobs": 9089,
+     "share_of_sender_residents": 3.1,
+     "share_of_destination_jobs": 14.4
+    },
+    {
+     "from": "35039",
+     "to": "35001",
+     "from_name": "Rio Arriba",
+     "to_name": "Bernalillo",
+     "jobs": 1461,
+     "share_of_sender_residents": 15.1,
+     "share_of_destination_jobs": 0.4
+    },
+    {
+     "from": "35039",
+     "to": "35049",
+     "from_name": "Rio Arriba",
+     "to_name": "Santa Fe",
+     "jobs": 1725,
+     "share_of_sender_residents": 17.9,
+     "share_of_destination_jobs": 2.7
+    },
+    {
+     "from": "35049",
+     "to": "35001",
+     "from_name": "Santa Fe",
+     "to_name": "Bernalillo",
+     "jobs": 10940,
+     "share_of_sender_residents": 18.6,
+     "share_of_destination_jobs": 3.1
+    },
+    {
+     "from": "35049",
+     "to": "35039",
+     "from_name": "Santa Fe",
+     "to_name": "Rio Arriba",
+     "jobs": 1652,
+     "share_of_sender_residents": 2.8,
+     "share_of_destination_jobs": 19.5
+    }
+   ],
+   "edge_count": 5,
+   "structure": "CONNECTED_REGION",
+   "structure_means": "members are connected to each other as well as to the seed, so a change can reach more than one of them",
+   "is_a_functional_region": true,
+   "why": "5 edges run among the 3 non-seed members at the 10.0% threshold.",
+   "refused_as_a_region": false
+  },
+  {
+   "seed": "35013",
+   "seed_name": "Do\u00f1a Ana",
+   "members": [
+    "Do\u00f1a Ana",
+    "El Paso, TX",
+    "Hidalgo",
+    "Luna",
+    "Otero",
+    "Sierra"
+   ],
+   "non_seed_members": 5,
+   "edges_among_members": [],
+   "edge_count": 0,
+   "structure": "STAR",
+   "structure_means": "every member connects to the seed and to no other member. A hub with spokes is a set of bilateral relationships, not a region.",
+   "is_a_functional_region": false,
+   "why": "None of the 5 non-seed members exchanges a material share of workers with any other. A change in one of them reaches the hub and stops.",
+   "refused_as_a_region": true
+  },
+  {
+   "seed": "35049",
+   "seed_name": "Santa Fe",
+   "members": [
+    "Bernalillo",
+    "Mora",
+    "Rio Arriba",
+    "San Miguel",
+    "Santa Fe"
+   ],
+   "non_seed_members": 4,
+   "edges_among_members": [
+    {
+     "from": "35033",
+     "to": "35001",
+     "from_name": "Mora",
+     "to_name": "Bernalillo",
+     "jobs": 152,
+     "share_of_sender_residents": 13.1,
+     "share_of_destination_jobs": 0.0
+    },
+    {
+     "from": "35033",
+     "to": "35047",
+     "from_name": "Mora",
+     "to_name": "San Miguel",
+     "jobs": 213,
+     "share_of_sender_residents": 18.4,
+     "share_of_destination_jobs": 3.3
+    },
+    {
+     "from": "35039",
+     "to": "35001",
+     "from_name": "Rio Arriba",
+     "to_name": "Bernalillo",
+     "jobs": 1461,
+     "share_of_sender_residents": 15.1,
+     "share_of_destination_jobs": 0.4
+    },
+    {
+     "from": "35047",
+     "to": "35001",
+     "from_name": "San Miguel",
+     "to_name": "Bernalillo",
+     "jobs": 1683,
+     "share_of_sender_residents": 18.6,
+     "share_of_destination_jobs": 0.5
+    },
+    {
+     "from": "35047",
+     "to": "35033",
+     "from_name": "San Miguel",
+     "to_name": "Mora",
+     "jobs": 99,
+     "share_of_sender_residents": 1.1,
+     "share_of_destination_jobs": 14.0
+    }
+   ],
+   "edge_count": 5,
+   "structure": "CONNECTED_REGION",
+   "structure_means": "members are connected to each other as well as to the seed, so a change can reach more than one of them",
+   "is_a_functional_region": true,
+   "why": "5 edges run among the 4 non-seed members at the 10.0% threshold.",
+   "refused_as_a_region": false
+  }
+ ],
+ "regions": {
+  "los_alamos": {
+   "seed": "35028",
+   "seed_name": "Los Alamos",
+   "members": [
+    "35001",
+    "35028",
+    "35039",
+    "35049"
+   ],
+   "member_names": [
+    "Bernalillo",
+    "Los Alamos",
+    "Rio Arriba",
+    "Santa Fe"
+   ],
+   "size": 4,
+   "edges": [
+    {
+     "from": "35039",
+     "to": "35028",
+     "jobs": 1590,
+     "share": 16.5,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35049",
+     "to": "35028",
+     "jobs": 4436,
+     "share": 24.4,
+     "share_of": "the jobs located in the receiving county",
+     "direction": "supplies workers to",
+     "round": 1
+    },
+    {
+     "from": "35028",
+     "to": "35001",
+     "jobs": 1032,
+     "share": 10.4,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "added": [
+      "Bernalillo",
+      "Rio Arriba",
+      "Santa Fe"
+     ]
+    }
+   ],
+   "rule": "a county joins when at least 10.0% of a VALID denominator crosses that edge: either the sender's own working residents, which this table supplies only for New Mexico counties, or the receiving county's own jobs, which it supplies for all of them",
+   "geography_provenance": "DISCOVERED",
+   "crosses_state_line": false,
+   "is_proposed": true,
+   "rounds_used": 1,
+   "round_rule": "one round means DIRECT connection: a county is in this region because it exchanges workers with the seed itself, not because it exchanges workers with something that does.",
+   "what_it_is_not": "a region for anything but labour. Nothing here says these counties share a housing market, a food system or a credit market."
+  },
+  "dona_ana": {
+   "seed": "35013",
+   "seed_name": "Do\u00f1a Ana",
+   "members": [
+    "35013",
+    "35023",
+    "35029",
+    "35035",
+    "35051",
+    "48141"
+   ],
+   "member_names": [
+    "Do\u00f1a Ana",
+    "El Paso, TX",
+    "Hidalgo",
+    "Luna",
+    "Otero",
+    "Sierra"
+   ],
+   "size": 6,
+   "edges": [
+    {
+     "from": "35035",
+     "to": "35013",
+     "jobs": 2651,
+     "share": 14.2,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35029",
+     "to": "35013",
+     "jobs": 1332,
+     "share": 16.7,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35051",
+     "to": "35013",
+     "jobs": 459,
+     "share": 14.0,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35023",
+     "to": "35013",
+     "jobs": 170,
+     "share": 12.2,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "48141",
+     "to": "35013",
+     "jobs": 7849,
+     "share": 10.4,
+     "share_of": "the jobs located in the receiving county",
+     "direction": "supplies workers to",
+     "round": 1
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "added": [
+      "El Paso, TX",
+      "Hidalgo",
+      "Luna",
+      "Otero",
+      "Sierra"
+     ]
+    }
+   ],
+   "rule": "a county joins when at least 10.0% of a VALID denominator crosses that edge: either the sender's own working residents, which this table supplies only for New Mexico counties, or the receiving county's own jobs, which it supplies for all of them",
+   "geography_provenance": "DISCOVERED",
+   "crosses_state_line": true,
+   "is_proposed": true,
+   "rounds_used": 1,
+   "round_rule": "one round means DIRECT connection: a county is in this region because it exchanges workers with the seed itself, not because it exchanges workers with something that does.",
+   "what_it_is_not": "a region for anything but labour. Nothing here says these counties share a housing market, a food system or a credit market."
+  },
+  "santa_fe": {
+   "seed": "35049",
+   "seed_name": "Santa Fe",
+   "members": [
+    "35001",
+    "35033",
+    "35039",
+    "35047",
+    "35049"
+   ],
+   "member_names": [
+    "Bernalillo",
+    "Mora",
+    "Rio Arriba",
+    "San Miguel",
+    "Santa Fe"
+   ],
+   "size": 5,
+   "edges": [
+    {
+     "from": "35039",
+     "to": "35049",
+     "jobs": 1725,
+     "share": 17.9,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35047",
+     "to": "35049",
+     "jobs": 1613,
+     "share": 17.9,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35033",
+     "to": "35049",
+     "jobs": 122,
+     "share": 10.5,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    },
+    {
+     "from": "35001",
+     "to": "35049",
+     "jobs": 9089,
+     "share": 14.4,
+     "share_of": "the jobs located in the receiving county",
+     "direction": "supplies workers to",
+     "round": 1
+    },
+    {
+     "from": "35049",
+     "to": "35001",
+     "jobs": 10940,
+     "share": 18.6,
+     "share_of": "the sender's own working residents",
+     "direction": "sends workers to",
+     "round": 1
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "added": [
+      "Bernalillo",
+      "Mora",
+      "Rio Arriba",
+      "San Miguel"
+     ]
+    }
+   ],
+   "rule": "a county joins when at least 10.0% of a VALID denominator crosses that edge: either the sender's own working residents, which this table supplies only for New Mexico counties, or the receiving county's own jobs, which it supplies for all of them",
+   "geography_provenance": "DISCOVERED",
+   "crosses_state_line": false,
+   "is_proposed": true,
+   "rounds_used": 1,
+   "round_rule": "one round means DIRECT connection: a county is in this region because it exchanges workers with the seed itself, not because it exchanges workers with something that does.",
+   "what_it_is_not": "a region for anything but labour. Nothing here says these counties share a housing market, a food system or a credit market."
+  }
+ },
+ "threshold_sensitivity": {
+  "seed": "35028",
+  "seed_name": "Los Alamos",
+  "by_threshold": [
+   {
+    "threshold": 5.0,
+    "size": 5,
+    "members": [
+     "Bernalillo",
+     "Los Alamos",
+     "Rio Arriba",
+     "Sandoval",
+     "Santa Fe"
+    ]
+   },
+   {
+    "threshold": 10.0,
+    "size": 4,
+    "members": [
+     "Bernalillo",
+     "Los Alamos",
+     "Rio Arriba",
+     "Santa Fe"
+    ]
+   },
+   {
+    "threshold": 15.0,
+    "size": 3,
+    "members": [
+     "Los Alamos",
+     "Rio Arriba",
+     "Santa Fe"
+    ]
+   },
+   {
+    "threshold": 20.0,
+    "size": 2,
+    "members": [
+     "Los Alamos",
+     "Santa Fe"
+    ]
+   },
+   {
+    "threshold": 25.0,
+    "size": 1,
+    "members": [
+     "Los Alamos"
+    ]
+   }
+  ],
+  "stable": false,
+  "reads_as": "The region is reported at one threshold and its sensitivity beside it. A reader who prefers another threshold can see what they would get."
+ },
+ "transitive_dissolution": {
+  "seed": "35028",
+  "seed_name": "Los Alamos",
+  "by_rounds": [
+   {
+    "rounds": 1,
+    "size": 4,
+    "members": [
+     "Bernalillo",
+     "Los Alamos",
+     "Rio Arriba",
+     "Santa Fe"
+    ]
+   },
+   {
+    "rounds": 2,
+    "size": 18,
+    "members": [
+     "Bernalillo",
+     "Catron",
+     "Cibola",
+     "Guadalupe",
+     "Harding",
+     "Lincoln",
+     "Los Alamos",
+     "McKinley",
+     "Mora",
+     "Rio Arriba",
+     "San Miguel",
+     "Sandoval",
+     "Santa Fe",
+     "Sierra",
+     "Socorro",
+     "Taos",
+     "Torrance",
+     "Valencia"
+    ]
+   },
+   {
+    "rounds": 3,
+    "size": 20,
+    "members": [
+     "Bernalillo",
+     "Catron",
+     "Cibola",
+     "Do\u00f1a Ana",
+     "Guadalupe",
+     "Harding",
+     "Lincoln",
+     "Los Alamos",
+     "McKinley",
+     "Mora",
+     "Otero",
+     "Rio Arriba",
+     "San Miguel",
+     "Sandoval",
+     "Santa Fe",
+     "Sierra",
+     "Socorro",
+     "Taos",
+     "Torrance",
+     "Valencia"
+    ]
+   },
+   {
+    "rounds": 4,
+    "size": 23,
+    "members": [
+     "Bernalillo",
+     "Catron",
+     "Cibola",
+     "Do\u00f1a Ana",
+     "El Paso, TX",
+     "Guadalupe",
+     "Harding",
+     "Hidalgo",
+     "Lincoln",
+     "Los Alamos",
+     "Luna",
+     "McKinley",
+     "Mora",
+     "Otero",
+     "Rio Arriba",
+     "San Miguel",
+     "Sandoval",
+     "Santa Fe",
+     "Sierra",
+     "Socorro",
+     "Taos",
+     "Torrance",
+     "Valencia"
+    ]
+   }
+  ],
+  "direct_size": 4,
+  "transitive_size": 23,
+  "dissolves": true,
+  "finding": "Direct connection puts 4 counties in Los Alamos's labour region. Allowing 4 rounds of indirect connection puts 23 there. The second number is not a bigger region; it is the connected component of the state's commuting graph.",
+  "why_it_matters": "A transitive rule would report something close to New Mexico for every seed, which would look like the discovery that the state is a labour region and would actually be the discovery that the graph is connected."
+ },
+ "reciprocity_kinds": {
+  "EXCHANGE": "flows run both ways at comparable size. Neither county is simply the other's workplace, and a change in either reaches the other.",
+  "ASYMMETRIC": "flows run both ways and one dominates",
+  "ONE_WAY": "flow runs in one direction only"
+ },
+ "reciprocity": {
+  "seed": "35028",
+  "seed_name": "Los Alamos",
+  "pairs": [
+   {
+    "a": "35039",
+    "b": "35049",
+    "a_name": "Rio Arriba",
+    "b_name": "Santa Fe",
+    "a_residents_working_in_b": 1725,
+    "b_residents_working_in_a": 1652,
+    "ratio": 0.96,
+    "kind": "EXCHANGE",
+    "means": "flows run both ways at comparable size. Neither county is simply the other's workplace, and a change in either reaches the other.",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   },
+   {
+    "a": "35001",
+    "b": "35049",
+    "a_name": "Bernalillo",
+    "b_name": "Santa Fe",
+    "a_residents_working_in_b": 9089,
+    "b_residents_working_in_a": 10940,
+    "ratio": 0.83,
+    "kind": "EXCHANGE",
+    "means": "flows run both ways at comparable size. Neither county is simply the other's workplace, and a change in either reaches the other.",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   },
+   {
+    "a": "35001",
+    "b": "35028",
+    "a_name": "Bernalillo",
+    "b_name": "Los Alamos",
+    "a_residents_working_in_b": 1651,
+    "b_residents_working_in_a": 1032,
+    "ratio": 0.63,
+    "kind": "EXCHANGE",
+    "means": "flows run both ways at comparable size. Neither county is simply the other's workplace, and a change in either reaches the other.",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   },
+   {
+    "a": "35001",
+    "b": "35039",
+    "a_name": "Bernalillo",
+    "b_name": "Rio Arriba",
+    "a_residents_working_in_b": 698,
+    "b_residents_working_in_a": 1461,
+    "ratio": 0.48,
+    "kind": "ASYMMETRIC",
+    "means": "flows run both ways and one dominates",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   },
+   {
+    "a": "35028",
+    "b": "35049",
+    "a_name": "Los Alamos",
+    "b_name": "Santa Fe",
+    "a_residents_working_in_b": 536,
+    "b_residents_working_in_a": 4436,
+    "ratio": 0.12,
+    "kind": "ASYMMETRIC",
+    "means": "flows run both ways and one dominates",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   },
+   {
+    "a": "35028",
+    "b": "35039",
+    "a_name": "Los Alamos",
+    "b_name": "Rio Arriba",
+    "a_residents_working_in_b": 139,
+    "b_residents_working_in_a": 1590,
+    "ratio": 0.09,
+    "kind": "ASYMMETRIC",
+    "means": "flows run both ways and one dominates",
+    "is_not": "a membership score. It describes the balance of one pair and says nothing about how much either county depends on the other, which needs a denominator."
+   }
+  ],
+  "by_kind": {
+   "EXCHANGE": 3,
+   "ASYMMETRIC": 3,
+   "ONE_WAY": 0
+  },
+  "contains_feedback": true,
+  "is_a_cascade": false,
+  "finding": "3 of 6 pairs inside this region are two-way exchanges and 3 are asymmetric. The system is not a one-way cascade, and drawing it as one would lose the pairs where a change in either county reaches the other."
+ },
+ "centrality": [
+  {
+   "fips": "35028",
+   "name": "Los Alamos",
+   "sends_workers_to": [
+    "35001",
+    "35049"
+   ],
+   "draws_workers_from": [
+    "35001",
+    "35039",
+    "35043",
+    "35049"
+   ],
+   "out_degree": 2,
+   "in_degree": 4,
+   "threshold": "an edge counts when it is at least 5.0% of the relevant side's total",
+   "is_not": "a weighted centrality score. It is a count of counterparties above a stated threshold, and the threshold is an argument a reader can have."
+  },
+  {
+   "fips": "35049",
+   "name": "Santa Fe",
+   "sends_workers_to": [
+    "35001",
+    "35028"
+   ],
+   "draws_workers_from": [
+    "35001",
+    "35043"
+   ],
+   "out_degree": 2,
+   "in_degree": 2,
+   "threshold": "an edge counts when it is at least 5.0% of the relevant side's total",
+   "is_not": "a weighted centrality score. It is a count of counterparties above a stated threshold, and the threshold is an argument a reader can have."
+  },
+  {
+   "fips": "35001",
+   "name": "Bernalillo",
+   "sends_workers_to": [],
+   "draws_workers_from": [
+    "35043"
+   ],
+   "out_degree": 0,
+   "in_degree": 1,
+   "threshold": "an edge counts when it is at least 5.0% of the relevant side's total",
+   "is_not": "a weighted centrality score. It is a count of counterparties above a stated threshold, and the threshold is an argument a reader can have."
+  },
+  {
+   "fips": "35039",
+   "name": "Rio Arriba",
+   "sends_workers_to": [
+    "35001",
+    "35028",
+    "35049"
+   ],
+   "draws_workers_from": [
+    "35001",
+    "35043",
+    "35049"
+   ],
+   "out_degree": 3,
+   "in_degree": 3,
+   "threshold": "an edge counts when it is at least 5.0% of the relevant side's total",
+   "is_not": "a weighted centrality score. It is a count of counterparties above a stated threshold, and the threshold is an argument a reader can have."
+  }
+ ],
+ "concentration": [
+  {
+   "fips": "35028",
+   "name": "Los Alamos",
+   "leaves_to_work": 2254,
+   "largest_destination": "Bernalillo",
+   "largest_destination_fips": "35001",
+   "concentration": 45.8,
+   "counterparties": 28,
+   "denominator": "the 2,254 residents of Los Alamos who work in another county",
+   "is_not": "dependence. A county whose out-commuters nearly all go to one place is concentrated; whether that matters depends on how many of its residents commute at all."
+  },
+  {
+   "fips": "35049",
+   "name": "Santa Fe",
+   "leaves_to_work": 21970,
+   "largest_destination": "Bernalillo",
+   "largest_destination_fips": "35001",
+   "concentration": 49.8,
+   "counterparties": 32,
+   "denominator": "the 21,970 residents of Santa Fe who work in another county",
+   "is_not": "dependence. A county whose out-commuters nearly all go to one place is concentrated; whether that matters depends on how many of its residents commute at all."
+  },
+  {
+   "fips": "35039",
+   "name": "Rio Arriba",
+   "leaves_to_work": 6198,
+   "largest_destination": "Santa Fe",
+   "largest_destination_fips": "35049",
+   "concentration": 27.8,
+   "counterparties": 29,
+   "denominator": "the 6,198 residents of Rio Arriba who work in another county",
+   "is_not": "dependence. A county whose out-commuters nearly all go to one place is concentrated; whether that matters depends on how many of its residents commute at all."
+  },
+  {
+   "fips": "35021",
+   "name": "Harding",
+   "leaves_to_work": 136,
+   "largest_destination": "Bernalillo",
+   "largest_destination_fips": "35001",
+   "concentration": 22.1,
+   "counterparties": 22,
+   "denominator": "the 136 residents of Harding who work in another county",
+   "is_not": "dependence. A county whose out-commuters nearly all go to one place is concentrated; whether that matters depends on how many of its residents commute at all."
+  }
+ ],
+ "prototypes": {
+  "labour": {
+   "prototype": "LABOUR",
+   "system_name": "Los Alamos labour region",
+   "mechanism_kind": "EMPLOYMENT_AND_INCOME",
+   "is_non_price": true,
+   "why_non_price": "Nothing crosses this boundary as a price. What crosses is people's work in one direction and the income attached to it in the other, and the quantity that lands locally is household earned income.",
+   "boundary": {
+    "boundary_id": "BND_LABOUR_35028",
+    "name": "The Los Alamos labour region",
+    "boundary_type": "LABOR",
+    "purpose": "the set of counties that directly exchange a material share of workers with Los Alamos",
+    "geographies": [
+     "35001",
+     "35028",
+     "35039",
+     "35049"
+    ],
+    "geography_count": 4,
+    "actors": [
+     "AC_WORKER",
+     "AC_FIRM"
+    ],
+    "circuits": [
+     "CIR_LABOR",
+     "CIR_HOUSEHOLD"
+    ],
+    "markets": [
+     "labour"
+    ],
+    "resources": [],
+    "time_resolution": "annual (LODES 2022)",
+    "external_dependencies": [
+     "whoever funds the employers inside it"
+    ],
+    "internal_relationships": [
+     "35039->35028",
+     "35049->35028",
+     "35028->35001"
+    ],
+    "why_economically_meaningful": "Where someone works and where they live are different places here, and the counties that supply that workforce experience a change in Los Alamos employment directly, through their own residents' income. The boundary is drawn by that relationship rather than around it.",
+    "known_blind_spots": [
+     "earnings by origin county are not held at this resolution",
+     "residents who work outside New Mexico are not in this table",
+     "it is a labour boundary and says nothing about housing or credit"
+    ],
+    "derived_from": "commuting flows, LODES 2022 \u2014 geography DISCOVERED",
+    "observed_coverage": null,
+    "structure": "CONNECTED_REGION",
+    "is_a_functional_region": true
+   },
+   "region": {
+    "seed": "35028",
+    "seed_name": "Los Alamos",
+    "members": [
+     "35001",
+     "35028",
+     "35039",
+     "35049"
+    ],
+    "member_names": [
+     "Bernalillo",
+     "Los Alamos",
+     "Rio Arriba",
+     "Santa Fe"
+    ],
+    "size": 4,
+    "edges": [
+     {
+      "from": "35039",
+      "to": "35028",
+      "jobs": 1590,
+      "share": 16.5,
+      "share_of": "the sender's own working residents",
+      "direction": "sends workers to",
+      "round": 1
+     },
+     {
+      "from": "35049",
+      "to": "35028",
+      "jobs": 4436,
+      "share": 24.4,
+      "share_of": "the jobs located in the receiving county",
+      "direction": "supplies workers to",
+      "round": 1
+     },
+     {
+      "from": "35028",
+      "to": "35001",
+      "jobs": 1032,
+      "share": 10.4,
+      "share_of": "the sender's own working residents",
+      "direction": "sends workers to",
+      "round": 1
+     }
+    ],
+    "rounds": [
+     {
+      "round": 1,
+      "added": [
+       "Bernalillo",
+       "Rio Arriba",
+       "Santa Fe"
+      ]
+     }
+    ],
+    "rule": "a county joins when at least 10.0% of a VALID denominator crosses that edge: either the sender's own working residents, which this table supplies only for New Mexico counties, or the receiving county's own jobs, which it supplies for all of them",
+    "geography_provenance": "DISCOVERED",
+    "crosses_state_line": false,
+    "is_proposed": true,
+    "rounds_used": 1,
+    "round_rule": "one round means DIRECT connection: a county is in this region because it exchanges workers with the seed itself, not because it exchanges workers with something that does.",
+    "what_it_is_not": "a region for anything but labour. Nothing here says these counties share a housing market, a food system or a credit market."
+   },
+   "edges": [
+    {
+     "from": "35049",
+     "to": "35028",
+     "from_name": "Santa Fe",
+     "to_name": "Los Alamos",
+     "relationship": "residents of the sending county hold jobs located here",
+     "edge_class": "MECHANISTIC",
+     "magnitude": "MAGNITUDE_OBSERVED",
+     "jobs": 4436,
+     "share_of_sender_residents": 7.5,
+     "share_of_destination_jobs": 24.4,
+     "geography": "Santa Fe",
+     "evidence_state": "OBSERVED_BOTH_ENDS"
+    },
+    {
+     "from": "35001",
+     "to": "35028",
+     "from_name": "Bernalillo",
+     "to_name": "Los Alamos",
+     "relationship": "residents of the sending county hold jobs located here",
+     "edge_class": "MECHANISTIC",
+     "magnitude": "MAGNITUDE_OBSERVED",
+     "jobs": 1651,
+     "share_of_sender_residents": 0.6,
+     "share_of_destination_jobs": 9.1,
+     "geography": "Bernalillo",
+     "evidence_state": "OBSERVED_BOTH_ENDS"
+    },
+    {
+     "from": "35039",
+     "to": "35028",
+     "from_name": "Rio Arriba",
+     "to_name": "Los Alamos",
+     "relationship": "residents of the sending county hold jobs located here",
+     "edge_class": "MECHANISTIC",
+     "magnitude": "MAGNITUDE_OBSERVED",
+     "jobs": 1590,
+     "share_of_sender_residents": 16.5,
+     "share_of_destination_jobs": 8.7,
+     "geography": "Rio Arriba",
+     "evidence_state": "OBSERVED_BOTH_ENDS"
+    }
+   ],
+   "hinge": {
+    "economic_quantity": "earned income received by a household from a job located in another county",
+    "unit": "USD per household per year",
+    "geography": "the residence county, not the workplace county",
+    "time": "annual",
+    "upstream_causes": [
+     "employment at the workplace",
+     "the employer's funding",
+     "wage setting at the workplace"
+    ],
+    "downstream_consequences": [
+     "household spending in the residence county",
+     "housing demand in the residence county",
+     "local tax base in the residence county"
+    ],
+    "evidence_state": "NAMED_NOT_MEASURED",
+    "why_not_measured": "LODES gives job COUNTS by county pair. Earnings by origin county at this resolution are not held, so the quantity is named and its level is not observed.",
+    "hinge_id": "HNG_HOUSEHOLD_EARNED_INCOME",
+    "kind": "HINGE",
+    "is_not": "a transmission gate. This is a quantity someone here faces; a gate is a property of the crossing upstream of it."
+   },
+   "geography_provenance": "DISCOVERED",
+   "evidence": "LEHD LODES8 OD, NM, JT00, 2022"
+  },
+  "energy": {
+   "prototype": "ENERGY",
+   "system_name": "crude to delivered cost, through a refining region",
+   "mechanism_kind": "PRICE",
+   "is_non_price": false,
+   "geography_discovered": "PADD III (includes New Mexico)",
+   "why_this_geography": "Nobody chose PADD III. It is where the walk landed, because the registered relationship that carries a crude price into a local one runs through a refining and distribution system whose unit is a multi-state petroleum district. The economically relevant geography here is not a state and not a county.",
+   "path": {
+    "path_id": "PTH_BRENT_TO_DELIVERED_COST",
+    "question": "When crude moves, what does a local food operator pay per delivery?",
+    "origin_variable": "BRENT",
+    "origin_boundary": "world",
+    "destination_boundary": "the study area",
+    "mechanism_kind": "PRICE",
+    "edges": [
+     {
+      "from": "BRENT",
+      "to": "DIESEL_US",
+      "from_name": "Brent crude oil spot price",
+      "to_name": "US No. 2 diesel retail price",
+      "relationship": "WR010",
+      "edge_class": "MECHANISTIC",
+      "magnitude": "MAGNITUDE_ESTIMATED",
+      "gate": false,
+      "geography": "US average",
+      "evidence_state": "OBSERVED_BOTH_ENDS"
+     },
+     {
+      "from": "DIESEL_US",
+      "to": "DIESEL_PADD3",
+      "from_name": "US No. 2 diesel retail price",
+      "to_name": "PADD III (Gulf Coast) diesel retail price",
+      "relationship": "WR011",
+      "edge_class": "DESCRIPTIVE",
+      "magnitude": "MAGNITUDE_ESTIMATED",
+      "gate": false,
+      "geography": "PADD III (includes New Mexico)",
+      "evidence_state": "OBSERVED_BOTH_ENDS"
+     }
+    ],
+    "edge_count": 2,
+    "intermediate_geographies": [
+     "US average",
+     "PADD III (includes New Mexico)"
+    ],
+    "intermediate_actors": [
+     "AC_OPERATOR",
+     "AC_FIRM"
+    ],
+    "first_unsupported_edge": "DIESEL_US -> TRUCK_PER_MILE_COST",
+    "evidence_stops_because": "OBSERVED_ONE_END",
+    "reaches_destination_boundary": false,
+    "decomposition": [
+     {
+      "term": "EXPOSURE",
+      "means": "how much the destination encounters the originating condition",
+      "state": "OBSERVED",
+      "value": 100.0,
+      "unit": "percent",
+      "evidence": "every operator in the study area buys diesel; there is no unexposed segment",
+      "why": "exposure is total and that is the one term here that is easy"
+     },
+     {
+      "term": "PASS_THROUGH",
+      "means": "how much of the upstream change reaches the downstream price or quantity",
+      "state": "UNKNOWN",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "MATERIAL_PASSTHROUGH_NNM is registered and unobserved. This is the term that would convert a direction into a magnitude."
+     },
+     {
+      "term": "SENSITIVITY",
+      "means": "how strongly the exposed actor or quantity responds to it",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "how much an operator changes behaviour per dollar of delivered cost is a behavioural parameter nothing here observes"
+     },
+     {
+      "term": "BUFFER",
+      "means": "what absorbs or delays the effect",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "an operator may absorb the cost rather than pass it on. forces P07 names the condition and does not measure it."
+     },
+     {
+      "term": "AMPLIFIER",
+      "means": "what increases it",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "low route density amplifies a fuel change per stop; density is not held"
+     },
+     {
+      "term": "SUBSTITUTE",
+      "means": "what allows avoidance or switching",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "a consolidator pooling orders is the named counter-mechanism (food IH04)"
+     },
+     {
+      "term": "LAG",
+      "means": "how long it takes",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "the crude-to-rack lag is registered; rack-to-delivered is not"
+     }
+    ],
+    "decomposition_rule": "These terms are not multiplied here and no transmission coefficient is produced. Each is a separate claim with its own evidence, and where three of seven are UNKNOWN their product is not a number with a meaning.",
+    "terms_observed": 1,
+    "terms_unknown": 6,
+    "hinge": {
+     "economic_quantity": "the cost of making one delivery to one buyer",
+     "unit": "USD per stop",
+     "geography": "a route in the study area",
+     "time": "per delivery, aggregated monthly",
+     "upstream_causes": [
+      "fuel price",
+      "route density",
+      "vehicle and labour cost"
+     ],
+     "downstream_consequences": [
+      "order minimums",
+      "which buyers are served at all",
+      "whether a small buyer is on a route"
+     ],
+     "evidence_state": "NAMED_NOT_MEASURED",
+     "why_not_measured": "The model registers it and holds no series. Closing it is fieldwork, which field/PROTOCOL.md governs.",
+     "hinge_id": "HNG_DELIVERED_COST_PER_STOP",
+     "kind": "HINGE",
+     "is_not": "a transmission gate. This is a quantity someone here faces; a gate is a property of the crossing upstream of it."
+    },
+    "transmission_gate": {
+     "gate_id": "GATE_REGIONAL_FUEL_PASSTHROUGH",
+     "kind": "TRANSMISSION_GATE",
+     "controls": "how much of a change in the regional rack price reaches what a local operator pays per delivery",
+     "boundary": "the study area",
+     "parameter": "MATERIAL_PASSTHROUGH_NNM / TRUCK_PER_MILE_COST",
+     "evidence_state": "UNKNOWN",
+     "why": "The model registers the parameter because it needs it and holds no series for it. It controls the crossing; it is not a quantity anyone faces.",
+     "is_not": "a hinge. Nobody faces this quantity as a cost or a price; it governs how much of something upstream arrives."
+    },
+    "alternative_path": "a consolidator pooling orders raises drops per route and lowers cost per stop without any change in the fuel price",
+    "falsification": "delivered cost per stop moving independently of the regional rack price over several periods",
+    "direction_only": true,
+    "note": "PADD III includes New Mexico and is not New Mexico. Reading a PADD price as a New Mexico price is the substitution 10I attack 16 withdrew."
+   }
+  },
+  "construction_inputs": {
+   "prototype": "CONSTRUCTION_INPUTS",
+   "system_name": "import prices to a built square foot",
+   "mechanism_kind": "PRICE",
+   "is_non_price": false,
+   "chosen_because": "Measured against the alternatives. Of the candidates with any registered path, this had an observed link and a named downstream hinge; a federal-spending system had neither and is refused rather than built.",
+   "path": {
+    "path_id": "PTH_IMPORT_PRICES_TO_BUILT_SQFT",
+    "question": "When import prices move, what does a builder here pay?",
+    "origin_variable": "IMPORT_PRICE_INDEX",
+    "origin_boundary": "world",
+    "destination_boundary": "the eight study counties",
+    "mechanism_kind": "PRICE",
+    "edges": [
+     {
+      "from": "IMPORT_PRICE_INDEX",
+      "to": "CONSTR_INPUTS_PPI",
+      "from_name": "US import price index, all commodities",
+      "to_name": "PPI: inputs to new residential construction (goods)",
+      "relationship": "WR004",
+      "edge_class": "CANDIDATE_MECHANISTIC",
+      "magnitude": "MAGNITUDE_UNKNOWN",
+      "gate": false,
+      "geography": "US",
+      "evidence_state": "OBSERVED_BOTH_ENDS"
+     }
+    ],
+    "edge_count": 1,
+    "intermediate_geographies": [
+     "US"
+    ],
+    "intermediate_actors": [
+     "AC_FIRM",
+     "AC_OPERATOR"
+    ],
+    "first_unsupported_edge": "CONSTR_INPUTS_PPI -> MATERIAL_PASSTHROUGH_NNM",
+    "evidence_stops_because": "OBSERVED_ONE_END",
+    "reaches_destination_boundary": false,
+    "decomposition": [
+     {
+      "term": "EXPOSURE",
+      "means": "how much the destination encounters the originating condition",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "what share of study-area materials is imported is not held"
+     },
+     {
+      "term": "PASS_THROUGH",
+      "means": "how much of the upstream change reaches the downstream price or quantity",
+      "state": "UNKNOWN",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "MATERIAL_PASSTHROUGH_NNM, the gate itself"
+     },
+     {
+      "term": "LAG",
+      "means": "how long it takes",
+      "state": "NAMED_NOT_MEASURED",
+      "value": null,
+      "unit": null,
+      "evidence": null,
+      "why": "registered between national indices, not into the study area"
+     }
+    ],
+    "decomposition_rule": "These terms are not multiplied here and no transmission coefficient is produced. Each is a separate claim with its own evidence, and where three of seven are UNKNOWN their product is not a number with a meaning.",
+    "terms_observed": 0,
+    "terms_unknown": 3,
+    "hinge": {
+     "economic_quantity": "the cost of delivering one finished square foot",
+     "unit": "USD per finished square foot",
+     "geography": "a project in the study area",
+     "time": "per project",
+     "upstream_causes": [
+      "materials prices",
+      "trade labour availability",
+      "construction credit terms"
+     ],
+     "downstream_consequences": [
+      "whether a project pencils",
+      "what rent or price it must achieve",
+      "whether anything gets built at all"
+     ],
+     "evidence_state": "NAMED_NOT_MEASURED",
+     "why_not_measured": "US_CONSTRUCTION_COST is registered nationally; the study-area figure is not held.",
+     "hinge_id": "HNG_CONSTRUCTION_COST_PER_FT2",
+     "kind": "HINGE",
+     "is_not": "a transmission gate. This is a quantity someone here faces; a gate is a property of the crossing upstream of it."
+    },
+    "transmission_gate": {
+     "gate_id": "GATE_MATERIAL_PASSTHROUGH",
+     "kind": "TRANSMISSION_GATE",
+     "controls": "how much of a national materials price change reaches what a builder in the study area pays after freight, yard margin and timing",
+     "boundary": "the eight study counties",
+     "parameter": "MATERIAL_PASSTHROUGH_NNM",
+     "evidence_state": "UNKNOWN",
+     "why": "world_model records its source as 'no published series (bid sheets, project budgets)'. It is a crossing parameter and closing it is fieldwork.",
+     "is_not": "a hinge. Nobody faces this quantity as a cost or a price; it governs how much of something upstream arrives."
+    },
+    "alternative_path": "a change in trade labour availability moving cost per square foot with no materials price change at all",
+    "falsification": "study-area bid costs moving against the national index",
+    "direction_only": true,
+    "note": null
+   }
+  }
+ },
+ "decomposition_terms": {
+  "EXPOSURE": "how much the destination encounters the originating condition",
+  "SENSITIVITY": "how strongly the exposed actor or quantity responds to it",
+  "PASS_THROUGH": "how much of the upstream change reaches the downstream price or quantity",
+  "BUFFER": "what absorbs or delays the effect",
+  "AMPLIFIER": "what increases it",
+  "SUBSTITUTE": "what allows avoidance or switching",
+  "LAG": "how long it takes"
+ },
+ "no_coefficient": "These terms are not multiplied here and no transmission coefficient is produced. Each is a separate claim with its own evidence, and where three of seven are UNKNOWN their product is not a number with a meaning.",
+ "gate_vs_hinge": {
+  "TRANSMISSION_GATE": "a parameter or relationship that controls WHETHER, and how much of, an upstream change crosses a boundary. It is a property of the crossing.",
+  "HINGE": "an economically consequential shared quantity where world, place and development reasoning meet. It is a property of the local economy, and it has to be a quantity somebody here actually faces.",
+  "they_can_coincide": "Regional fuel pass-through is a gate. Delivered cost per stop is the hinge downstream of it. The gate decides how much arrives; the hinge is the thing whose level changes a local decision."
+ },
+ "flow_kinds": [
+  "WAGES",
+  "PROCUREMENT",
+  "PROFITS",
+  "OWNERSHIP",
+  "TAX_REVENUE",
+  "DEPOSITS",
+  "KNOWLEDGE",
+  "MATERIALS",
+  "ENERGY",
+  "SPENDING"
+ ],
+ "retention_kinds": {
+  "RETENTION": "the flow stays inside the boundary and is available for another round",
+  "LEAKAGE": "the flow leaves the boundary",
+  "CAPTURE": "a named actor receives a portion of the value. Capture is about WHO, retention is about WHERE, and the two are routinely confused."
+ },
+ "retention": [
+  {
+   "retention_id": "RET_LA_WAGES_LEAK",
+   "kind": "LEAKAGE",
+   "means": "the flow leaves the boundary",
+   "flow": "WAGES",
+   "origin": "35028",
+   "destination": "35049",
+   "boundary": "BND_ADMIN_35028",
+   "amount": 4436,
+   "denominator": {
+    "what": "all 18,206 jobs located in Los Alamos County",
+    "value": 18206
+   },
+   "share_percent": 24.4,
+   "period": "2022",
+   "actor": null,
+   "evidence": "LODES 2022 county pairs",
+   "note": "Counted in JOBS, not dollars. Earnings by origin county are not held at this resolution, so this is the share of the county's jobs whose wages are earned by someone who lives elsewhere \u2014 not the share of its wage bill. Those are different numbers and only one of them is observed.",
+   "boundary_relative": "The same flow is retained under a wider boundary and leaked under a narrower one. Neither reading is wrong and neither travels without its boundary."
+  },
+  {
+   "retention_id": "RET_REGION_WAGES_STAY",
+   "kind": "RETENTION",
+   "means": "the flow stays inside the boundary and is available for another round",
+   "flow": "WAGES",
+   "origin": "35028",
+   "destination": "35049",
+   "boundary": "BND_LABOUR_35028",
+   "amount": 15392,
+   "denominator": {
+    "what": "all 18,206 jobs located in Los Alamos County",
+    "value": 18206
+   },
+   "share_percent": 84.5,
+   "period": "2022",
+   "actor": null,
+   "evidence": "LODES 2022 county pairs",
+   "note": "The same flow. Under the labour region it does not leave, because the county the worker lives in is inside the boundary.",
+   "boundary_relative": "The same flow is retained under a wider boundary and leaked under a narrower one. Neither reading is wrong and neither travels without its boundary."
+  }
+ ],
+ "temporal_kinds": {
+  "TRANSIENT": "the effect occurs and dissipates; nothing remains",
+  "RETAINED": "some capacity or value remains, and it does not change what comes next",
+  "COMPOUNDING": "the change alters future capacity so that a subsequent action is cheaper, faster or more locally retained. This is the claim that requires the most evidence and is made the least often.",
+  "DECAY": "the capability weakens over time",
+  "LOCK_IN": "the change constrains future options",
+  "DISPLACEMENT": "the apparent gain replaced another local activity rather than adding capability"
+ },
+ "attribution_states": {
+  "OBSERVED_CHANGE": "something changed after the intervention",
+  "ATTRIBUTABLE_CHANGE": "the change can be attributed to it, because a counterfactual exists",
+  "ATTRIBUTION_UNKNOWN": "a change was observed and nothing distinguishes it from what would have happened anyway"
+ },
+ "propagation": {
+  "propagation_id": "PRP_LOCAL_PROCESSING_CAPACITY",
+  "intervention": "processing capacity is added inside the boundary",
+  "initial_variable_moved": "local throughput capacity",
+  "boundary": "BND_LABOUR_35028",
+  "is_hypothetical": true,
+  "fixture_label": "DESIGN FIXTURE \u2014 NOT EVIDENCE",
+  "effects": [
+   {
+    "order": 1,
+    "effect": "throughput capacity exists inside the boundary that did not before",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "immediate",
+    "evidence": "none. This is a design fixture.",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 1,
+    "effect": "a producer who could not previously reach a buyer at this scale can",
+    "actors": [
+     "AC_OPERATOR",
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "one season",
+    "evidence": null,
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 2,
+    "effect": "procurement that was previously sourced outside the boundary is sourced inside it",
+    "actors": [
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "one to two seasons",
+    "evidence": null,
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 2,
+    "effect": "utilisation of the new capacity, which may be low",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "TRANSIENT",
+    "temporal_means": "the effect occurs and dissipates; nothing remains",
+    "state": "EXPECTED",
+    "lag": "one season",
+    "evidence": "utilisation is the term most often assumed and least often measured; zero propagation lives here",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 3,
+    "effect": "the fixed cost of the NEXT processing venture is lower because the cold chain, the licence pathway and the buyer relationships already exist",
+    "actors": [
+     "AC_OPERATOR",
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "COMPOUNDING",
+    "temporal_means": "the change alters future capacity so that a subsequent action is cheaper, faster or more locally retained. This is the claim that requires the most evidence and is made the least often.",
+    "state": "EXPECTED",
+    "lag": "years",
+    "evidence": null,
+    "why_compounding": "A later venture does not have to build the cold chain or establish the licence pathway. That is a specific, nameable reduction in the cost of a specific later action, which is what separates compounding from an effect that merely lasts.",
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 3,
+    "effect": "an existing local processor loses the volume the new capacity takes",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "DISPLACEMENT",
+    "temporal_means": "the apparent gain replaced another local activity rather than adding capability",
+    "state": "EXPECTED",
+    "lag": "one to two seasons",
+    "evidence": "named deliberately. A gain that replaces another local activity is not added capability, and an evaluation that counted only the new facility would not see this.",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   }
+  ],
+  "orders": {
+   "1": [
+    {
+     "order": 1,
+     "effect": "throughput capacity exists inside the boundary that did not before",
+     "actors": [
+      "AC_OPERATOR"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "RETAINED",
+     "temporal_means": "some capacity or value remains, and it does not change what comes next",
+     "state": "EXPECTED",
+     "lag": "immediate",
+     "evidence": "none. This is a design fixture.",
+     "why_compounding": null,
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    },
+    {
+     "order": 1,
+     "effect": "a producer who could not previously reach a buyer at this scale can",
+     "actors": [
+      "AC_OPERATOR",
+      "AC_FIRM"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "RETAINED",
+     "temporal_means": "some capacity or value remains, and it does not change what comes next",
+     "state": "EXPECTED",
+     "lag": "one season",
+     "evidence": null,
+     "why_compounding": null,
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    }
+   ],
+   "2": [
+    {
+     "order": 2,
+     "effect": "procurement that was previously sourced outside the boundary is sourced inside it",
+     "actors": [
+      "AC_FIRM"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "RETAINED",
+     "temporal_means": "some capacity or value remains, and it does not change what comes next",
+     "state": "EXPECTED",
+     "lag": "one to two seasons",
+     "evidence": null,
+     "why_compounding": null,
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    },
+    {
+     "order": 2,
+     "effect": "utilisation of the new capacity, which may be low",
+     "actors": [
+      "AC_OPERATOR"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "TRANSIENT",
+     "temporal_means": "the effect occurs and dissipates; nothing remains",
+     "state": "EXPECTED",
+     "lag": "one season",
+     "evidence": "utilisation is the term most often assumed and least often measured; zero propagation lives here",
+     "why_compounding": null,
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    }
+   ],
+   "3": [
+    {
+     "order": 3,
+     "effect": "the fixed cost of the NEXT processing venture is lower because the cold chain, the licence pathway and the buyer relationships already exist",
+     "actors": [
+      "AC_OPERATOR",
+      "AC_FIRM"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "COMPOUNDING",
+     "temporal_means": "the change alters future capacity so that a subsequent action is cheaper, faster or more locally retained. This is the claim that requires the most evidence and is made the least often.",
+     "state": "EXPECTED",
+     "lag": "years",
+     "evidence": null,
+     "why_compounding": "A later venture does not have to build the cold chain or establish the licence pathway. That is a specific, nameable reduction in the cost of a specific later action, which is what separates compounding from an effect that merely lasts.",
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    },
+    {
+     "order": 3,
+     "effect": "an existing local processor loses the volume the new capacity takes",
+     "actors": [
+      "AC_OPERATOR"
+     ],
+     "geography": "the study area",
+     "temporal_kind": "DISPLACEMENT",
+     "temporal_means": "the apparent gain replaced another local activity rather than adding capability",
+     "state": "EXPECTED",
+     "lag": "one to two seasons",
+     "evidence": "named deliberately. A gain that replaces another local activity is not added capability, and an evaluation that counted only the new facility would not see this.",
+     "why_compounding": null,
+     "counterfactual": null,
+     "attribution": "ATTRIBUTION_UNKNOWN"
+    }
+   ]
+  },
+  "first_order": [
+   {
+    "order": 1,
+    "effect": "throughput capacity exists inside the boundary that did not before",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "immediate",
+    "evidence": "none. This is a design fixture.",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 1,
+    "effect": "a producer who could not previously reach a buyer at this scale can",
+    "actors": [
+     "AC_OPERATOR",
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "one season",
+    "evidence": null,
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   }
+  ],
+  "second_order": [
+   {
+    "order": 2,
+    "effect": "procurement that was previously sourced outside the boundary is sourced inside it",
+    "actors": [
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "RETAINED",
+    "temporal_means": "some capacity or value remains, and it does not change what comes next",
+    "state": "EXPECTED",
+    "lag": "one to two seasons",
+    "evidence": null,
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 2,
+    "effect": "utilisation of the new capacity, which may be low",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "TRANSIENT",
+    "temporal_means": "the effect occurs and dissipates; nothing remains",
+    "state": "EXPECTED",
+    "lag": "one season",
+    "evidence": "utilisation is the term most often assumed and least often measured; zero propagation lives here",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   }
+  ],
+  "third_order": [
+   {
+    "order": 3,
+    "effect": "the fixed cost of the NEXT processing venture is lower because the cold chain, the licence pathway and the buyer relationships already exist",
+    "actors": [
+     "AC_OPERATOR",
+     "AC_FIRM"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "COMPOUNDING",
+    "temporal_means": "the change alters future capacity so that a subsequent action is cheaper, faster or more locally retained. This is the claim that requires the most evidence and is made the least often.",
+    "state": "EXPECTED",
+    "lag": "years",
+    "evidence": null,
+    "why_compounding": "A later venture does not have to build the cold chain or establish the licence pathway. That is a specific, nameable reduction in the cost of a specific later action, which is what separates compounding from an effect that merely lasts.",
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   },
+   {
+    "order": 3,
+    "effect": "an existing local processor loses the volume the new capacity takes",
+    "actors": [
+     "AC_OPERATOR"
+    ],
+    "geography": "the study area",
+    "temporal_kind": "DISPLACEMENT",
+    "temporal_means": "the apparent gain replaced another local activity rather than adding capability",
+    "state": "EXPECTED",
+    "lag": "one to two seasons",
+    "evidence": "named deliberately. A gain that replaces another local activity is not added capability, and an evaluation that counted only the new facility would not see this.",
+    "why_compounding": null,
+    "counterfactual": null,
+    "attribution": "ATTRIBUTION_UNKNOWN"
+   }
+  ],
+  "compounding_claims": 1,
+  "attributable_claims": 0,
+  "attribution": "ATTRIBUTION_UNKNOWN",
+  "retention": [
+   {
+    "retention_id": "RET_PROCUREMENT_INSIDE",
+    "kind": "RETENTION",
+    "means": "the flow stays inside the boundary and is available for another round",
+    "flow": "PROCUREMENT",
+    "origin": "a buyer inside the boundary",
+    "destination": "a producer inside the boundary",
+    "boundary": "BND_LABOUR_35028",
+    "amount": null,
+    "denominator": {
+     "what": "the buyer's total spend on this input",
+     "value": null
+    },
+    "share_percent": null,
+    "period": "per season",
+    "actor": null,
+    "evidence": "none \u2014 the denominator is named and its value is not held",
+    "note": "Named so that an evaluation knows what to measure. No amount is claimed.",
+    "boundary_relative": "The same flow is retained under a wider boundary and leaked under a narrower one. Neither reading is wrong and neither travels without its boundary."
+   }
+  ],
+  "leakage": [
+   {
+    "retention_id": "LEAK_EQUIPMENT",
+    "kind": "LEAKAGE",
+    "means": "the flow leaves the boundary",
+    "flow": "PROCUREMENT",
+    "origin": "inside the boundary",
+    "destination": "outside it",
+    "boundary": "BND_LABOUR_35028",
+    "amount": null,
+    "denominator": {
+     "what": "total capital spend on the facility",
+     "value": null
+    },
+    "share_percent": null,
+    "period": "one-off",
+    "actor": null,
+    "evidence": "none held",
+    "note": "Equipment is almost certainly bought outside the boundary. A retention claim that counted only operating spending would miss it.",
+    "boundary_relative": "The same flow is retained under a wider boundary and leaked under a narrower one. Neither reading is wrong and neither travels without its boundary."
+   }
+  ],
+  "termination_condition": "utilisation stops rising and procurement stops shifting",
+  "measurement_plan": "utilisation, procurement by origin, and the fixed cost faced by the next venture \u2014 the third is the only one that tests the compounding claim, and it is the one nobody measures",
+  "falsification": "a later venture faces the same fixed cost as the first. That would leave an effect that persisted without compounding.",
+  "zero_propagation_is_valid": true,
+  "what_this_is_not": "an impact claim. Every effect here is EXPECTED. Nothing in this object asserts that any of it happened, and the attribution field says so for each one."
+ },
+ "discovery_steps": [
+  "ORIGIN",
+  "RELATIONSHIPS",
+  "ACTORS",
+  "CIRCUITS",
+  "GEOGRAPHIES",
+  "BOUNDARY",
+  "TRANSMISSION",
+  "LOCAL_LANDING",
+  "PROPAGATION",
+  "STOP"
+ ],
+ "discovery_examples": {
+  "top_down_energy": {
+   "question": "what does a crude price reach?",
+   "direction": "TOP_DOWN",
+   "steps": [
+    {
+     "step": "ORIGIN",
+     "result": {
+      "variable": "BRENT",
+      "geography": "global benchmark (Europe)",
+      "observed": true
+     },
+     "note": null
+    },
+    {
+     "step": "RELATIONSHIPS",
+     "result": [
+      "WR003",
+      "WR010"
+     ],
+     "note": "registered edges leaving the origin"
+    },
+    {
+     "step": "ACTORS",
+     "result": null,
+     "note": "actors whose decisions touch an edge on this path"
+    },
+    {
+     "step": "CIRCUITS",
+     "result": null,
+     "note": null
+    },
+    {
+     "step": "GEOGRAPHIES",
+     "result": [
+      "US average",
+      "PADD III (includes New Mexico)"
+     ],
+     "note": "the geographies the walk actually passes through"
+    },
+    {
+     "step": "BOUNDARY",
+     "result": "PADD III (includes New Mexico)",
+     "note": "the finest geography the walk reaches, which is where a boundary could usefully be drawn \u2014 not chosen in advance"
+    },
+    {
+     "step": "TRANSMISSION",
+     "result": {
+      "links_observed": 2,
+      "reaches": "DIESEL_PADD3"
+     },
+     "note": null
+    },
+    {
+     "step": "LOCAL_LANDING",
+     "result": "DIESEL_PADD3",
+     "note": "the last variable the evidence supports"
+    },
+    {
+     "step": "PROPAGATION",
+     "result": null,
+     "note": "not evaluated: propagation requires an intervention inside a boundary, and this walk has not entered one"
+    },
+    {
+     "step": "STOP",
+     "result": "DIESEL_US -> TRUCK_PER_MILE_COST",
+     "note": "OBSERVED_ONE_END"
+    }
+   ],
+   "system_identified": true,
+   "system": {
+    "reaches": "DIESEL_PADD3",
+    "geography": "PADD III (includes New Mexico)",
+    "links": 2
+   },
+   "stops_at": "DIESEL_US -> TRUCK_PER_MILE_COST"
+  },
+  "bottom_up_santa_fe": {
+   "question": "what system produces conditions here?",
+   "direction": "BOTTOM_UP",
+   "steps": [
+    {
+     "step": "ORIGIN",
+     "result": {
+      "geography": "35049",
+      "name": "Santa Fe"
+     },
+     "note": null
+    },
+    {
+     "step": "RELATIONSHIPS",
+     "result": {
+      "residents working elsewhere": 32,
+      "jobs filled from elsewhere": 490
+     },
+     "note": null
+    },
+    {
+     "step": "ACTORS",
+     "result": [
+      "AC_WORKER",
+      "AC_FIRM"
+     ],
+     "note": null
+    },
+    {
+     "step": "CIRCUITS",
+     "result": [
+      "CIR_LABOR",
+      "CIR_HOUSEHOLD"
+     ],
+     "note": null
+    },
+    {
+     "step": "GEOGRAPHIES",
+     "result": [
+      "Bernalillo",
+      "Mora",
+      "Rio Arriba",
+      "San Miguel",
+      "Santa Fe"
+     ],
+     "note": "discovered, not specified"
+    },
+    {
+     "step": "BOUNDARY",
+     "result": "Santa Fe labour region",
+     "note": null
+    },
+    {
+     "step": "TRANSMISSION",
+     "result": {
+      "into this county": 26065,
+      "out of this county": 21970
+     },
+     "note": null
+    },
+    {
+     "step": "LOCAL_LANDING",
+     "result": "household earned income",
+     "note": "named; earnings by origin county are not held"
+    },
+    {
+     "step": "PROPAGATION",
+     "result": null,
+     "note": "requires an intervention; none is posited here"
+    },
+    {
+     "step": "STOP",
+     "result": "household earned income by origin county",
+     "note": "the next step needs earnings data this table does not carry"
+    }
+   ],
+   "system_identified": true,
+   "system": {
+    "region": [
+     "Bernalillo",
+     "Mora",
+     "Rio Arriba",
+     "San Miguel",
+     "Santa Fe"
+    ],
+    "size": 5
+   },
+   "stops_at": "household earned income by origin county"
+  },
+  "refused_federal": {
+   "question": "does federal spending reach a place?",
+   "steps": [
+    {
+     "step": "ORIGIN",
+     "result": {
+      "variable": "NM_FEDERAL_OUTLAYS",
+      "geography": "New Mexico",
+      "observed": false
+     },
+     "note": null
+    },
+    {
+     "step": "RELATIONSHIPS",
+     "result": [],
+     "note": "registered edges leaving the origin"
+    }
+   ],
+   "system_identified": false,
+   "result": "NO FUNCTIONAL SYSTEM IDENTIFIED",
+   "why": "NM_FEDERAL_OUTLAYS has no outbound registered relationship. Nothing can carry it anywhere.",
+   "what_this_is_not": "a statement that no system exists. It is a statement that the relationships this model registers do not identify one."
+  }
+ },
+ "top_down_vs_bottom_up": {
+  "top_down": {
+   "question": "what does BRENT reach?",
+   "direction": "TOP_DOWN",
+   "steps": [
+    {
+     "step": "ORIGIN",
+     "result": {
+      "variable": "BRENT",
+      "geography": "global benchmark (Europe)",
+      "observed": true
+     },
+     "note": null
+    },
+    {
+     "step": "RELATIONSHIPS",
+     "result": [
+      "WR003",
+      "WR010"
+     ],
+     "note": "registered edges leaving the origin"
+    },
+    {
+     "step": "ACTORS",
+     "result": null,
+     "note": "actors whose decisions touch an edge on this path"
+    },
+    {
+     "step": "CIRCUITS",
+     "result": null,
+     "note": null
+    },
+    {
+     "step": "GEOGRAPHIES",
+     "result": [
+      "US average",
+      "PADD III (includes New Mexico)"
+     ],
+     "note": "the geographies the walk actually passes through"
+    },
+    {
+     "step": "BOUNDARY",
+     "result": "PADD III (includes New Mexico)",
+     "note": "the finest geography the walk reaches, which is where a boundary could usefully be drawn \u2014 not chosen in advance"
+    },
+    {
+     "step": "TRANSMISSION",
+     "result": {
+      "links_observed": 2,
+      "reaches": "DIESEL_PADD3"
+     },
+     "note": null
+    },
+    {
+     "step": "LOCAL_LANDING",
+     "result": "DIESEL_PADD3",
+     "note": "the last variable the evidence supports"
+    },
+    {
+     "step": "PROPAGATION",
+     "result": null,
+     "note": "not evaluated: propagation requires an intervention inside a boundary, and this walk has not entered one"
+    },
+    {
+     "step": "STOP",
+     "result": "DIESEL_US -> TRUCK_PER_MILE_COST",
+     "note": "OBSERVED_ONE_END"
+    }
+   ],
+   "system_identified": true,
+   "system": {
+    "reaches": "DIESEL_PADD3",
+    "geography": "PADD III (includes New Mexico)",
+    "links": 2
+   },
+   "stops_at": "DIESEL_US -> TRUCK_PER_MILE_COST"
+  },
+  "bottom_up": {
+   "question": "what system produces conditions in Santa Fe?",
+   "direction": "BOTTOM_UP",
+   "steps": [
+    {
+     "step": "ORIGIN",
+     "result": {
+      "geography": "35049",
+      "name": "Santa Fe"
+     },
+     "note": null
+    },
+    {
+     "step": "RELATIONSHIPS",
+     "result": {
+      "residents working elsewhere": 32,
+      "jobs filled from elsewhere": 490
+     },
+     "note": null
+    },
+    {
+     "step": "ACTORS",
+     "result": [
+      "AC_WORKER",
+      "AC_FIRM"
+     ],
+     "note": null
+    },
+    {
+     "step": "CIRCUITS",
+     "result": [
+      "CIR_LABOR",
+      "CIR_HOUSEHOLD"
+     ],
+     "note": null
+    },
+    {
+     "step": "GEOGRAPHIES",
+     "result": [
+      "Bernalillo",
+      "Mora",
+      "Rio Arriba",
+      "San Miguel",
+      "Santa Fe"
+     ],
+     "note": "discovered, not specified"
+    },
+    {
+     "step": "BOUNDARY",
+     "result": "Santa Fe labour region",
+     "note": null
+    },
+    {
+     "step": "TRANSMISSION",
+     "result": {
+      "into this county": 26065,
+      "out of this county": 21970
+     },
+     "note": null
+    },
+    {
+     "step": "LOCAL_LANDING",
+     "result": "household earned income",
+     "note": "named; earnings by origin county are not held"
+    },
+    {
+     "step": "PROPAGATION",
+     "result": null,
+     "note": "requires an intervention; none is posited here"
+    },
+    {
+     "step": "STOP",
+     "result": "household earned income by origin county",
+     "note": "the next step needs earnings data this table does not carry"
+    }
+   ],
+   "system_identified": true,
+   "system": {
+    "region": [
+     "Bernalillo",
+     "Mora",
+     "Rio Arriba",
+     "San Miguel",
+     "Santa Fe"
+    ],
+    "size": 5
+   },
+   "stops_at": "household earned income by origin county"
+  },
+  "top_down_reaches": "PADD III (includes New Mexico)",
+  "bottom_up_region": [
+   "Bernalillo",
+   "Mora",
+   "Rio Arriba",
+   "San Miguel",
+   "Santa Fe"
+  ],
+  "agree": false,
+  "finding": "Top-down from a world price lands on a multi-state refining region. Bottom-up from a county lands on a labour region of neighbouring counties. They do not meet, and they are not supposed to: they are different circuits. The disagreement is preserved because reconciling it would mean asserting a connection between a fuel price and a commuting pattern that nothing registers.",
+  "preserved_not_reconciled": true
+ },
+ "overlapping": [
+  {
+   "geography": "35049",
+   "name": "Santa Fe",
+   "declared_boundaries_containing_it": [
+    {
+     "boundary_id": "BND_ADMIN_35049",
+     "name": "Santa Fe County",
+     "type": "ADMINISTRATIVE",
+     "purpose": "the jurisdiction",
+     "members": 1,
+     "why_meaningful": "Household income, housing and local taxation are administered at this boundary even where the economy that produces the income is not inside it."
+    },
+    {
+     "boundary_id": "BND_LABOUR_35028",
+     "name": "The Los Alamos labour region",
+     "type": "LABOR",
+     "purpose": "the set of counties that directly exchange a material share of workers with Los Alamos",
+     "members": 4,
+     "why_meaningful": "Where someone works and where they live are different places here, and the counties that supply that workforce experience a change in Los Alamos employment directly, through their own residents' income. The boundary is drawn by that relationship rather than around it."
+    }
+   ],
+   "functional_systems": [
+    {
+     "system": "LABOUR",
+     "evidence": "LODES 2022",
+     "members": [
+      "Bernalillo",
+      "Mora",
+      "Rio Arriba",
+      "San Miguel",
+      "Santa Fe"
+     ],
+     "question_it_answers": "where do the people who live or work here come from and go?"
+    },
+    {
+     "system": "ENERGY",
+     "evidence": "registered path from BRENT",
+     "members": [
+      "PADD III (includes New Mexico)"
+     ],
+     "question_it_answers": "what does a change in crude cost here?",
+     "caveat": "this geography is multi-state and includes New Mexico without being it"
+    }
+   ],
+   "system_count": 2,
+   "participates_in_multiple": true,
+   "principle": "REGION FOR WHAT? There is no single region this place is in. The relevant region is a property of the question, and the labour answer and the energy answer are different geographies that do not nest."
+  },
+  {
+   "geography": "35028",
+   "name": "Los Alamos",
+   "declared_boundaries_containing_it": [
+    {
+     "boundary_id": "BND_ADMIN_35028",
+     "name": "Los Alamos County",
+     "type": "ADMINISTRATIVE",
+     "purpose": "the jurisdiction, as a publisher of statistics defines it",
+     "members": 1,
+     "why_meaningful": "It is the unit almost every published statistic uses, which makes it the unit a reader will assume. That is a reason to state it explicitly, not a reason to treat it as an economy."
+    },
+    {
+     "boundary_id": "BND_LABOUR_35028",
+     "name": "The Los Alamos labour region",
+     "type": "LABOR",
+     "purpose": "the set of counties that directly exchange a material share of workers with Los Alamos",
+     "members": 4,
+     "why_meaningful": "Where someone works and where they live are different places here, and the counties that supply that workforce experience a change in Los Alamos employment directly, through their own residents' income. The boundary is drawn by that relationship rather than around it."
+    }
+   ],
+   "functional_systems": [
+    {
+     "system": "LABOUR",
+     "evidence": "LODES 2022",
+     "members": [
+      "Bernalillo",
+      "Los Alamos",
+      "Rio Arriba",
+      "Santa Fe"
+     ],
+     "question_it_answers": "where do the people who live or work here come from and go?"
+    },
+    {
+     "system": "ENERGY",
+     "evidence": "registered path from BRENT",
+     "members": [
+      "PADD III (includes New Mexico)"
+     ],
+     "question_it_answers": "what does a change in crude cost here?",
+     "caveat": "this geography is multi-state and includes New Mexico without being it"
+    }
+   ],
+   "system_count": 2,
+   "participates_in_multiple": true,
+   "principle": "REGION FOR WHAT? There is no single region this place is in. The relevant region is a property of the question, and the labour answer and the energy answer are different geographies that do not nest."
+  },
+  {
+   "geography": "35039",
+   "name": "Rio Arriba",
+   "declared_boundaries_containing_it": [
+    {
+     "boundary_id": "BND_LABOUR_35028",
+     "name": "The Los Alamos labour region",
+     "type": "LABOR",
+     "purpose": "the set of counties that directly exchange a material share of workers with Los Alamos",
+     "members": 4,
+     "why_meaningful": "Where someone works and where they live are different places here, and the counties that supply that workforce experience a change in Los Alamos employment directly, through their own residents' income. The boundary is drawn by that relationship rather than around it."
+    }
+   ],
+   "functional_systems": [
+    {
+     "system": "LABOUR",
+     "evidence": "LODES 2022",
+     "members": [
+      "Bernalillo",
+      "Los Alamos",
+      "Rio Arriba",
+      "Santa Fe"
+     ],
+     "question_it_answers": "where do the people who live or work here come from and go?"
+    },
+    {
+     "system": "ENERGY",
+     "evidence": "registered path from BRENT",
+     "members": [
+      "PADD III (includes New Mexico)"
+     ],
+     "question_it_answers": "what does a change in crude cost here?",
+     "caveat": "this geography is multi-state and includes New Mexico without being it"
+    }
+   ],
+   "system_count": 2,
+   "participates_in_multiple": true,
+   "principle": "REGION FOR WHAT? There is no single region this place is in. The relevant region is a property of the question, and the labour answer and the energy answer are different geographies that do not nest."
+  }
+ ],
+ "self_contained": [
+  {
+   "fips": "35045",
+   "name": "San Juan",
+   "working_residents_observed": 39100,
+   "work_in_county": 32505,
+   "share_staying": 83.1,
+   "largest_outbound": "Bernalillo",
+   "largest_outbound_share": 7.6,
+   "region_size": 1,
+   "forms_a_region": false,
+   "finding": "San Juan keeps 83.1% of its working residents inside the county and its largest single outbound edge is 7.6% of them. At a 10.0% threshold it forms no labour region.",
+   "what_this_is_not": "a statement that it has no economy. It is a statement that its labour market is largely internal, which is itself a finding about how a change elsewhere would reach it."
+  },
+  {
+   "fips": "35025",
+   "name": "Lea",
+   "working_residents_observed": 26200,
+   "work_in_county": 19763,
+   "share_staying": 75.4,
+   "largest_outbound": "Eddy",
+   "largest_outbound_share": 7.9,
+   "region_size": 1,
+   "forms_a_region": false,
+   "finding": "Lea keeps 75.4% of its working residents inside the county and its largest single outbound edge is 7.9% of them. At a 10.0% threshold it forms no labour region.",
+   "what_this_is_not": "a statement that it has no economy. It is a statement that its labour market is largely internal, which is itself a finding about how a change elsewhere would reach it."
+  },
+  {
+   "fips": "35028",
+   "name": "Los Alamos",
+   "working_residents_observed": 9969,
+   "work_in_county": 7715,
+   "share_staying": 77.4,
+   "largest_outbound": "Bernalillo",
+   "largest_outbound_share": 10.4,
+   "region_size": 4,
+   "forms_a_region": true,
+   "finding": "Los Alamos keeps 77.4% of its working residents inside the county and its largest single outbound edge is 10.4% of them. At a 10.0% threshold it forms no labour region.",
+   "what_this_is_not": "a statement that it has no economy. It is a statement that its labour market is largely internal, which is itself a finding about how a change elsewhere would reach it."
+  }
+ ],
+ "adversarial": [
+  {
+   "n": 1,
+   "attack": "These 'regions' are administrative boundaries with a new label.",
+   "verdict": "SURVIVED",
+   "finding": "No county was assigned to any region by hand. Each is the set the commuting relationships reached from a seed. The Do\u00f1a Ana region contains ['Do\u00f1a Ana', 'El Paso, TX', 'Hidalgo', 'Luna', 'Otero', 'Sierra'], which includes a Texas county and excludes most of New Mexico; the Los Alamos region contains 4 counties. Neither is a jurisdiction."
+  },
+  {
+   "n": 2,
+   "attack": "Geography was chosen before the economic relationship.",
+   "verdict": "SURVIVED",
+   "finding": "Both labour regions and the energy geography carry a provenance field. The energy one is the clearest: PADD III was not selected, it is where the registered walk landed, and no step of the procedure names it in advance."
+  },
+  {
+   "n": 3,
+   "attack": "The paths skip intermediate actors.",
+   "verdict": "REVISED",
+   "finding": "The first version of the path object carried only variables. It now carries intermediate_actors and each prototype names them, but this is honestly thin: the energy path names two actor KINDS and the model observes no decision either of them takes. actors.yaml refuses that inference by construction, so the actors are present and unobserved."
+  },
+  {
+   "n": 4,
+   "attack": "The paths skip intermediate geographies.",
+   "verdict": "SURVIVED",
+   "finding": "The energy path reports its intermediate geographies and the decisive one is PADD III (includes New Mexico), which is reported as multi-state rather than collapsed into New Mexico."
+  },
+  {
+   "n": 5,
+   "attack": "A national variable is being substituted for local incidence.",
+   "verdict": "SURVIVED",
+   "finding": "No prototype claims a local level from a national series. The energy path is marked direction_only because PASS_THROUGH is UNKNOWN, and the construction path stops at its gate."
+  },
+  {
+   "n": 6,
+   "attack": "A multi-state observation is being called New Mexico.",
+   "verdict": "SURVIVED",
+   "finding": "PADD III is labelled 'includes New Mexico' everywhere it appears, and the energy prototype's note names this as the substitution 10I attack 16 withdrew."
+  },
+  {
+   "n": 7,
+   "attack": "Flow volume is being confused with dependence.",
+   "verdict": "SURVIVED",
+   "finding": "The labour prototype reports both against named denominators and they disagree in the way that matters: Santa Fe supplies 24.4% of Los Alamos's jobs but that is 7.5% of its own working residents, while Rio Arriba supplies 8.7% and that is 16.5% of its own. By volume the answer is Santa Fe; by dependence it is Rio Arriba."
+  },
+  {
+   "n": 8,
+   "attack": "Dependence is being confused with centrality.",
+   "verdict": "SURVIVED",
+   "finding": "They are separate functions with separate denominators. centrality() returns a COUNT of counterparties above a stated threshold and says in its own output that it is not a weighted score."
+  },
+  {
+   "n": 9,
+   "attack": "Transmission is being called propagation.",
+   "verdict": "SURVIVED",
+   "finding": "The only propagation object in this phase follows an intervention inside a declared boundary, which is the RDM sense PIERCE-07 retained. Every world-to-place object is a transmission path."
+  },
+  {
+   "n": 10,
+   "attack": "Propagation is being called transmission.",
+   "verdict": "SURVIVED",
+   "finding": "classify() returns INTERNAL rather than PROPAGATION for an event with both ends inside a boundary, precisely so that movement inside a system is not promoted to a post-intervention claim by accident. INTERNAL says it is eligible to be read as propagation after an intervention and with a counterfactual."
+  },
+  {
+   "n": 11,
+   "attack": "The classification would change under another boundary.",
+   "verdict": "SURVIVED",
+   "finding": "That is the design, and it is Proof 1. One event classifies four ways across four declared boundaries and is stored once."
+  },
+  {
+   "n": 12,
+   "attack": "Retention is defined without a flow.",
+   "verdict": "SURVIVED",
+   "finding": "retention() refuses without a flow from a closed vocabulary, and refuses without a denominator and a boundary."
+  },
+  {
+   "n": 13,
+   "attack": "Leakage is defined without a denominator.",
+   "verdict": "REVISED",
+   "finding": "This attack found a real defect. The first version of the region discovery computed 'share of the sender's working residents' for every county in the table. For an out-of-state county this table observes only the residents who work in New Mexico \u2014 a median of three \u2014 so the share was ~100% by construction and the discovered region contained 1,776 out-of-state counties. residents_denominator() now returns None where the denominator is invalid, and the valid alternative is the receiving county's own job count. The 43,638 jobs supplied from outside New Mexico are still counted, against a denominator that exists."
+  },
+  {
+   "n": 14,
+   "attack": "Capture is being confused with retention.",
+   "verdict": "SURVIVED",
+   "finding": "They are separate kinds and capture is refused without an actor, with the refusal message saying it is otherwise a retention claim wearing a different word. No capture claim is made in this phase: no actor-level evidence exists."
+  },
+  {
+   "n": 15,
+   "attack": "Pass-through is assumed rather than measured.",
+   "verdict": "SURVIVED",
+   "finding": "PASS_THROUGH is UNKNOWN in both price prototypes and term() refuses to record OBSERVED or ESTIMATED without a value. The energy path reports 1 observed term of seven."
+  },
+  {
+   "n": 16,
+   "attack": "Direction is being confused with magnitude.",
+   "verdict": "SURVIVED",
+   "finding": "Each path carries direction_only, which is True wherever PASS_THROUGH is not observed. Both price prototypes are direction_only."
+  },
+  {
+   "n": 17,
+   "attack": "A price path is standing in for a quantity or income path.",
+   "verdict": "SURVIVED",
+   "finding": "The labour prototype is explicitly non-price: what crosses is work and the income attached to it, and its hinge is household earned income."
+  },
+  {
+   "n": 18,
+   "attack": "A functional region is inferred from one edge.",
+   "verdict": "WITHDRAWN",
+   "finding": "The attack was right about one of them and this phase withdraws the claim. Testing whether a discovered set's members connect to EACH OTHER and not only to the seed: the Los Alamos set has 5 edges among its 3 non-seed members and is a CONNECTED_REGION. The Do\u00f1a Ana set has 0. Every one of its members connects to Do\u00f1a Ana and to no other member, so a change in Hidalgo reaches the hub and stops. By this phase's own definition \u2014 sufficiently connected that a change can materially reach the others \u2014 it is a STAR and NOT a functional region. The cross-state relationship with El Paso survives as a bilateral labour relationship, which is what the evidence actually supports."
+  },
+  {
+   "n": 19,
+   "attack": "Overlapping regions are being collapsed.",
+   "verdict": "SURVIVED",
+   "finding": "systems_for() returns 2 systems for Santa Fe with different, non-nesting geographies, and Santa Fe's own labour region is not the same set as the Los Alamos labour region it belongs to."
+  },
+  {
+   "n": 20,
+   "attack": "A network is being forced into a polygon.",
+   "verdict": "SURVIVED",
+   "finding": "No polygon is produced anywhere in this phase. A region is a SET of county codes plus the edges that put them there, and the edges are reported."
+  },
+  {
+   "n": 21,
+   "attack": "Propagation is assumed positive.",
+   "verdict": "SURVIVED",
+   "finding": "The prototype contains a DISPLACEMENT effect \u2014 an existing processor losing the volume the new capacity takes \u2014 and a TRANSIENT utilisation effect whose note says zero propagation lives there."
+  },
+  {
+   "n": 22,
+   "attack": "Persistence is being called compounding.",
+   "verdict": "SURVIVED",
+   "finding": "effect() refuses COMPOUNDING unless it names the later action that becomes cheaper. Of 6 effects, 1 is compounding and the rest are retained, transient or displacement."
+  },
+  {
+   "n": 23,
+   "attack": "Correlation after an intervention is being called attribution.",
+   "verdict": "SURVIVED",
+   "finding": "Every effect carries an attribution field derived from whether a counterfactual exists. None does, so the prototype's attribution is ATTRIBUTION_UNKNOWN and the object says in its own text that nothing in it asserts that any of it happened."
+  },
+  {
+   "n": 24,
+   "attack": "An unavailable observation is actually governed.",
+   "verdict": "SURVIVED",
+   "finding": "Carried forward from 10I, which routes acequia, district, Tribal and Pueblo records to GOVERNED before any ranking can reach them. This phase adds no acquisition list of its own."
+  },
+  {
+   "n": 25,
+   "attack": "Acquisition is justified by completeness rather than information value.",
+   "verdict": "SURVIVED",
+   "finding": "This phase acquired nothing. The one new dataset it reads \u2014 county names \u2014 was already in the repository as a boundary file downloaded in an earlier phase."
+  },
+  {
+   "n": 26,
+   "attack": "Top-down traversal disagrees with bottom-up traversal.",
+   "verdict": "SURVIVED",
+   "finding": "It does, and the disagreement is the finding rather than a defect. Top-down from Brent lands on PADD III (includes New Mexico); bottom-up from Santa Fe lands on a labour region of neighbouring counties. They are different circuits and the comparison object preserves the disagreement rather than reconciling it."
+  },
+  {
+   "n": 27,
+   "attack": "The chosen boundary changes the economic interpretation.",
+   "verdict": "SURVIVED",
+   "finding": "It does, measurably. The same wage flow is 24.4% LEAKAGE under Los Alamos County and 84.5% RETENTION under the labour region, on the same denominator."
+  },
+  {
+   "n": 28,
+   "attack": "The path does not actually reach a valid hinge.",
+   "verdict": "REVISED",
+   "finding": "Each prototype names a hinge and each hinge passes the six-field requirement \u2014 but all three are NAMED_NOT_MEASURED. The path reaches a hinge in the sense that it identifies the quantity; it does not reach an observed one, and the phase should not be read as claiming otherwise."
+  },
+  {
+   "n": 29,
+   "attack": "The hinge does not change local economics.",
+   "verdict": "UNKNOWN",
+   "finding": "Not settleable here. Delivered cost per stop plausibly decides whether a small buyer is on a route at all, and nothing held measures that. The hinge carries its downstream consequences as named claims, not as evidence."
+  },
+  {
+   "n": 30,
+   "attack": "The evidence stops earlier than the prose.",
+   "verdict": "REVISED",
+   "finding": "This is the attack this phase most needed. Every path now reports first_unsupported_edge and evidence_stops_because, and the prototypes stop at DIESEL_US -> TRUCK_PER_MILE_COST and CONSTR_INPUTS_PPI -> MATERIAL_PASSTHROUGH_NNM. The labour hinge is named and unmeasured. Where the prose continues past those points it is describing what would have to be observed, not what is."
+  }
+ ],
+ "refusals": [
+  {
+   "id": "RF_NO_FEDERAL_REGION",
+   "refuses": "a federal-economy functional region for New Mexico",
+   "why": "NM_FEDERAL_OUTLAYS is registered, unobserved, and has no outbound relationship. The discovery procedure returns NO FUNCTIONAL SYSTEM IDENTIFIED. In the state most exposed to federal spending this is the most interesting system Dula could describe, and it has no path.",
+   "prevents": "a regional story assembled from the importance of the subject rather than from evidence"
+  },
+  {
+   "id": "RF_NO_TRANSMISSION_MAGNITUDE",
+   "refuses": "a pass-through magnitude on either price path",
+   "why": "PASS_THROUGH is UNKNOWN in both. The decomposition terms are not multiplied and no coefficient is produced.",
+   "prevents": "a direction being read as an elasticity"
+  },
+  {
+   "id": "RF_NO_ATTRIBUTION",
+   "refuses": "any attribution claim in the propagation prototype",
+   "why": "no counterfactual exists for any effect, so every one reads ATTRIBUTION_UNKNOWN.",
+   "prevents": "temporal sequence being read as causality"
+  },
+  {
+   "id": "RF_NO_RETENTION_WITHOUT_DENOMINATOR",
+   "refuses": "a retention, leakage or capture claim with no flow, denominator or boundary, and a capture claim with no actor",
+   "why": "retention() raises rather than returning a weaker object.",
+   "prevents": "'63% stays local', which is not a claim until it says 63% of what, inside what"
+  },
+  {
+   "id": "RF_NO_COUNTY_AS_ECONOMY",
+   "refuses": "treating a county as an economic system because statistics are published for it",
+   "why": "the administrative boundaries declared here say in their own why_meaningful field that they are observation units, and Los Alamos County's blind spot records that most of its dominant employer's workforce lives outside it.",
+   "prevents": "a county profile being mistaken for a system reading"
+  },
+  {
+   "id": "RF_NO_TRANSITIVE_REGION",
+   "refuses": "a labour region built by chaining indirect connections",
+   "why": "the commuting graph is connected, so transitive expansion returns most of New Mexico from any seed. That result would look like the discovery that the state is a labour region and would be the discovery that the graph is connected.",
+   "prevents": "the administrative unit arriving as a conclusion"
+  },
+  {
+   "id": "RF_NO_STAR_AS_REGION",
+   "refuses": "calling the Do\u00f1a Ana set a functional labour region",
+   "why": "zero edges run among its five non-seed members. It is a hub with spokes, and a change in one spoke cannot reach another through it. The cross-state relationship with El Paso County, Texas is real and is kept as a bilateral relationship.",
+   "prevents": "a set of bilateral relationships being presented as a system"
+  },
+  {
+   "id": "RF_NO_OUT_OF_STATE_RESIDENT_SHARE",
+   "refuses": "any share of an out-of-state county's working residents",
+   "why": "this table observes only the residents of those counties who work in New Mexico \u2014 a median of three per county.",
+   "prevents": "the 1,776-county region the first version of the discovery produced"
+  }
+ ],
+ "reading": {
+  "lede": "The same 4,436 jobs are an outflow from one county, an inflow to another and an internal transfer inside the labour region that contains both. Dula can now say which, because it can declare the boundary it is reasoning about \u2014 and once it can, a county stops being an economy and becomes one way of cutting one.",
+  "defining": [
+   "Of the two labour sets discovered from commuting flows, one is a connected region and one is a star that this phase refuses to call a region.",
+   "The same wage flow is 24.4% leakage or 84.5% retention depending on the boundary, on one denominator.",
+   "Santa Fe belongs to 2 systems whose geographies do not nest, so there is no single region it is in."
+  ],
+  "beats": [
+   {
+    "slot": "CURRENT_STATE",
+    "claim": "The same economic event is an outflow, an inflow and an internal transfer at the same time.",
+    "visual": "REGIONAL_BOUNDARY_RELATIVITY",
+    "says": "4,436 jobs held by Santa Fe residents at workplaces in Los Alamos read as 4 different classifications across four declared boundaries, from one stored record.",
+    "because": "Transmission, inflow, outflow and internal movement are not properties of an event. They are properties of an event relative to a boundary, and until a boundary is declared none of those words means anything.",
+    "rival": null,
+    "consequence": "Any claim that value leaves a place, or stays in it, carries a boundary whether or not it states one. This phase makes stating it compulsory.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "DEFINING_STRUCTURE",
+    "claim": "A county is not an economy, and the labour evidence says so directly.",
+    "visual": "REGIONAL_LABOUR_SYSTEM",
+    "says": "24.4% of the jobs in Los Alamos are held by Santa Fe residents and 8.7% by Rio Arriba residents. Measured the other way those edges are 7.5% and 16.5% of the sending county's own working residents.",
+    "because": "Volume and dependence have different denominators. By volume the answer is Santa Fe; by dependence it is Rio Arriba, which is more than twice as reliant on Los Alamos as Santa Fe is.",
+    "rival": "That one of the two numbers is the real one. Neither is: they answer different questions, and which matters depends on whether you are asking what would happen to Los Alamos or what would happen to Rio Arriba.",
+    "consequence": "A reading built on volume alone would have named the wrong county as the one with most at stake.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "DEPENDENCIES",
+    "claim": "The region was discovered from the relationships, not chosen in advance \u2014 and one discovered set turned out not to be a region.",
+    "visual": "REGIONAL_STRUCTURE",
+    "says": "The Los Alamos set has 5 edges among its 3 non-seed members and is a CONNECTED_REGION. The Do\u00f1a Ana set has 0: every member connects to the hub and to no other member.",
+    "because": "This phase's own definition requires that a change can reach the OTHERS. In a star it cannot \u2014 it reaches the hub and stops.",
+    "rival": "That the Do\u00f1a Ana set is a region with a dominant centre. The test does not distinguish those two readings by assertion; it counts the edges, and there are none.",
+    "consequence": "The cross-state relationship with El Paso County, Texas survives as a bilateral labour relationship, which is what the evidence supports. The six-county region does not.",
+    "unknown": "Whether the spokes are connected through something other than commuting \u2014 shared suppliers, a common buyer \u2014 is not observable here.",
+    "question": null
+   },
+   {
+    "slot": "PRESSURES",
+    "claim": "Allowing indirect connections would have produced New Mexico, and called it a discovery.",
+    "visual": null,
+    "says": "Direct connection puts 4 counties in Los Alamos's labour region. Allowing 4 rounds of indirect connection puts 23 there. The second number is not a bigger region; it is the connected component of the state's commuting graph.",
+    "because": "A transitive rule would report something close to New Mexico for every seed, which would look like the discovery that the state is a labour region and would actually be the discovery that the graph is connected.",
+    "rival": null,
+    "consequence": "The default is direct connection. The transitive result is reported beside it so the choice is visible rather than buried in a parameter.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "RELATIVE_ECONOMICS",
+    "claim": "The same wages are 24% leakage or 85% retention depending on where the line is drawn.",
+    "visual": "REGIONAL_RETENTION",
+    "says": "Measured against the same denominator \u2014 all 18,206 jobs located in Los Alamos \u2014 the wages earned by people living elsewhere are 24.4% LEAKAGE under the county boundary and 84.5% RETENTION under the labour region.",
+    "because": "Retention is a property of a flow relative to a boundary. Neither number is wrong and neither travels without saying which boundary it used.",
+    "rival": null,
+    "consequence": "A local-retention figure quoted without its boundary and its denominator is not a finding. It is two choices and an arithmetic.",
+    "unknown": "Both are counted in JOBS. Earnings by origin county are not held, so this is the share of jobs whose wages go elsewhere and not the share of the wage bill.",
+    "question": null
+   },
+   {
+    "slot": "WHAT_NEXT",
+    "claim": "There is no answer to what region a place is in without saying what economic process is being asked about.",
+    "visual": null,
+    "says": "Santa Fe participates in 2 systems whose geographies do not nest: a labour region of neighbouring counties, and an energy system whose relevant unit is PADD III (includes New Mexico). Its own labour region is also not the same set as the Los Alamos labour region it belongs to.",
+    "because": "A functional region is specific to a circuit. Labour and fuel travel through different relationships and arrive at different geographies.",
+    "rival": null,
+    "consequence": "REGION FOR WHAT is a required qualifier, not a stylistic one.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "ACTOR_RESPONSES",
+    "claim": "Walking down from the world and walking up from a place do not meet, and that is the finding.",
+    "visual": null,
+    "says": "Top-down from Brent reaches PADD III (includes New Mexico). Bottom-up from Santa Fe reaches a labour region of neighbouring counties. They share nothing.",
+    "because": "Top-down from a world price lands on a multi-state refining region. Bottom-up from a county lands on a labour region of neighbouring counties. They do not meet, and they are not supposed to: they are different circuits. The disagreement is preserved because reconciling it would mean asserting a connection between a fuel price and a commuting pattern that nothing registers.",
+    "rival": null,
+    "consequence": "Reconciling them would mean asserting a connection between a fuel price and a commuting pattern that nothing registers. The disagreement is preserved.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "WHAT_COULD_CHANGE_IT",
+    "claim": "Thirty attacks ran against this phase and two of them changed what it claims.",
+    "visual": null,
+    "says": "One found that the region discovery computed shares against a denominator that does not exist for out-of-state counties, which had produced a labour region containing 1,776 of them. The other found that a discovered set was a star rather than a region.",
+    "because": "Both were defects in method rather than in prose, and both were found by running a test rather than by rereading the text.",
+    "rival": null,
+    "consequence": "The out-of-state jobs are still counted, against the receiving county's own job total, which is a denominator this table actually supplies.",
+    "unknown": null,
+    "question": null
+   },
+   {
+    "slot": "INVESTIGATE_NEXT",
+    "claim": "What should follow an intervention can be stated; whether it did cannot.",
+    "visual": "REGIONAL_PROPAGATION",
+    "says": "The propagation prototype carries 6 expected effects across three orders, of which 1 is compounding, one is displacement and one is transient. Its attribution is ATTRIBUTION_UNKNOWN.",
+    "because": "An effect may only be called compounding if it names the later action that becomes cheaper. Persistence alone is retention, and a change after an intervention is not attributable to it without a counterfactual.",
+    "rival": null,
+    "consequence": "The one measurement that would test the compounding claim \u2014 the fixed cost faced by the next venture \u2014 is the one nobody collects.",
+    "unknown": null,
+    "question": "Which of the three named hinges is worth measuring first, given that all three require fieldwork that field/PROTOCOL.md governs?"
+   }
+  ],
+  "most_consequential_unknown": {
+   "gap": "earnings by origin county",
+   "why_it_limits": "Every retention and dependence figure here is counted in JOBS. The question people actually ask \u2014 how much income stays \u2014 needs earnings by where the worker lives, and LODES at this resolution does not carry it. A county whose residents hold many low-paid jobs elsewhere and one whose residents hold few high-paid ones look the same here.",
+   "would_resolve": "LODES earnings segments or QWI earnings by residence, neither of which is held at county-pair resolution"
+  },
+  "next_question": {
+   "question": "Is there a second circuit, other than labour, in which the same counties form a connected region?",
+   "observation_needed": "a flow table for another circuit \u2014 procurement, freight or housing \u2014 at county-pair resolution",
+   "unit": "a flow with a named denominator on both sides",
+   "geography": "county pairs",
+   "time": "repeated, so that the structure can be tested rather than snapped",
+   "who_could_provide": "no public source holds a county-pair procurement or freight table for New Mexico; the model records bid sheets and project budgets as the only route, which makes it fieldwork",
+   "what_it_would_distinguish": "whether these counties are one economy or one labour market that shares nothing else",
+   "what_decision_it_changes": "whether a regional intervention should be designed around the labour region at all",
+   "not_a_recommendation": "This states what would have to be observed. It proposes no outreach and authorises none."
+  }
+ },
+ "propagation_diagram": {
+  "id": "REGIONAL_PROPAGATION",
+  "title": "What should follow, if it follows",
+  "reading": "DESIGN FIXTURE \u2014 NOT EVIDENCE. Every node is drawn as unobserved because every effect here is expected and none has happened. Attribution is unknown for all of them.",
+  "nodes": [
+   {
+    "id": "INT",
+    "label": "processing capacity added",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "the intervention",
+    "metric": null
+   },
+   {
+    "id": "E0",
+    "label": "throughput capacity exists inside the boundary that did no",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "retained",
+    "metric": null
+   },
+   {
+    "id": "E1",
+    "label": "a producer who could not previously reach a buyer at this ",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "retained",
+    "metric": null
+   },
+   {
+    "id": "E2",
+    "label": "procurement that was previously sourced outside the bounda",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "retained",
+    "metric": null
+   },
+   {
+    "id": "E3",
+    "label": "utilisation of the new capacity, which may be low",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "transient",
+    "metric": null
+   },
+   {
+    "id": "E4",
+    "label": "the fixed cost of the NEXT processing venture is lower bec",
+    "kind": "ACTOR",
+    "state": "UNKNOWN",
+    "sub": "compounding",
+    "metric": null
+   },
+   {
+    "id": "E5",
+    "label": "an existing local processor loses the volume the new capac",
+    "kind": "PLACE",
+    "state": "UNKNOWN",
+    "sub": "displacement",
+    "metric": null
+   }
+  ],
+  "edges": [
+   {
+    "from": "INT",
+    "to": "E0",
+    "label": "order 1",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   },
+   {
+    "from": "INT",
+    "to": "E1",
+    "label": "order 1",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   },
+   {
+    "from": "E0",
+    "to": "E2",
+    "label": "order 2",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   },
+   {
+    "from": "E0",
+    "to": "E3",
+    "label": "order 2",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   },
+   {
+    "from": "E2",
+    "to": "E4",
+    "label": "order 3",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   },
+   {
+    "from": "E2",
+    "to": "E5",
+    "label": "order 3",
+    "state": "UNKNOWN",
+    "magnitude_state": "MAGNITUDE_UNKNOWN"
+   }
+  ]
+ },
+ "boundary_matrix": {
+  "rows": [
+   {
+    "id": "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS",
+    "label": "People who live in Santa Fe County hold jobs located in Lo"
+   },
+   {
+    "id": "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA",
+    "label": "People who live in El Paso County, Texas hold jobs located"
+   }
+  ],
+  "cols": [
+   {
+    "id": "BND_ADMIN_35028",
+    "label": "Los Alamos County"
+   },
+   {
+    "id": "BND_ADMIN_35049",
+    "label": "Santa Fe County"
+   },
+   {
+    "id": "BND_LABOUR_35028",
+    "label": "The Los Alamos labour region"
+   },
+   {
+    "id": "BND_LABOUR_35013",
+    "label": "The Do\u00f1a Ana commuting set"
+   }
+  ],
+  "cells": {
+   "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS|BND_ADMIN_35028": {
+    "display": "Out",
+    "direction": "FALLING"
+   },
+   "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS|BND_ADMIN_35049": {
+    "display": "In",
+    "direction": "RISING"
+   },
+   "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS|BND_LABOUR_35028": {
+    "display": "Internal",
+    "direction": "FLAT"
+   },
+   "EV_SF_RESIDENTS_WORK_IN_LOS_ALAMOS|BND_LABOUR_35013": {
+    "display": "External",
+    "direction": "FLAT"
+   },
+   "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA|BND_ADMIN_35028": {
+    "display": "External",
+    "direction": "FLAT"
+   },
+   "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA|BND_ADMIN_35049": {
+    "display": "External",
+    "direction": "FLAT"
+   },
+   "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA|BND_LABOUR_35028": {
+    "display": "External",
+    "direction": "FLAT"
+   },
+   "EV_EL_PASO_RESIDENTS_WORK_IN_DONA_ANA|BND_LABOUR_35013": {
+    "display": "Internal",
+    "direction": "FLAT"
+   }
+  }
+ }
+}

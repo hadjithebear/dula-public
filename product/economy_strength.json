@@ -1,0 +1,465 @@
+{
+ "artefact": "EC-S · SYSTEM STRENGTH, AUDITED",
+ "generated": true,
+ "rebuild": "python pipeline/ec_strength.py",
+ "formulation": "S = f(K, C, L, U, X, H)",
+ "no_score": "f is not specified: no weights, no functional form, and no evidence that the six dimensions are separable or commensurable. Six partial measurements and an unknown f do not make a seventh number, so none is computed. What is reported is which dimensions are observed, which are proxied, and which are unmeasured.",
+ "dimensions": {
+  "K": {
+   "name": "Knowledge",
+   "meaning": "cumulative productive know-how embedded in a society",
+   "indicators": [
+    {
+     "indicator": "research and development spending",
+     "state": "UNMEASURED",
+     "note": "no R&D series is held for any study county"
+    },
+    {
+     "indicator": "patents",
+     "state": "UNMEASURED",
+     "note": "no patent data is acquired"
+    },
+    {
+     "indicator": "educational attainment",
+     "state": "UNMEASURED",
+     "note": "ACS tables B19013/B25064/B25077 are held; the attainment tables (B15003) are not acquired"
+    },
+    {
+     "indicator": "research institutions",
+     "state": "OBSERVED",
+     "held": "r38_sources: Los Alamos National Laboratory FY2025 salaries by county of residence, $2.04bn, 16,487 employees",
+     "note": "the INSTITUTION is observed through its payroll and its employees' residence. What it KNOWS, and what of that diffuses into the regional economy, is not observed by a payroll."
+    },
+    {
+     "indicator": "STEM graduates",
+     "state": "UNMEASURED",
+     "note": "no completions data is acquired"
+    },
+    {
+     "indicator": "diffusion",
+     "state": "UNMEASURED",
+     "note": "R3.8 found 40.1% of laboratory salary accrues to Los Alamos residents and 50.7% to other counties. That is where money goes, not where knowledge goes."
+    },
+    {
+     "indicator": "adoption",
+     "state": "PROXY_ONLY",
+     "held": "coa.internet_broadband_ops — farm operations with broadband",
+     "note": "broadband presence on a farm is one technology's availability. It is not the adoption of productive technique."
+    }
+   ],
+   "observed": 1,
+   "proxy_only": 1,
+   "unmeasured": 5,
+   "total": 7
+  },
+  "C": {
+   "name": "Capital",
+   "meaning": "deployable financial and physical resources",
+   "indicators": [
+    {
+     "indicator": "financial institutions",
+     "state": "UNMEASURED",
+     "note": "no institution-level register, balance sheet or branch inventory"
+    },
+    {
+     "indicator": "liquidity",
+     "state": "PROXY_ONLY",
+     "held": "dynamics ST_BANK_CREDIT, ST_CI_LOANS, ST_CONSUMER_CREDIT (FRED)",
+     "note": "NATIONAL aggregates. R3.3 established that the national-to-local step is the one that fails: offered rates to local originations rests on six annual points and is not traversable."
+    },
+    {
+     "indicator": "local assets under management",
+     "state": "UNMEASURED"
+    },
+    {
+     "indicator": "endowments",
+     "state": "UNMEASURED"
+    },
+    {
+     "indicator": "public reserves",
+     "state": "UNMEASURED",
+     "note": "state budget enters through the commodity path as EXPENDITURE, not as a reserve balance"
+    },
+    {
+     "indicator": "lending",
+     "state": "PROXY_ONLY",
+     "held": "r32_hmda: HMDA mortgage originations",
+     "note": "HOME mortgage lending only. Commercial, agricultural and construction lending are not observed, and CM_CONSTRUCTION_CREDIT is UNKNOWN."
+    },
+    {
+     "indicator": "investment",
+     "state": "PROXY_ONLY",
+     "held": "coa.govt_receipts, coa.land_value, coa.land_value_per_acre; CM_PROJECT_EQUITY (OBSERVED)",
+     "note": "farm land value is a stock of physical capital, not investment flow"
+    }
+   ],
+   "observed": 0,
+   "proxy_only": 3,
+   "unmeasured": 4,
+   "total": 7
+  },
+  "L": {
+   "name": "Labor",
+   "meaning": "available human capital and its alignment with productive activity",
+   "indicators": [
+    {
+     "indicator": "participation",
+     "state": "UNMEASURED",
+     "note": "no labour force participation rate is held"
+    },
+    {
+     "indicator": "unemployment",
+     "state": "UNMEASURED",
+     "note": "no county unemployment series is in the indicator set"
+    },
+    {
+     "indicator": "underemployment",
+     "state": "UNMEASURED"
+    },
+    {
+     "indicator": "NEET",
+     "state": "UNMEASURED"
+    },
+    {
+     "indicator": "skills mismatch",
+     "state": "UNMEASURED",
+     "note": "R3.7 attempted a worker reconciliation and R3.8 found it invalid under all eight R-08 operation classes. Nothing has replaced it."
+    },
+    {
+     "indicator": "mobility",
+     "state": "OBSERVED",
+     "held": "LODES origin-destination, nm_od_aux_JT00_2022; R3.6 jobs per resident worker 1.86 Los Alamos / 0.69 Santa Fe / 0.36 Rio Arriba",
+     "note": "commuting is the one labour dimension with a direct observation"
+    },
+    {
+     "indicator": "employment and wages by industry",
+     "state": "OBSERVED",
+     "held": "28 QCEW and CBP indicators: jobs, establishments and annual pay",
+     "note": "NOT in the original list, and recorded because it is the bulk of what is held. It measures WHERE WORK IS, not whether labour is available or matched."
+    }
+   ],
+   "observed": 2,
+   "proxy_only": 0,
+   "unmeasured": 5,
+   "total": 7
+  },
+  "U": {
+   "name": "Us-ness",
+   "meaning": "shared identity, trust, participation and willingness to coordinate",
+   "indicators": [
+    {
+     "indicator": "civic participation",
+     "state": "UNMEASURED"
+    },
+    {
+     "indicator": "organizational membership",
+     "state": "UNMEASURED",
+     "note": "acequia parciante counts are named as an unknown in the food model and are not held"
+    },
+    {
+     "indicator": "institutional trust",
+     "state": "UNMEASURED",
+     "note": "no survey instrument is held or planned"
+    },
+    {
+     "indicator": "collective activity",
+     "state": "PROXY_ONLY",
+     "held": "OSE acequia layers: 729 named acequia conveyances and 204 points of diversion; 53 COLLABORATES_WITH edges among 847 entities",
+     "note": "an acequia IS a collective institution and its ditch is mapped, which observes that collective activity EXISTS and where. It does not observe participation, governance or trust. The 53 collaboration edges are self-reported."
+    }
+   ],
+   "observed": 0,
+   "proxy_only": 1,
+   "unmeasured": 3,
+   "total": 4
+  },
+  "X": {
+   "name": "Complexity",
+   "meaning": "diversity and relatedness of economic activities and capabilities",
+   "indicators": [
+    {
+     "indicator": "industry diversity",
+     "state": "PROXY_ONLY",
+     "held": "CBP establishments across 17 industry groups",
+     "note": "THE SET IS FOOD-RESTRICTED. A diversity measure over 17 food-related industries describes the food economy's internal spread, not the region's economic diversity, and must not be read as the latter."
+    },
+    {
+     "indicator": "productive relatedness",
+     "state": "UNMEASURED",
+     "note": "no relatedness or proximity matrix is computed or acquired"
+    },
+    {
+     "indicator": "firm collaboration",
+     "state": "PROXY_ONLY",
+     "held": "53 COLLABORATES_WITH edges",
+     "note": "self-reported, and the population is the food research's, not the region's firms"
+    },
+    {
+     "indicator": "new-sector formation",
+     "state": "UNMEASURED",
+     "note": "establishment counts move; which movements are NEW SECTORS is not derivable from them"
+    }
+   ],
+   "observed": 0,
+   "proxy_only": 2,
+   "unmeasured": 2,
+   "total": 4
+  },
+  "H": {
+   "name": "Coherence",
+   "meaning": "compatibility of the resources, institutions, infrastructure and relationships that productive activity requires",
+   "indicators": [
+    {
+     "indicator": "component availability (one candidate indicator, not coherence)",
+     "state": "OBSERVED",
+     "held": "capability.json: 6 capabilities, 36 components, each with an existence state and a capacity state",
+     "note": "see `coherence_instrument` below. It measures AVAILABILITY -- what is present and what has a known capacity. R3.14 called this coherence; it is one facet of it."
+    },
+    {
+     "indicator": "shared-component exposure",
+     "state": "OBSERVED",
+     "held": "components used by more than one capability",
+     "note": "a component two activities both depend on is where incoherence in one system propagates to another"
+    },
+    {
+     "indicator": "compatible capacity",
+     "state": "UNMEASURED",
+     "note": "requires a capacity on BOTH sides in the same unit. Capacity is observed for one component in thirty-six, so no pair can be compared."
+    },
+    {
+     "indicator": "timing and sequence",
+     "state": "UNMEASURED",
+     "note": "every held record is a stock at a date. Nothing carries the order in which conditions must hold, so a permit expiring before credit arrives is invisible."
+    },
+    {
+     "indicator": "rules and permission fit",
+     "state": "UNMEASURED",
+     "note": "CM_ENTITLEMENT_PERMIT is PARTIALLY_OBSERVED as an existence. Whether a permitted use is also a servable one is not held."
+    },
+    {
+     "indicator": "institutional fit",
+     "state": "UNMEASURED",
+     "note": "where two bodies must both act, nothing records whether either is obliged to"
+    },
+    {
+     "indicator": "financing fit",
+     "state": "PROXY_ONLY",
+     "held": "r38_feasibility: the housing capital structure against its rent ceiling",
+     "note": "the ONE place Dula observes a fit question end to end -- and the answer was that the structure exists because the economics do not support a return. One activity, not a measure of the region."
+    },
+    {
+     "indicator": "operational relationships",
+     "state": "PROXY_ONLY",
+     "held": "862 entity relationships, 538 of them SELLS_TO",
+     "note": "the relationships are named; no quantity crosses any of them, so whether a pair actually trades is not observed"
+    }
+   ],
+   "observed": 2,
+   "proxy_only": 2,
+   "unmeasured": 4,
+   "total": 8
+  }
+ },
+ "summary": {
+  "K": "1 observed / 1 proxy / 5 unmeasured of 7",
+  "C": "0 observed / 3 proxy / 4 unmeasured of 7",
+  "L": "2 observed / 0 proxy / 5 unmeasured of 7",
+  "U": "0 observed / 1 proxy / 3 unmeasured of 4",
+  "X": "0 observed / 2 proxy / 2 unmeasured of 4",
+  "H": "2 observed / 2 proxy / 4 unmeasured of 8"
+ },
+ "mobilization": [
+  {
+   "name": "Knowledge mobilization",
+   "identity": "ΔKnowledge × Absorption",
+   "terms": {
+    "ΔKnowledge": {
+     "state": "UNMEASURED",
+     "why": "no knowledge level is measured, so no change in it is"
+    },
+    "Absorption": {
+     "state": "UNMEASURED",
+     "why": "absorption is the capacity of a receiving economy to take up know-how. Nothing held measures it."
+    }
+   },
+   "evaluable": false,
+   "note": "kept because it states WHAT WOULD HAVE TO BE MEASURED. A stock of knowledge that cannot be absorbed does not mobilise, which is why a laboratory payroll is not a knowledge transfer."
+  },
+  {
+   "name": "Capital mobilization",
+   "identity": "ΔCapital × Velocity",
+   "terms": {
+    "ΔCapital": {
+     "state": "PROXY_ONLY",
+     "why": "national credit stocks move and are observed; the local level is not"
+    },
+    "Velocity": {
+     "state": "UNMEASURED",
+     "why": "how fast capital turns over in this region is not observed in any held source"
+    }
+   },
+   "evaluable": false,
+   "note": "R3.8's housing result is this identity's shape: capital was deployed ($191-200m) and the question that decided the opportunity was not how much, but whether it could move through a structure that returns anything. It could not."
+  }
+ ],
+ "coherence_instrument": {
+  "what": "component AVAILABILITY: of the components an activity requires, how many are observed to exist and for how many is CAPACITY known",
+  "measures_one_facet": "R3.14 called this coherence. It is one candidate indicator of coherence -- the availability facet. Coherence is whether the things an activity needs FIT TOGETHER, and availability cannot see compatible capacity, timing, rules, institutions, financing fit or operational relationships. Six of those seven facets are unmeasured; see dimension H.",
+  "why_it_is_still_worth_having": "an activity cannot be coherent in things it does not have. Availability is necessary and not sufficient, which is why a zero in the capacity column settles the question and a full column would not.",
+  "counts_not_observable_as_unknown": "a component whose capacity CANNOT be observed is counted with the unknowns: the activity is equally unable to plan around it",
+  "rows": [
+   {
+    "capability": "CAP_HOUSING",
+    "title": "Housing production",
+    "components_required": 11,
+    "existence": {
+     "PROXY_ONLY": 3,
+     "UNKNOWN": 2,
+     "OBSERVED": 3,
+     "PARTIALLY_OBSERVED": 3
+    },
+    "existence_observed": 3,
+    "capacity_known": 0,
+    "capacity_known_ids": [],
+    "capacity_not_observable": 1,
+    "shared_components": 4,
+    "shared_ids": [
+     "CM_TRADES_LABOR",
+     "CM_WATER_SEWER_CAPACITY",
+     "CM_ENTITLEMENT_PERMIT",
+     "CM_DELIVERABLE_WATER"
+    ],
+    "reading": "11 components are required to do this. Capacity is known for 0."
+   },
+   {
+    "capability": "CAP_FOOD_PROD",
+    "title": "Regional food production",
+    "components_required": 10,
+    "existence": {
+     "OBSERVED": 5,
+     "PARTIALLY_OBSERVED": 3,
+     "PROXY_ONLY": 2
+    },
+    "existence_observed": 5,
+    "capacity_known": 2,
+    "capacity_known_ids": [
+     "CM_INSPECTED_PROCESSING",
+     "CM_PROGRAM_FUNDING"
+    ],
+    "capacity_not_observable": 3,
+    "shared_components": 7,
+    "shared_ids": [
+     "CM_DELIVERABLE_WATER",
+     "CM_POSTHARVEST",
+     "CM_INSPECTED_PROCESSING",
+     "CM_COLD_STORAGE",
+     "CM_DIESEL",
+     "CM_INSTITUTIONAL_DEMAND",
+     "CM_PROGRAM_FUNDING"
+    ],
+    "reading": "10 components are required to do this. Capacity is known for 2."
+   },
+   {
+    "capability": "CAP_FOOD_DIST",
+    "title": "Regional food aggregation and distribution",
+    "components_required": 11,
+    "existence": {
+     "PARTIALLY_OBSERVED": 3,
+     "OBSERVED": 7,
+     "PROXY_ONLY": 1
+    },
+    "existence_observed": 7,
+    "capacity_known": 2,
+    "capacity_known_ids": [
+     "CM_INSPECTED_PROCESSING",
+     "CM_PROGRAM_FUNDING"
+    ],
+    "capacity_not_observable": 4,
+    "shared_components": 6,
+    "shared_ids": [
+     "CM_POSTHARVEST",
+     "CM_INSPECTED_PROCESSING",
+     "CM_COLD_STORAGE",
+     "CM_DIESEL",
+     "CM_INSTITUTIONAL_DEMAND",
+     "CM_PROGRAM_FUNDING"
+    ],
+    "reading": "11 components are required to do this. Capacity is known for 2."
+   },
+   {
+    "capability": "CAP_BIZ_FORM",
+    "title": "Business formation",
+    "components_required": 8,
+    "existence": {
+     "PARTIALLY_OBSERVED": 4,
+     "UNKNOWN": 2,
+     "PROXY_ONLY": 2
+    },
+    "existence_observed": 0,
+    "capacity_known": 0,
+    "capacity_known_ids": [],
+    "capacity_not_observable": 2,
+    "shared_components": 7,
+    "shared_ids": [
+     "CM_ENTITLEMENT_PERMIT",
+     "CM_SUCCESSOR_POOL",
+     "CM_COMMERCIAL_SPACE",
+     "CM_BUSINESS_SUPPORT",
+     "CM_LOCAL_DEMAND",
+     "CM_WORKFORCE",
+     "CM_OPERATING_LICENSE"
+    ],
+    "reading": "8 components are required to do this. Capacity is known for 0."
+   },
+   {
+    "capability": "CAP_BIZ_TRANSFER",
+    "title": "Business ownership transfer",
+    "components_required": 7,
+    "existence": {
+     "PROXY_ONLY": 1,
+     "UNKNOWN": 2,
+     "PARTIALLY_OBSERVED": 3,
+     "SELF_REPORTED": 1
+    },
+    "existence_observed": 0,
+    "capacity_known": 0,
+    "capacity_known_ids": [],
+    "capacity_not_observable": 2,
+    "shared_components": 4,
+    "shared_ids": [
+     "CM_SUCCESSOR_POOL",
+     "CM_COMMERCIAL_SPACE",
+     "CM_BUSINESS_SUPPORT",
+     "CM_OPERATING_LICENSE"
+    ],
+    "reading": "7 components are required to do this. Capacity is known for 0."
+   },
+   {
+    "capability": "CAP_BIZ_EXPAND",
+    "title": "Business expansion",
+    "components_required": 7,
+    "existence": {
+     "PROXY_ONLY": 3,
+     "OBSERVED": 1,
+     "PARTIALLY_OBSERVED": 1,
+     "UNKNOWN": 2
+    },
+    "existence_observed": 1,
+    "capacity_known": 0,
+    "capacity_known_ids": [],
+    "capacity_not_observable": 1,
+    "shared_components": 6,
+    "shared_ids": [
+     "CM_TRADES_LABOR",
+     "CM_WATER_SEWER_CAPACITY",
+     "CM_ENTITLEMENT_PERMIT",
+     "CM_COMMERCIAL_SPACE",
+     "CM_LOCAL_DEMAND",
+     "CM_WORKFORCE"
+    ],
+    "reading": "7 components are required to do this. Capacity is known for 0."
+   }
+  ]
+ },
+ "the_result": "Across the 36 components of the six capabilities, capacity is observed for ONE and partially observed for one more. Housing production requires eleven components and the capacity of NONE is known. The region can say what housing production needs, cannot say how much of any of it there is, and therefore cannot begin on whether any of it fits together."
+}

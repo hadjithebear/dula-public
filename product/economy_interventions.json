@@ -1,0 +1,1404 @@
+{
+ "artefact": "EC-I · INTERVENTION ECONOMICS",
+ "generated": true,
+ "rebuild": "python pipeline/ec_interventions.py",
+ "reuses": {
+  "opportunities": "r38_opportunity (no second registry)",
+  "financial_model": "r38_feasibility._annuity",
+  "representation": "ec_model.py",
+  "pathways": "ec_pathways.py"
+ },
+ "constraint_classes": {
+  "UNVERIFIED_HYPOTHESIS": "proposed as an explanation; requires investigation",
+  "POTENTIAL_BOTTLENECK": "a plausible limiting condition exists; its effect is not established",
+  "VERIFIED_RESTRICTION": "a rule or limit demonstrably applies to this activity. It says what MAY NOT happen. It does not say that this is what currently limits output -- another condition may bind first.",
+  "CONSTRAINT_UNDER_SCENARIO": "becomes limiting when stated assumptions hold; the scenario must be named",
+  "OBSERVED_CONSTRAINT": "evidence establishes that this condition limits this activity -- typically an actor observed acting on it",
+  "BINDING_ECONOMIC_CONSTRAINT": "evidence establishes that this condition CURRENTLY determines the activity's feasible output. Requires that the competing candidates have been addressed, because only one thing binds at a time and naming it means ruling the others out."
+ },
+ "constraint_rule": "BINDING and OBSERVED both require an OBSERVED LINK between the condition and the activity. Co-presence in a region is not a link.",
+ "effect_states": [
+  "OBSERVED",
+  "COMPUTED_FROM_OBSERVED",
+  "PROPOSED_MECHANISM",
+  "UNKNOWN"
+ ],
+ "demonstrations": [
+  {
+   "id": "DEMO_WATER_HOUSING",
+   "question": "Under what conditions could an investment in water or wastewater infrastructure make additional housing development feasible?",
+   "systems": [
+    "water",
+    "housing",
+    "finance"
+   ],
+   "constraints": [
+    {
+     "id": "K_DROUGHT_HOUSING",
+     "condition": "New Mexico is in drought (79.25% of area in D2 or worse)",
+     "activity": "the 380-unit Los Alamos workforce housing project",
+     "cls": "POTENTIAL_BOTTLENECK",
+     "means": "a plausible limiting condition exists; its effect is not established",
+     "condition_observed": true,
+     "activity_observed": true,
+     "link_observed": false,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": null,
+     "evidence": [
+      "US Drought Monitor, weekly",
+      "regime RG_WATER_STRESS_NM met"
+     ],
+     "why": "the attempt that must fail. Both facts are real and the inference between them is not evidence.",
+     "refused": "K_DROUGHT_HOUSING: BINDING_ECONOMIC_CONSTRAINT requires an OBSERVED LINK between 'New Mexico is in drought (79.25% of area in D2 or worse)' and 'the 380-unit Los Alamos workforce housing project'. Both being real in the same place is co-presence, not a link.",
+     "attempted": "BINDING_ECONOMIC_CONSTRAINT"
+    },
+    {
+     "id": "K_SERVICE_CAPACITY",
+     "condition": "spare connection capacity in community water and wastewater systems",
+     "activity": "additional housing development in the eight counties",
+     "cls": "POTENTIAL_BOTTLENECK",
+     "means": "a plausible limiting condition exists; its effect is not established",
+     "condition_observed": true,
+     "activity_observed": true,
+     "link_observed": false,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": null,
+     "evidence": [
+      "EPA SDWIS: 210 active systems, 161,122 connections, 373,733 served",
+      "CM_WATER_SEWER_CAPACITY capacity UNKNOWN, utilization UNKNOWN"
+     ],
+     "why": "the systems are observed and their headroom is not. A small system is not a full one.",
+     "refused": null
+    },
+    {
+     "id": "K_RENT_CEILING",
+     "condition": "the deed restriction caps rent at 80% of area median income",
+     "activity": "recovery of any additional development or operating cost",
+     "cls": "VERIFIED_RESTRICTION",
+     "means": "a rule or limit demonstrably applies to this activity. It says what MAY NOT happen. It does not say that this is what currently limits output -- another condition may bind first.",
+     "condition_observed": true,
+     "activity_observed": true,
+     "link_observed": true,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [
+      "water and wastewater service capacity (CM_WATER_SEWER_CAPACITY, capacity UNKNOWN)",
+      "serviced land (CM_SERVICED_LAND, existence UNKNOWN)",
+      "construction credit (CM_CONSTRUCTION_CREDIT, UNKNOWN)",
+      "building trades capacity (CM_TRADES_LABOR, PROXY_ONLY)",
+      "entitlement and permission (CM_ENTITLEMENT_PERMIT, PARTIALLY_OBSERVED)"
+     ],
+     "scenario": null,
+     "evidence": [
+      "S-06 deed-restriction purchase by the county",
+      "S-21 HUD 2024 80% limit, four persons, $97,800",
+      "r38_feasibility: debt service exceeds the ceiling above a 4.646% coupon"
+     ],
+     "why": "R3.15 called this THE binding constraint. The attempt is kept here and now FAILS, which is the correction. The cap is verified -- it demonstrably applies, and the arithmetic against it is real -- but binding means it determines feasible OUTPUT, and that claim rules out the alternatives. Eight of housing production's eleven components are unobserved or proxied, so five candidates remain live and any of them could bind first. A project that cannot obtain water service is limited by water whatever the rent cap says.",
+     "refused": "K_RENT_CEILING: BINDING_ECONOMIC_CONSTRAINT refused — it requires evidence that the condition determines feasible OUTPUT, not only that a rule applies. A limit on what may happen is a VERIFIED_RESTRICTION; ALSO naming this condition as THE one that binds rules out the others, and these remain unresolved and could bind first: water and wastewater service capacity (CM_WATER_SEWER_CAPACITY, capacity UNKNOWN), serviced land (CM_SERVICED_LAND, existence UNKNOWN), construction credit (CM_CONSTRUCTION_CREDIT, UNKNOWN), building trades capacity (CM_TRADES_LABOR, PROXY_ONLY), entitlement and permission (CM_ENTITLEMENT_PERMIT, PARTIALLY_OBSERVED).",
+     "attempted": "BINDING_ECONOMIC_CONSTRAINT"
+    },
+    {
+     "id": "K_COUPON",
+     "condition": "a construction or conduit coupon above about 4.3-4.6%",
+     "activity": "covering debt service out of restricted rent",
+     "cls": "CONSTRAINT_UNDER_SCENARIO",
+     "means": "becomes limiting when stated assumptions hold; the scenario must be named",
+     "condition_observed": false,
+     "activity_observed": true,
+     "link_observed": true,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": "a 35-year fully debt-financed structure at the observed all-in cost",
+     "evidence": [
+      "r38_feasibility break-even 4.646% low cost / 4.295% high cost"
+     ],
+     "why": "conditional on a coupon Dula does not hold. The scenario is named, which is what a conditional classification requires.",
+     "refused": null
+    }
+   ],
+   "shared_headroom": {
+    "what": "the capital a project can absorb beyond its observed cost, and the monthly operating budget it can afford, ARE THE SAME MONEY",
+    "correction_of_r314": "R3.14 computed the capital form and showed it against water connection cost. That invites the reading that the whole of it is available for water. It is not.",
+    "identity": "capital headroom = (monthly headroom x 12) / annuity factor, exactly",
+    "competing_claims": [
+     {
+      "claim": "water and wastewater connection or extension",
+      "state": "UNKNOWN",
+      "form": "capital",
+      "obtain": "the utility's connection-fee schedule, or the water and sewer lines in a filed development budget"
+     },
+     {
+      "claim": "operating expenses: management, maintenance, insurance",
+      "state": "UNKNOWN",
+      "form": "recurring",
+      "obtain": "the operating pro forma in the bond Official Statement, or NM MFA owner-reported operating data"
+     },
+     {
+      "claim": "replacement reserves",
+      "state": "UNKNOWN",
+      "form": "recurring",
+      "obtain": "the reserve covenant in the bond indenture"
+     },
+     {
+      "claim": "property tax or payment in lieu",
+      "state": "UNKNOWN",
+      "form": "recurring",
+      "obtain": "the county ordinance and any PILOT agreement"
+     },
+     {
+      "claim": "tenant-paid utilities",
+      "state": "UNKNOWN",
+      "form": "reduces revenue",
+      "obtain": "the public housing authority's utility allowance schedule"
+     },
+     {
+      "claim": "vacancy and collection loss",
+      "state": "UNKNOWN",
+      "form": "reduces revenue",
+      "obtain": "the project's lease-up reporting to the county"
+     }
+    ],
+    "table": [
+     {
+      "low_cost": {
+       "capital_headroom": 127803.46,
+       "monthly_headroom": 495.66,
+       "monthly_as_capital": 127803.46
+      },
+      "high_cost": {
+       "capital_headroom": 104119.25,
+       "monthly_headroom": 403.8,
+       "monthly_as_capital": 104119.25
+      },
+      "rate_pct": 3.0,
+      "principal_the_rent_supports": 630435.04
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 105407.45,
+       "monthly_headroom": 423.86,
+       "monthly_as_capital": 105407.45
+      },
+      "high_cost": {
+       "capital_headroom": 81723.24,
+       "monthly_headroom": 328.62,
+       "monthly_as_capital": 81723.24
+      },
+      "rate_pct": 3.25,
+      "principal_the_rent_supports": 608039.03
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 84187.82,
+       "monthly_headroom": 350.77,
+       "monthly_as_capital": 84187.82
+      },
+      "high_cost": {
+       "capital_headroom": 60503.61,
+       "monthly_headroom": 252.09,
+       "monthly_as_capital": 60503.61
+      },
+      "rate_pct": 3.5,
+      "principal_the_rent_supports": 586819.4
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 64070.9,
+       "monthly_headroom": 276.43,
+       "monthly_as_capital": 64070.9
+      },
+      "high_cost": {
+       "capital_headroom": 40386.69,
+       "monthly_headroom": 174.25,
+       "monthly_as_capital": 40386.69
+      },
+      "rate_pct": 3.75,
+      "principal_the_rent_supports": 566702.48
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 44988.17,
+       "monthly_headroom": 200.86,
+       "monthly_as_capital": 44988.17
+      },
+      "high_cost": {
+       "capital_headroom": 21303.96,
+       "monthly_headroom": 95.12,
+       "monthly_as_capital": 21303.96
+      },
+      "rate_pct": 4.0,
+      "principal_the_rent_supports": 547619.75
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 26875.85,
+       "monthly_headroom": 124.1,
+       "monthly_as_capital": 26875.85
+      },
+      "high_cost": {
+       "capital_headroom": 3191.64,
+       "monthly_headroom": 14.74,
+       "monthly_as_capital": 3191.64
+      },
+      "rate_pct": 4.25,
+      "principal_the_rent_supports": 529507.43
+     },
+     {
+      "low_cost": {
+       "capital_headroom": 9674.52,
+       "monthly_headroom": 46.17,
+       "monthly_as_capital": 9674.52
+      },
+      "high_cost": {
+       "capital_headroom": -14009.69,
+       "monthly_headroom": -66.86,
+       "monthly_as_capital": -14009.69
+      },
+      "rate_pct": 4.5,
+      "principal_the_rent_supports": 512306.1
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -6671.14,
+       "monthly_headroom": -32.89,
+       "monthly_as_capital": -6671.14
+      },
+      "high_cost": {
+       "capital_headroom": -30355.35,
+       "monthly_headroom": -149.65,
+       "monthly_as_capital": -30355.35
+      },
+      "rate_pct": 4.75,
+      "principal_the_rent_supports": 495960.44
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -22212.72,
+       "monthly_headroom": -113.05,
+       "monthly_as_capital": -22212.72
+      },
+      "high_cost": {
+       "capital_headroom": -45896.93,
+       "monthly_headroom": -233.58,
+       "monthly_as_capital": -45896.93
+      },
+      "rate_pct": 5.0,
+      "principal_the_rent_supports": 480418.86
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -36998.31,
+       "monthly_headroom": -194.27,
+       "monthly_as_capital": -36998.31
+      },
+      "high_cost": {
+       "capital_headroom": -60682.52,
+       "monthly_headroom": -318.64,
+       "monthly_as_capital": -60682.52
+      },
+      "rate_pct": 5.25,
+      "principal_the_rent_supports": 465633.27
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -51072.78,
+       "monthly_headroom": -276.54,
+       "monthly_as_capital": -51072.78
+      },
+      "high_cost": {
+       "capital_headroom": -74756.99,
+       "monthly_headroom": -404.78,
+       "monthly_as_capital": -74756.99
+      },
+      "rate_pct": 5.5,
+      "principal_the_rent_supports": 451558.8
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -64477.99,
+       "monthly_headroom": -359.8,
+       "monthly_as_capital": -64477.99
+      },
+      "high_cost": {
+       "capital_headroom": -88162.2,
+       "monthly_headroom": -491.97,
+       "monthly_as_capital": -88162.2
+      },
+      "rate_pct": 5.75,
+      "principal_the_rent_supports": 438153.59
+     },
+     {
+      "low_cost": {
+       "capital_headroom": -77253.03,
+       "monthly_headroom": -444.04,
+       "monthly_as_capital": -77253.03
+      },
+      "high_cost": {
+       "capital_headroom": -100937.24,
+       "monthly_headroom": -580.17,
+       "monthly_as_capital": -100937.24
+      },
+      "rate_pct": 6.0,
+      "principal_the_rent_supports": 425378.55
+     }
+    ],
+    "reading": "At a 4.00% coupon the project has $44,988 per unit of room on the low cost estimate. That same room is $200.86 per unit per month of operating budget. A water connection at $44,988 a unit would consume ALL of it and leave nothing for management, maintenance, insurance, reserves or any payment in lieu of tax. Six claims compete for one pot and none of them is priced."
+   },
+   "interventions": [
+    {
+     "id": "IV_WATER_CAPACITY",
+     "name": "Verified service capacity, bought before it is needed",
+     "kind": "infrastructure investment",
+     "economic_problem": "land cannot be developed into housing unless a water and wastewater system will serve it. Whether any system in the eight counties has headroom is not observed, so the cost of service is not a line a developer can put in a budget -- it is a risk they must price, and an unpriceable risk is priced as a refusal.",
+     "mechanism": {
+      "initiating_condition": "a capacity study and, where short, a plant or line upgrade",
+      "affected_actor": "community water system; the developer that would connect",
+      "transmission": "service capacity becomes a known quantity, and a connection becomes a priced line item rather than an open risk",
+      "changed_variable": "per-unit development cost (and its variance)",
+      "operating_or_financial_consequence": "a known cost can be financed; an unknown one cannot be underwritten at any price",
+      "potential_actor_response": "a developer proceeds, or the system refuses service and the site is abandoned earlier and more cheaply"
+     },
+     "actors": [
+      {
+       "actor": "community water system or county utility",
+       "must": "authorise and operate the upgrade; state how many connections it will accept",
+       "observed": true
+      },
+      {
+       "actor": "New Mexico Environment Department",
+       "must": "hold the capacity-development reviews that would establish the baseline",
+       "observed": true
+      },
+      {
+       "actor": "NM Finance Authority / USDA Rural Development",
+       "must": "finance municipal water infrastructure",
+       "observed": false,
+       "note": "named as the conventional sources; no application, award or term for this region is held"
+      },
+      {
+       "actor": "developer",
+       "must": "connect and pay",
+       "observed": true
+      }
+     ],
+     "resources": [
+      "CM_WATER_SEWER_CAPACITY",
+      "CM_SERVICED_LAND",
+      "CM_ENTITLEMENT_PERMIT",
+      "CM_DELIVERABLE_WATER"
+     ],
+     "costs": {
+      "capital": {
+       "state": "UNKNOWN",
+       "why": "no connection fee, line-extension cost or plant-upgrade cost is held for any system in the region"
+      },
+      "recurring": {
+       "state": "UNKNOWN",
+       "why": "operating cost of additional capacity is not held"
+      },
+      "study_cost": {
+       "state": "UNKNOWN",
+       "why": "the capacity study is the cheapest item on this list and its cost is still not held"
+      }
+     },
+     "financing": {
+      "instruments": [
+       "municipal water revenue debt",
+       "state infrastructure loan or grant",
+       "developer-funded extension recovered through connection fees",
+       "a county gap contribution of the kind already observed here"
+      ],
+      "repayment_source": [
+       "connection fees from new users",
+       "system rates",
+       "appropriation"
+      ],
+      "state": "NO TERM IS HELD",
+      "note": "the instruments are named because they are the conventional ones, not because any is observed to be available for this purpose here"
+     },
+     "direct_effects": [
+      {
+       "what": "the project's capital and operating headroom at a given coupon",
+       "state": "COMPUTED_FROM_OBSERVED",
+       "value": null,
+       "unit": "USD per unit / USD per unit-month",
+       "basis": "r38_feasibility._annuity on an observed cost and a published rent limit; see shared_headroom"
+      }
+     ],
+     "proposed_mechanisms": [
+      {
+       "what": "the connection cost becomes a known quantity",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      {
+       "what": "additional dwelling units become servable",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     ],
+     "dependencies": [
+      "a system exists that is willing to serve the site at all",
+      "the land is entitled for the use",
+      "the upgrade's cost is recoverable from someone",
+      "the resulting connection cost fits inside the headroom ALONGSIDE operating expenses, reserves and tax, which it must share"
+     ],
+     "risks": [
+      {
+       "risk": "the capacity study finds ample headroom and the intervention is unnecessary",
+       "kind": "market",
+       "note": "this is a GOOD outcome and a total loss of the capital spent on the upgrade"
+      },
+      {
+       "risk": "water is available and something else binds -- land, labour, entitlement, credit",
+       "kind": "implementation",
+       "note": "eight of the eleven housing components are unobserved or proxied"
+      },
+      {
+       "risk": "the connection cost exceeds the shared headroom",
+       "kind": "financial",
+       "note": "then the project needs more subordinate capital, which is R1"
+      },
+      {
+       "risk": "a system serving under 500 people cannot absorb the upgrade's operating cost",
+       "kind": "operational",
+       "note": "160 of 210 systems are that size"
+      }
+     ],
+     "outcomes": {
+      "financial": {
+       "what": "project feasibility at a given coupon",
+       "state": "COMPUTED_FROM_OBSERVED",
+       "value": null,
+       "unit": null,
+       "basis": "the shared headroom, both forms"
+      },
+      "productive": {
+       "what": "additional servable units",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "regional": {
+       "what": "development capacity in the eight counties",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "household": {
+       "what": "rent paid by a tenant",
+       "state": "OBSERVED",
+       "value": 2445,
+       "unit": "USD per month",
+       "basis": "the deed restriction caps it; it does not move with any of this, which is why a water cost lands on feasibility and not on the tenant"
+      }
+     },
+     "evidence": [
+      "EPA SDWIS via data/raw/admin_housing",
+      "capability CM_WATER_SEWER_CAPACITY",
+      "r38_feasibility observed project cost S-06",
+      "HUD 2024 income limits S-21"
+     ],
+     "validation": [
+      {
+       "test": "per-system permitted capacity, current demand and willingness to serve",
+       "source": "NMED capacity-development reviews, public-records request",
+       "settles": "whether K_SERVICE_CAPACITY is binding or irrelevant"
+      },
+      {
+       "test": "the water and sewer line items in a filed development budget",
+       "source": "a developer or the county",
+       "settles": "the hinge's actual value"
+      },
+      {
+       "test": "the bond coupon and term",
+       "source": "the Official Statement on EMMA",
+       "settles": "which row of the headroom table applies"
+      }
+     ],
+     "attaches_to": "R1",
+     "constraint": "K_SERVICE_CAPACITY",
+     "household": {
+      "pathway": "rent is capped by the deed restriction, so a cheaper connection does not reach a tenant as a lower rent. It reaches them only if it is the difference between the units existing and not existing.",
+      "state": "HYPOTHESIS",
+      "why_not_established": "whether this project is marginal on water cost is unknown; it is financed and proceeding."
+     },
+     "strength": [
+      {
+       "dimension": "H",
+       "claim": "coherence: a known capacity is a precondition for any fit question about water and housing",
+       "state": "PROPOSED_MECHANISM"
+      },
+      {
+       "dimension": "C",
+       "claim": "capital mobilisation: a priceable risk can be financed",
+       "state": "PROPOSED_MECHANISM"
+      }
+     ],
+     "effects_note": "effects with no evidence are held as PROPOSED MECHANISMS and are not reported as direct effects"
+    }
+   ]
+  },
+  {
+   "id": "DEMO_FOOD_DISTRIBUTION",
+   "question": "What would make a regional food-distribution route economically viable?",
+   "systems": [
+    "food",
+    "transportation",
+    "finance"
+   ],
+   "constraints": [
+    {
+     "id": "K_TRANSPORT_COST",
+     "condition": "a 262-mile northern loop costs $341-$676",
+     "activity": "any northern food-distribution business",
+     "cls": "POTENTIAL_BOTTLENECK",
+     "means": "a plausible limiting condition exists; its effect is not established",
+     "condition_observed": true,
+     "activity_observed": true,
+     "link_observed": false,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": null,
+     "evidence": [
+      "model/capacity.yaml distribution, ev:P2A-17..P2A-25"
+     ],
+     "why": "the second attempt that must fail. A cost existing does not establish that a business is unprofitable; that requires its revenue, and no order value, margin or stop count is held for any route.",
+     "refused": "K_TRANSPORT_COST: BINDING_ECONOMIC_CONSTRAINT requires an OBSERVED LINK between 'a 262-mile northern loop costs $341-$676' and 'any northern food-distribution business'. Both being real in the same place is co-presence, not a link.",
+     "attempted": "BINDING_ECONOMIC_CONSTRAINT"
+    },
+    {
+     "id": "K_ORDER_DENSITY",
+     "condition": "small rural orders against a fixed loop cost",
+     "activity": "hub and distributor service north of Santa Fe",
+     "cls": "OBSERVED_CONSTRAINT",
+     "means": "evidence establishes that this condition limits this activity -- typically an actor observed acting on it",
+     "condition_observed": true,
+     "activity_observed": true,
+     "link_observed": true,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": null,
+     "evidence": [
+      "model/capacity.yaml: condition exists_uneconomic for distribution north of Santa Fe; hubs turn away distant buyers",
+      "constraint C02, confidence medium"
+     ],
+     "why": "the link IS observed here, and it is observed as BEHAVIOUR rather than as accounting: hubs that exist are recorded refusing distant buyers. That is an operator acting on the economics, which is stronger evidence of a limit than a cost figure, and weaker than a route's books.",
+     "refused": null
+    },
+    {
+     "id": "K_BACKHAUL",
+     "condition": "existing fleet mileage could carry local product",
+     "activity": "northern distribution economics",
+     "cls": "UNVERIFIED_HYPOTHESIS",
+     "means": "proposed as an explanation; requires investigation",
+     "condition_observed": false,
+     "activity_observed": true,
+     "link_observed": false,
+     "determines_output": false,
+     "alternatives_addressed": [],
+     "unresolved_alternatives": [],
+     "scenario": null,
+     "evidence": [
+      "The Food Depot: ~400,000 miles/yr, 9 counties, 150+ sites",
+      "unknown U32"
+     ],
+     "why": "if true the relevant cost is marginal rather than the cost of a dedicated loop, which changes every number on this page. It is untested.",
+     "refused": null
+    }
+   ],
+   "operating_model": {
+    "title": "Route economics, simplified",
+    "not_a_business_model": "this is the driving, and only the driving. It has no vehicle depreciation, insurance, overhead, shrink, payment terms or seasonality. Every one of those makes the real requirement HIGHER, so what it computes is a FLOOR.",
+    "identity_1": "required contribution per stop = (route cost + other uncovered) / stops",
+    "identity_2": "required sales per stop = required contribution per stop / margin",
+    "observed": {
+     "route_cost_usd": [
+      341,
+      676
+     ],
+     "miles": 262,
+     "source": "model/capacity.yaml, ev:P2A-17..P2A-25",
+     "state": "DOCUMENTED PER-MILE INPUTS, not a measured route cost"
+    },
+    "adjustable": [
+     {
+      "key": "stops",
+      "name": "delivery stops per loop",
+      "default": 1,
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "unit": "stops",
+      "state": "UNKNOWN",
+      "obtain": "a distributor's route records",
+      "why_default_1": "ten was an invented operating assumption and is removed. One stop bearing the whole loop is the worst case and a true upper bound, so the default view still shows the most a stop could be asked to carry rather than a guess at how many stops a route has."
+     },
+     {
+      "key": "route_cost",
+      "name": "route operating cost",
+      "default": 341,
+      "min": 341,
+      "max": 676,
+      "step": 5,
+      "unit": "USD per loop",
+      "state": "OBSERVED RANGE",
+      "obtain": "already held: $341-$676 on documented per-mile inputs"
+     },
+     {
+      "key": "other_uncovered",
+      "name": "other uncovered route costs",
+      "default": 0,
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "unit": "USD per loop",
+      "state": "UNKNOWN",
+      "obtain": "the operator's own cost accounting; defaults to zero so the result stays a floor"
+     },
+     {
+      "key": "handling_per_stop",
+      "name": "additional handling per stop",
+      "default": 0,
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "USD per stop",
+      "state": "UNKNOWN",
+      "obtain": "time-and-motion at the dock"
+     },
+     {
+      "key": "margin",
+      "name": "contribution margin",
+      "default": 0,
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "percent of sales",
+      "state": "UNKNOWN",
+      "definition": "contribution margin = (sales − variable cost of goods and handling) / sales. NOT gross margin and NOT net margin.",
+      "obtain": "a distributor's income statement; at zero no sales figure is shown"
+     },
+     {
+      "key": "deliveries_per_month",
+      "name": "deliveries per month",
+      "default": 0,
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "loops",
+      "state": "UNKNOWN",
+      "obtain": "the route schedule"
+     }
+    ],
+    "defaults_note": "every unknown defaults to zero or to the observed low end. No operating assumption is inserted, so the default view shows the least the route must recover, not a guess at what it does.",
+    "table": [
+     {
+      "stops": 3,
+      "low": {
+       "stops": 3,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 113.67,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 3,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 225.33,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 5,
+      "low": {
+       "stops": 5,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 68.2,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 5,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 135.2,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 8,
+      "low": {
+       "stops": 8,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 42.62,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 8,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 84.5,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 10,
+      "low": {
+       "stops": 10,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 34.1,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 10,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 67.6,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 12,
+      "low": {
+       "stops": 12,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 28.42,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 12,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 56.33,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 15,
+      "low": {
+       "stops": 15,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 22.73,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 15,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 45.07,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 20,
+      "low": {
+       "stops": 20,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 17.05,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 20,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 33.8,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     },
+     {
+      "stops": 25,
+      "low": {
+       "stops": 25,
+       "route_cost": 341,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 341.0,
+       "required_contribution_per_stop": 13.64,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      },
+      "high": {
+       "stops": 25,
+       "route_cost": 676,
+       "other_uncovered": 0.0,
+       "handling_per_stop": 0.0,
+       "total_to_recover": 676.0,
+       "required_contribution_per_stop": 27.04,
+       "required_sales_per_stop": null,
+       "why_no_sales_figure": "required sales per stop needs a contribution margin. None is held, and none is assumed."
+      }
+     }
+    ]
+   },
+   "interventions": [
+    {
+     "id": "IV_ROUTE_CONSOLIDATION",
+     "name": "Carry local product on existing fleet mileage",
+     "kind": "route consolidation",
+     "economic_problem": "a dedicated northern loop must recover $341-$676 from its stops. An existing route passing the same stops has already recovered it, so the relevant cost is incremental handling and time.",
+     "mechanism": {
+      "initiating_condition": "an operator with existing northern mileage agrees to carry third-party local product",
+      "affected_actor": "The Food Depot or a comparable fleet; northern producers; institutional buyers",
+      "transmission": "fixed route cost is already sunk against the existing purpose, so local product faces marginal cost rather than average cost",
+      "changed_variable": "cost per stop attributable to local product",
+      "operating_or_financial_consequence": "the contribution a stop must make falls to the incremental cost, which is unobserved but is bounded above by the dedicated-loop figure",
+      "potential_actor_response": "a hub that currently refuses a distant buyer accepts one"
+     },
+     "actors": [
+      {
+       "actor": "The Food Depot",
+       "must": "have spare capacity, permission and willingness to carry third-party product",
+       "observed": true,
+       "note": "the mileage is observed; the capacity and the willingness are not"
+      },
+      {
+       "actor": "northern producers",
+       "must": "aggregate to the pickup points",
+       "observed": true,
+       "note": "141 producers already sell through 8 hubs"
+      },
+      {
+       "actor": "institutional buyers",
+       "must": "order on the route's schedule",
+       "observed": true,
+       "note": "97 institutional buyers in the entity population"
+      }
+     ],
+     "resources": [
+      "CM_DELIVERY_FLEET",
+      "CM_AGGREGATORS",
+      "CM_COLD_STORAGE",
+      "CM_ROAD_NETWORK"
+     ],
+     "costs": {
+      "capital": {
+       "state": "UNKNOWN",
+       "why": "may be none, or may be refrigeration and handling equipment on an existing vehicle"
+      },
+      "recurring": {
+       "state": "UNKNOWN",
+       "why": "incremental handling, time and liability per stop are not held"
+      }
+     },
+     "financing": {
+      "instruments": [
+       "an operating agreement rather than capital",
+       "grant support for handling equipment"
+      ],
+      "repayment_source": [
+       "a fee per stop or per case"
+      ],
+      "state": "NO TERM IS HELD",
+      "note": "this intervention may need little or no capital, which is precisely why it is worth testing before the ones that do"
+     },
+     "direct_effects": [
+      {
+       "what": "cost per stop on a dedicated loop",
+       "state": "COMPUTED_FROM_OBSERVED",
+       "value": null,
+       "unit": "USD per stop",
+       "basis": "route_economics on the observed $341-$676"
+      },
+      {
+       "what": "cost per stop on an existing route",
+       "state": "UNKNOWN",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     ],
+     "proposed_mechanisms": [
+      {
+       "what": "additional buyers served",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     ],
+     "dependencies": [
+      "the existing route passes near the producers and the buyers",
+      "the operator has legal and practical capacity to carry third-party product",
+      "cold chain is maintained for products that need it"
+     ],
+     "risks": [
+      {
+       "risk": "the fleet has no spare capacity",
+       "kind": "operational"
+      },
+      {
+       "risk": "carrying third-party product conflicts with the operator's charitable purpose or insurance",
+       "kind": "regulatory"
+      },
+      {
+       "risk": "schedules do not match institutional delivery windows",
+       "kind": "implementation"
+      }
+     ],
+     "outcomes": {
+      "financial": {
+       "what": "distributor contribution per stop",
+       "state": "UNKNOWN",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "productive": {
+       "what": "market access for northern producers",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "regional": {
+       "what": "local product reaching institutional buyers",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "household": {
+       "what": "producer realised price",
+       "state": "UNKNOWN",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     },
+     "evidence": [
+      "model/capacity.yaml distribution",
+      "unknown U32",
+      "141 producers / 8 hubs; 97 institutional buyers"
+     ],
+     "validation": [
+      {
+       "test": "whether existing northern mileage has spare capacity and permission to carry local product",
+       "source": "the fleet operator",
+       "settles": "K_BACKHAUL, and with it whether any capital is needed at all"
+      },
+      {
+       "test": "incremental cost per stop of adding local product to an existing run",
+       "source": "the operator's route accounting",
+       "settles": "the hinge for this intervention"
+      }
+     ],
+     "attaches_to": "R4",
+     "constraint": "K_BACKHAUL",
+     "household": {
+      "pathway": "a higher realised price for a producer is household income for a farm household",
+      "state": "HYPOTHESIS",
+      "why_not_established": "no producer's realised price is held, before or after any change"
+     },
+     "strength": [
+      {
+       "dimension": "X",
+       "claim": "complexity: more buyer-producer relationships actually trading",
+       "state": "PROPOSED_MECHANISM"
+      },
+      {
+       "dimension": "H",
+       "claim": "coherence: an existing asset and an unmet need are made to fit",
+       "state": "PROPOSED_MECHANISM"
+      }
+     ],
+     "effects_note": "effects with no evidence are held as PROPOSED MECHANISMS and are not reported as direct effects"
+    },
+    {
+     "id": "IV_BUYER_AGGREGATION",
+     "name": "Coordinated procurement to raise order density",
+     "kind": "procurement coordination",
+     "economic_problem": "the loop cost is fixed and the orders are small. Raising the value per stop raises the contribution without changing the driving.",
+     "mechanism": {
+      "initiating_condition": "buyers in one valley place a combined order",
+      "affected_actor": "institutional buyers; the hub",
+      "transmission": "fewer, larger stops against the same route cost",
+      "changed_variable": "required contribution per stop, and order value per stop",
+      "operating_or_financial_consequence": "the route covers its cost at a lower total sales volume",
+      "potential_actor_response": "a hub that refused a valley now serves it"
+     },
+     "actors": [
+      {
+       "actor": "school districts and institutional kitchens",
+       "must": "order together",
+       "observed": true
+      },
+      {
+       "actor": "a coordinating body",
+       "must": "exist and be paid for",
+       "observed": false,
+       "note": "no such body is observed for northern food procurement"
+      },
+      {
+       "actor": "hub or distributor",
+       "must": "price the combined order",
+       "observed": true
+      }
+     ],
+     "resources": [
+      "CM_INSTITUTIONAL_DEMAND",
+      "CM_AGGREGATORS",
+      "CM_BUYER_REQUIREMENTS",
+      "CM_PROGRAM_FUNDING"
+     ],
+     "costs": {
+      "capital": {
+       "state": "LIKELY_NONE",
+       "why": "coordination rather than assets"
+      },
+      "recurring": {
+       "state": "UNKNOWN",
+       "why": "the coordinator's time is a real recurring cost and is not held"
+      }
+     },
+     "financing": {
+      "instruments": [
+       "programme funding of a coordinator role"
+      ],
+      "repayment_source": [
+       "none: this is a cost, not an investment"
+      ],
+      "state": "NO TERM IS HELD",
+      "note": "CM_PROGRAM_FUNDING is the one component in the region with an OBSERVED capacity, which makes it the most concrete source on this page"
+     },
+     "direct_effects": [
+      {
+       "what": "required contribution per stop falls as stops consolidate",
+       "state": "COMPUTED_FROM_OBSERVED",
+       "value": null,
+       "unit": "USD per stop",
+       "basis": "route_economics: the same route cost over fewer, larger stops"
+      },
+      {
+       "what": "order value per stop",
+       "state": "UNKNOWN",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     ],
+     "proposed_mechanisms": [],
+     "dependencies": [
+      "buyers are close enough to share a stop",
+      "procurement rules permit a combined award",
+      "someone is paid to coordinate"
+     ],
+     "risks": [
+      {
+       "risk": "institutional procurement rules fragment awards by design",
+       "kind": "regulatory",
+       "note": "constraint C09 records exactly this: demand fragmented into small awards and filtered through kitchens"
+      },
+      {
+       "risk": "coordination lapses when the funding does",
+       "kind": "financial",
+       "note": "constraint C03: local wholesale demand depends on time-limited public purchasing programmes"
+      }
+     ],
+     "outcomes": {
+      "financial": {
+       "what": "route contribution",
+       "state": "COMPUTED_FROM_OBSERVED",
+       "value": null,
+       "unit": null,
+       "basis": "route_economics, conditional on stops and margin"
+      },
+      "productive": {
+       "what": "volume through hubs",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "regional": {
+       "what": "institutional spend retained regionally",
+       "state": "PROPOSED_MECHANISM",
+       "value": null,
+       "unit": null,
+       "basis": null
+      },
+      "household": {
+       "what": "producer income",
+       "state": "UNKNOWN",
+       "value": null,
+       "unit": null,
+       "basis": null
+      }
+     },
+     "evidence": [
+      "constraint C02",
+      "constraint C03",
+      "constraint C09",
+      "CM_PROGRAM_FUNDING capacity OBSERVED"
+     ],
+     "validation": [
+      {
+       "test": "stops per loop and order value per stop",
+       "source": "a distributor's route records",
+       "settles": "whether consolidation closes the gap or only narrows it"
+      },
+      {
+       "test": "whether procurement rules permit combined awards",
+       "source": "district procurement officers",
+       "settles": "whether this intervention is legal before it is economic"
+      }
+     ],
+     "attaches_to": "R4",
+     "constraint": "K_ORDER_DENSITY",
+     "household": {
+      "pathway": "none direct",
+      "state": "HYPOTHESIS",
+      "why_not_established": "an institutional buyer's spend reaching a producer household depends on the producer's margin, which is not held"
+     },
+     "strength": [
+      {
+       "dimension": "U",
+       "claim": "us-ness: coordinated procurement is collective action, and would be observable as such",
+       "state": "PROPOSED_MECHANISM"
+      }
+     ],
+     "effects_note": "effects with no evidence are held as PROPOSED MECHANISMS and are not reported as direct effects"
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "no_score": "no intervention score, expected return, impact multiplier or ranking is computed. With no recurring cost, no capacity effect and no operating economics on either side, any ranking would be ordering the interventions by how confidently they were written.",
+  "comparable_on": {
+   "capital_required": "SUPPORTED where both are stated, even as UNKNOWN — 'unknown' and 'likely none' are a real difference a decision can use",
+   "evidence_quality": "SUPPORTED: the constraint class and the effect states are held for every intervention",
+   "actors_required": "SUPPORTED: who must act is named, and whether each is observed",
+   "dependencies": "SUPPORTED: the conditions that must hold are enumerated",
+   "recurring_cost": "NOT SUPPORTED: no recurring cost is held for any intervention",
+   "capacity_enabled": "NOT SUPPORTED: no intervention has an observed capacity effect",
+   "operating_economics": "NOT SUPPORTED: no revenue or margin is held on either side",
+   "financial_risk": "NOT SUPPORTED as a quantity; the risks are named and none is priced",
+   "household_effect": "NOT SUPPORTED: every household pathway here is a hypothesis",
+   "complementarity": "PARTIALLY SUPPORTED: shared objects are observed, shared CONSTRAINTS are not, because no capacity is known on either shared object"
+  },
+  "supported": [
+   "capital_required",
+   "evidence_quality",
+   "actors_required",
+   "dependencies"
+  ],
+  "rows": [
+   {
+    "id": "IV_WATER_CAPACITY",
+    "name": "Verified service capacity, bought before it is needed",
+    "kind": "infrastructure investment",
+    "attaches_to": "R1",
+    "constraint": "K_SERVICE_CAPACITY",
+    "capital_state": "UNKNOWN",
+    "actors_total": 4,
+    "actors_observed": 3,
+    "dependencies": 4,
+    "risks": 4,
+    "direct_effects_computed": 1,
+    "proposed_mechanisms": 2,
+    "validations": 3
+   },
+   {
+    "id": "IV_ROUTE_CONSOLIDATION",
+    "name": "Carry local product on existing fleet mileage",
+    "kind": "route consolidation",
+    "attaches_to": "R4",
+    "constraint": "K_BACKHAUL",
+    "capital_state": "UNKNOWN",
+    "actors_total": 3,
+    "actors_observed": 3,
+    "dependencies": 3,
+    "risks": 3,
+    "direct_effects_computed": 2,
+    "proposed_mechanisms": 1,
+    "validations": 2
+   },
+   {
+    "id": "IV_BUYER_AGGREGATION",
+    "name": "Coordinated procurement to raise order density",
+    "kind": "procurement coordination",
+    "attaches_to": "R4",
+    "constraint": "K_ORDER_DENSITY",
+    "capital_state": "LIKELY_NONE",
+    "actors_total": 3,
+    "actors_observed": 2,
+    "dependencies": 3,
+    "risks": 2,
+    "direct_effects_computed": 2,
+    "proposed_mechanisms": 0,
+    "validations": 2
+   }
+  ],
+  "what_would_make_this_decision_ready": [
+   "a capital cost for the water upgrade, from any system in the region",
+   "an incremental cost per stop for carrying local product on an existing route",
+   "a contribution margin for any northern distributor",
+   "a capacity figure for any shared component, which would allow a shared CONSTRAINT to be asserted instead of a shared exposure"
+  ]
+ },
+ "portfolio": {
+  "classes": {
+   "SHARED_EXPOSURE": "two activities depend on the same resource or economic condition",
+   "SHARED_CONSTRAINT": "the same bottleneck limits both. Requires the shared object to be a demonstrated constraint, which requires a known capacity",
+   "POTENTIAL_COMPLEMENTARITY": "improving one could benefit the other; the mechanism is stated and unmeasured",
+   "DEMONSTRATED_COMPLEMENTARITY": "evidence establishes a measurable relationship between them",
+   "PORTFOLIO_EFFECT": "a supported change in financial performance, risk or productive outcome across the investments"
+  },
+  "geography_is_not_a_relation": "two investments in the same county share a map, not an economic relationship. Shared geography cannot be passed to the classifier.",
+  "relations": [
+   {
+    "a": "R1 workforce housing",
+    "b": "R5 Santa Fe Midtown horizontal infrastructure",
+    "via": "CM_WATER_SEWER_CAPACITY",
+    "cls": "SHARED_EXPOSURE",
+    "means": "two activities depend on the same resource or economic condition",
+    "capacity_known": false,
+    "link_observed": false,
+    "why": "both are development that must be served by a community water system. Whether that system limits either is unknown, so this is exposure.",
+    "refused": "R1 workforce housing/R5 Santa Fe Midtown horizontal infrastructure: SHARED_CONSTRAINT requires a known capacity on CM_WATER_SEWER_CAPACITY. Without one, two activities needing the same thing is a SHARED EXPOSURE and not a shared limit -- the thing may be abundant.",
+    "attempted": "SHARED_CONSTRAINT"
+   },
+   {
+    "a": "R1 workforce housing",
+    "b": "R4 last-mile food distribution",
+    "via": "CM_DELIVERABLE_WATER",
+    "cls": "SHARED_EXPOSURE",
+    "means": "two activities depend on the same resource or economic condition",
+    "capacity_known": false,
+    "link_observed": false,
+    "why": "housing needs service water and food production needs delivered water; both draw on a basin whose delivery is unobserved. Real exposure, unknown magnitude.",
+    "refused": null
+   },
+   {
+    "a": "R4 last-mile food distribution",
+    "b": "R2 regional supplier capacity",
+    "via": "CM_ROAD_NETWORK",
+    "cls": "POTENTIAL_COMPLEMENTARITY",
+    "means": "improving one could benefit the other; the mechanism is stated and unmeasured",
+    "capacity_known": false,
+    "link_observed": false,
+    "why": "a route that becomes viable for food could carry other regional goods. The mechanism is stated and nothing measures it.",
+    "refused": null
+   },
+   {
+    "a": "R1 workforce housing",
+    "b": "R7 interim accommodation for the laboratory",
+    "via": "CM_TRADES_LABOR",
+    "cls": "SHARED_EXPOSURE",
+    "means": "two activities depend on the same resource or economic condition",
+    "capacity_known": false,
+    "link_observed": false,
+    "why": "the attempt that must fail. Both need building trades, and that two projects draw on one labour pool is as likely to be competition as complementarity.",
+    "refused": "R1 workforce housing/R7 interim accommodation for the laboratory: DEMONSTRATED_COMPLEMENTARITY requires an observed measurable relationship",
+    "attempted": "DEMONSTRATED_COMPLEMENTARITY"
+   }
+  ],
+  "none_demonstrated": true,
+  "why_none_demonstrated": "every shared object in the representation has capacity UNKNOWN. A demonstrated complementarity needs a measured relationship, and a measured relationship through a shared object needs that object's capacity."
+ },
+ "household": {
+  "preserved": [
+   "Personal Economic Gain",
+   "Quality of Life",
+   "household financial buffer"
+  ],
+  "buffer_identity": "recurring disposable resources − necessary recurring costs",
+  "rule": "greater production and investor return do not imply better household outcomes. R3.6 observed the counter-case directly: Los Alamos real median income did not move while production doubled.",
+  "pathways": [
+   {
+    "intervention": "IV_WATER_CAPACITY",
+    "to": "housing cost",
+    "state": "NO PATHWAY",
+    "why": "the deed restriction caps the rent. A cheaper connection does not reach the tenant as a lower rent; it reaches them only as the difference between the units existing and not existing."
+   },
+   {
+    "intervention": "IV_WATER_CAPACITY",
+    "to": "access to essential services",
+    "state": "HYPOTHESIS",
+    "why": "a servable site is a home with water. Whether any household is currently without because of service capacity is not observed."
+   },
+   {
+    "intervention": "IV_ROUTE_CONSOLIDATION",
+    "to": "household income",
+    "state": "HYPOTHESIS",
+    "why": "a producer's realised price is household income for a farm household. No producer's realised price is held, before or after."
+   },
+   {
+    "intervention": "IV_BUYER_AGGREGATION",
+    "to": "employment stability",
+    "state": "HYPOTHESIS",
+    "why": "steadier institutional demand could steady farm employment. C03 records that this demand depends on time-limited public programmes, which argues the other way."
+   }
+  ],
+  "buffer_status": "neither term of the identity is held at household level. ACS medians are DIFFERENT HOUSEHOLDS -- the median-income household is not the median-rent household -- so differencing them produces no household's buffer."
+ },
+ "counts": {
+  "interventions": 3,
+  "constraints": 7,
+  "refused_classifications": 3,
+  "direct_effects": 5,
+  "proposed_mechanisms": 3
+ }
+}

@@ -1,0 +1,1747 @@
+{
+ "place": "New Mexico",
+ "generated_from": "held evidence only; nothing estimated, apportioned or interpolated",
+ "boundary": {
+  "declared": "New Mexico, 33 counties",
+  "rule": "Every reading declares the boundary it is made inside. The same change is internal at one scale and external at another, and only a declared boundary keeps those words meaning anything.",
+  "worked_example": {
+   "change": "a change originating in Los Alamos County",
+   "inside New Mexico": "INTERNAL_TRANSMISSION",
+   "inside North Central New Mexico": "INTERNAL_TRANSMISSION",
+   "for Santa Fe County alone": "EXTERNAL_TRANSMISSION"
+  }
+ },
+ "readings": [
+  {
+   "id": "NM1-LABOURSHED",
+   "claim": "New Mexico's labour markets are not its counties. In the only part of the state where the data exists to check, one county imports at least 9,390 workers while its neighbours send 45% of theirs out.",
+   "basis": [
+    "QWI 2024-Q4 ownercode A05, private employers, nine counties",
+    "ACS B08007 2020-2024, place of work, same nine counties"
+   ],
+   "support": "Los Alamos County holds 19,551 private jobs against 10,161 resident workers who work in-county, a gap of 9,390. Rio Arriba sends 44.8% of its resident workers out of the county, Sandoval 47.4%, Mora 44.6%.",
+   "qualifications": "QWI counts private employers only, so government jobs are excluded and adding them could only raise the workplace count: 9,390 is a floor, not an estimate. The negative gaps for the other counties are uninterpretable for the same reason \u2014 a negative gap is what a missing public sector looks like, and Santa Fe is the state capital. The two sources are different universes over different periods, a quarter against five years.",
+   "contradictions": "",
+   "rivals": "The gap could be filled by multiple job-holding rather than in-commuting, or by workers living in Los Alamos County who are missed by the ACS place-of-work universe.",
+   "geography": "nine of 33 New Mexico counties \u2014 the only ones with employer data",
+   "horizon": "NOW",
+   "claim_strength": "CONDITION",
+   "claim_strength_requested": "CONDITION",
+   "gate": {
+    "permitted": true,
+    "strength": "CONDITION",
+    "requires": [
+     "the observation is dated, located and attributed"
+    ],
+    "held": [
+     "the observation is dated, located and attributed"
+    ],
+    "missing": [],
+    "highest_permitted": "CONDITION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "which counties the in-commuters live in; no county-to-county commuting matrix is held",
+   "falsifier": "a published commuting matrix showing Los Alamos County's in-commuters come from outside New Mexico, or from within its own housing market",
+   "status": "SUPPORTED",
+   "status_means": "held evidence supports it and nothing held materially opposes it",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  },
+  {
+   "id": "NM2-EARNINGS-GRADIENT",
+   "claim": "A worker's county sets their pay more than their occupation does, across distances short enough to drive: $11,370 a month in Los Alamos against $3,288 in San Miguel, 60 miles apart.",
+   "basis": [
+    "QWI 2024-Q4 EarnS by county"
+   ],
+   "support": "Average monthly private earnings run from $11,370 in Los Alamos County to $3,288 in San Miguel, a ratio of 3.46, with Taos at $4,179 and Rio Arriba at $4,885.",
+   "qualifications": "This is an average over different occupational mixes, so part of the gap is composition rather than a premium the same worker could capture by moving. It is measured at the county of workplace, not of residence, so it is not a statement about what residents of any county earn.",
+   "contradictions": "",
+   "rivals": "The gradient may reflect one concentrated high-wage activity rather than a general county effect, in which case the reachable premium applies to very few workers.",
+   "geography": "nine of 33 New Mexico counties",
+   "horizon": "NOW",
+   "claim_strength": "SIGNAL",
+   "claim_strength_requested": "SIGNAL",
+   "gate": {
+    "permitted": true,
+    "strength": "SIGNAL",
+    "requires": [
+     "a mechanism connects the condition to an economic quantity"
+    ],
+    "held": [
+     "a mechanism connects the condition to an economic quantity"
+    ],
+    "missing": [],
+    "highest_permitted": "SIGNAL",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "how much of each surrounding county's household income actually comes from jobs in another county",
+   "falsifier": "earnings by county of residence showing the same ordering, which would mean the gradient is about who lives where rather than about access",
+   "status": "CONTESTED",
+   "status_means": "held evidence supports materially different interpretations",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  },
+  {
+   "id": "NM3-FEDERAL-MONEY",
+   "claim": "The largest single flow of outside money into a New Mexico county cannot be traced to anyone. $5.28bn was spent performing federal work in Los Alamos County in FY2025; $75M went to recipients registered there; and neither number says where the value ended up.",
+   "basis": [
+    "domains/business/sources.yaml usaspending"
+   ],
+   "support": "For Los Alamos in FY2025 the source records $75M by recipient location against $5.28bn by place of performance.",
+   "qualifications": "Recipient location is the registered address, often an out-of-state headquarters; place of performance differs sharply (e.g. Los Alamos FY2025: $75M by recipient vs $5.28B by place). The source's own rule on appropriate use is: federal procurement relationships of identified local businesses, using recipient location. Never place-of-performance totals as local business activity. The 70-fold gap is therefore not a measurement of leakage either: the retention decomposition refuses D3 to D5, because a registration address is a legal convenience and reading it as where value went is the error that makes a Delaware entity look like a Delaware economy.",
+   "contradictions": "",
+   "rivals": "The gap may be an artefact of how prime contracts are registered rather than evidence about where money goes at all.",
+   "geography": "Los Alamos County",
+   "horizon": "NOW",
+   "claim_strength": "OBSERVATION",
+   "claim_strength_requested": "OBSERVATION",
+   "gate": {
+    "permitted": true,
+    "strength": "OBSERVATION",
+    "requires": [],
+    "held": [],
+    "missing": [],
+    "highest_permitted": "OBSERVATION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "who owns the recipients and where their returns are spent \u2014 seven of the twelve retention measurements are recorded NOT_OBSERVABLE_WITH_PUBLIC_DATA",
+   "falsifier": "subcontract-level data tying performance dollars to firms with identifiable owners would convert this from unanswerable to answered",
+   "status": "UNKNOWN",
+   "status_means": "the information required is absent. Nothing is being claimed either way",
+   "whole_record": {
+    "usaspending": {
+     "found": true,
+     "object": "usaspending",
+     "store": "domains/business/sources.yaml",
+     "kind": "source",
+     "qualifiers": [
+      {
+       "field": "limitations",
+       "clause": "Recipient location is the registered address, often an out-of-state headquarters;",
+       "content": "Recipient location is the registered address, often an out-of-state headquarters; place of performance differs sharply (e.g. Los Alamos FY2025: $75M by recipient vs $5.28B by place).",
+       "accounted_for": true
+      },
+      {
+       "field": "limitations",
+       "clause": "place of performance differs sharply (e.g.",
+       "content": "Recipient location is the registered address, often an out-of-state headquarters; place of performance differs sharply (e.g. Los Alamos FY2025: $75M by recipient vs $5.28B by place).",
+       "accounted_for": true
+      },
+      {
+       "field": "limitations",
+       "clause": "Los Alamos FY2025: $75M by recipient vs $5.28B by place).",
+       "content": "Recipient location is the registered address, often an out-of-state headquarters; place of performance differs sharply (e.g. Los Alamos FY2025: $75M by recipient vs $5.28B by place).",
+       "accounted_for": true
+      },
+      {
+       "field": "appropriate_use",
+       "clause": "Federal procurement relationships of identified local businesses, using recipient location.",
+       "content": "Federal procurement relationships of identified local businesses, using recipient location. Never place-of-performance totals as local business activity.",
+       "accounted_for": true
+      },
+      {
+       "field": "appropriate_use",
+       "clause": "Never place-of-performance totals as local business activity.",
+       "content": "Federal procurement relationships of identified local businesses, using recipient location. Never place-of-performance totals as local business activity.",
+       "accounted_for": true
+      }
+     ],
+     "opposing_numbers": [],
+     "record_holds_both_directions": false,
+     "record_is_a_refutation": false,
+     "unaccounted": [],
+     "clean": true,
+     "rule": "A reading may not take one number out of an evidence object while the same object holds another that moves the other way, or a lesson, caveat or refutation that changes what the first one means."
+    }
+   },
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  },
+  {
+   "id": "NM4-FISCAL-TERMINAL-LINK",
+   "claim": "New Mexico's most consequential internal dependency \u2014 extraction revenue in the southeast paying for services everywhere else \u2014 breaks at its last step, because no allocation of state spending to places exists.",
+   "basis": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "support": "New Mexico oil production passed 2 million barrels a day in 2024, more than double 2019, and oil and gas proceeds fund an increasing share of state government. A federal royalty rate cut from 16.67 to 12.5 per cent reduces state revenue at unchanged production.",
+   "qualifications": "The $1.7bn figure is an external estimate cited in reporting, not an observation. State revenue overall is reported still rising, with forecasters describing roughly $1bn more for the next budget, reported alongside the observation that the state budget is booming and the economy is not \u2014 two different things. Whether the state spends, saves into permanent funds, or both is UNKNOWN. State spending as a share of household income is UNKNOWN because FED_SPEND_SHARE_NNM is unobserved and WR062 says state figures cannot be apportioned to eight counties without an allocation rule the model does not have. The federal_fiscal machine holds federal flows, not state ones, so this chain is not modelled. What would change the view is an allocation of state spending to counties, which does not exist. Two counter-mechanisms are held against this: production growth offsets the rate cut, and investment income substitutes for extraction revenue, as reporting describes.",
+   "contradictions": "Production growth offsets the rate cut. Investment income substitutes for extraction revenue, as reporting describes.",
+   "rivals": "The rule only bites on federal acreage, so federal versus state land production shares would discriminate how much of the state's revenue is exposed to it at all.",
+   "geography": "New Mexico",
+   "horizon": "10Y",
+   "claim_strength": "CONDITION",
+   "claim_strength_requested": "CONDITION",
+   "gate": {
+    "permitted": true,
+    "strength": "CONDITION",
+    "requires": [
+     "the observation is dated, located and attributed"
+    ],
+    "held": [
+     "the observation is dated, located and attributed"
+    ],
+    "missing": [],
+    "highest_permitted": "CONDITION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "where state spending lands",
+   "falsifier": "a published allocation of state expenditure by county would close this and make the whole circuit measurable end to end",
+   "status": "UNKNOWN",
+   "status_means": "the information required is absent. Nothing is being claimed either way",
+   "whole_record": {
+    "WP12": {
+     "found": true,
+     "object": "WP12",
+     "store": "world_state/phenomena.yaml",
+     "kind": "phenomenon",
+     "qualifiers": [
+      {
+       "field": "counter_mechanisms",
+       "clause": "Production growth offsets the rate cut",
+       "content": [
+        "Production growth offsets the rate cut",
+        "Investment income substitutes for extraction revenue, as reporting describes"
+       ],
+       "accounted_for": true
+      },
+      {
+       "field": "counter_mechanisms",
+       "clause": "Investment income substitutes for extraction revenue, as reporting describes",
+       "content": [
+        "Production growth offsets the rate cut",
+        "Investment income substitutes for extraction revenue, as reporting describes"
+       ],
+       "accounted_for": true
+      }
+     ],
+     "opposing_numbers": [],
+     "record_holds_both_directions": false,
+     "record_is_a_refutation": false,
+     "unaccounted": [],
+     "clean": true,
+     "rule": "A reading may not take one number out of an evidence object while the same object holds another that moves the other way, or a lesson, caveat or refutation that changes what the first one means."
+    }
+   },
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  },
+  {
+   "id": "NM5-SAME-FORCE",
+   "claim": "Federal money reaching New Mexico cannot have one statewide effect. In Los Alamos County it arrives as the entire private economy; in Mora County, 60 miles away, it arrives only through whatever the 44.6% who already commute out can reach.",
+   "basis": [
+    "QWI 2024-Q4",
+    "ACS B08007 2020-2024",
+    "ACS 2020-2024 commute",
+    "domains/housing/model/conditions.yaml HC07"
+   ],
+   "support": "Los Alamos County: 19,551 private jobs in a county of about 19,000 people, average private earnings $11,370 a month, and 3.0% of residents working outside the county. Mora County: 394 private jobs, average private earnings $3,984, 44.6% of resident workers working outside the county and 10.8% travelling 60 minutes or more.",
+   "qualifications": "Whether any of Mora's out-commuters reach federally funded work is unobserved; no published flow connects a county of residence to a county of employment in this state. The comparison is therefore a structural difference, not a measured transmission.",
+   "contradictions": "",
+   "rivals": "The difference may be scale alone rather than structure \u2014 Mora is small enough that any concentrated employer would dominate it the same way.",
+   "geography": "Los Alamos and Mora counties",
+   "horizon": "NOW",
+   "claim_strength": "SIGNAL",
+   "claim_strength_requested": "SIGNAL",
+   "gate": {
+    "permitted": true,
+    "strength": "SIGNAL",
+    "requires": [
+     "a mechanism connects the condition to an economic quantity"
+    ],
+    "held": [
+     "a mechanism connects the condition to an economic quantity"
+    ],
+    "missing": [],
+    "highest_permitted": "SIGNAL",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "where Mora's out-commuters actually work",
+   "falsifier": "a commuting matrix showing Mora residents reaching the same federally funded workplaces would make the two counties' exposure the same in kind and different only in degree",
+   "status": "SUPPORTED",
+   "status_means": "held evidence supports it and nothing held materially opposes it",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  },
+  {
+   "id": "NM6-LONG-COMMUTE",
+   "claim": "The clearest statewide pattern a county view misses is that the counties with the longest commutes are not the remote ones \u2014 they are the ones beside an economy they do not contain.",
+   "basis": [
+    "ACS 2020-2024 commute, 33 of 33 counties"
+   ],
+   "support": "24.9% of Torrance County's workers travel 60 minutes or more, the highest share in the state, against a statewide 6.8%. Lea is second at 11.9%, Rio Arriba third at 11.1%. Catron, the most remote county in the state by area per person, records no in-migration from other New Mexico counties at all.",
+   "qualifications": "Commute duration is published; destination is not. That Torrance commuters are reaching Albuquerque is the obvious reading and it is not an observation. The share is of workers who report a commute, so it excludes those working from home.",
+   "contradictions": "",
+   "rivals": "Long commutes may measure road quality and geography rather than economic dependence on another county.",
+   "geography": "all 33 New Mexico counties",
+   "horizon": "NOW",
+   "claim_strength": "CONDITION",
+   "claim_strength_requested": "CONDITION",
+   "gate": {
+    "permitted": true,
+    "strength": "CONDITION",
+    "requires": [
+     "the observation is dated, located and attributed"
+    ],
+    "held": [
+     "the observation is dated, located and attributed"
+    ],
+    "missing": [],
+    "highest_permitted": "CONDITION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "where the long commutes go",
+   "falsifier": "a destination-resolved commuting table showing Torrance's long commutes terminate inside Torrance County",
+   "status": "SUPPORTED",
+   "status_means": "held evidence supports it and nothing held materially opposes it",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  }
+ ],
+ "reading_places": {
+  "NM1-LABOURSHED": [
+   "C028",
+   "C039",
+   "C043",
+   "C033",
+   "C049",
+   "C055"
+  ],
+  "NM2-EARNINGS-GRADIENT": [
+   "C028",
+   "C047",
+   "C055",
+   "C039",
+   "C049"
+  ],
+  "NM3-FEDERAL-MONEY": [
+   "C028"
+  ],
+  "NM4-FISCAL-TERMINAL-LINK": [
+   "NM",
+   "C025"
+  ],
+  "NM5-SAME-FORCE": [
+   "C028",
+   "C033"
+  ],
+  "NM6-LONG-COMMUTE": [
+   "C057",
+   "C025",
+   "C039",
+   "NM"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "NM",
+   "name": "New Mexico",
+   "class": "PLACE",
+   "geography": "STATE",
+   "why": "the boundary this machine is built to reason inside",
+   "evidence": [
+    "ACS 2020-2024 county baseline, 33 of 33 counties"
+   ]
+  },
+  {
+   "id": "PLACE_NNM",
+   "name": "North and North Central New Mexico",
+   "class": "PLACE",
+   "geography": "ECONOMIC_REGION",
+   "why": "the eight-county region the repository already models, carried forward unchanged so that state-scale work does not silently redraw it",
+   "evidence": [
+    "intelligence/place.yaml"
+   ]
+  },
+  {
+   "id": "LABORSHED_LOSALAMOS",
+   "name": "The Los Alamos labour shed",
+   "class": "PLACE",
+   "geography": "LABOR_SHED",
+   "why": "the only county in the held data where jobs exceed resident workers, which means its labour market is not its county",
+   "evidence": [
+    "QWI 2024-Q4 ownercode A05",
+    "ACS B08007 2020-2024"
+   ]
+  },
+  {
+   "id": "RIO_GRANDE",
+   "name": "Rio Grande basin",
+   "class": "PLACE",
+   "geography": "WATERSHED",
+   "why": "water is allocated by basin and priority, not by county line",
+   "evidence": [
+    "world_state/phenomena.yaml WP03"
+   ]
+  },
+  {
+   "id": "C028",
+   "name": "Los Alamos County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "19,551 private jobs against 10,161 resident workers working in-county \u2014 the state's only observed net importer of workers",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C039",
+   "name": "Rio Arriba County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "44.8% of its resident workers work outside the county",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C033",
+   "name": "Mora County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "44.6% of its workers leave the county and 394 private jobs remain",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C043",
+   "name": "Sandoval County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "47.4% of its workers work outside the county, the largest share held",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C049",
+   "name": "Santa Fe County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the largest private employment centre in the north and the state capital",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C055",
+   "name": "Taos County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the lowest private earnings in the northern group against a tourism economy",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C047",
+   "name": "San Miguel County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the lowest average private earnings of the nine counties held",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C007",
+   "name": "Colfax County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "a northern county whose labour data is held and whose scale is small",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C001",
+   "name": "Bernalillo County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the state's employment centre, tracked as an external market by the existing regional model and therefore a boundary case",
+   "evidence": [
+    "ACS 2020-2024",
+    "QWI 2024-Q4"
+   ]
+  },
+  {
+   "id": "C057",
+   "name": "Torrance County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the highest share of 60-minute-plus commutes in the state, 24.9%",
+   "evidence": [
+    "ACS 2020-2024"
+   ]
+  },
+  {
+   "id": "C025",
+   "name": "Lea County",
+   "class": "PLACE",
+   "geography": "COUNTY",
+   "why": "the second-highest long-commute share in the state and the centre of the production that funds the state budget",
+   "evidence": [
+    "ACS 2020-2024"
+   ]
+  },
+  {
+   "id": "ACT_STATE_FISCAL",
+   "name": "New Mexico state government as a fiscal actor",
+   "class": "ACTOR",
+   "geography": null,
+   "why": "it collects revenue in one geography and spends it in others, which is the state's largest internal redistribution",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ]
+  },
+  {
+   "id": "ACT_FEDERAL",
+   "name": "Federal government as a purchaser in New Mexico",
+   "class": "ACTOR",
+   "geography": null,
+   "why": "federal obligations by place of performance are the largest single external money flow the repository can see entering a NM county",
+   "evidence": [
+    "domains/business/sources.yaml usaspending"
+   ]
+  },
+  {
+   "id": "SYS_HOUSING",
+   "name": "Housing",
+   "class": "SYSTEM",
+   "geography": null,
+   "why": "it is where the labour shed's commuting pressure lands",
+   "evidence": [
+    "ACS 2020-2024 cost burden and structure, 33 of 33"
+   ]
+  },
+  {
+   "id": "SYS_PUBLIC_FINANCE",
+   "name": "Public finance",
+   "class": "SYSTEM",
+   "geography": null,
+   "why": "extraction revenue in the southeast funds services everywhere else",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ]
+  },
+  {
+   "id": "SYS_WATER",
+   "name": "Water",
+   "class": "SYSTEM",
+   "geography": null,
+   "why": "allocation runs on basin and priority, crossing every county line",
+   "evidence": [
+    "world_state/phenomena.yaml WP03"
+   ]
+  }
+ ],
+ "flows": [
+  {
+   "id": "FL_LABOR_INTO_LOSALAMOS",
+   "flow_class": "LABOR",
+   "source": "the counties around Los Alamos",
+   "destination": "C028",
+   "mechanism": "People work at jobs located in Los Alamos County while living somewhere else, and travel to them.",
+   "evidence": [
+    "QWI 2024-Q4 ownercode A05 Emp=19,551",
+    "ACS B08007 2020-2024: 10,161 Los Alamos residents work in-county"
+   ],
+   "relation": "OBSERVED",
+   "magnitude": "LOWER_BOUND",
+   "quantity": 9390,
+   "unit": "jobs",
+   "direction": "into Los Alamos County",
+   "time": "2024-Q4 against 2020-2024",
+   "geography": "COUNTY",
+   "destination_state": "OBSERVED",
+   "retention": null,
+   "limitations": "QWI counts PRIVATE employers only, so adding government can only raise the workplace count: 9,390 is a floor, not an estimate. The two sources are different universes and different periods, so the number bounds the flow rather than measuring it.",
+   "depends_on": [
+    "housing within commuting range"
+   ]
+  },
+  {
+   "id": "FL_LABOR_OUT_OF_RIOARRIBA",
+   "flow_class": "LABOR",
+   "source": "C039",
+   "destination": "unpublished destination",
+   "mechanism": "Residents hold jobs outside their county of residence and commute.",
+   "evidence": [
+    "ACS B08007 2020-2024: 7,075 of 15,797 Rio Arriba workers work outside the county"
+   ],
+   "relation": "OBSERVED_ONE_SIDED",
+   "magnitude": "MEASURED",
+   "quantity": 7075,
+   "unit": "workers",
+   "direction": "out of Rio Arriba County",
+   "time": "2020-2024",
+   "geography": "COUNTY",
+   "destination_state": "OBSERVED",
+   "retention": null,
+   "limitations": "B08007 publishes that they left the county, not where they went. The destination is not in this table. Pairing it with Los Alamos would be an inference, and it is not made here.",
+   "depends_on": []
+  },
+  {
+   "id": "FL_MIGRATION_WITHIN_NM",
+   "flow_class": "LABOR",
+   "source": "other New Mexico counties",
+   "destination": "every county",
+   "mechanism": "Households move between counties inside the state within a year.",
+   "evidence": [
+    "ACS 2020-2024 mobility_moved_from_diff_county_same_state, 33 of 33"
+   ],
+   "relation": "OBSERVED_ONE_SIDED",
+   "magnitude": "MEASURED",
+   "quantity": 44448,
+   "unit": "people",
+   "direction": "inbound",
+   "time": "2020-2024",
+   "geography": "COUNTY",
+   "destination_state": "OBSERVED",
+   "retention": null,
+   "limitations": "Arrivals are counted by destination. The origin county is not published, so this is 33 observed arrivals, not a migration matrix.",
+   "depends_on": []
+  },
+  {
+   "id": "FL_FEDERAL_MONEY_INTO_LOSALAMOS",
+   "flow_class": "MONEY",
+   "source": "ACT_FEDERAL",
+   "destination": "C028",
+   "mechanism": "Federal awards are performed in a place and paid to a recipient, and those are two different geographies.",
+   "evidence": [
+    "domains/business/sources.yaml usaspending: Los Alamos FY2025, $75M by recipient against $5.28bn by place of performance"
+   ],
+   "relation": "OBSERVED",
+   "magnitude": "MEASURED",
+   "quantity": 5280000000.0,
+   "unit": "USD, FY2025",
+   "direction": "into Los Alamos County by place of performance",
+   "time": "FY2025",
+   "geography": "COUNTY",
+   "destination_state": "OBSERVED",
+   "retention": "UNKNOWN",
+   "limitations": "The source's own rule: never read place-of-performance totals as local business activity. The 70-fold gap between place and recipient is not a leakage measurement either \u2014 recipient address is a registration address, which the retention decomposition refuses as a proxy for owner domicile (D3 to D5).",
+   "depends_on": []
+  },
+  {
+   "id": "FL_STATE_REVENUE_TO_SERVICES",
+   "flow_class": "MONEY",
+   "source": "C025 and the southeast",
+   "destination": "ACT_STATE_FISCAL",
+   "mechanism": "Oil and gas proceeds fund an increasing share of state government, which spends across the state.",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "relation": "MECHANISM_SUPPORTED",
+   "magnitude": "UNKNOWN",
+   "quantity": null,
+   "unit": null,
+   "direction": "from extraction counties to the state",
+   "time": "2024-2026",
+   "geography": "STATE",
+   "destination_state": "UNOBSERVED",
+   "retention": null,
+   "limitations": "WP12 records that state figures cannot be apportioned to counties without an allocation rule the model does not have, and that FED_SPEND_SHARE_NNM is unobserved. The second half of this circuit \u2014 state spending reaching particular places \u2014 is not observed anywhere in the repository.",
+   "depends_on": []
+  }
+ ],
+ "dependencies": [
+  {
+   "id": "DEP_LOSALAMOS_ON_NEIGHBOURS",
+   "dependent": "C028",
+   "provider": "the surrounding counties",
+   "draws": "roughly half of the workforce filling jobs located inside it",
+   "mechanism": "Jobs at Los Alamos County workplaces exceed the county's own residents working in-county by at least 9,390. Those jobs are filled by people who commute in \u2014 a labour flow, not proximity.",
+   "evidence": [
+    "QWI 2024-Q4 Emp=19,551",
+    "ACS B08007: 10,161 in-county residents"
+   ],
+   "if_provider_changes": "If housing or transport in the surrounding counties made the commute infeasible, the jobs could not be staffed from the county's own population of about 19,000.",
+   "counter_mechanism": "Workers could relocate into Los Alamos County if housing existed there; the county's stock is 62.1% pre-1980 and its capacity to add units is unobserved.",
+   "unknown": "Which counties the in-commuters live in. B08007 publishes that residents left their county, not where they went.",
+   "strength": "OBSERVED",
+   "missing_bridges": []
+  },
+  {
+   "id": "DEP_NEIGHBOURS_ON_LOSALAMOS",
+   "dependent": "the surrounding counties",
+   "provider": "C028",
+   "draws": "access to the highest private earnings in the held data",
+   "mechanism": "Average monthly private earnings in Los Alamos County are $11,370 against $3,288 in San Miguel and $4,179 in Taos. A worker reaching a Los Alamos job earns a multiple of what the same hours pay at home, so household income in the surrounding counties is partly set by access to a labour market in another county.",
+   "evidence": [
+    "QWI 2024-Q4 EarnS by county"
+   ],
+   "if_provider_changes": "A contraction in Los Alamos County employment would remove the highest-paying accessible work from several counties at once, not only from its own.",
+   "counter_mechanism": "The earnings gap is an average over different occupational mixes, so part of it is composition rather than a premium the same worker could capture.",
+   "unknown": "How much of each surrounding county's household income actually comes from Los Alamos County jobs. No published flow links them.",
+   "strength": "MECHANISM_SUPPORTED",
+   "missing_bridges": []
+  },
+  {
+   "id": "DEP_STATE_ON_SOUTHEAST",
+   "dependent": "every county in New Mexico",
+   "provider": "the extraction counties of the southeast",
+   "draws": "the revenue that funds state government",
+   "mechanism": "Oil and gas proceeds fund an increasing share of state government, and state government funds services delivered everywhere.",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "if_provider_changes": "A price or royalty change in the southeast moves the state's fiscal capacity, which is the same budget everywhere else draws on.",
+   "counter_mechanism": "Reporting describes investment income substituting for extraction revenue, and production growth offsetting the royalty rate cut.",
+   "unknown": "How much state spending reaches any particular county. WP12 records that state figures cannot be apportioned without an allocation rule the model does not have. This is the single largest unobserved internal dependency in the state.",
+   "strength": "MECHANISM_SUPPORTED",
+   "missing_bridges": []
+  }
+ ],
+ "world_entries": [
+  {
+   "id": "WE_ENERGY_FISCAL",
+   "phenomenon": "WP12",
+   "phenomenon_name": "New Mexico's budget is funded by oil, and a federal royalty change cuts the share",
+   "pathway": [
+    "world energy conditions and federal royalty rules",
+    "production in the southeastern counties",
+    "state revenue",
+    "state fiscal capacity",
+    "public spending reaching particular places"
+   ],
+   "enters_through": "the state budget, not a county economy",
+   "reaches": [
+    "NM"
+   ],
+   "terminal_link": "public spending reaching particular places",
+   "terminal_state": "UNOBSERVED",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "differs_because": "The entry point is a single institution, so the force arrives everywhere at once through one actor rather than place by place.",
+   "carries_a_landing_claim": false
+  },
+  {
+   "id": "WE_FEDERAL_SCIENCE",
+   "phenomenon": "WP07",
+   "phenomenon_name": "The federal workforce contracted by more than a tenth",
+   "pathway": [
+    "federal employment and procurement policy",
+    "federal obligations performed in New Mexico",
+    "private employment at those workplaces",
+    "earnings in the counties those workers live in"
+   ],
+   "enters_through": "places of performance, which are specific counties",
+   "reaches": [
+    "C028",
+    "C039",
+    "C049",
+    "C055"
+   ],
+   "terminal_link": "earnings in the counties those workers live in",
+   "terminal_state": "MECHANISM_ONLY",
+   "evidence": [
+    "domains/business/sources.yaml usaspending",
+    "QWI 2024-Q4 Emp and EarnS"
+   ],
+   "differs_because": "This force lands on named counties with observable employment, so its local differences are visible where the labour data is held.",
+   "carries_a_landing_claim": false
+  },
+  {
+   "id": "WE_WATER",
+   "phenomenon": "WP03",
+   "phenomenon_name": "Record-low Rio Grande snowpack and a compact debt New Mexico cannot pay",
+   "pathway": [
+    "snowpack and compact obligation",
+    "basin allocation under priority",
+    "water delivered to irrigators",
+    "production decisions"
+   ],
+   "enters_through": "the basin, which is not a county",
+   "reaches": [
+    "RIO_GRANDE"
+   ],
+   "terminal_link": "water delivered to irrigators",
+   "terminal_state": "UNOBSERVED",
+   "evidence": [
+    "world_state/phenomena.yaml WP03"
+   ],
+   "differs_because": "Allocation is by priority date, so two neighbours on the same ditch can receive different water in the same year.",
+   "carries_a_landing_claim": false
+  },
+  {
+   "id": "WE_FREIGHT",
+   "phenomenon": "WP09",
+   "phenomenon_name": "Freight rates rose on capacity leaving, not on demand arriving",
+   "pathway": [
+    "freight capacity leaving the national market",
+    "line-haul and delivery cost into New Mexico",
+    "input costs for anything trucked in"
+   ],
+   "enters_through": "input prices, reaching every place that buys freighted goods",
+   "reaches": [
+    "NM"
+   ],
+   "terminal_link": "input costs by place",
+   "terminal_state": "UNOBSERVED",
+   "evidence": [
+    "world_state/phenomena.yaml WP09"
+   ],
+   "differs_because": "Distance from a distribution point is not held by county, so the differential cost is a mechanism without a measurement.",
+   "carries_a_landing_claim": false
+  }
+ ],
+ "difference": {
+  "id": "PD_FEDERAL_SCIENCE",
+  "force": "federal employment and procurement policy (WP07, federal workforce contraction) arriving through places of performance",
+  "places": {
+   "Los Alamos County": {
+    "exposure": "19,551 private jobs in a county of about 19,000 people, and $5.28bn of federal obligations performed there in FY2025",
+    "sensitivity": "Average private earnings of $11,370 a month, 2.1 times the state's largest employment centre",
+    "actor_response": "3.0% of its own residents work outside the county \u2014 the lowest share held \u2014 so households here do not currently adapt by commuting out",
+    "capability": "housing stock 62.1% built before 1980; capacity to add units unobserved (RC02)",
+    "evidence": [
+     "QWI 2024-Q4",
+     "ACS B08007",
+     "usaspending via business sources",
+     "domains/housing/model/conditions.yaml"
+    ]
+   },
+   "Mora County": {
+    "exposure": "394 private jobs in the whole county",
+    "sensitivity": "Average private earnings of $3,984 a month",
+    "actor_response": "44.6% of its resident workers already work outside the county, and 10.8% travel 60 minutes or more",
+    "capability": "14.6% of housing units lack complete plumbing and 81.7% of occupied homes are heated with wood or bottled gas (HC07)",
+    "evidence": [
+     "QWI 2024-Q4",
+     "ACS B08007",
+     "ACS 2020-2024 commute",
+     "domains/housing/model/conditions.yaml HC07"
+    ]
+   }
+  },
+  "channels": [
+   "EXPOSURE",
+   "SENSITIVITY",
+   "ACTOR_RESPONSE",
+   "CAPABILITY",
+   "STRUCTURE"
+  ],
+  "evidence": [
+   "QWI 2024-Q4 ownercode A05",
+   "ACS B08007 2020-2024",
+   "ACS 2020-2024"
+  ],
+  "conclusion": "The same federal force reaches these two counties through different structures and therefore cannot have the same local effect. In Los Alamos it arrives as the county's entire private economy, concentrated in one place of performance. In Mora, 60 miles away, it arrives \u2014 if at all \u2014 through whatever the 44.6% who already leave the county are able to reach. One county's exposure is its employment; the other's is its commute.",
+  "unknown": "Whether any of Mora's out-commuters reach federally funded work at all. No published flow connects a worker's county of residence to a county of employment in this state, so the second half of this comparison is a structural difference, not a measured one."
+ },
+ "chain": {
+  "id": "CH_LABORSHED_HOUSING",
+  "name": "A labour market in one county becomes housing pressure in the counties around it",
+  "links": {
+   "origin": "C028",
+   "mechanism": "Jobs located in Los Alamos County exceed the county's resident workers working in-county by at least 9,390, and the county's own housing stock cannot house them: 62.1% of it predates 1980 and its capacity to add units is unobserved.",
+   "flow": "FL_LABOR_INTO_LOSALAMOS \u2014 a labour flow into the county, observed as a lower bound from two independent federal sources",
+   "intermediate": "households who hold a Los Alamos County job and a house somewhere else, and the housing markets of the counties they live in",
+   "receiving_place": "the surrounding counties \u2014 Rio Arriba, Santa Fe, Taos \u2014 where 7,075, 10,128 and 1,658 resident workers respectively work outside their county",
+   "parameter": "housing cost relative to local earnings in the receiving counties: a household earning $11,370 a month bids for housing in a county whose own average private earnings are $4,885 (Rio Arriba) or $4,179 (Taos)",
+   "counter_mechanism": "The commuters may be dispersed widely enough that no single receiving market feels them; or the housing in question may be the seasonal and other-vacant stock already counted (HC01: 13,607 seasonal and 11,277 other vacant units in the region), in which case the pressure is on a different margin than new construction.",
+   "falsifier": "A published county-to-county commuting matrix showing that Los Alamos County's in-commuters come overwhelmingly from inside Los Alamos County's own housing market or from outside the state would break this chain at its first link."
+  },
+  "reach": "INTERNAL_TRANSMISSION",
+  "reach_why": "originates inside New Mexico",
+  "boundary": [
+   "NM",
+   "C001",
+   "C003",
+   "C005",
+   "C006",
+   "C007",
+   "C009",
+   "C011",
+   "C013",
+   "C015",
+   "C017",
+   "C019",
+   "C021",
+   "C023",
+   "C025",
+   "C027",
+   "C028",
+   "C029",
+   "C031",
+   "C033",
+   "C035",
+   "C037",
+   "C039",
+   "C041",
+   "C043",
+   "C045",
+   "C047",
+   "C049",
+   "C051",
+   "C053",
+   "C055",
+   "C057",
+   "C059",
+   "C061"
+  ],
+  "boundary_name": "New Mexico",
+  "evidence": [
+   "QWI 2024-Q4",
+   "ACS B08007 2020-2024",
+   "ACS 2020-2024 earnings and stock",
+   "domains/housing/model/conditions.yaml HC01"
+  ]
+ },
+ "circuits": [
+  {
+   "id": "CIRC_LABOR_HOUSING",
+   "name": "Labour and housing across the northern counties",
+   "steps": [
+    "jobs concentrate in one county",
+    "workers commute in from the counties around it",
+    "those households hold housing in the receiving counties",
+    "housing cost relative to local earnings moves there",
+    "which sets how far the labour shed can reach"
+   ],
+   "closes": false,
+   "breaks_at": "workers commute in from the counties around it",
+   "why": "The inflow is observed as a bound and the outflow from each neighbouring county is observed separately, but no published source pairs them. The circuit is traceable in mechanism and unmeasured at the join.",
+   "would_close_it": "a county-to-county commuting matrix",
+   "evidence": [
+    "QWI 2024-Q4",
+    "ACS B08007 2020-2024",
+    "ACS 2020-2024"
+   ]
+  },
+  {
+   "id": "CIRC_ENERGY_FISCAL",
+   "name": "Energy into public finance into everywhere else",
+   "steps": [
+    "world energy conditions and federal royalty rules",
+    "production in the southeastern counties",
+    "state revenue",
+    "state fiscal capacity",
+    "public spending reaching particular places"
+   ],
+   "closes": false,
+   "breaks_at": "public spending reaching particular places",
+   "why": "WP12 records that state figures cannot be apportioned to counties without an allocation rule the model does not have. Every step before the last is supported; the last is unobserved, so the most consequential circuit in New Mexico has no measurable terminus.",
+   "would_close_it": "an allocation of state expenditure by county",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ]
+  }
+ ],
+ "constraints": [
+  {
+   "id": "BN_LABORSHED_HOUSING",
+   "name": "Housing within reach of the Los Alamos labour market",
+   "grade": "INTERREGIONAL_BOTTLENECK",
+   "unanswered": [],
+   "places_affected": [
+    "C028",
+    "C039",
+    "C049",
+    "C055"
+   ],
+   "answers": {
+    "what_is_constrained": "where the workers filling Los Alamos County jobs can live",
+    "who_is_constrained": "employers at those workplaces, and the households who hold those jobs",
+    "which_places": "Los Alamos, Rio Arriba, Santa Fe, Taos",
+    "which_parameters": "commute time, housing cost relative to local earnings, and the effective wage net of travel",
+    "evidence": "a lower-bound labour inflow of 9,390 jobs; out-of-county work shares of 44.8% (Rio Arriba), 14.1% (Santa Fe) and 11.1% (Taos); 62.1% of Los Alamos housing built before 1980",
+    "if_removed": "workers could locate nearer the jobs, commute time would fall, and the labour supply reachable by those workplaces would widen",
+    "next_constraint": "serviced land and construction capability \u2014 RC02's connection capacity and RC01's crew throughput are both recorded UNKNOWN, so the next binding constraint is one the model cannot currently measure",
+    "can_it_be_changed": "yes \u2014 housing production responds to land, finance and permitting, all of which are decisions rather than physical limits"
+   },
+   "why_not_a_bottleneck": null
+  },
+  {
+   "id": "BN_WATER",
+   "name": "Water availability in the northern basin",
+   "grade": "CONSTRAINT_SIGNAL",
+   "unanswered": [
+    "if_removed",
+    "next_constraint",
+    "can_it_be_changed"
+   ],
+   "places_affected": [
+    "RIO_GRANDE"
+   ],
+   "answers": {
+    "what_is_constrained": "irrigated production",
+    "who_is_constrained": "irrigators holding junior rights",
+    "which_places": "the Rio Grande basin",
+    "which_parameters": "allocated and delivered acre-feet",
+    "evidence": "snowpack at 13% of median, a compact debit of about 124,000 acre-feet, an 82-mile dry reach",
+    "if_removed": "",
+    "next_constraint": "",
+    "can_it_be_changed": ""
+   },
+   "why_not_a_bottleneck": "unanswered: if_removed, next_constraint, can_it_be_changed"
+  },
+  {
+   "id": "BN_FISCAL_OPACITY",
+   "name": "No allocation of state spending to places exists",
+   "grade": "CONSTRAINT_SIGNAL",
+   "unanswered": [
+    "if_removed",
+    "next_constraint",
+    "can_it_be_changed"
+   ],
+   "places_affected": [
+    "C001",
+    "C003",
+    "C005",
+    "C006",
+    "C007",
+    "C009",
+    "C011",
+    "C013",
+    "C015",
+    "C017",
+    "C019",
+    "C021",
+    "C023",
+    "C025",
+    "C027",
+    "C028",
+    "C029",
+    "C031",
+    "C033",
+    "C035",
+    "C037",
+    "C039",
+    "C041",
+    "C043",
+    "C045",
+    "C047",
+    "C049",
+    "C051",
+    "C053",
+    "C055",
+    "C057",
+    "C059",
+    "C061"
+   ],
+   "answers": {
+    "what_is_constrained": "the ability of anyone to see where the state's extraction revenue actually lands",
+    "who_is_constrained": "every actor deciding where to build, finance or locate on the basis of public investment",
+    "which_places": "all 33 counties",
+    "which_parameters": "state spending per place, and its share of local income",
+    "evidence": "WP12 records FED_SPEND_SHARE_NNM unobserved and WR062 records that state figures cannot be apportioned to counties without an allocation rule the model does not have",
+    "if_removed": "",
+    "next_constraint": "",
+    "can_it_be_changed": ""
+   },
+   "why_not_a_bottleneck": "unanswered: if_removed, next_constraint, can_it_be_changed"
+  }
+ ],
+ "counterfactual": {
+  "id": "CF_LABORSHED_HOUSING",
+  "constraint": "BN_LABORSHED_HOUSING \u2014 housing within reach of the Los Alamos labour market",
+  "if_reduced": "If housing within commuting range of those workplaces were materially easier to obtain",
+  "actors_change": [
+   "Households holding Los Alamos County jobs choose location on wage and amenity rather than on what is available within a tolerable drive.",
+   "Employers at those workplaces recruit from a wider pool, because the binding question stops being where a hire could live.",
+   "Builders in Santa Fe and Sandoval \u2014 where construction employment is concentrated (HC08) \u2014 face demand in counties they are not observed to work in, and whether they would is unobserved (HF04, HF11)."
+  ],
+  "parameters_move": [
+   "commute time in the receiving counties, which is observed and would fall",
+   "housing cost relative to local earnings in Rio Arriba and Taos, where a $11,370 household currently bids against a $4,885 or $4,179 local average",
+   "the effective wage net of travel for the in-commuting households"
+  ],
+  "places_receiving": [
+   "C028",
+   "C039",
+   "C049",
+   "C055"
+  ],
+  "becomes_possible": [
+   "Local earnings and local housing cost in the receiving counties stop being set by a labour market those counties do not contain."
+  ],
+  "next_constraint": "Serviced land and construction capability. RC02 records that a community water system existing is not service capacity and that connection capacity is unobserved; RC01 records crew and project throughput unobserved. Relieving housing demand would move the constraint onto two capabilities the model cannot measure.",
+  "could_offset": [
+   "The 13,607 seasonal and 11,277 other-vacant units already in the region (HC01) could absorb the demand without any construction, in which case the constraint was never production.",
+   "New housing near the jobs could draw households out of the receiving counties rather than adding to them, moving the problem rather than easing it."
+  ],
+  "evidence": [
+   "QWI 2024-Q4",
+   "ACS B08007 2020-2024",
+   "world_model/capabilities.yaml RC01, RC02",
+   "domains/housing/model/conditions.yaml HC01, HC08"
+  ],
+  "status": "MECHANISM_BASED_CONDITIONAL",
+  "not_a_forecast": "No magnitude is claimed. Every step is a mechanism the model already holds, not a simulated quantity."
+ },
+ "leakage": [
+  {
+   "id": "LK_FEDERAL_RECIPIENT",
+   "class": "PROCUREMENT",
+   "place": "C028",
+   "what_leaves": "the difference between what is spent performing federal work in Los Alamos County and what is paid to recipients registered there",
+   "evidence": [
+    "domains/business/sources.yaml usaspending: $5.28bn by place of performance against $75M by recipient, FY2025"
+   ],
+   "exchange_kind": "UNKNOWN_WHICH",
+   "mechanism": "A recipient's registered address is where an entity is incorporated or headquartered, not where its owners are and not where its returns go. The retention decomposition refuses D3 to D5 in terms: reading a registration address as where value went is the error that makes a Delaware entity look like a Delaware economy.",
+   "decomposition_steps": [
+    "D1 asset location",
+    "D2 firm location",
+    "D3 legal domicile",
+    "D5 owner domicile",
+    "D8 return destination"
+   ],
+   "missing_bridges": []
+  },
+  {
+   "id": "LK_LABOR_INCOME_OUT",
+   "class": "LABOR_INCOME",
+   "place": "C028",
+   "what_leaves": "wages earned at Los Alamos County workplaces by people who live in other counties",
+   "evidence": [
+    "QWI 2024-Q4 Emp=19,551 against ACS B08007 in-county 10,161"
+   ],
+   "exchange_kind": "BENEFICIAL_EXCHANGE",
+   "mechanism": "This is the ordinary operation of a labour market that is larger than its county. The income does not vanish; it is earned in one county and spent in another inside the same state. Calling it leakage from Los Alamos County would make a working labour shed look like a loss, and would miss that the receiving counties are the beneficiaries.",
+   "decomposition_steps": [
+    "D2 firm location",
+    "D7 return recipient"
+   ],
+   "missing_bridges": []
+  },
+  {
+   "id": "LK_STATE_SPENDING",
+   "class": "CAPITAL",
+   "place": "NM",
+   "what_leaves": "unknown \u2014 whether extraction revenue is retained as productive capacity anywhere in the state cannot be determined",
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "exchange_kind": "UNKNOWN_WHICH",
+   "mechanism": "WP12 records that the state may spend, save into permanent funds, or both, and marks the actor response UNKNOWN. Without an allocation of spending to places, neither retention nor leakage can be established.",
+   "decomposition_steps": [
+    "D9 reinvestment location"
+   ],
+   "missing_bridges": []
+  }
+ ],
+ "capability": [
+  {
+   "id": "RC01",
+   "title": "Housing construction (builders and trades)",
+   "stock": "OBSERVED",
+   "facets": {
+    "existence": "OBSERVED",
+    "capacity": "UNKNOWN",
+    "utilization": "UNKNOWN",
+    "access": "UNKNOWN",
+    "geography": "OBSERVED",
+    "substitutability": "UNKNOWN",
+    "resilience": "UNKNOWN"
+   },
+   "mobilization_observed": [],
+   "mobilization_unknown": [
+    "capacity",
+    "utilization",
+    "access"
+   ],
+   "verdict": "STOCK_OBSERVED_MOBILIZATION_UNKNOWN"
+  },
+  {
+   "id": "RC02",
+   "title": "Serviced land (water, sewer, roads with capacity for new homes)",
+   "stock": "OBSERVED",
+   "facets": {
+    "existence": "OBSERVED",
+    "capacity": "UNKNOWN",
+    "utilization": "UNKNOWN",
+    "access": "UNKNOWN",
+    "geography": "OBSERVED",
+    "substitutability": "UNKNOWN",
+    "resilience": "UNKNOWN"
+   },
+   "mobilization_observed": [],
+   "mobilization_unknown": [
+    "capacity",
+    "utilization",
+    "access"
+   ],
+   "verdict": "STOCK_OBSERVED_MOBILIZATION_UNKNOWN"
+  },
+  {
+   "id": "RC03",
+   "title": "Consolidating and delivering dispersed northern food orders",
+   "stock": "OBSERVED",
+   "facets": {
+    "existence": "OBSERVED",
+    "capacity": "UNKNOWN",
+    "utilization": "UNKNOWN",
+    "access": "OBSERVED",
+    "geography": "OBSERVED",
+    "substitutability": "UNKNOWN",
+    "resilience": "UNKNOWN"
+   },
+   "mobilization_observed": [
+    "access"
+   ],
+   "mobilization_unknown": [
+    "capacity",
+    "utilization"
+   ],
+   "verdict": "STOCK_AND_MOBILIZATION_OBSERVED"
+  },
+  {
+   "id": "RC04",
+   "title": "Supplying single-store valleys (rural grocery)",
+   "stock": "OBSERVED",
+   "facets": {
+    "existence": "OBSERVED",
+    "capacity": "UNKNOWN",
+    "utilization": "UNKNOWN",
+    "access": "UNKNOWN",
+    "geography": "OBSERVED",
+    "substitutability": "UNKNOWN",
+    "resilience": "UNKNOWN"
+   },
+   "mobilization_observed": [],
+   "mobilization_unknown": [
+    "capacity",
+    "utilization",
+    "access"
+   ],
+   "verdict": "STOCK_OBSERVED_MOBILIZATION_UNKNOWN"
+  },
+  {
+   "id": "RC05",
+   "title": "Regional agricultural production",
+   "stock": "OBSERVED",
+   "facets": {
+    "existence": "OBSERVED",
+    "capacity": "UNKNOWN",
+    "utilization": "UNKNOWN",
+    "access": "UNKNOWN",
+    "geography": "OBSERVED",
+    "substitutability": "UNKNOWN",
+    "resilience": "UNKNOWN"
+   },
+   "mobilization_observed": [],
+   "mobilization_unknown": [
+    "capacity",
+    "utilization",
+    "access"
+   ],
+   "verdict": "STOCK_OBSERVED_MOBILIZATION_UNKNOWN"
+  }
+ ],
+ "hinges": [
+  {
+   "id": "HG_EARNINGS_GRADIENT",
+   "name": "The within-state earnings gradient",
+   "scope": "NM_PLACE_TO_NM_PLACE",
+   "parameter": "average monthly private earnings at the workplace, by county",
+   "connects": [
+    "C028",
+    "C039",
+    "C047",
+    "C055",
+    "C049"
+   ],
+   "identity": {
+    "numerator": "total quarterly private payroll at workplaces in the county",
+    "denominator": "private jobs at workplaces in the county",
+    "actor": "private employers; the worker's county of residence is a different actor and is not in this ratio",
+    "boundary": "county of WORKPLACE, not county of residence",
+    "unit": "dollars per month per job",
+    "marginal_vs_total": "an average over all jobs, not the wage a particular worker would gain by moving between counties",
+    "behavioural_link": "a worker who can reach a higher-earning county's workplace earns more; whether they can reach it is the unobserved part"
+   },
+   "identity_validity": {
+    "identity": null,
+    "state": "IDENTITY_VALID",
+    "computable": false,
+    "missing_checks": [],
+    "unresolved_checks": [],
+    "may_support_a_consequential_reading": true,
+    "rule": "A quantity can be arithmetically computable and economically mis-specified. Computability is not permission.",
+    "checks": {
+     "numerator": "total quarterly private payroll at workplaces in the county",
+     "denominator": "private jobs at workplaces in the county",
+     "actor": "private employers; the worker's county of residence is a different actor and is not in this ratio",
+     "boundary": "county of WORKPLACE, not county of residence",
+     "unit": "dollars per month per job",
+     "marginal_vs_total": "an average over all jobs, not the wage a particular worker would gain by moving between counties",
+     "behavioural_link": "a worker who can reach a higher-earning county's workplace earns more; whether they can reach it is the unobserved part"
+    }
+   },
+   "evidence": [
+    "QWI 2024-Q4 EarnS by county"
+   ],
+   "grade": "CONSEQUENTIAL_PARAMETER",
+   "intervention_leverage": null,
+   "who_could_move_it": null,
+   "why_not_leverage": "no actor is identified who could move this parameter"
+  },
+  {
+   "id": "HG_STATE_REVENUE",
+   "name": "The state's share of extraction revenue",
+   "scope": "WORLD_TO_NM",
+   "parameter": "the royalty rate and the price at which production is sold",
+   "connects": [
+    "NM"
+   ],
+   "identity": {
+    "numerator": "state revenue from federal leasing",
+    "denominator": "production on federal acreage",
+    "actor": "the state as a revenue recipient",
+    "boundary": "the state, not any county",
+    "unit": "dollars per year",
+    "marginal_vs_total": "a rate change applies at the margin on federal acreage only, not to total production",
+    "behavioural_link": ""
+   },
+   "identity_validity": {
+    "identity": null,
+    "state": "IDENTITY_UNSPECIFIED",
+    "computable": false,
+    "missing_checks": [
+     "behavioural_link"
+    ],
+    "unresolved_checks": [],
+    "may_support_a_consequential_reading": false,
+    "rule": "A quantity can be arithmetically computable and economically mis-specified. Computability is not permission.",
+    "checks": {
+     "numerator": "state revenue from federal leasing",
+     "denominator": "production on federal acreage",
+     "actor": "the state as a revenue recipient",
+     "boundary": "the state, not any county",
+     "unit": "dollars per year",
+     "marginal_vs_total": "a rate change applies at the margin on federal acreage only, not to total production",
+     "behavioural_link": ""
+    }
+   },
+   "evidence": [
+    "world_state/phenomena.yaml WP12"
+   ],
+   "grade": "CONSEQUENTIAL_PARAMETER",
+   "intervention_leverage": null,
+   "who_could_move_it": null,
+   "why_not_leverage": "no actor is identified who could move this parameter"
+  }
+ ],
+ "coverage": [
+  {
+   "subject": "Demographics, housing stock, tenure, cost burden, commuting time, within-state in-migration",
+   "geography": "county",
+   "grade": "WELL",
+   "counties_covered": 33,
+   "counties_total": 33,
+   "share": 1.0,
+   "held": "ACS 2020-2024, 191 variables, every county, one vintage",
+   "missing": "nothing at this level",
+   "conclusions_blocked": null
+  },
+  {
+   "subject": "Employment, earnings, firm dynamics, place of work",
+   "geography": "county",
+   "grade": "POORLY",
+   "counties_covered": 9,
+   "counties_total": 33,
+   "share": 0.273,
+   "held": "QWI and CBP for nine counties, private employers only",
+   "missing": "24 counties have no employer-level data in this repository at all, including Do\u00f1a Ana, Lea, Eddy, San Juan and McKinley",
+   "conclusions_blocked": "No statewide claim about employment, earnings or the labour market can be made. Every labour finding in this reading is about the nine counties named and is said so."
+  },
+  {
+   "subject": "Where commuters and migrants actually go",
+   "geography": "county pair",
+   "grade": "NOT_AT_ALL",
+   "counties_covered": 0,
+   "counties_total": 33,
+   "share": 0.0,
+   "held": "arrivals by destination and departures by origin, separately",
+   "missing": "any county-to-county matrix for commuting or migration",
+   "conclusions_blocked": "Every dependency between two named places in this reading rests on a mechanism and a bound, never on a measured pairing."
+  },
+  {
+   "subject": "State spending by place",
+   "geography": "county",
+   "grade": "NOT_AT_ALL",
+   "counties_covered": 0,
+   "counties_total": 33,
+   "share": 0.0,
+   "held": "nothing",
+   "missing": "any allocation of state revenue or expenditure to counties",
+   "conclusions_blocked": "The state's largest internal redistribution cannot be traced. This blocks the energy-to-public-finance circuit at its last step."
+  },
+  {
+   "subject": "Ownership, profit, reinvestment location",
+   "geography": "any",
+   "grade": "NOT_AT_ALL",
+   "counties_covered": 0,
+   "counties_total": 33,
+   "share": 0.0,
+   "held": "the D1-D9 decomposition and its refusals",
+   "missing": "seven of the twelve retention measurements are recorded NOT_OBSERVABLE_WITH_PUBLIC_DATA",
+   "conclusions_blocked": "No claim about where value ends up can be made for any place in New Mexico, including the $5.28bn case."
+  },
+  {
+   "subject": "Tribal and Pueblo geographies",
+   "geography": "tribal",
+   "grade": "NOT_AT_ALL",
+   "counties_covered": 0,
+   "counties_total": 33,
+   "share": 0.0,
+   "held": "nothing, by rule",
+   "missing": "not a gap to be filled from public sources",
+   "conclusions_blocked": "Indigenous geographies are not modelled as county subdivisions and no absence here is read as economic absence. County figures covering these lands are not disaggregated and are not treated as observations about them."
+  }
+ ],
+ "overrepresented": {
+  "geographies": "The eight northern counties plus Bernalillo carry every labour, firm and earnings observation in this repository. They are nine of 33 counties and about half the state's population, and they are where almost all of this reading's specificity comes from.",
+  "systems": "Housing and food are modelled in depth; energy, health, education, manufacturing and the visitor economy are present as world conditions or not at all.",
+  "cannot_be_made": [
+   "any statewide employment, wage or firm-dynamics claim",
+   "any claim about which county a commuter or migrant came from or went to",
+   "any claim about where state spending lands",
+   "any claim about where profit or ownership returns go",
+   "any claim about the economies of the 24 counties with no employer data"
+  ]
+ },
+ "evidence": {
+  "labor_shed": [
+   {
+    "county": "028",
+    "name": "Los Alamos",
+    "private_jobs_at_workplace": 19551,
+    "monthly_earnings": 11370,
+    "resident_workers": 10510,
+    "work_in_county": 10161,
+    "work_outside_county": 312,
+    "out_commute_share": 0.0297,
+    "jobs_minus_resident_in_county": 9390,
+    "gap_reading": "NET IMPORTER OF WORKERS \u2014 lower bound, because QWI excludes government",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "001",
+    "name": "Bernalillo",
+    "private_jobs_at_workplace": 301717,
+    "monthly_earnings": 5469,
+    "resident_workers": 321963,
+    "work_in_county": 300679,
+    "work_outside_county": 19248,
+    "out_commute_share": 0.0598,
+    "jobs_minus_resident_in_county": 1038,
+    "gap_reading": "NET IMPORTER OF WORKERS \u2014 lower bound, because QWI excludes government",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "033",
+    "name": "Mora",
+    "private_jobs_at_workplace": 394,
+    "monthly_earnings": 3984,
+    "resident_workers": 1524,
+    "work_in_county": 844,
+    "work_outside_county": 680,
+    "out_commute_share": 0.4462,
+    "jobs_minus_resident_in_county": -450,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "007",
+    "name": "Colfax",
+    "private_jobs_at_workplace": 2783,
+    "monthly_earnings": 3730,
+    "resident_workers": 4494,
+    "work_in_county": 4171,
+    "work_outside_county": 151,
+    "out_commute_share": 0.0336,
+    "jobs_minus_resident_in_county": -1388,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "039",
+    "name": "Rio Arriba",
+    "private_jobs_at_workplace": 5623,
+    "monthly_earnings": 4885,
+    "resident_workers": 15797,
+    "work_in_county": 8605,
+    "work_outside_county": 7075,
+    "out_commute_share": 0.4479,
+    "jobs_minus_resident_in_county": -2982,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "047",
+    "name": "San Miguel",
+    "private_jobs_at_workplace": 4308,
+    "monthly_earnings": 3288,
+    "resident_workers": 10764,
+    "work_in_county": 8760,
+    "work_outside_county": 1982,
+    "out_commute_share": 0.1841,
+    "jobs_minus_resident_in_county": -4452,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "055",
+    "name": "Taos",
+    "private_jobs_at_workplace": 8164,
+    "monthly_earnings": 4179,
+    "resident_workers": 14963,
+    "work_in_county": 13275,
+    "work_outside_county": 1658,
+    "out_commute_share": 0.1108,
+    "jobs_minus_resident_in_county": -5111,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "043",
+    "name": "Sandoval",
+    "private_jobs_at_workplace": 28075,
+    "monthly_earnings": 6156,
+    "resident_workers": 68738,
+    "work_in_county": 35617,
+    "work_outside_county": 32573,
+    "out_commute_share": 0.4739,
+    "jobs_minus_resident_in_county": -7542,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   },
+   {
+    "county": "049",
+    "name": "Santa Fe",
+    "private_jobs_at_workplace": 49632,
+    "monthly_earnings": 5429,
+    "resident_workers": 71640,
+    "work_in_county": 60822,
+    "work_outside_county": 10128,
+    "out_commute_share": 0.1414,
+    "jobs_minus_resident_in_county": -11190,
+    "gap_reading": "UNINTERPRETABLE \u2014 a negative gap is what missing public-sector jobs look like, not evidence of out-commuting",
+    "qwi_quarter": "2024-Q4"
+   }
+  ],
+  "earnings": {
+   "rows": [
+    {
+     "name": "Los Alamos",
+     "monthly_earnings": 11370
+    },
+    {
+     "name": "Sandoval",
+     "monthly_earnings": 6156
+    },
+    {
+     "name": "Bernalillo",
+     "monthly_earnings": 5469
+    },
+    {
+     "name": "Santa Fe",
+     "monthly_earnings": 5429
+    },
+    {
+     "name": "Rio Arriba",
+     "monthly_earnings": 4885
+    },
+    {
+     "name": "Taos",
+     "monthly_earnings": 4179
+    },
+    {
+     "name": "Mora",
+     "monthly_earnings": 3984
+    },
+    {
+     "name": "Colfax",
+     "monthly_earnings": 3730
+    },
+    {
+     "name": "San Miguel",
+     "monthly_earnings": 3288
+    }
+   ],
+   "top": "Los Alamos",
+   "top_value": 11370,
+   "bottom": "San Miguel",
+   "bottom_value": 3288,
+   "ratio": 3.46,
+   "counties_covered": 9,
+   "counties_total": 33
+  },
+  "long_commutes": [
+   {
+    "county": "057",
+    "name": "Torrance",
+    "share_60plus_pct": 24.9,
+    "workers": 5666,
+    "count_60plus": 1411
+   },
+   {
+    "county": "025",
+    "name": "Lea",
+    "share_60plus_pct": 11.93,
+    "workers": 29274,
+    "count_60plus": 3492
+   },
+   {
+    "county": "039",
+    "name": "Rio Arriba",
+    "share_60plus_pct": 11.15,
+    "workers": 14183,
+    "count_60plus": 1581
+   },
+   {
+    "county": "047",
+    "name": "San Miguel",
+    "share_60plus_pct": 10.99,
+    "workers": 9559,
+    "count_60plus": 1051
+   },
+   {
+    "county": "023",
+    "name": "Hidalgo",
+    "share_60plus_pct": 10.91,
+    "workers": 1604,
+    "count_60plus": 175
+   },
+   {
+    "county": "033",
+    "name": "Mora",
+    "share_60plus_pct": 10.84,
+    "workers": 1393,
+    "count_60plus": 151
+   },
+   {
+    "county": "031",
+    "name": "McKinley",
+    "share_60plus_pct": 10.81,
+    "workers": 21498,
+    "count_60plus": 2325
+   },
+   {
+    "county": "006",
+    "name": "Cibola",
+    "share_60plus_pct": 10.63,
+    "workers": 7137,
+    "count_60plus": 759
+   },
+   {
+    "county": "043",
+    "name": "Sandoval",
+    "share_60plus_pct": 10.5,
+    "workers": 57215,
+    "count_60plus": 6005
+   },
+   {
+    "county": "061",
+    "name": "Valencia",
+    "share_60plus_pct": 9.07,
+    "workers": 26662,
+    "count_60plus": 2419
+   }
+  ],
+  "inbound_migration": [
+   {
+    "county": "053",
+    "name": "Socorro",
+    "inbound_from_nm_county": 1058,
+    "universe": 16071,
+    "share": 0.0658
+   },
+   {
+    "county": "041",
+    "name": "Roosevelt",
+    "inbound_from_nm_county": 1025,
+    "universe": 18634,
+    "share": 0.055
+   },
+   {
+    "county": "057",
+    "name": "Torrance",
+    "inbound_from_nm_county": 705,
+    "universe": 15404,
+    "share": 0.0458
+   },
+   {
+    "county": "019",
+    "name": "Guadalupe",
+    "inbound_from_nm_county": 194,
+    "universe": 4341,
+    "share": 0.0447
+   },
+   {
+    "county": "047",
+    "name": "San Miguel",
+    "inbound_from_nm_county": 1137,
+    "universe": 26616,
+    "share": 0.0427
+   },
+   {
+    "county": "006",
+    "name": "Cibola",
+    "inbound_from_nm_county": 1113,
+    "universe": 26493,
+    "share": 0.042
+   },
+   {
+    "county": "059",
+    "name": "Union",
+    "inbound_from_nm_county": 163,
+    "universe": 4000,
+    "share": 0.0408
+   },
+   {
+    "county": "011",
+    "name": "De Baca",
+    "inbound_from_nm_county": 57,
+    "universe": 1557,
+    "share": 0.0366
+   },
+   {
+    "county": "021",
+    "name": "Harding",
+    "inbound_from_nm_county": 26,
+    "universe": 736,
+    "share": 0.0353
+   },
+   {
+    "county": "043",
+    "name": "Sandoval",
+    "inbound_from_nm_county": 5155,
+    "universe": 152297,
+    "share": 0.0338
+   }
+  ]
+ },
+ "refusals": [
+  "No county estimate is manufactured from a statewide value.",
+  "No missing geography is interpolated and published as observed.",
+  "No edge rests on two places being adjacent.",
+  "No outflow is called a loss without evidence it could have compounded here.",
+  "No stock is read as a capability.",
+  "Tribal and Pueblo geographies are not modelled as county subdivisions, and the absence of public data about them is not read as economic absence.",
+  "No single number for the state is computed, and no place score exists."
+ ]
+}

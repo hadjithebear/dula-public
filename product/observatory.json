@@ -1,0 +1,1332 @@
+{
+ "what_this_is": "The Observatory: what the model must observe, and whether it can. Not a data catalogue. Its unit is a model requirement.",
+ "census": {
+  "existing_and_reusable": [
+   {
+    "what": "observatory/gates.yaml",
+    "n": 10,
+    "why": "already maps a model object to the observation that would settle it, with decision_consequence, model_uncertainty and paths_unblocked \u2014 the information-value components, built before Phase 9 asked for them"
+   },
+   {
+    "what": "observatory/sensors.yaml",
+    "n": 35,
+    "why": "field instruments that already carry can_establish and cannot_establish, which is the dataset-is-not-an-observation rule in its field form"
+   },
+   {
+    "what": "observatory/governance.yaml",
+    "n": 1,
+    "why": "consent, confidential handling, tribal governance and a never_collected list; Phase 9 adds nothing to it and defers to it"
+   },
+   {
+    "what": "data/raw/*/MANIFEST.json",
+    "n": 40,
+    "why": "acquisition provenance with sha256, url and retrieval date, and in the FRED registers a not_acquired list that records concepts left unobserved"
+   },
+   {
+    "what": "domains/*/sources.yaml",
+    "n": 78,
+    "why": "source records with limitations and, in business, appropriate_use \u2014 which Phase 8 already wired into the 7D whole-record census"
+   },
+   {
+    "what": "pipeline/synthesis.py",
+    "n": 1,
+    "why": "the publication contract; Phase 9 readings go through it unchanged"
+   }
+  ],
+  "existing_but_incomplete": [
+   {
+    "what": "source registries",
+    "detail": "112 records across SIX incompatible schemas plus a seventh in the manifests. Fields that matter \u2014 release lag, revision policy, universe, appropriate use \u2014 exist in some schemas and not others. Phase 9 indexes them rather than rewriting them, because rewriting would silently change what 112 records say."
+   },
+   {
+    "what": "observatory/",
+    "detail": "scoped entirely to field collection in the northern region. No world scale, no US scale, and no gate for either Phase 8 circuit break."
+   },
+   {
+    "what": "observatory/observations/",
+    "detail": "holds a template and nothing else. The instruments are designed and none has been run, which is correct \u2014 running one is a field decision, not a build."
+   }
+  ],
+  "existing_but_mis_specified": [
+   {
+    "what": "data/raw/fred_world",
+    "detail": "named 'world' and observes the United States. All 137 series carry geography US or New Mexico and every one is published by a US agency. The world layer of the Observatory does not exist."
+   },
+   {
+    "what": "world_state/sources.yaml",
+    "detail": "named like the domain source registries but holds cited DOCUMENTS, not datasets: 14 of its 34 records are news reporting, from publishers including CNBC and Quartz. Treating it as the world source registry would let secondary reporting stand in for primary evidence. It is indexed as a citation register."
+   }
+  ],
+  "missing": [
+   "a scale-general source object with the fields Phase 9 needs",
+   "the nine-state observation status vocabulary",
+   "a geographic contract refusing silent downscaling",
+   "a time contract separating latest-available from current",
+   "model requirements for either Phase 8 circuit break",
+   "any observed interregional flow \u2014 zero county pairs before this phase",
+   "coverage measured against model requirements rather than dataset counts",
+   "the claim trace, in either direction"
+  ]
+ },
+ "registry_counts": {
+  "total_records": 206,
+  "by_schema": {
+   "domain_registry": 78,
+   "acquisition_manifest": 59,
+   "sensor": 35,
+   "citation": 34
+  },
+  "by_scale": {
+   "STATE": 133,
+   "US": 4,
+   "PLACE": 35,
+   "WORLD": 34
+  },
+  "distinct_stores": 66
+ },
+ "world_layer_finding": {
+  "register": "data/raw/fred_world",
+  "series": 137,
+  "geographies": {
+   "US": 129,
+   "New Mexico": 8
+  },
+  "series_outside_the_US": 0,
+  "publishers_whose_name_is_not_obviously_US": [
+   "Ice Data Indices, LLC",
+   "Realtor.com",
+   "University of Groningen, University of California, Davis"
+  ],
+  "publisher_caveat": "Those three publish United States series; a non-US publisher name is not a non-US observation. The finding below rests on the geography count, not on publisher names.",
+  "finding": "Every series in the register named 'world' is published by a United States agency and carries geography US or New Mexico. The world layer of the Observatory does not exist; what exists is a US layer under a world name.",
+  "consequence": "The WORLD -> UNITED STATES -> NEW MEXICO chain the model needs is missing its first leg entirely. Any Dula claim about a world condition currently rests on US series plus cited reporting."
+ },
+ "readings": [
+  {
+   "id": "OB1-COUNTY-PAIRS",
+   "claim": "The bound held and the obvious pairing was wrong. Los Alamos County imports 10,491 workers \u2014 above Phase 8's floor of 9,390 \u2014 but the largest single origin is Santa Fe, not the county that sends out the greatest share of its own workers.",
+   "basis": [
+    "LEHD LODES8 origin-destination, JT00 all jobs, 2022",
+    "Phase 8 bound from QWI 2024-Q4 and ACS B08007"
+   ],
+   "support": "18,206 jobs are located in Los Alamos County and 10,491 of them are held by people living elsewhere. Santa Fe supplies 24.4%, Bernalillo 9.1% and Rio Arriba 8.7%. Of Rio Arriba's own out-commuting, 17.9% goes to Santa Fe against 16.5% to Los Alamos.",
+   "qualifications": "LODES counts JOBS, not workers: a person holding two jobs is counted in each, so the in-commuter figure exceeds the number of in-commuting people by an unknown margin. The data is noise-infused for confidentiality and small cells are the least reliable. Its universe is UI-covered employment plus federal civilian, not the whole labour force. The reference year is 2022, so this is a structural observation and not a statement about 2026 conditions; the bridge is that a labour shed is set by where jobs and housing are, both of which move over years.",
+   "contradictions": "",
+   "rivals": "The 2022 reference year predates both Phase 8 sources, so part of the gap between the bound and the measurement could be growth rather than the private-only undercount the bound was built on.",
+   "geography": "all 33 New Mexico counties, as ordered pairs",
+   "horizon": "NOW",
+   "claim_strength": "CONDITION",
+   "claim_strength_requested": "CONDITION",
+   "gate": {
+    "permitted": true,
+    "strength": "CONDITION",
+    "requires": [
+     "the observation is dated, located and attributed"
+    ],
+    "held": [
+     "the observation is dated, located and attributed"
+    ],
+    "missing": [],
+    "highest_permitted": "CONDITION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "how many PEOPLE, as distinct from jobs, make each flow",
+   "falsifier": "a worker-based commuting matrix showing the person count is far below the job count would weaken every magnitude here without touching the direction",
+   "status": "SUPPORTED",
+   "status_means": "held evidence supports it and nothing held materially opposes it",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": [],
+   "currency_bridge": {
+    "observation_period": "2022",
+    "claim_period": "2026",
+    "currentness": "STRUCTURAL",
+    "means": "describes a structure that changes slowly; it is not a statement about now",
+    "bridge": "A labour shed is a structure, not a conjuncture: it is set by where the jobs and the housing are, both of which move over years. The reading is about that structure and says so, and it is not a claim about 2026 employment levels.",
+    "may_be_read_as_current": true
+   }
+  },
+  {
+   "id": "OB2-REFUSAL-VINDICATED",
+   "claim": "Phase 8 refused to name Rio Arriba as the source of Los Alamos's workforce because nothing published supported it. The observation shows that refusal was right: the obvious pairing is real but it is not the largest one.",
+   "basis": [
+    "LEHD LODES8 origin-destination, JT00 all jobs, 2022"
+   ],
+   "support": "Santa Fe supplies 4,436 of the jobs located in Los Alamos County against Rio Arriba's 1,590. Torrance County, where Phase 8 called Albuquerque 'the obvious reading and not an observation', sends 46.7% of its working residents to Bernalillo. Mora sends 21 of its 1,157 to Los Alamos.",
+   "qualifications": "Two of the three obvious readings were right and one was wrong, which is the point: nothing in the prior evidence distinguished them. The same LODES limitations apply \u2014 jobs rather than people, noise-infused, 2022.",
+   "contradictions": "",
+   "rivals": "With only one year observed, the ordering of Santa Fe and Rio Arriba could be a 2022 artefact rather than a stable structure.",
+   "geography": "Los Alamos, Rio Arriba, Santa Fe, Torrance and Mora counties",
+   "horizon": "NOW",
+   "claim_strength": "OBSERVATION",
+   "claim_strength_requested": "OBSERVATION",
+   "gate": {
+    "permitted": true,
+    "strength": "OBSERVATION",
+    "requires": [],
+    "held": [],
+    "missing": [],
+    "highest_permitted": "OBSERVATION",
+    "why": "the bridge for this rung is held"
+   },
+   "decisive_unknown": "whether the ordering is stable across years",
+   "falsifier": "an earlier or later LODES year in which Rio Arriba supplies more Los Alamos jobs than Santa Fe does",
+   "status": "SUPPORTED",
+   "status_means": "held evidence supports it and nothing held materially opposes it",
+   "whole_record": {},
+   "prior_adjudication": [],
+   "publishable": true,
+   "refusals": []
+  }
+ ],
+ "lodes": {
+  "los_alamos_jobs": 18206,
+  "los_alamos_in_commuters": 10491,
+  "phase8_lower_bound": 9390,
+  "bound_held": true,
+  "top_origins": [
+   [
+    "35028",
+    7715,
+    42.4
+   ],
+   [
+    "35049",
+    4436,
+    24.4
+   ],
+   [
+    "35001",
+    1651,
+    9.1
+   ],
+   [
+    "35039",
+    1590,
+    8.7
+   ],
+   [
+    "35043",
+    1174,
+    6.4
+   ]
+  ],
+  "out_of_state_share": 3.3,
+  "torrance_to_bernalillo_pct": 46.7,
+  "rio_arriba_to_los_alamos_pct": 16.5,
+  "rio_arriba_to_santa_fe_pct": 17.9,
+  "mora_to_los_alamos": 21,
+  "mora_total": 1157
+ },
+ "requirements": [
+  {
+   "id": "REQ_COUNTY_PAIR_LABOR",
+   "model_object": "FL_LABOR_INTO_LOSALAMOS (Phase 8 flow)",
+   "object_kind": "FLOW",
+   "required_observation": "jobs by county of residence and county of workplace",
+   "why_it_matters": "Phase 8's central reading rested on a bound computed by differencing two sources with different universes. The pairing was refused, and refusing it was the whole discipline.",
+   "best_source": "LEHD LODES8 origin-destination, JT00",
+   "source_scale": "STATE",
+   "status": "AVAILABLE_INGESTED",
+   "next_action": "none \u2014 it is held",
+   "correspondence": {
+    "model_concept": "workers commuting between counties",
+    "observed_variable": "jobs by block pair, aggregated",
+    "kind": "PROXIES_IT",
+    "means": "it moves with the concept for a stated reason, and is not the concept",
+    "why": "a job is held by a worker, so the flow of jobs tracks the flow of workers closely",
+    "residual": "multiple job-holding: one worker with two jobs appears twice, so the job count exceeds the worker count by an unknown margin"
+   },
+   "geographic_need": "county_pair",
+   "geographic_available": "census_block",
+   "geographic_gap": null,
+   "temporal_need": "current",
+   "temporal_available": "2022",
+   "limitation": "counts jobs, not persons; noise-infused; 2022 reference year",
+   "what_would_close_it": "held",
+   "information_value": {
+    "components": {
+     "decision_impact": "DECISIVE",
+     "downstream_reach": "HIGH",
+     "uncertainty_reduction": "DECISIVE",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "HIGH",
+    "strongest_component": "DECISIVE",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": true,
+   "bears_on": [
+    "FL_LABOR_INTO_LOSALAMOS",
+    "FL_LABOR_OUT_OF_RIOARRIBA",
+    "DEP_LOSALAMOS_ON_NEIGHBOURS",
+    "DEP_NEIGHBOURS_ON_LOSALAMOS"
+   ],
+   "circuits": [
+    "CIRC_LABOR_HOUSING"
+   ]
+  },
+  {
+   "id": "REQ_STATE_SPEND_BY_PLACE",
+   "model_object": "CIRC_ENERGY_FISCAL link 5",
+   "object_kind": "CIRCUIT_LINK",
+   "required_observation": "state expenditure by county of benefit",
+   "why_it_matters": "It is the terminal link of the state's largest internal redistribution, and no county can be told what it receives.",
+   "best_source": "NM capital outlay project lists would partially observe it",
+   "source_scale": "STATE",
+   "status": "AVAILABLE_INSUFFICIENT_RESOLUTION",
+   "next_action": "find a finer source; downscaling is refused",
+   "correspondence": {
+    "model_concept": "state spending benefiting a place",
+    "observed_variable": "state expenditure by agency and fund",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "an agency's budget line says who spends it, not where the benefit lands",
+    "residual": "the entire geographic question"
+   },
+   "geographic_need": "county",
+   "geographic_available": "state",
+   "geographic_gap": "needs county, source publishes state \u2014 the difference may not be closed by allocating downward",
+   "temporal_need": "annual",
+   "temporal_available": "annual",
+   "limitation": "operating spending is not allocated to counties by anyone",
+   "what_would_close_it": "capital outlay by project would reach part of it; operating spending would stay unallocated",
+   "information_value": {
+    "components": {
+     "decision_impact": "DECISIVE",
+     "downstream_reach": "DECISIVE",
+     "uncertainty_reduction": "MODERATE",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "MODERATE",
+    "strongest_component": "DECISIVE",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [
+    "FL_STATE_REVENUE_TO_SERVICES",
+    "DEP_STATE_ON_SOUTHEAST"
+   ],
+   "circuits": [
+    "CIRC_ENERGY_FISCAL"
+   ]
+  },
+  {
+   "id": "REQ_OWNERSHIP_RETURN",
+   "model_object": "LK_FEDERAL_RECIPIENT (Phase 8 leakage)",
+   "object_kind": "FLOW",
+   "required_observation": "who owns the recipients of federal awards, and where their returns are spent",
+   "why_it_matters": "$5.28bn of federal performance in one county cannot be attributed to anyone, so retention cannot be assessed.",
+   "best_source": null,
+   "source_scale": "ACTOR",
+   "status": "NOT_CURRENTLY_OBSERVABLE",
+   "next_action": "nothing to acquire; the model must carry it as UNKNOWN",
+   "correspondence": {
+    "model_concept": "where value ends up",
+    "observed_variable": "recipient registered address",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "a registration address is a legal convenience",
+    "residual": "owner domicile, beneficial ownership and return destination \u2014 the D3 to D8 steps, seven of which the retention decomposition already records as NOT_OBSERVABLE_WITH_PUBLIC_DATA"
+   },
+   "geographic_need": "actor",
+   "geographic_available": "county",
+   "geographic_gap": null,
+   "temporal_need": null,
+   "temporal_available": null,
+   "limitation": "not a resolution problem; the concept is not published anywhere",
+   "what_would_close_it": "nothing public. Subcontract-level award data with beneficial-ownership disclosure would be required, and does not exist.",
+   "information_value": {
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "HIGH",
+     "uncertainty_reduction": "LOW",
+     "decision_relevance": "MODERATE"
+    },
+    "weakest_component": "LOW",
+    "strongest_component": "HIGH",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [
+    "FL_FEDERAL_MONEY_INTO_LOSALAMOS"
+   ],
+   "circuits": []
+  },
+  {
+   "id": "REQ_WORLD_LAYER",
+   "model_object": "World -> US -> NM transmission",
+   "object_kind": "MECHANISM",
+   "required_observation": "economic conditions outside the United States",
+   "why_it_matters": "Every Dula claim about a world condition currently rests on US series plus cited reporting. The first leg of the chain the model is built around is not observed at all.",
+   "best_source": "BIS, IMF, World Bank, OECD, UN Comtrade, IEA, FAO",
+   "source_scale": "WORLD",
+   "status": "AVAILABLE_NOT_INGESTED",
+   "next_action": "acquire it, if the model consequence justifies the work",
+   "correspondence": {
+    "model_concept": "world conditions",
+    "observed_variable": "US macroeconomic series",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "the United States is one economy inside the world, not a reading of it",
+    "residual": "every economy other than the United States"
+   },
+   "geographic_need": "world",
+   "geographic_available": "country",
+   "geographic_gap": null,
+   "temporal_need": null,
+   "temporal_available": null,
+   "limitation": "the register named 'world' holds 137 series, all US or New Mexico",
+   "what_would_close_it": "acquiring genuinely cross-country series from the authoritative families above, starting with the ones a held Dula claim already depends on",
+   "information_value": {
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "DECISIVE",
+     "uncertainty_reduction": "MODERATE",
+     "decision_relevance": "MODERATE"
+    },
+    "weakest_component": "MODERATE",
+    "strongest_component": "DECISIVE",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [],
+   "circuits": [
+    "CIRC_ENERGY_FISCAL"
+   ]
+  },
+  {
+   "id": "REQ_LOCAL_BUSINESS_ACTIVITY",
+   "model_object": "Los Alamos County local economy",
+   "object_kind": "STATE_VARIABLE",
+   "required_observation": "economic activity actually accruing to businesses in the county where federal work is performed",
+   "why_it_matters": "It is the question everyone asks of the $5.28bn figure, and the dataset that appears to answer it does not.",
+   "best_source": "USAspending federal awards",
+   "source_scale": "STATE",
+   "status": "AVAILABLE_WRONG_CONCEPT",
+   "next_action": "stop looking for more data of this kind \u2014 the dataset does not measure the thing, and acquiring it would not help",
+   "correspondence": {
+    "model_concept": "local business activity",
+    "observed_variable": "federal obligations by place of performance",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "the source's own appropriate_use says it in terms: never place-of-performance totals as local business activity",
+    "residual": "who performed the work, who was paid, and what they bought here"
+   },
+   "geographic_need": "county",
+   "geographic_available": "county",
+   "geographic_gap": null,
+   "temporal_need": "annual",
+   "temporal_available": "annual",
+   "limitation": "this is not a resolution or a coverage problem. The dataset is complete, current and at the right geography, and it measures a different thing. Acquiring more of it would not help.",
+   "what_would_close_it": "subcontract-level award data, which is not published",
+   "information_value": {
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "LOW",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "LOW",
+    "strongest_component": "HIGH",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [
+    "FL_FEDERAL_MONEY_INTO_LOSALAMOS"
+   ],
+   "circuits": []
+  },
+  {
+   "id": "REQ_ROUTE_COST",
+   "model_object": "forces:P02 \u2014 fuel as a share of a northern route's cost",
+   "object_kind": "STATE_VARIABLE",
+   "required_observation": "one operator's route cost breakdown across two periods in which fuel moved",
+   "why_it_matters": "It is the first hop of the energy-to-food chain and the model stops there.",
+   "best_source": "observatory sensor S_ROUTE_COST_SHEET",
+   "source_scale": "ACTOR",
+   "status": "REQUIRES_TRANSACTIONAL_SOURCE",
+   "next_action": "an operator's own books; not public and not purchasable",
+   "correspondence": {
+    "model_concept": "fuel share of a northern route's operating cost",
+    "observed_variable": "US truckload per-mile benchmark",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "a national benchmark is not a named route's cost structure",
+    "residual": "route density, stop count and the operator's own cost base"
+   },
+   "geographic_need": "asset",
+   "geographic_available": "country",
+   "geographic_gap": "needs asset, source publishes country \u2014 the difference may not be closed by allocating downward",
+   "temporal_need": null,
+   "temporal_available": null,
+   "limitation": "commercially sensitive; it is an operator's own cost record",
+   "what_would_close_it": "the existing field instrument, under the existing governance rules \u2014 already designed, never run",
+   "information_value": {
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "HIGH",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "MODERATE",
+    "strongest_component": "HIGH",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [],
+   "circuits": []
+  },
+  {
+   "id": "REQ_DELIVERED_WATER",
+   "model_object": "BN_WATER (Phase 8 constraint signal)",
+   "object_kind": "CONSTRAINT",
+   "required_observation": "allocated and delivered acre-feet at ditch level for two northern acequia systems",
+   "why_it_matters": "Every specific water fact Dula holds is Middle Rio Grande, 150 miles from the acequias the reading is about.",
+   "best_source": "acequia associations and irrigation districts",
+   "source_scale": "PLACE",
+   "status": "REQUIRES_ADMINISTRATIVE_SOURCE",
+   "next_action": "a records request to the body that holds it",
+   "correspondence": {
+    "model_concept": "water delivered to northern irrigators",
+    "observed_variable": "basin storage and compact debit",
+    "kind": "DIFFERENT_CONCEPT",
+    "means": "it is a real measurement of something else; more of it will not help",
+    "why": "basin-scale scarcity is not a delivery to a particular ditch",
+    "residual": "the entire local link, which the model records as UNOBSERVED"
+   },
+   "geographic_need": "asset",
+   "geographic_available": "region",
+   "geographic_gap": "needs asset, source publishes region \u2014 the difference may not be closed by allocating downward",
+   "temporal_need": null,
+   "temporal_available": null,
+   "limitation": "held by local associations, not published",
+   "what_would_close_it": "a records request to two acequia associations",
+   "information_value": {
+    "components": {
+     "decision_impact": "HIGH",
+     "downstream_reach": "MODERATE",
+     "uncertainty_reduction": "DECISIVE",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "MODERATE",
+    "strongest_component": "DECISIVE",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": false,
+   "bears_on": [],
+   "circuits": []
+  }
+ ],
+ "circuits": [
+  {
+   "id": "CIRC_LABOR_HOUSING",
+   "name": "Labour and housing across the northern counties",
+   "phase8_status": "broke at the join \u2014 no county-pair flow was observed",
+   "links": [
+    {
+     "link": "jobs concentrate in one county",
+     "required": "employment at the workplace, by county",
+     "source": "QWI / CBP, Census",
+     "held": true,
+     "geography": "county",
+     "temporal": "quarterly",
+     "limitation": "private employers only (ownercode A05); government excluded",
+     "status": "AVAILABLE_INGESTED"
+    },
+    {
+     "link": "workers commute in from the counties around it",
+     "required": "a county-to-county flow of jobs",
+     "source": "LEHD LODES8 origin-destination",
+     "held": true,
+     "geography": "county_pair",
+     "temporal": "annual, reference year 2022",
+     "limitation": "counts JOBS not persons; noise-infused; 2022, so it is a structural observation and not current conditions",
+     "status": "AVAILABLE_INGESTED"
+    },
+    {
+     "link": "those households hold housing in the receiving counties",
+     "required": "housing tenure and cost of the commuting households specifically",
+     "source": "none \u2014 ACS publishes households by county, not by workplace county",
+     "held": false,
+     "geography": "county",
+     "temporal": "5-year",
+     "limitation": "the commuting household cannot be separated from its neighbours",
+     "status": "AVAILABLE_WRONG_CONCEPT"
+    },
+    {
+     "link": "housing cost relative to local earnings moves there",
+     "required": "cost burden by county",
+     "source": "ACS 2020-2024",
+     "held": true,
+     "geography": "county",
+     "temporal": "5-year",
+     "limitation": "a 5-year average, so it lags a turning point",
+     "status": "AVAILABLE_INGESTED"
+    },
+    {
+     "link": "which sets how far the labour shed can reach",
+     "required": "the reservation commute \u2014 how far a worker will travel for a wage",
+     "source": "no published source; it is a behaviour",
+     "held": false,
+     "geography": "person",
+     "temporal": "n/a",
+     "limitation": "an actor response, not a statistic",
+     "status": "REQUIRES_FIELD_OBSERVATION"
+    }
+   ],
+   "closes_now": false,
+   "what_changed": "The break moved. Phase 8 broke at link 2 for want of any county-pair observation; link 2 is now observed and the circuit breaks at link 3, where the concept itself is unpublished.",
+   "what_would_close_it": "Link 3 needs households classified by the county they work in, which no public source publishes \u2014 it is an AVAILABLE_WRONG_CONCEPT gap, so more public data will not reach it. Link 5 needs a field observation."
+  },
+  {
+   "id": "CIRC_ENERGY_FISCAL",
+   "name": "Energy into public finance into everywhere else",
+   "phase8_status": "broke at the last link \u2014 no allocation of state spending to places",
+   "links": [
+    {
+     "link": "world energy conditions and federal royalty rules",
+     "required": "crude and gas prices, and the royalty rate",
+     "source": "EIA via FRED; the rule change is a documented statute",
+     "held": true,
+     "geography": "world",
+     "temporal": "daily",
+     "limitation": "Brent and WTI are held; the royalty change is reported, not a series",
+     "status": "AVAILABLE_INGESTED"
+    },
+    {
+     "link": "production in the southeastern counties",
+     "required": "oil and gas production by county",
+     "source": "NM Oil Conservation Division; EIA publishes state totals",
+     "held": false,
+     "geography": "county",
+     "temporal": "monthly",
+     "limitation": "EIA's state total cannot be allocated to Lea and Eddy without a rule the model does not have",
+     "status": "AVAILABLE_NOT_INGESTED"
+    },
+    {
+     "link": "state revenue",
+     "required": "state revenue by source",
+     "source": "NM Department of Finance and Administration; consensus revenue estimates",
+     "held": false,
+     "geography": "state",
+     "temporal": "monthly and at forecast",
+     "limitation": "not held in this repository",
+     "status": "AVAILABLE_NOT_INGESTED"
+    },
+    {
+     "link": "state fiscal capacity",
+     "required": "appropriations and fund balances",
+     "source": "enacted budget; Legislative Finance Committee",
+     "held": false,
+     "geography": "state",
+     "temporal": "annual",
+     "limitation": "not held",
+     "status": "AVAILABLE_NOT_INGESTED"
+    },
+    {
+     "link": "public spending reaching particular places",
+     "required": "state expenditure by county of benefit",
+     "source": "none \u2014 capital outlay is published by project, and operating spending is not allocated to counties at all",
+     "held": false,
+     "geography": "county",
+     "temporal": "annual",
+     "limitation": "WP12 records that state figures cannot be apportioned to counties without an allocation rule the model does not have",
+     "status": "AVAILABLE_INSUFFICIENT_RESOLUTION"
+    }
+   ],
+   "closes_now": false,
+   "what_changed": "Nothing. Phase 9 acquired no fiscal observation, and this circuit stands exactly where Phase 8 left it. Three of its five links are AVAILABLE_NOT_INGESTED, which means the break is partly a work decision rather than a data limit \u2014 but the LAST link is not: county-of-benefit allocation is not published by anyone.",
+   "what_would_close_it": "Links 2-4 are acquirable from New Mexico administrative sources. Link 5 is not: capital outlay by project would partially observe it, and operating spending would remain unallocated. The honest ceiling for this circuit is 'capital spending by place, operating spending unknown'."
+  }
+ ],
+ "county_pairs": {
+  "flow_class": "LABOR",
+  "source": "LEHD LODES8 origin-destination, JT00 all jobs, 2022",
+  "observed_pairs_including_self": 981,
+  "observed_cross_county_pairs": 948,
+  "possible_ordered_pairs": 1089,
+  "possible_cross_county_pairs": 1056,
+  "jobs_in_cross_county_pairs": 230973,
+  "jobs_total": 771876,
+  "inbound_from_outside_nm": 43638,
+  "phase8_state": "zero observed county-pair flows",
+  "other_flow_classes_still_unobserved": [
+   "MONEY \u2014 no county-pair public spending or transfer flow is published",
+   "GOODS \u2014 no county-pair freight observation exists for New Mexico",
+   "PROCUREMENT \u2014 federal awards publish place of performance and recipient address, which is not a county pair",
+   "CAPITAL \u2014 ownership and return destination are unobservable with public data",
+   "MIGRATION \u2014 the ACS publishes arrivals by destination, not by origin county; the IRS county-to-county migration series would observe it and is not held"
+  ]
+ },
+ "coverage": {
+  "unit": "model requirements, not datasets",
+  "requirements": 7,
+  "met": 1,
+  "by_status": {
+   "AVAILABLE_INGESTED": 1,
+   "AVAILABLE_INSUFFICIENT_RESOLUTION": 1,
+   "NOT_CURRENTLY_OBSERVABLE": 1,
+   "AVAILABLE_NOT_INGESTED": 1,
+   "AVAILABLE_WRONG_CONCEPT": 1,
+   "REQUIRES_TRANSACTIONAL_SOURCE": 1,
+   "REQUIRES_ADMINISTRATIVE_SOURCE": 1
+  },
+  "not_solvable_by_acquisition": 4,
+  "circuits": [
+   {
+    "id": "CIRC_LABOR_HOUSING",
+    "links": 5,
+    "links_held": 3,
+    "closes": false,
+    "breaks_at": "those households hold housing in the receiving counties"
+   },
+   {
+    "id": "CIRC_ENERGY_FISCAL",
+    "links": 5,
+    "links_held": 1,
+    "closes": false,
+    "breaks_at": "production in the southeastern counties"
+   }
+  ],
+  "county_pairs": {
+   "flow_class": "LABOR",
+   "source": "LEHD LODES8 origin-destination, JT00 all jobs, 2022",
+   "observed_pairs_including_self": 981,
+   "observed_cross_county_pairs": 948,
+   "possible_ordered_pairs": 1089,
+   "possible_cross_county_pairs": 1056,
+   "jobs_in_cross_county_pairs": 230973,
+   "jobs_total": 771876,
+   "inbound_from_outside_nm": 43638,
+   "phase8_state": "zero observed county-pair flows",
+   "other_flow_classes_still_unobserved": [
+    "MONEY \u2014 no county-pair public spending or transfer flow is published",
+    "GOODS \u2014 no county-pair freight observation exists for New Mexico",
+    "PROCUREMENT \u2014 federal awards publish place of performance and recipient address, which is not a county pair",
+    "CAPITAL \u2014 ownership and return destination are unobservable with public data",
+    "MIGRATION \u2014 the ACS publishes arrivals by destination, not by origin county; the IRS county-to-county migration series would observe it and is not held"
+   ]
+  },
+  "world_layer": {
+   "register": "data/raw/fred_world",
+   "series": 137,
+   "geographies": {
+    "US": 129,
+    "New Mexico": 8
+   },
+   "series_outside_the_US": 0,
+   "publishers_whose_name_is_not_obviously_US": [
+    "Ice Data Indices, LLC",
+    "Realtor.com",
+    "University of Groningen, University of California, Davis"
+   ],
+   "publisher_caveat": "Those three publish United States series; a non-US publisher name is not a non-US observation. The finding below rests on the geography count, not on publisher names.",
+   "finding": "Every series in the register named 'world' is published by a United States agency and carries geography US or New Mexico. The world layer of the Observatory does not exist; what exists is a US layer under a world name.",
+   "consequence": "The WORLD -> UNITED STATES -> NEW MEXICO chain the model needs is missing its first leg entirely. Any Dula claim about a world condition currently rests on US series plus cited reporting."
+  },
+  "rule": "Coverage is never reported as a dataset count. 188 source records exist and that number says nothing about whether the model can see what it needs to."
+ },
+ "world_readiness": [
+  {
+   "subsystem": "MONEY_CREDIT_DEBT",
+   "model_requirements": [
+    "policy rates",
+    "bank credit",
+    "household/corporate/government debt",
+    "debt service",
+    "credit spreads",
+    "financial conditions"
+   ],
+   "best_source_families": [
+    "BIS",
+    "IMF",
+    "central banks",
+    "FRED/Federal Reserve",
+    "Treasury"
+   ],
+   "series_held": 20,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1945-10-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "CAPITAL_MARKETS",
+   "model_requirements": [
+    "sovereign yields",
+    "yield curves",
+    "equities",
+    "credit spreads",
+    "currencies",
+    "capital flows"
+   ],
+   "best_source_families": [
+    "BIS",
+    "IMF",
+    "central banks",
+    "exchanges"
+   ],
+   "series_held": 6,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1945-10-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "PRODUCTION_DEMAND",
+   "model_requirements": [
+    "output",
+    "industrial production",
+    "capacity utilisation",
+    "consumption",
+    "investment",
+    "inventories"
+   ],
+   "best_source_families": [
+    "IMF",
+    "OECD",
+    "World Bank",
+    "national statistical agencies",
+    "BEA"
+   ],
+   "series_held": 14,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1919-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "LABOR_INCOME",
+   "model_requirements": [
+    "employment",
+    "unemployment",
+    "participation",
+    "wages",
+    "vacancies",
+    "income"
+   ],
+   "best_source_families": [
+    "ILO",
+    "OECD",
+    "BLS",
+    "national statistical agencies"
+   ],
+   "series_held": 21,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1929-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "PRICES",
+   "model_requirements": [
+    "consumer prices",
+    "producer prices",
+    "asset prices",
+    "commodity prices",
+    "housing"
+   ],
+   "best_source_families": [
+    "IMF",
+    "OECD",
+    "BLS",
+    "national statistical agencies"
+   ],
+   "series_held": 1,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1963-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "TRADE_NETWORKS",
+   "model_requirements": [
+    "imports/exports",
+    "bilateral trade",
+    "tariffs",
+    "shipping",
+    "freight",
+    "supply-chain concentration"
+   ],
+   "best_source_families": [
+    "UN Comtrade",
+    "WTO",
+    "IMF DOTS",
+    "Census trade"
+   ],
+   "series_held": 6,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1959-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "ENERGY_RESOURCES",
+   "model_requirements": [
+    "oil",
+    "gas",
+    "electricity",
+    "metals",
+    "fertilizer",
+    "agricultural commodities"
+   ],
+   "best_source_families": [
+    "IEA",
+    "EIA",
+    "FAO",
+    "World Bank commodity data"
+   ],
+   "series_held": 11,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1952-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "TECHNOLOGY",
+   "model_requirements": [
+    "R&D",
+    "patents",
+    "semiconductor indicators",
+    "capital formation",
+    "productivity",
+    "technology diffusion"
+   ],
+   "best_source_families": [
+    "OECD",
+    "WIPO",
+    "national statistical agencies"
+   ],
+   "series_held": 16,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1947-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "DEMOGRAPHY",
+   "model_requirements": [
+    "population",
+    "fertility",
+    "mortality",
+    "migration",
+    "age structure",
+    "urbanisation"
+   ],
+   "best_source_families": [
+    "UN Population Division",
+    "World Bank",
+    "Census"
+   ],
+   "series_held": 11,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1900-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "NATURAL_SYSTEMS",
+   "model_requirements": [
+    "temperature",
+    "precipitation",
+    "drought",
+    "snowpack",
+    "streamflow",
+    "wildfire",
+    "agricultural conditions"
+   ],
+   "best_source_families": [
+    "NOAA",
+    "NASA",
+    "USGS",
+    "USDA",
+    "FAO"
+   ],
+   "series_held": 0,
+   "also_held_outside_fred": [
+    "drought",
+    "noaa_ncei",
+    "hydrology",
+    "wildfire_risk",
+    "epa_aqi"
+   ],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": null,
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": null
+  },
+  {
+   "subsystem": "INTERNAL_ORDER",
+   "model_requirements": [
+    "fiscal condition",
+    "inequality",
+    "institutional functioning",
+    "social conditions"
+   ],
+   "best_source_families": [
+    "IMF fiscal monitor",
+    "World Bank",
+    "OECD",
+    "national accounts"
+   ],
+   "series_held": 4,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1980-10-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": "Phase 9 builds no political-order score."
+  },
+  {
+   "subsystem": "EXTERNAL_ORDER",
+   "model_requirements": [
+    "trade restrictions",
+    "sanctions",
+    "military expenditure",
+    "conflict"
+   ],
+   "best_source_families": [
+    "WTO",
+    "SIPRI",
+    "UN",
+    "official sanctions registers"
+   ],
+   "series_held": 1,
+   "also_held_outside_fred": [],
+   "series_observing_outside_the_US": 0,
+   "historical_depth": "1959-01-01",
+   "coverage": "US_ONLY",
+   "major_gap": "the world. Every held series for this subsystem observes the United States.",
+   "ingestion_priority": "see information value",
+   "no_score": "Phase 9 builds no geopolitical-power score."
+  }
+ ],
+ "nm_readiness": [
+  {
+   "system": "public finance",
+   "counties": 0,
+   "of": 33,
+   "held": "the royalty rule change as a documented phenomenon",
+   "gap": "state revenue, appropriations and expenditure by place \u2014 none held",
+   "status": "AVAILABLE_INSUFFICIENT_RESOLUTION",
+   "why_it_limits_phase8": "the fiscal circuit's last link"
+  },
+  {
+   "system": "labour and commuting",
+   "counties": 33,
+   "of": 33,
+   "held": "LODES county-pair job flows, 2022, every county",
+   "gap": "employer-level employment and earnings still exist for nine counties only",
+   "status": "AVAILABLE_INGESTED",
+   "why_it_limits_phase8": "THE REASON PHASE 8 WAS NINE COUNTIES DEEP: QWI and CBP were acquired for nine counties, so earnings, firm counts and place of work existed only there. The commuting gap is now closed statewide; the earnings gap is not."
+  },
+  {
+   "system": "housing",
+   "counties": 33,
+   "of": 33,
+   "held": "ACS 2020-2024, 191 variables, every county",
+   "gap": "none at this level",
+   "status": "AVAILABLE_INGESTED",
+   "why_it_limits_phase8": "it did not"
+  },
+  {
+   "system": "capital",
+   "counties": 0,
+   "of": 33,
+   "held": "SBA 7(a) loan records",
+   "gap": "deployment, terms and local access",
+   "status": "REQUIRES_TRANSACTIONAL_SOURCE",
+   "why_it_limits_phase8": "capital mobilisation is unobserved"
+  },
+  {
+   "system": "ownership",
+   "counties": 0,
+   "of": 33,
+   "held": "nothing",
+   "gap": "owner domicile, beneficial ownership, return destination",
+   "status": "NOT_CURRENTLY_OBSERVABLE",
+   "why_it_limits_phase8": "the $5.28bn reading publishes as UNKNOWN"
+  },
+  {
+   "system": "procurement",
+   "counties": 33,
+   "of": 33,
+   "held": "USAspending by place of performance and recipient address",
+   "gap": "subcontracts, and who the recipients actually are",
+   "status": "AVAILABLE_WRONG_CONCEPT",
+   "why_it_limits_phase8": "place of performance is not local business activity, by the source's own rule"
+  },
+  {
+   "system": "energy",
+   "counties": 0,
+   "of": 33,
+   "held": "national and state prices",
+   "gap": "production by county",
+   "status": "AVAILABLE_NOT_INGESTED",
+   "why_it_limits_phase8": "the southeast is a world condition, not a place"
+  },
+  {
+   "system": "water",
+   "counties": 0,
+   "of": 33,
+   "held": "basin storage, snowpack, compact debit",
+   "gap": "delivered acre-feet at ditch level",
+   "status": "REQUIRES_ADMINISTRATIVE_SOURCE",
+   "why_it_limits_phase8": "the water constraint stays a signal, not a bottleneck"
+  },
+  {
+   "system": "food and agriculture",
+   "counties": 33,
+   "of": 33,
+   "held": "Census of Agriculture, SNAP retailers, food environment atlas",
+   "gap": "route economics and delivered price",
+   "status": "REQUIRES_TRANSACTIONAL_SOURCE",
+   "why_it_limits_phase8": "the food identity is MIS_SPECIFIED for want of a northern denominator"
+  },
+  {
+   "system": "freight",
+   "counties": 0,
+   "of": 33,
+   "held": "national spot and contract rates",
+   "gap": "any New Mexico freight observation",
+   "status": "AVAILABLE_NOT_INGESTED",
+   "why_it_limits_phase8": "freight reaches NM as an input price with no local measure"
+  },
+  {
+   "system": "science and technology",
+   "counties": 1,
+   "of": 33,
+   "held": "federal obligations by place of performance",
+   "gap": "workforce, procurement chain and spillover",
+   "status": "AVAILABLE_WRONG_CONCEPT",
+   "why_it_limits_phase8": "Los Alamos is visible as money and jobs, not as a system"
+  },
+  {
+   "system": "visitor economy",
+   "counties": 0,
+   "of": 33,
+   "held": "nothing",
+   "gap": "lodgers tax, visitor counts, spending",
+   "status": "AVAILABLE_NOT_INGESTED",
+   "why_it_limits_phase8": "it is the rank-one omitted force in the Santa Fe reading and remains unobserved"
+  },
+  {
+   "system": "demographics",
+   "counties": 33,
+   "of": 33,
+   "held": "ACS and decennial",
+   "gap": "none at this level",
+   "status": "AVAILABLE_INGESTED",
+   "why_it_limits_phase8": "it did not"
+  },
+  {
+   "system": "infrastructure",
+   "counties": 0,
+   "of": 33,
+   "held": "community water system counts",
+   "gap": "condition and capacity of anything",
+   "status": "REQUIRES_ADMINISTRATIVE_SOURCE",
+   "why_it_limits_phase8": "RC02 serviced-land capacity is UNKNOWN"
+  }
+ ],
+ "status_vocabulary": [
+  {
+   "status": "AVAILABLE_INGESTED",
+   "next_action": "none \u2014 it is held"
+  },
+  {
+   "status": "AVAILABLE_NOT_INGESTED",
+   "next_action": "acquire it, if the model consequence justifies the work"
+  },
+  {
+   "status": "AVAILABLE_INSUFFICIENT_RESOLUTION",
+   "next_action": "find a finer source; downscaling is refused"
+  },
+  {
+   "status": "AVAILABLE_WRONG_CONCEPT",
+   "next_action": "stop looking for more data of this kind \u2014 the dataset does not measure the thing, and acquiring it would not help"
+  },
+  {
+   "status": "REQUIRES_ADMINISTRATIVE_SOURCE",
+   "next_action": "a records request to the body that holds it"
+  },
+  {
+   "status": "REQUIRES_TRANSACTIONAL_SOURCE",
+   "next_action": "an operator's own books; not public and not purchasable"
+  },
+  {
+   "status": "REQUIRES_FIELD_OBSERVATION",
+   "next_action": "a field instrument, under the existing governance rules"
+  },
+  {
+   "status": "REQUIRES_SITUATED_KNOWLEDGE",
+   "next_action": "a relationship and a governance agreement, not a dataset"
+  },
+  {
+   "status": "NOT_CURRENTLY_OBSERVABLE",
+   "next_action": "nothing to acquire; the model must carry it as UNKNOWN"
+  }
+ ],
+ "trace_example": {
+  "claim": "New Mexico's labour markets are not its counties. In the only part of the state where the data exists to check, one county imports at least 9,390 workers while its neighbours send 45% of theirs out.",
+  "status": "SUPPORTED",
+  "claim_strength": "CONDITION",
+  "reading": "NM1-LABOURSHED",
+  "mechanisms": [
+   "People work at jobs located in Los Alamos County while living somewhere else, and travel to them.",
+   "Residents hold jobs outside their county of residence and commute.",
+   "Households move between counties inside the state within a year."
+  ],
+  "model_variables": [
+   "FL_LABOR_INTO_LOSALAMOS",
+   "FL_LABOR_OUT_OF_RIOARRIBA",
+   "FL_MIGRATION_WITHIN_NM"
+  ],
+  "observations": [
+   "QWI 2024-Q4 ownercode A05, private employers, nine counties",
+   "ACS B08007 2020-2024, place of work, same nine counties"
+  ],
+  "sources": [
+   {
+    "basis": "QWI 2024-Q4 ownercode A05, private employers, nine counties",
+    "registry_record": null,
+    "limitations": null
+   },
+   {
+    "basis": "ACS B08007 2020-2024, place of work, same nine counties",
+    "registry_record": null,
+    "limitations": null
+   }
+  ],
+  "requirement": {
+   "id": "REQ_COUNTY_PAIR_LABOR",
+   "model_object": "FL_LABOR_INTO_LOSALAMOS (Phase 8 flow)",
+   "object_kind": "FLOW",
+   "required_observation": "jobs by county of residence and county of workplace",
+   "why_it_matters": "Phase 8's central reading rested on a bound computed by differencing two sources with different universes. The pairing was refused, and refusing it was the whole discipline.",
+   "best_source": "LEHD LODES8 origin-destination, JT00",
+   "source_scale": "STATE",
+   "status": "AVAILABLE_INGESTED",
+   "next_action": "none \u2014 it is held",
+   "correspondence": {
+    "model_concept": "workers commuting between counties",
+    "observed_variable": "jobs by block pair, aggregated",
+    "kind": "PROXIES_IT",
+    "means": "it moves with the concept for a stated reason, and is not the concept",
+    "why": "a job is held by a worker, so the flow of jobs tracks the flow of workers closely",
+    "residual": "multiple job-holding: one worker with two jobs appears twice, so the job count exceeds the worker count by an unknown margin"
+   },
+   "geographic_need": "county_pair",
+   "geographic_available": "census_block",
+   "geographic_gap": null,
+   "temporal_need": "current",
+   "temporal_available": "2022",
+   "limitation": "counts jobs, not persons; noise-infused; 2022 reference year",
+   "what_would_close_it": "held",
+   "information_value": {
+    "components": {
+     "decision_impact": "DECISIVE",
+     "downstream_reach": "HIGH",
+     "uncertainty_reduction": "DECISIVE",
+     "decision_relevance": "HIGH"
+    },
+    "weakest_component": "HIGH",
+    "strongest_component": "DECISIVE",
+    "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+   },
+   "met": true,
+   "bears_on": [
+    "FL_LABOR_INTO_LOSALAMOS",
+    "FL_LABOR_OUT_OF_RIOARRIBA",
+    "DEP_LOSALAMOS_ON_NEIGHBOURS",
+    "DEP_NEIGHBOURS_ON_LOSALAMOS"
+   ],
+   "circuits": [
+    "CIRC_LABOR_HOUSING"
+   ]
+  },
+  "limitations_inherited": "QWI counts private employers only, so government jobs are excluded and adding them could only raise the workplace count: 9,390 is a floor, not an estimate. The negative gaps for the other counties are uninterpretable for the same reason \u2014 a negative gap is what a missing public sector looks like, and Santa Fe is the state capital. The two sources are different universes over different periods, a quarter against five years.",
+  "what_it_may_not_be_read_as": "The gap could be filled by multiple job-holding rather than in-commuting, or by workers living in Los Alamos County who are missed by the ACS place-of-work universe."
+ },
+ "trace_forward_example": {
+  "requirement": "REQ_COUNTY_PAIR_LABOR",
+  "status": "AVAILABLE_INGESTED",
+  "observation": "jobs by county of residence and county of workplace",
+  "model_objects_it_bears_on": [
+   "FL_LABOR_INTO_LOSALAMOS",
+   "FL_LABOR_OUT_OF_RIOARRIBA",
+   "DEP_LOSALAMOS_ON_NEIGHBOURS",
+   "DEP_NEIGHBOURS_ON_LOSALAMOS"
+  ],
+  "readings_that_could_change": [
+   "NM1-LABOURSHED",
+   "NM2-EARNINGS-GRADIENT",
+   "NM5-SAME-FORCE",
+   "NM6-LONG-COMMUTE"
+  ],
+  "circuits_it_touches": [
+   "CIRC_LABOR_HOUSING"
+  ],
+  "if_it_arrived": "held",
+  "information_value": {
+   "components": {
+    "decision_impact": "DECISIVE",
+    "downstream_reach": "HIGH",
+    "uncertainty_reduction": "DECISIVE",
+    "decision_relevance": "HIGH"
+   },
+   "weakest_component": "HIGH",
+   "strongest_component": "DECISIVE",
+   "no_score": "Deliberately not multiplied into a number. The components are ordinal judgements and a product of them would claim a precision nobody measured. Priority is argued from the components, not computed."
+  }
+ },
+ "ingested_this_phase": [
+  {
+   "source": "LEHD LODES8 origin-destination, New Mexico, JT00, 2022",
+   "why": "Phase 8 held zero observed county-pair flows and named a county-to-county commuting matrix as the single observation that would close the labour circuit. Acquired for that reason and no other.",
+   "size": "4.3 MB over two files",
+   "what_it_settled": "Phase 8's lower bound of 9,390 in-commuters to Los Alamos held; the measured figure is 10,491. The pairing Phase 8 refused to make turned out to be the wrong one."
+  }
+ ],
+ "refusals": [
+  "No dataset was acquired for coverage. One source was acquired, to close one named circuit break.",
+  "No missing observation was estimated to fill a gap.",
+  "No broader observation was allocated downward to a finer geography.",
+  "No information-value score is computed; the components are ordinal and are argued from, not multiplied.",
+  "No political-order or geopolitical-power score exists.",
+  "Secondary reporting is indexed as reporting and does not stand in for a primary dataset.",
+  "No field instrument was run and no one was contacted."
+ ]
+}
