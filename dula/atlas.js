@@ -202,9 +202,19 @@ export function flows(atlas, { inside = [], w = 760, h = 460, min = 150 } = {}) 
   const cen = {};
   for (const g of Object.keys(C)) cen[g] = P(centroid(C[g].rings));
 
+  /* ONLY EDGES BETWEEN TWO PLACES ON THIS MAP CAN BE DRAWN AS ARCS. `OUTSIDE` and
+     `OUT_OF_STATE` are aggregates, not locations: they have no boundary and no centroid, so an
+     arc to one would have to be drawn to an invented point. They are counted in the tally and
+     reported in words instead. R3.24 added OUT_OF_STATE to the data with the aux file and did
+     not update this filter, which threw on every Flows view -- and shipped, because the tests
+     check the artefact's arithmetic and nothing re-opened the view after the data changed. */
+  const drawable = g => Boolean(C[g]);
   const edges = F.edges.filter(e => e.jobs >= min
     && (set.has(e.from) || set.has(e.to))
-    && e.from !== "OUTSIDE" && e.to !== "OUTSIDE" && e.from !== e.to);
+    && drawable(e.from) && drawable(e.to) && e.from !== e.to);
+  const undrawn = F.edges.filter(e => !(drawable(e.from) && drawable(e.to))
+    && (set.has(e.from) || set.has(e.to)))
+    .reduce((a, e) => a + e.jobs, 0);
   /* THE UNIVERSE IS FIXED AND THE CATEGORIES MOVE. Every job pair LODES reports for this
      region is counted exactly once, in one of four buckets, against wherever the boundary
      currently is. An earlier version tallied only the flows that touched the boundary, so the
@@ -243,7 +253,8 @@ export function flows(atlas, { inside = [], w = 760, h = 460, min = 150 } = {}) 
     return `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)}
       ${x2.toFixed(1)},${y2.toFixed(1)}" fill="none" stroke="${col}" stroke-opacity="0.5"
       stroke-width="${sw.toFixed(2)}" stroke-linecap="round"
-      ><title>${esc(C[e.from].label)} → ${esc(C[e.to].label)}: ${n(e.jobs)} jobs (${kind})</title></path>`;
+      ><title>${esc((C[e.from] || {}).label || e.from)} → ${esc((C[e.to] || {}).label || e.to)}: ${
+        n(e.jobs)} jobs (${kind})</title></path>`;
   }).join("");
 
   const dots = Object.keys(C).map(g => {
@@ -263,8 +274,10 @@ export function flows(atlas, { inside = [], w = 760, h = 460, min = 150 } = {}) 
     <figcaption class="atl-cap">Arc width is jobs. Colour is the flow's category
       <b style="color:var(--sage)">inside the boundary</b>,
       <b style="color:var(--clay)">in</b>, or <b style="color:var(--water)">out</b> — which
-      depends entirely on which counties are selected. Flows under ${n(min)} jobs are not drawn.
-    </figcaption></figure>`, tally, edges };
+      depends entirely on which counties are selected. Flows under ${n(min)} jobs are not drawn${
+        undrawn ? `, and ${n(undrawn)} jobs reaching the boundary from outside this map have no
+        place to be drawn from — they are counted, and named below` : ""}.
+    </figcaption></figure>`, tally, edges, undrawn };
 }
 
 /* ---- SMALL INSTRUMENTS ---------------------------------------------------------------- */

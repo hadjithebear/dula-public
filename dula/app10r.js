@@ -3330,8 +3330,13 @@ function viewFlows(p, r, E) {
   const F = AT.flows(ATL, { inside });
   const me = (ATL.commuting.per_county || {})[r.pid] || {};
   const C = ATL.commuting;
-  const top = C.edges.filter(e => e.from !== "OUTSIDE" && e.to !== "OUTSIDE"
-    && e.from !== e.to && (e.from === r.pid || e.to === r.pid))
+  /* NAMING AN ENDPOINT IS NOT THE SAME AS LOOKING UP A COUNTY. Two of the endpoints are
+     aggregates with no county record -- jobs reaching here from elsewhere in the state, and
+     from outside it. Indexing them threw. Every call site now goes through one namer. */
+  const endpoint = g => ATL.counties[g] ? ATL.counties[g].label
+    : g === "OUT_OF_STATE" ? "outside New Mexico"
+      : g === "OUTSIDE" ? "elsewhere in New Mexico" : g;
+  const top = C.edges.filter(e => e.from !== e.to && (e.from === r.pid || e.to === r.pid))
     .sort((a, b) => b.jobs - a.jobs).slice(0, 8);
   const setLink = gs => JSON.stringify({ scope: "place", pid: r.pid, mode: "flows",
     sel: gs.join(",") });
@@ -3400,8 +3405,8 @@ function viewFlows(p, r, E) {
       ${esc(C.denominator.excludes[0])}. ${esc(C.denominator.consequence)}</p>
     <h3 style="font-size:16px;margin:22px 0 8px">Largest flows touching this county</h3>
     ${top.map(e => `<div class="atl-flow-row">
-      <span class="atl-flow-pair">${esc(ATL.counties[e.from].label)}
-        <span class="atl-arrow">→</span> ${esc(ATL.counties[e.to].label)}</span>
+      <span class="atl-flow-pair">${esc(endpoint(e.from))}
+        <span class="atl-arrow">→</span> ${esc(endpoint(e.to))}</span>
       <span class="atl-flow-n">${n(e.jobs)}</span>
       <span class="tag ${e.to === r.pid ? "s" : "w"}">${e.to === r.pid ? "in" : "out"}</span>
     </div>`).join("")}
