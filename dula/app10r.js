@@ -15,9 +15,10 @@
 const J = async p => (await fetch(p, { cache: "no-cache" })).json();
 import * as DG from "./diagram.js";
 import * as GR from "./graph.js";
+import * as AT from "./atlas.js";
 
 const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, ECO, ECD, ECPL, ECN,
-  ECF, ECE, ECO2] = await Promise.all([
+  ECF, ECE, ECO2, ATL] = await Promise.all([
   J("product/places.json"), J("product/newmexico.json"), J("product/world.json"),
   J("product/observatory.json"), J("product/legible.json"), J("product/graphs.json"),
   J("product/reading.json"), J("product/machine.json"), J("product/regional.json"),
@@ -43,6 +44,9 @@ const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, EC
    * shows both. */
   J("product/economy_evidence.json"),
   J("product/economy_opportunity.json"),
+  /* R3.24. Geography and movement: Census county boundaries and LODES county-to-county job
+   * flows. The only two things the atlas needed that no earlier artefact held. */
+  J("product/atlas.json"),
 ]);
 
 /* R3.10, revised R3.23. product/economy.json is the PUBLIC half of the R3 economic
@@ -322,12 +326,14 @@ function route() {
   if (scope === "economy") return { scope: "economy", mode: a || "intelligence" };
   if (scope === "home" || !scope) return { scope: "home", mode: "intelligence" };
   if (scope === "systems") return { scope: "systems", mode: a || "network", sel: b || null };
-  if (scope === "place" && PLACES.places[a]) return { scope: "place", pid: a, mode: b || "intelligence" };
+  if (scope === "place" && PLACES.places[a])
+    return { scope: "place", pid: a, mode: b || "overview", sel: h.split("/")[3] || null };
   return { scope: "nm", mode: (scope === "nm" && a) || "intelligence" };
 }
 function go(r) {
   location.hash = r.scope === "home" ? "/home"
-    : r.scope === "place" ? `/place/${r.pid}/${r.mode || "intelligence"}`
+    : r.scope === "place"
+      ? `/place/${r.pid}/${r.mode || "overview"}${r.sel ? "/" + r.sel : ""}`
     /* The feasibility view is the one place where a mode has a subject, so the route carries
        it. Everywhere else a third segment would be state the URL does not need. */
     : (r.scope === "systems" && ["feasible", "opportunity"].includes(r.mode) && r.sel)
@@ -3072,28 +3078,594 @@ function homeDemos() {
   ];
 }
 
+
+/* ============================ R3.24 · THE ECONOMIC ATLAS ============================
+ * One system, every county. Nothing below is written for a place: each view asks the county's
+ * own artefacts what they hold and draws whatever is there, so Mora's page differs from Santa
+ * Fe's because the economies differ and not because somebody wrote two pages.
+ *
+ * The six views answer six different questions, and each is drawn in the form its question
+ * deserves. A composition problem gets a proportional field; a boundary problem gets a map you
+ * can move the boundary on; a dependency problem gets a pathway. None of them is a dashboard
+ * tile, and none of them is a paragraph pretending to be a visualisation.
+ */
+const PLACE_MODES = [["overview", "Overview"], ["system", "System"], ["flows", "Flows"],
+  ["constraints", "Constraints"], ["opportunities", "Opportunities"], ["evidence", "Evidence"]];
+/* Older links used these names. They still resolve, to the view that replaced them. */
+const MODE_ALIAS = { intelligence: "overview", model: "system" };
+
+/* The opening sentence of a county page, COMPOSED FROM ITS OWN ROWS. The page used to lead
+   with the food study's actor counts, which describe Dula's research reach and not the economy.
+   What a reader wants first is what this place does for a living. */
+function characterise(E, flows) {
+  const S = E.productive_structure, T = S.sector_total || {};
+  const secs = (S.sectors || []).filter(x => x.employment)
+    .sort((a, b) => b.employment - a.employment);
+  if (!secs.length || !T.employment) return E.coverage.reading;
+  const three = secs.slice(0, 3);
+  const sh = Math.round(three.reduce((a, b) => a + b.employment, 0) / T.employment * 100);
+  const names = three.map(x => x.name.replace(/ and /g, " and ").toLowerCase());
+  const list = names.length > 2
+    ? `${names[0]}, ${names[1]} and ${names[2]}` : names.join(" and ");
+  const sc = flows && flows.self_containment != null
+    ? ` ${Math.round(flows.self_containment * 100)}% of the people who live here also work here.`
+    : "";
+  return `${n(T.employment)} private jobs across ${secs.length} sectors. ${list.charAt(0)
+    .toUpperCase()}${list.slice(1)} are ${sh}% of them.${sc}`;
+}
+
+function placeData(pid) {
+  const O = ECO2;
+  return O.santa_fe && O.santa_fe.geoid === pid ? O.santa_fe
+    : O.bernallilo && O.bernallilo.geoid === pid ? O.bernallilo
+      : (O.places || {})[pid] || null;
+}
+
+function atlasHeader(p, r, E) {
+  const g = (E && E.geography) || {};
+  return `<header class="atl-head">
+    <div class="atl-crumb"><span class="sf-mark" style="cursor:pointer"
+      data-go='${JSON.stringify({ scope: "home" })}'>Dula</span>
+      <span class="atl-sep">/</span><b>${esc(g.titled || p.name + " County")}</b></div>
+    <nav class="atl-tabs" aria-label="Place views">
+      ${PLACE_MODES.map(([m, label]) => `<span class="atl-tab${r.mode === m ? " on" : ""}"
+        role="link" tabindex="0" aria-current="${r.mode === m ? "page" : "false"}"
+        data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: m })}'
+        >${esc(label)}</span>`).join("")}
+    </nav>
+    <div class="atl-places">${PIDS.map(id => `<span class="atl-pill${id === r.pid ? " on" : ""}"
+      data-go='${JSON.stringify({ scope: "place", pid: id, mode: r.mode })}'
+      >${esc(PLACES.places[id].name.replace(" County", ""))}</span>`).join("")}</div>
+  </header>`;
+}
+
+/* ---------------------------------------------------------------- A · OVERVIEW */
+function viewOverview(p, r, E) {
+  if (!E || E.unavailable) return `<p class="bt-u">No economic artefact is held for this county.</p>`;
+  const S = E.productive_structure, T = S.sector_total || {}, F = E.findings || [];
+  const D = placeData(r.pid);
+  const flows = (ATL.commuting.per_county || {})[r.pid];
+  const g = E.geography || {};
+  return `
+  <section class="atl-hero">
+    <div class="atl-hero-text">
+      <h1 class="atl-h1">${esc(g.titled || p.name + " County")}</h1>
+      <p class="lede" style="margin:10px 0 0">${esc(characterise(E, flows))}</p>
+      ${g.seat_is_context ? `<p class="bt-u">${esc(g.seat_is_context)}</p>` : ""}
+      <div class="atl-figs">
+        ${AT.figure(T.employment, "private jobs", { source: `${S.sectors.length} sectors` })}
+        ${AT.figure(T.establishments, "establishments")}
+        ${AT.figure((T.payroll_usd_thousands || 0) * 1000, "annual payroll", { unit: "USD" })}
+        ${flows ? AT.figure(flows.jobs_located_here, "jobs located here",
+          { source: `${Math.round(flows.self_containment * 100)}% filled from inside` }) : ""}
+      </div>
+    </div>
+    <div class="atl-hero-map">
+      ${AT.countyMap(ATL, { selected: r.pid, w: 440, h: 330, label: true,
+        focus: Object.keys(ATL.counties).filter(x => x !== "35025" || r.pid === "35025"),
+        caption: `${esc(p.name)} County in its region. Census Bureau cartographic boundaries,
+          generalised for drawing.` })}
+    </div>
+  </section>
+
+  ${F.length ? `<section>
+    <h2>What this economy is doing</h2>
+    <div class="atl-finds">
+      ${F.slice(0, 3).map((f, i) => `<article class="atl-find">
+        <div class="atl-find-n">${i + 1}</div>
+        <h3>${esc(f.headline)}</h3>
+        <p class="bt-s">${esc(f.what_is_happening)}</p>
+        <p class="bt-w"><b>Why it matters.</b> ${esc(f.why_it_matters)}</p>
+        <p class="bt-s atl-q">${esc(f.question_that_follows)}</p>
+        <span class="atl-link" data-go='${JSON.stringify({ scope: "place", pid: r.pid,
+          mode: f.id === "FND_UNSEEN" ? "evidence" : "system" })}'>Investigate →</span>
+      </article>`).join("")}
+    </div>
+    ${F.length > 3 ? det(`The other ${F.length - 3} findings`, F.slice(3).map(f =>
+      `<div style="margin:0 0 14px"><b>${esc(f.headline)}</b>
+       <p class="bt-u" style="margin:4px 0 0">${esc(f.what_is_happening)}</p>
+       <p class="bt-w">${esc(f.question_that_follows)}</p></div>`).join("")) : ""}
+  </section>` : ""}
+
+  ${D ? `<section>
+    <h2>Where to look next</h2>
+    <div class="atl-next">
+      ${[["system", "The productive system", `${S.sectors.length} sectors, ${n(T.establishments)} establishments`],
+         ["flows", "What moves through", flows ? `${n(flows.inflow)} jobs in, ${n(flows.outflow)} out` : "commuting"],
+         ["constraints", "What limits it", `${(D.discovery.conditions || []).length} conditions read`],
+         ["opportunities", "What could be developed", `${D.audit.counts.distinct_investigations} distinct investigation(s)`]]
+        .map(([m, t, sub]) => `<div class="atl-next-card"
+          data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: m })}'>
+          <b>${esc(t)}</b><p class="bt-u" style="margin:3px 0 0">${esc(sub)}</p></div>`).join("")}
+    </div>
+  </section>` : ""}`;
+}
+
+/* ---------------------------------------------------------------- B · SYSTEM */
+function viewSystem(p, r, E) {
+  const S = E.productive_structure, T = S.sector_total || {};
+  const secs = S.sectors || [];
+  const sel = r.sel && secs.find(s => s.code === r.sel) ? r.sel : null;
+  const cur = sel ? secs.find(s => s.code === sel) : null;
+  const D = placeData(r.pid);
+  // Relationships for the selected sector, from the model — never invented, and each carries
+  // the epistemic class the model gave it.
+  const rels = cur ? sectorRelationships(r.pid, cur, D) : [];
+  return `
+  <section>
+    <h2>The productive system</h2>
+    <p class="lede">Every private sector this county publishes, drawn to scale. Select one to
+      see what the model holds about it.</p>
+    ${AT.composition(secs, { selected: sel, total: T.employment })}
+    <p class="bt-u">${esc(S.sector_source ? S.sector_source.programme || "" : "")}
+      Private employer establishments only — government, the self-employed and most farm
+      production are outside this source.</p>
+  </section>
+
+  ${cur ? `<section>
+    <h2>${esc(cur.name)}</h2>
+    <div class="atl-figs">
+      ${AT.figure(cur.employment, "jobs", { source: `${(cur.employment / T.employment * 100).toFixed(1)}% of private employment` })}
+      ${AT.figure(cur.establishments, "establishments",
+        { source: `${(cur.employment / cur.establishments).toFixed(1)} per establishment` })}
+      ${AT.figure((cur.payroll_usd_thousands || 0) * 1000, "annual payroll", { unit: "USD" })}
+      ${cur.payroll_usd_thousands ? AT.figure(
+        Math.round(cur.payroll_usd_thousands * 1000 / cur.employment), "average pay",
+        { unit: "USD", source: "payroll ÷ employees, not a wage" }) : ""}
+    </div>
+    <h3 style="font-size:16px;margin:22px 0 8px">What this sector depends on, and what depends on it</h3>
+    ${rels.length ? rels.map(x => `<div class="atl-rel">
+      <div class="atl-rel-line ${x.cls}"></div>
+      <div><b>${esc(x.what)}</b> ${AT.state(x.evidence)}
+        <p class="bt-u" style="margin:3px 0 0">${esc(x.detail)}</p>
+        ${x.refuses ? `<p class="bt-r">${esc(x.refuses)}</p>` : ""}</div>
+    </div>`).join("")
+    : `<p class="bt-u">The model holds no relationship for this sector in this county. That is
+       an absence in Dula, not in the economy.</p>`}
+    <span class="atl-link" data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: "system" })}'
+      >← Clear selection</span>
+  </section>` : `<section>
+    <h2>Select a sector</h2>
+    <p class="bt-u">Each rectangle is a sector, sized by employment. Choosing one changes the
+      analysis below it — it does not open a paragraph.</p>
+  </section>`}`;
+}
+
+/* The relationships the MODEL holds for a sector here. National coefficients are returned as
+   national coefficients; nothing is promoted to a local transaction. */
+function sectorRelationships(pid, sec, D) {
+  const out = [];
+  /* TWO CHANNELS, TWO ENTRIES, NEVER ONE SENTENCE.
+     An earlier version put observed local employment inside a block badged NATIONALLY
+     MODELLED, and listed the Use table's ACCOUNTING AGGREGATES -- Total Intermediate,
+     Compensation of employees -- as things the industry buys. The first mislabels a
+     measurement; the second is simply false. A local count and a national coefficient are
+     separate findings of separate kinds and are emitted separately. */
+  const io = (ECPL.places[pid] || {}).interindustry || {};
+  for (const rel of (io.relationships || [])) {
+    const isBuyer = rel.from_sector === sec.code;
+    const isSupplier = (rel.to_sectors || []).includes(sec.code);
+    if (!isBuyer && !isSupplier) continue;
+    const le = Object.entries(rel.local_employment || {});
+    if (le.length) {
+      out.push({
+        what: isBuyer
+          ? "Employment in this sector and the sectors it would buy from, here"
+          : "Employment in this sector and the sector that would buy from it, here",
+        evidence: "OBSERVED", cls: "solid",
+        detail: le.map(([k, v]) => `${k} ${n(v)}`).join(", ")
+          + ". County Business Patterns, this county.",
+        refuses: "that any of these firms trade with each other. Not one purchase between two "
+          + "firms in this county is observed, in either direction." });
+    }
+    out.push({
+      what: isBuyer ? rel.name : `Supplies ${(rel.name || "").split(" buys")[0].toLowerCase()}`,
+      evidence: "NATIONALLY_MODELLED", cls: "dash",
+      detail: "a relationship the national input-output accounts record between these "
+        + "industries. It is a pattern for the United States as a whole.",
+      refuses: rel.means });
+  }
+  /* The actual commodity coefficients, where the network model holds them for this industry.
+     These are real numbers with a real unit, and they are national. */
+  for (const net of (ECN.networks || [])) {
+    const dr = net.direct_requirements;
+    if (!dr || dr.industry !== sec.code) continue;
+    const top = (dr.top_inputs || []).filter(x => x.coefficient_per_dollar_of_output > 0)
+      .slice(0, 5);
+    if (!top.length) continue;
+    out.push({
+      what: `What a dollar of ${dr.industry_name.toLowerCase()} output buys, nationally`,
+      evidence: "NATIONALLY_MODELLED", cls: "dash",
+      detail: top.map(x => `${x.commodity} ${x.coefficient_per_dollar_of_output.toFixed(3)}`)
+        .join(" · ") + `. Unit: ${esc(dr.unit)}. Geography: ${esc(dr.geography)}.`,
+      refuses: dr.not_a_local_transaction });
+  }
+  const sys = (D && D.system_evidence) || {};
+  for (const [k, v] of Object.entries(sys)) {
+    if (!v || !v.aggregated_from) continue;
+    if (v.aggregated_from.includes(sec.code)) {
+      out.push({ what: `Counted inside the ${v.label.toLowerCase()} productive system`,
+        evidence: "COMPUTED", cls: "solid",
+        detail: `${n(v.employment)} jobs across ${v.aggregated_from.join(", ")}. `
+          + v.note,
+        refuses: null });
+    }
+  }
+  const cond = ((D && D.discovery && D.discovery.conditions) || [])
+    .filter(c => (c.id || "").endsWith("_" + sec.code));
+  for (const c of cond) {
+    out.push({ what: c.kind.replace(/_/g, " ").toLowerCase(), evidence: "OBSERVED",
+      cls: "solid", detail: c.observation,
+      refuses: (c.does_not_establish || [])[0] });
+  }
+  return out;
+}
+
+
+/* ---------------------------------------------------------------- C · FLOWS */
+function viewFlows(p, r, E) {
+  /* THE BOUNDARY IS IN THE ROUTE. A selection of counties is the analysis, so it is shareable
+     and survives a refresh like every other piece of state in this application. */
+  const inside = r.sel ? r.sel.split(",").filter(g => ATL.counties[g]) : [r.pid];
+  const F = AT.flows(ATL, { inside });
+  const me = (ATL.commuting.per_county || {})[r.pid] || {};
+  const C = ATL.commuting;
+  const top = C.edges.filter(e => e.from !== "OUTSIDE" && e.to !== "OUTSIDE"
+    && e.from !== e.to && (e.from === r.pid || e.to === r.pid))
+    .sort((a, b) => b.jobs - a.jobs).slice(0, 8);
+  const setLink = gs => JSON.stringify({ scope: "place", pid: r.pid, mode: "flows",
+    sel: gs.join(",") });
+  const neighbours = [...new Set(top.flatMap(e => [e.from, e.to]))].filter(g => g !== r.pid);
+  return `
+  <section>
+    <h2>What moves through this economy</h2>
+    <p class="lede">The same job is an inflow, an outflow or an internal movement depending only
+      on where the boundary is drawn. Move it and watch the categories change while the jobs
+      stay the same.</p>
+    <div class="atl-bar">
+      <span class="atl-chip${inside.length === 1 && inside[0] === r.pid ? " on" : ""}"
+        data-go='${setLink([r.pid])}'>This county alone</span>
+      ${neighbours.length ? `<span class="atl-chip${inside.length > 1 ? " on" : ""}"
+        data-go='${setLink([r.pid, ...neighbours])}'>With its commuting neighbours</span>` : ""}
+      <span class="atl-chip${inside.length === Object.keys(ATL.counties).length ? " on" : ""}"
+        data-go='${setLink(Object.keys(ATL.counties))}'>Every county Dula maps</span>
+      <span class="atl-hint">or click any county on the map</span>
+    </div>
+    ${F.svg}
+    ${AT.share([
+      { v: F.tally.internal, label: "internal to the boundary", fill: "var(--sage)" },
+      { v: F.tally.inflow, label: "crossing in", fill: "var(--clay)" },
+      { v: F.tally.outflow, label: "crossing out", fill: "var(--water)" },
+      { v: F.tally.outside, label: "entirely outside the boundary", fill: "var(--paper-3)" },
+    ])}
+    <div class="atl-tally">
+      <div><div class="num" style="font-size:24px;color:var(--sage)">${n(F.tally.internal)}</div>
+        <p class="bt-u" style="margin:2px 0 0">internal to the boundary</p></div>
+      <div><div class="num" style="font-size:24px;color:var(--clay)">${n(F.tally.inflow)}</div>
+        <p class="bt-u" style="margin:2px 0 0">crossing in</p></div>
+      <div><div class="num" style="font-size:24px;color:var(--water)">${n(F.tally.outflow)}</div>
+        <p class="bt-u" style="margin:2px 0 0">crossing out</p></div>
+      <div><div class="num" style="font-size:24px;color:var(--ink-3)">${n(F.tally.outside)}</div>
+        <p class="bt-u" style="margin:2px 0 0">entirely outside it</p></div>
+      <div><div class="num" style="font-size:24px">${n(F.tally.total)}</div>
+        <p class="bt-u" style="margin:2px 0 0">the same jobs, every time<br>
+          <span style="color:var(--ink-3)">this total does not move</span></p></div>
+    </div>
+    <p class="bt-r"><b>${esc(C.the_boundary_is_the_point)}</b></p>
+  </section>
+
+  <section>
+    <h2>${esc(p.name)} County's own position</h2>
+    <div class="atl-figs">
+      ${AT.figure(me.resident_workers, "workers who live here")}
+      ${AT.figure(me.jobs_located_here, "jobs located here")}
+      ${AT.figure(me.internal, "live and work here",
+        { source: me.self_containment != null
+          ? `${Math.round(me.self_containment * 100)}% of residents — an upper bound` : null })}
+      ${AT.figure(me.net, "net position", { source: me.net > 0 ? "draws workers in" : "sends workers out" })}
+    </div>
+    ${AT.share([
+      { v: me.internal || 0, label: "live and work here", fill: "var(--sage)" },
+      { v: me.inflow_from_other_counties || 0, label: "come from another county",
+        fill: "var(--clay)" },
+      { v: me.inflow_from_outside_new_mexico || 0, label: "come from outside New Mexico",
+        fill: "var(--sand)" },
+      { v: me.outflow || 0, label: "leave to work elsewhere in the state",
+        fill: "var(--water)" },
+    ])}
+    <p class="bt-u">${n(me.inflow_from_other_counties)} of the people working here come from
+      another New Mexico county and ${n(me.inflow_from_outside_new_mexico)} from outside the
+      state.</p>
+    <p class="bt-r"><b>What this denominator does not contain.</b>
+      ${esc(C.denominator.excludes[0])}. ${esc(C.denominator.consequence)}</p>
+    <h3 style="font-size:16px;margin:22px 0 8px">Largest flows touching this county</h3>
+    ${top.map(e => `<div class="atl-flow-row">
+      <span class="atl-flow-pair">${esc(ATL.counties[e.from].label)}
+        <span class="atl-arrow">→</span> ${esc(ATL.counties[e.to].label)}</span>
+      <span class="atl-flow-n">${n(e.jobs)}</span>
+      <span class="tag ${e.to === r.pid ? "s" : "w"}">${e.to === r.pid ? "in" : "out"}</span>
+    </div>`).join("")}
+    <p class="bt-w"><b>${esc(C.unit)}.</b> ${C.never_establishes.map(esc).join("; ")}.</p>
+    <p class="bt-u">${esc(C.source.programme)}, ${esc(C.source.publisher)}, ${C.source.year} —
+      ${n(C.block_pairs_read)} block pairs aggregated to counties.</p>
+  </section>`;
+}
+
+/* ---------------------------------------------------------------- D · CONSTRAINTS */
+const DETERMINATION = {
+  DEPENDENCY_WITHOUT_CAPACITY: ["Investigation needed", "u"],
+  INPUT_WITHOUT_PUBLISHED_PRODUCER: ["Investigation needed", "u"],
+  INPUT_WITH_LOCAL_PRODUCER: ["Possible constraint", "w"],
+  ESTABLISHMENT_CONCENTRATION: ["Possible constraint", "w"],
+  SCALE_MISMATCH: ["Measured condition", "s"],
+  PRODUCTION_SERIES_BREAK: ["Investigation needed", "u"],
+  EVIDENCE_GAP: ["Investigation needed", "u"],
+};
+function viewConstraints(p, r, E) {
+  const D = placeData(r.pid);
+  if (!D) return `<section><h2>Constraints</h2><p class="bt-u">No scan is held for this
+    county: County Business Patterns does not publish enough industry detail here for the
+    detectors to read.</p></section>`;
+  const conds = D.discovery.conditions || [];
+  const W = D.water_housing;
+  const bySys = {};
+  for (const c of conds) (bySys[c.system] = bySys[c.system] || []).push(c);
+  const sel = r.sel && bySys[r.sel] ? r.sel : null;
+  return `
+  <section>
+    <h2>What could be limiting this economy</h2>
+    <p class="lede">Conditions read out of the holdings, each shown at the strength the evidence
+      actually supports. A measured condition, a possible constraint and an open question are
+      three different things and are not coloured the same.</p>
+    <div class="atl-bar">
+      ${Object.keys(bySys).map(sys => `<span class="atl-chip${sel === sys ? " on" : ""}"
+        data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: "constraints",
+          sel: sel === sys ? null : sys })}'>${esc(sys.replace(/_/g, " ").toLowerCase())}
+        <b>${bySys[sys].length}</b></span>`).join("")}
+    </div>
+    ${(sel ? bySys[sel] : conds).map(c => {
+      const [label, cls] = DETERMINATION[c.kind] || ["Investigation needed", "u"];
+      return `<article class="atl-cond">
+        <div class="atl-cond-head">
+          <span class="tag ${cls}">${esc(label)}</span>
+          <b>${esc(c.system.replace(/_/g, " ").toLowerCase())}</b>
+          <span class="atl-cond-res">read at ${esc(c.resolution.replace(/_/g, " ").toLowerCase())}</span>
+        </div>
+        <p class="bt-s">${esc(c.observation)}</p>
+        <p class="bt-r"><b>What it does not establish.</b> ${c.does_not_establish.map(esc).join("; ")}.</p>
+        ${c.note ? `<p class="bt-u">${esc(c.note)}</p>` : ""}
+        <p class="bt-u">Source: ${c.holdings.map(esc).join("; ")}.</p>
+      </article>`;
+    }).join("")}
+  </section>
+
+  ${W && W.capacity_is_seven_things ? `<section>
+    <h2>Water, and what "capacity" actually means</h2>
+    <p class="lede">${esc(W.the_dependency.how)}</p>
+    <p class="bt-r"><b>Whether it binds here: ${esc(W.the_dependency.binding)}</b></p>
+    <div class="atl-seven">
+      ${W.capacity_is_seven_things.map(c => `<div class="atl-seven-c">
+        <span class="tag ${c.held === false ? "u" : "w"}">${c.held === false ? "not held"
+          : "partial"}</span>
+        <b>${esc(c.component)}</b>
+        <p class="bt-u" style="margin:3px 0 0">${esc(c.why_it_matters)}</p>
+        <p class="bt-w" style="margin:3px 0 0">${esc(c.where_it_would_come_from)}</p>
+      </div>`).join("")}
+    </div>
+    <p class="bt-r">${esc(W.a_county_count_is_not_a_site_answer)}</p>
+    <p class="bt-w"><b>Do not conclude.</b> ${W.do_not_conclude.map(esc).join("; ")}.</p>
+  </section>` : ""}`;
+}
+
+/* ---------------------------------------------------------------- E · OPPORTUNITIES */
+const MATURITY = [["Economic condition", "a condition has been read out of the holdings"],
+  ["Development hypothesis", "a mechanism might address it"],
+  ["Investment candidate", "demand, economics and an operator are being established"],
+  ["Underwritten opportunity", "the existing investment requirements are met"]];
+function viewOpportunities(p, r, E) {
+  const D = placeData(r.pid);
+  if (!D) return `<section><h2>Opportunities</h2><p class="bt-u">No scan is held for this
+    county.</p></section>`;
+  const A = D.audit, cands = D.discovery.candidates || [];
+  const sel = r.sel && cands.find(c => c.id === r.sel) ? cands.find(c => c.id === r.sel) : null;
+  return `
+  <section>
+    <h2>From condition to development question</h2>
+    <p class="lede">${esc(A.the_honest_count)}</p>
+    <div class="atl-ladder">
+      ${MATURITY.map(([t, sub], i) => `<div class="atl-rung${i === 0 ? " on" : ""}">
+        <div class="atl-rung-n">${i + 1}</div><b>${esc(t)}</b>
+        <p class="bt-u" style="margin:2px 0 0">${esc(sub)}</p></div>`).join("")}
+    </div>
+    <p class="bt-r">Everything this county holds sits at stage one or two. Nothing here is an
+      investment candidate, and the ladder does not advance because a pattern matched.</p>
+  </section>
+
+  <section>
+    <h2>What the conditions could support</h2>
+    ${A.groups.map(g => `<article class="atl-group">
+      <div class="atl-cond-head">
+        <span class="tag ${g.klass === "DISTINCT_INVESTIGATION" ? "s"
+          : g.klass === "UNSUPPORTED_UNTIL_CHECKED" ? "u" : "w"}"
+          >${esc(g.klass.replace(/_/g, " ").toLowerCase())}</span>
+        <b>${esc(g.group)}</b>
+        <span class="atl-cond-res">${g.count} candidate${g.count === 1 ? "" : "s"}</span>
+      </div>
+      <p class="bt-s">${esc(g.one_question)}</p>
+      ${g.why_not_separate_opportunities
+        ? `<p class="bt-r">${esc(g.why_not_separate_opportunities)}</p>` : ""}
+      <div class="atl-bar" style="margin-top:10px">
+        ${g.members.slice(0, 6).map(id => {
+          const c = cands.find(x => x.id === id);
+          return c ? `<span class="atl-chip${sel && sel.id === id ? " on" : ""}"
+            data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: "opportunities",
+              sel: sel && sel.id === id ? null : id })}'
+            >${esc(c.system_label)}</span>` : "";
+        }).join("")}
+      </div>
+    </article>`).join("")}
+  </section>
+
+  ${sel ? `<section>
+    <h2>${esc(sel.system_label)}</h2>
+    <p class="lede">${esc(sel.hypothesis)}</p>
+    <h3 style="font-size:16px;margin:18px 0 6px">What is already established</h3>
+    <p class="bt-s">${esc(sel.condition.observation)}</p>
+    <p class="bt-u">Read at ${esc(sel.condition.resolution.replace(/_/g, " ").toLowerCase())}
+      from ${sel.condition.holdings.map(esc).join("; ")}.</p>
+    <h3 style="font-size:16px;margin:18px 0 6px">What argues against it</h3>
+    ${sel.counterevidence.map(x => `<p class="bt-r" style="margin:0 0 6px">
+      ${AT.state(x.strength === "OBSERVED" ? "OBSERVED" : "HYPOTHESIS")}
+      <b>${esc(x.against)}</b> — ${esc(x.because)}</p>`).join("")}
+    <h3 style="font-size:16px;margin:18px 0 6px">What remains unknown</h3>
+    <p class="bt-u">${sel.critical_unknowns.map(esc).join("; ")}.</p>
+    <h3 style="font-size:16px;margin:18px 0 6px">What would settle it</h3>
+    <div class="card" style="margin:0">
+      <b>${esc(sel.next_action.kind.replace(/_/g, " ").toLowerCase())}</b>
+      <p class="bt-s" style="margin:6px 0 0">${esc(sel.next_action.what)}</p>
+      <p class="bt-u">Settles: ${esc(sel.next_action.settles)}</p>
+      <p class="bt-w">Cost: ${esc(sel.next_action.cost)} ·
+        Who: ${sel.actors.map(esc).join(", ")}</p>
+    </div>
+    <h3 style="font-size:16px;margin:18px 0 6px">Mechanisms that could apply</h3>
+    ${sel.development_mechanism.map(m => `<p class="bt-w" style="margin:0 0 6px">
+      <b>${esc(m.label)}</b> — ${esc(m.mechanism)}<br>
+      <span class="bt-u">Fails if: ${esc(m.fails_if)}</span></p>`).join("")}
+    <p class="bt-r">${esc(sel.state_means)}</p>
+  </section>` : ""}`;
+}
+
+/* ---------------------------------------------------------------- F · EVIDENCE */
+function viewEvidence(p, r, E) {
+  const M = E.measures, C = E.coverage, D = placeData(r.pid);
+  const cov = (ECE.place_coverage || []).find(x => x.geoid === r.pid);
+  return `
+  <section>
+    <h2>Where every number here comes from</h2>
+    <p class="lede">${esc(M.the_rule)}</p>
+    ${M.figures.map(x => `<div class="atl-meas">
+      <div class="num" style="font-size:19px">${String(x.unit).includes("USD")
+        ? money(x.value) : n(x.value)}</div>
+      <div><b>${esc(x.figure)}</b> <span class="tag w">${esc(x.programme)} ${esc(String(x.year))}</span>
+        <p class="bt-u" style="margin:2px 0 0">${esc(x.measures)}</p>
+        <p class="bt-w" style="margin:2px 0 0">excludes ${x.excludes.map(esc).join("; ")}</p></div>
+    </div>`).join("")}
+    ${M.reconciliations.map(rc => `<div class="card" style="background:var(--paper-2)">
+      <b>${rc.figures.map(esc).join(" vs ")}</b>
+      <p class="bt-s" style="margin:6px 0 0">${n(rc.values[0])} against ${n(rc.values[1])} —
+        ${n(Math.abs(rc.difference))} apart (${Math.abs(rc.difference_pct)}%).
+        ${rc.same_year ? "Same year, same county." : ""}</p>
+      <p class="bt-u">${esc(rc.why)}</p>
+      <p class="bt-r"><b>It is not ${esc(rc.what_it_is_not)}.</b> ${esc(rc.what_dula_cannot_do)}</p>
+    </div>`).join("")}
+  </section>
+
+  <section>
+    <h2>How far the evidence goes</h2>
+    <p class="lede">${esc(C.reading)}</p>
+    <div class="atl-cov">
+      ${Object.entries(C.four_coverages || {}).map(([kind, x]) => `<div class="atl-cov-c">
+        <span class="tag ${x.state === "HIGH" ? "s"
+          : ["LOW", "NEAR ZERO", "NONE"].includes(x.state) ? "u" : "w"}">${esc(x.state)}</span>
+        <b>${esc(kind)} coverage</b>
+        <p class="bt-u" style="margin:3px 0 0">${esc(x.question)}</p>
+        <p class="bt-w" style="margin:3px 0 0">${esc(x.note)}</p>
+      </div>`).join("")}
+    </div>
+    <div class="row" style="gap:28px;margin:16px 0 0;flex-wrap:wrap">
+      <div style="flex:1;min-width:16rem"><p class="bt-s"><b>What Dula can see here</b></p>
+        ${(C.can_see || []).map(x => `<p class="bt-u" style="margin:0 0 4px">· ${esc(x)}</p>`).join("")}</div>
+      <div style="flex:1;min-width:16rem"><p class="bt-s"><b>What it cannot</b></p>
+        ${(C.cannot_see || []).map(x => `<p class="bt-r" style="margin:0 0 4px">· ${esc(x)}</p>`).join("")}</div>
+    </div>
+    ${cov ? `<p class="bt-u">Holdings covering this county: County Business Patterns
+      ${cov.cbp_rows} rows to ${cov.cbp_finest} digits · building permits ${cov.bps_years} years ·
+      ${cov.sdwis_systems} water systems · ${cov.nass_rows} agricultural census rows ·
+      ${cov.entities} named entities.</p>` : ""}
+    ${D ? `<p class="bt-r">${esc(D.discovery.discipline)}</p>` : ""}
+  </section>`;
+}
+
 function home() {
   const A = ECO2.santa_fe.audit;
   const EVI = ECE.catalogue_summary;
   const places = Object.keys(PLACES.places).length;
   const systems = Object.keys(ECE.productive_systems).length;
   return `
-  <header class="sf" style="padding-bottom:6px">
-    <div class="sf-mark">Dula</div>
-    <h1 class="sf" style="max-width:26rem">Economic intelligence for investment and
-      development.</h1>
-    <p class="sf-sub" style="max-width:40rem">We study how regional economies work — to identify
-      investment opportunities, develop productive businesses, and coordinate the capital,
-      infrastructure and institutions those businesses need in order to be viable.</p>
-    <div class="row" style="margin:22px 0 0;gap:12px;align-items:center;flex-wrap:wrap">
-      <span class="tag nav-chip on" style="cursor:pointer;font-size:14px;padding:8px 16px"
-        data-go='${JSON.stringify({ scope: "nm", mode: "intelligence" })}'>Explore New Mexico</span>
-      <a href="#approach" class="muted" style="font-size:13.5px">How the approach works ↓</a>
+  <header class="atl-entrance">
+    <div class="atl-entrance-l">
+      <div class="sf-mark">Dula</div>
+      <h1 class="atl-title">Understand a place.</h1>
+      <p class="atl-lead">Explore how regional economies work, what shapes their development,
+        and where coordinated action could strengthen productive capacity.</p>
+      <div class="atl-pick">
+        <p class="atl-pick-l">Choose a county</p>
+        <div class="atl-pick-grid">
+          ${["35049", "35001", "35055", "35028", "35039"].filter(g => PLACES.places[g])
+            .map(g => {
+              const e = (ECPL.places || {})[g] || {};
+              const t = (e.productive_structure || {}).sector_total || {};
+              return `<div class="atl-pick-c" data-go='${JSON.stringify({ scope: "place",
+                pid: g, mode: "overview" })}'>
+                <b>${esc(PLACES.places[g].name)} County</b>
+                <span class="atl-pick-sub">New Mexico</span>
+                ${t.employment ? `<span class="atl-pick-n">${n(t.employment)} private jobs</span>`
+                  : ""}</div>`;
+            }).join("")}
+        </div>
+        <p class="bt-u" style="margin:10px 0 0">Every measurement is for a COUNTY. Dula holds no
+          city-level observations, and does not imply any.</p>
+      </div>
+      <p class="atl-disc"><b>A research demonstration.</b> Dula is an independent economic
+        research and development company. The models here are still being developed and
+        validated. Nothing in this application is an investment offering, and no opportunity in
+        it is investable.
+        <a href="#approach" class="atl-disc-l">How the approach works ↓</a></p>
     </div>
-    <p class="bt-r" style="margin:18px 0 0;max-width:40rem"><b>This is a research
-      demonstration.</b> Dula is an independent economic research and development company, and
-      the models here are still being developed and validated. Nothing in this application is an
-      investment offering, and no opportunity in it is investable.</p>
+    <div class="atl-entrance-r">
+      ${(() => {
+        /* The map carries employment, because employment is counted — a county's weight on
+           this page is what it employs and not how interesting it is. Lea County sits far
+           south-east of the rest and would flatten the north-central cluster into nothing, so
+           the frame holds the cluster and the caption says what is outside it. */
+        const emp = {}; let hi = 1;
+        for (const g of Object.keys(ATL.counties)) {
+          const t = (((ECPL.places || {})[g] || {}).productive_structure || {}).sector_total;
+          emp[g] = (t && t.employment) || 0;
+          hi = Math.max(hi, emp[g]);
+        }
+        const frame = Object.keys(ATL.counties).filter(g => g !== "35025");
+        const shade = (g, on) => {
+          const t = Math.sqrt(emp[g] / hi);
+          return emp[g] ? `color-mix(in srgb, var(--clay) ${(8 + t * 58).toFixed(0)}%, var(--paper-2))`
+            : "var(--paper-2)";
+        };
+        return AT.countyMap(ATL, { w: 460, h: 520, label: true, selected: null, focus: frame,
+          shade, caption: `Counties shaded by private employment, ${n(Math.min(...Object.values(emp)
+            .filter(Boolean)))} to ${n(hi)}. Census Bureau cartographic boundaries. Dula also
+            holds Lea County, which lies outside this frame.` });
+      })()}
+    </div>
   </header>
 
   <section>
@@ -3635,6 +4207,39 @@ function renderBody() {
   }
   if (r.scope === "place") {
     const p = PLACES.places[r.pid];
+    /* R3.24. The place experience is the atlas. It builds its own header because the generic
+       shell's scope chips are a working surface and this is a place-centred instrument. Older
+       mode names still resolve to the view that replaced them. */
+    const _m = MODE_ALIAS[r.mode] || r.mode;
+    if (PLACE_MODES.some(([k]) => k === _m)) {
+      const E = (ECPL.places || {})[r.pid];
+      const rr = { ...r, mode: _m };
+      const body = !E || E.unavailable ? placeLabor(p, true)
+        : _m === "system" ? viewSystem(p, rr, E)
+          : _m === "flows" ? viewFlows(p, rr, E)
+            : _m === "constraints" ? viewConstraints(p, rr, E)
+              : _m === "opportunities" ? viewOpportunities(p, rr, E)
+                : _m === "evidence" ? viewEvidence(p, rr, E)
+                  : viewOverview(p, rr, E);
+      app.innerHTML = `<div class="atl">${atlasHeader(p, rr, E)}${body}</div>
+        <div class="foot">Dula · a research demonstration. Every figure is read from the
+         model's own artefacts; where Dula holds nothing, the page says so.</div>`;
+      app.querySelectorAll("[data-go]").forEach(el =>
+        el.addEventListener("click", () => go(JSON.parse(el.dataset.go))));
+      app.querySelectorAll(".atl-county[data-geoid]").forEach(el =>
+        el.addEventListener("click", () => {
+          const g = el.dataset.geoid;
+          if (rr.mode === "flows") {
+            const cur = new Set(rr.sel ? rr.sel.split(",") : [rr.pid]);
+            cur.has(g) ? cur.delete(g) : cur.add(g);
+            go({ ...rr, sel: [...cur].join(",") || rr.pid });
+          } else go({ scope: "place", pid: g, mode: rr.mode });
+        }));
+      app.querySelectorAll(".atl-cell[data-sector]").forEach(el =>
+        el.addEventListener("click", () =>
+          go({ ...rr, sel: rr.sel === el.dataset.sector ? null : el.dataset.sector })));
+      return;
+    }
     /* R3.23. The page was titled by the county SEAT while every figure on it is a county
        figure. "Albuquerque" above 277,465 Bernalillo County jobs is a geographic substitution,
        and the fix belongs here rather than in a caption under it. */

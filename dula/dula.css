@@ -1111,3 +1111,133 @@ body.loop-canvas .stagewrap{overflow-y:auto;align-items:flex-start;justify-conte
   padding:10px 18px 24px}
 body.loop-canvas svg#stage{height:auto;max-height:none;cursor:default}
 body.loop-canvas svg#stage:active{cursor:default}
+
+/* ================================================================ R3.24 · THE ECONOMIC ATLAS
+   The atlas is a place-centred instrument, so it sets its own measure and its own header rather
+   than inheriting the research shell's. Every colour here is an existing token. */
+.atl{max-width:72rem;margin:0 auto;padding:0 28px 120px}
+.atl-head{padding:26px 0 0;border-bottom:1px solid var(--line);margin:0 0 10px}
+.atl-crumb{font-size:13px;color:var(--ink-2);display:flex;gap:9px;align-items:baseline}
+.atl-crumb b{font-family:var(--serif);font-size:17px;color:var(--ink);font-weight:600}
+.atl-sep{color:var(--line-2)}
+.atl-tabs{display:flex;gap:4px;margin:16px 0 0;flex-wrap:wrap}
+.atl-tab{font-size:13px;padding:8px 14px;border-radius:7px 7px 0 0;color:var(--ink-2);
+  cursor:pointer;border:1px solid transparent;border-bottom:none;position:relative;top:1px}
+.atl-tab:hover{color:var(--ink);background:var(--paper-2)}
+.atl-tab.on{color:var(--clay);background:var(--paper);border-color:var(--line);font-weight:600}
+.atl-places{display:flex;gap:6px;flex-wrap:wrap;padding:10px 0 12px}
+.atl-pill{font-size:11px;letter-spacing:.04em;padding:4px 11px;border-radius:999px;
+  border:1px solid var(--line);color:var(--ink-3);cursor:pointer;background:var(--paper-2)}
+.atl-pill:hover{color:var(--ink);border-color:var(--line-2)}
+.atl-pill.on{background:var(--clay);color:#fff;border-color:var(--clay)}
+
+/* ---- the entrance */
+.atl-entrance{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;
+  min-height:76vh;padding:3vh 0 0}
+.atl-title{font-family:var(--serif);font-size:62px;line-height:1.02;margin:14px 0 0;
+  font-weight:600;letter-spacing:-.015em}
+.atl-lead{font-size:16.5px;color:var(--ink-2);margin:18px 0 0;max-width:30rem;line-height:1.6}
+.atl-pick{margin:34px 0 0}
+.atl-pick-l{font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--clay);
+  margin:0 0 10px;font-weight:600}
+.atl-pick-grid{display:flex;gap:9px;flex-wrap:wrap}
+.atl-pick-c{border:1px solid var(--line);background:#fff;border-radius:10px;padding:12px 15px;
+  cursor:pointer;min-width:9.5rem;transition:border-color .14s,transform .14s}
+.atl-pick-c:hover{border-color:var(--clay);transform:translateY(-1px)}
+.atl-pick-c b{display:block;font-family:var(--serif);font-size:15.5px}
+.atl-pick-sub{display:block;font-size:11px;color:var(--ink-3);margin:1px 0 0}
+.atl-pick-n{display:block;font-size:11.5px;color:var(--clay);margin:6px 0 0}
+.atl-disc{font-size:12.5px;color:var(--ink-2);margin:30px 0 0;max-width:32rem;line-height:1.6;
+  border-left:2px solid var(--clay-soft);padding-left:14px}
+.atl-disc-l{color:var(--clay);text-decoration:none;margin-left:6px}
+
+/* ---- drawing surfaces */
+.atl-fig{margin:0}
+.atl-map,.atl-tree{width:100%;height:auto;display:block}
+.atl-county{transition:fill .15s}
+.atl-county:hover{fill:var(--clay-soft)}
+.atl-cell:hover rect{stroke:var(--clay);stroke-width:1.6}
+.atl-cap{font-size:11.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.55;max-width:46rem}
+.atl-share{width:100%;height:26px;display:block;margin:14px 0 0}
+
+/* ---- hero */
+.atl-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;
+  padding:22px 0 0;border-top:none;margin-top:0}
+.atl-h1{font-family:var(--serif);font-size:46px;line-height:1.06;margin:0;font-weight:600}
+.atl-figs{display:flex;gap:30px;flex-wrap:wrap;margin:24px 0 0}
+.atl-fig-n{min-width:6rem}
+
+/* ---- findings */
+.atl-finds{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:18px}
+.atl-find{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;
+  box-shadow:var(--shadow);position:relative}
+.atl-find-n{font-family:var(--serif);font-size:13px;color:var(--clay);border:1px solid var(--clay-soft);
+  width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 0 10px}
+.atl-find h3{font-family:var(--serif);font-size:18px;line-height:1.28;margin:0 0 8px}
+.atl-q{font-family:var(--serif);font-style:italic;color:var(--clay);margin-top:10px}
+.atl-link{display:inline-block;margin:12px 0 0;font-size:12.5px;color:var(--clay);cursor:pointer}
+.atl-link:hover{text-decoration:underline}
+.atl-next{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:12px}
+.atl-next-card{border:1px solid var(--line);border-radius:10px;padding:16px 18px;cursor:pointer;
+  background:var(--paper-2);transition:border-color .14s}
+.atl-next-card:hover{border-color:var(--clay);background:#fff}
+
+/* ---- instruments */
+.atl-bar{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.atl-chip{font-size:12px;padding:6px 13px;border-radius:999px;border:1px solid var(--line-2);
+  cursor:pointer;color:var(--ink-2);background:var(--paper-2)}
+.atl-chip:hover{border-color:var(--clay);color:var(--ink)}
+.atl-chip.on{background:var(--clay);color:#fff;border-color:var(--clay)}
+.atl-chip b{margin-left:5px;opacity:.75}
+.atl-hint{font-size:11.5px;color:var(--ink-3);margin-left:4px}
+.atl-tally{display:flex;gap:40px;flex-wrap:wrap;margin:20px 0 0}
+.atl-flow-row{display:flex;gap:14px;align-items:baseline;padding:7px 0;
+  border-bottom:1px solid var(--line)}
+.atl-flow-pair{flex:1;font-size:13.5px}
+.atl-arrow{color:var(--clay);margin:0 4px}
+.atl-flow-n{font-family:var(--serif);font-size:16px;color:var(--clay);min-width:4.5rem;
+  text-align:right}
+.atl-rel{display:flex;gap:14px;align-items:flex-start;padding:12px 0;
+  border-bottom:1px solid var(--line)}
+.atl-rel-line{width:30px;height:2px;margin-top:9px;flex:none;background:var(--ink-3)}
+.atl-rel-line.dash{background:none;border-top:2px dashed var(--ink-3)}
+.atl-cond,.atl-group{background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;margin:0 0 12px;box-shadow:var(--shadow)}
+.atl-cond-head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px}
+.atl-cond-head b{font-size:14px}
+.atl-cond-res{font-size:11px;color:var(--ink-3);margin-left:auto}
+.atl-seven{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:12px}
+.atl-seven-c{border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+  background:var(--paper-2)}
+.atl-seven-c b{display:block;margin:6px 0 0;font-size:13.5px}
+.atl-ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:10px}
+.atl-rung{border:1px solid var(--line);border-radius:10px;padding:14px 16px;opacity:.55}
+.atl-rung.on{opacity:1;border-color:var(--clay);background:var(--paper-2)}
+.atl-rung-n{font-family:var(--serif);color:var(--clay);font-size:13px}
+.atl-meas{display:flex;gap:16px;align-items:baseline;padding:12px 0;
+  border-bottom:1px solid var(--line)}
+.atl-meas .num{min-width:6rem}
+.atl-cov{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:12px}
+.atl-cov-c{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.atl-cov-c b{display:block;margin:6px 0 0;font-size:13.5px}
+
+@media(max-width:900px){
+  .atl-entrance,.atl-hero{grid-template-columns:1fr;gap:26px;min-height:0}
+  .atl-title{font-size:44px}
+  .atl-h1{font-size:34px}
+  .atl-entrance-r{order:-1}
+}
+@media(max-width:560px){
+  .atl{padding:0 16px 90px}
+  .atl-title{font-size:36px}
+  .atl-figs{gap:20px}
+  .atl-tally{gap:22px}
+  .atl-cond-res{margin-left:0;width:100%}
+}
+
+/* The map should read as cartography, not as a wireframe. */
+.atl-map{background:linear-gradient(170deg,#fbf8f3 0%,#f6efe4 100%);border:1px solid var(--line);
+  border-radius:10px}
+.atl-map path{vector-effect:non-scaling-stroke}
+.atl-entrance-r .atl-cap{text-align:left}

@@ -1007,40 +1007,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "Construction employs 2,981 people here and manufacturing 779. Whether this county's construction buys from this county's manufacturers is NOT observed — no purchase between any two firms here is held.",
@@ -1064,40 +1064,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 8,758 jobs, and professional services the third at 2,483. Both are large; whether one buys from the other HERE is unobserved.",
@@ -2216,40 +2216,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -2273,40 +2273,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 5,101 jobs, and professional services the third at 88. Both are large; whether one buys from the other HERE is unobserved.",
@@ -3391,40 +3391,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "Construction employs 149 people here and manufacturing 21. Whether this county's construction buys from this county's manufacturers is NOT observed — no purchase between any two firms here is held.",
@@ -3448,40 +3448,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 945 jobs, and professional services the third at 13,925. Both are large; whether one buys from the other HERE is unobserved.",
@@ -4653,40 +4653,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "Construction employs 21,223 people here and manufacturing 11,789. Whether this county's construction buys from this county's manufacturers is NOT observed — no purchase between any two firms here is held.",
@@ -4710,40 +4710,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 51,701 jobs, and professional services the third at 35,552. Both are large; whether one buys from the other HERE is unobserved.",
@@ -5418,40 +5418,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -5475,40 +5475,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "employment is not held",
@@ -6139,40 +6139,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -6196,40 +6196,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "employment is not held",
@@ -7378,40 +7378,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "Construction employs 279 people here and manufacturing 102. Whether this county's construction buys from this county's manufacturers is NOT observed — no purchase between any two firms here is held.",
@@ -7435,40 +7435,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 1,427 jobs, and professional services the third at 91. Both are large; whether one buys from the other HERE is unobserved.",
@@ -8476,40 +8476,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -8533,40 +8533,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "employment is not held",
@@ -9706,40 +9706,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "Construction employs 470 people here and manufacturing 181. Whether this county's construction buys from this county's manufacturers is NOT observed — no purchase between any two firms here is held.",
@@ -9763,40 +9763,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "Health care is the largest private sector here at 1,736 jobs, and professional services the third at 279. Both are large; whether one buys from the other HERE is unobserved.",
@@ -10407,40 +10407,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -10464,40 +10464,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "employment is not held",
@@ -11117,40 +11117,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 2333007.0,
-        "share_of_intermediate_inputs": 0.284
+        "commodity_code": "332",
+        "commodity": "Fabricated metal products",
+        "purchases_usd_millions": 180563.0,
+        "share_of_intermediate_inputs": 0.163
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 1220566.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "327",
+        "commodity": "Nonmetallic mineral products",
+        "purchases_usd_millions": 146888.0,
+        "share_of_intermediate_inputs": 0.133
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 1217670.0,
-        "share_of_intermediate_inputs": 0.148
+        "commodity_code": "321",
+        "commodity": "Wood products",
+        "purchases_usd_millions": 104687.0,
+        "share_of_intermediate_inputs": 0.094
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 1115337.0,
-        "share_of_intermediate_inputs": 0.136
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 78578.0,
+        "share_of_intermediate_inputs": 0.071
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 744011.0,
-        "share_of_intermediate_inputs": 0.09
+        "commodity_code": "335",
+        "commodity": "Electrical equipment, appliances, and components",
+        "purchases_usd_millions": 75428.0,
+        "share_of_intermediate_inputs": 0.068
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 461859.0,
-        "share_of_intermediate_inputs": 0.056
+        "commodity_code": "324",
+        "commodity": "Petroleum and coal products",
+        "purchases_usd_millions": 71044.0,
+        "share_of_intermediate_inputs": 0.064
        }
       ],
       "the_local_question": "employment for both sides is not held",
@@ -11174,40 +11174,40 @@
       "means": "estimated from national input-output data. It describes what this industry buys ON AVERAGE IN THE UNITED STATES, and is NOT an observation of anything bought in this county",
       "national_pattern": [
        {
-        "commodity_code": "T018",
-        "commodity": "Total industry output (basic prices)",
-        "purchases_usd_millions": 697111.0,
-        "share_of_intermediate_inputs": 0.27
+        "commodity_code": "5412OP",
+        "commodity": "Miscellaneous professional, scientific, and technical services",
+        "purchases_usd_millions": 44425.0,
+        "share_of_intermediate_inputs": 0.219
        },
        {
-        "commodity_code": "VAPRO",
-        "commodity": "Value Added (producer prices)",
-        "purchases_usd_millions": 489185.0,
-        "share_of_intermediate_inputs": 0.19
+        "commodity_code": "561",
+        "commodity": "Administrative and support services",
+        "purchases_usd_millions": 40290.0,
+        "share_of_intermediate_inputs": 0.198
        },
        {
-        "commodity_code": "VABAS",
-        "commodity": "Value Added (basic prices)",
-        "purchases_usd_millions": 480119.0,
-        "share_of_intermediate_inputs": 0.186
+        "commodity_code": "ORE",
+        "commodity": "Other real estate",
+        "purchases_usd_millions": 12997.0,
+        "share_of_intermediate_inputs": 0.064
        },
        {
-        "commodity_code": "V001",
-        "commodity": "Compensation of employees",
-        "purchases_usd_millions": 417850.0,
-        "share_of_intermediate_inputs": 0.162
+        "commodity_code": "722",
+        "commodity": "Food services and drinking places",
+        "purchases_usd_millions": 10236.0,
+        "share_of_intermediate_inputs": 0.05
        },
        {
-        "commodity_code": "T005",
-        "commodity": "Total Intermediate",
-        "purchases_usd_millions": 216991.0,
-        "share_of_intermediate_inputs": 0.084
+        "commodity_code": "334",
+        "commodity": "Computer and electronic products",
+        "purchases_usd_millions": 8887.0,
+        "share_of_intermediate_inputs": 0.044
        },
        {
-        "commodity_code": "V003",
-        "commodity": "Gross operating surplus",
-        "purchases_usd_millions": 59364.0,
-        "share_of_intermediate_inputs": 0.023
+        "commodity_code": "514",
+        "commodity": "Data processing, internet publishing, and other information services",
+        "purchases_usd_millions": 8864.0,
+        "share_of_intermediate_inputs": 0.044
        }
       ],
       "the_local_question": "employment is not held",
