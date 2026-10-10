@@ -18,7 +18,7 @@ import * as GR from "./graph.js";
 import * as AT from "./atlas.js";
 
 const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, ECO, ECD, ECPL, ECN,
-  ECF, ECE, ECO2, ATL, INVG, COND] = await Promise.all([
+  ECF, ECE, ECO2, ATL, INVG, COND, SW, IVG] = await Promise.all([
   J("product/places.json"), J("product/newmexico.json"), J("product/world.json"),
   J("product/observatory.json"), J("product/legible.json"), J("product/graphs.json"),
   J("product/reading.json"), J("product/machine.json"), J("product/regional.json"),
@@ -55,6 +55,15 @@ const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, EC
    * investigation, which is why it renders inside that view rather than as a separate page:
    * one object, another lens. It carries no magnitudes, by construction. */
   J("product/conditional.json"),
+  /* R3.27. The statewide place model: all 33 counties through one model. A county's anatomy is
+   * the set of questions its own evidence can answer, with the answers computed. A question that
+   * cannot be answered says what would answer it, which is why no county is an empty page. */
+  J("product/statewide.json"),
+  /* R3.27. The seven-step investigation, serialised per county. The interface walks it; the
+   * analysis is the driver's. Scenario arithmetic is recomputed here as the user moves a
+   * parameter, under the same rule the driver uses — a result is never stronger than its
+   * weakest input, so anything downstream of an assumption stays PARAMETERIZED. */
+  J("product/investigate.json"),
 ]);
 
 /* R3.10, revised R3.23. product/economy.json is the PUBLIC half of the R3 economic
@@ -334,8 +343,12 @@ function route() {
   if (scope === "economy") return { scope: "economy", mode: a || "intelligence" };
   if (scope === "home" || !scope) return { scope: "home", mode: "intelligence" };
   if (scope === "systems") return { scope: "systems", mode: a || "network", sel: b || null };
-  if (scope === "place" && PLACES.places[a])
-    return { scope: "place", pid: a, mode: b || "overview", sel: h.split("/")[3] || null };
+  /* R3.27. The place model holds 11 counties; the statewide model holds 33. A county that
+     exists in either is routable — otherwise two thirds of New Mexico would be unreachable in a
+     statewide instrument. Counties outside the 11 open on the Anatomy view, which is the one
+     built from their own evidence. */
+  if (scope === "place" && (PLACES.places[a] || (SW.counties && SW.counties[a])))
+    return { scope: "place", pid: a, mode: b || "anatomy", sel: h.split("/")[3] || null };
   return { scope: "nm", mode: (scope === "nm" && a) || "intelligence" };
 }
 function go(r) {
@@ -3097,9 +3110,14 @@ function homeDemos() {
  * can move the boundary on; a dependency problem gets a pathway. None of them is a dashboard
  * tile, and none of them is a paragraph pretending to be a visualisation.
  */
-const PLACE_MODES = [["overview", "Overview"], ["system", "System"], ["flows", "Flows"],
-  ["investigation", "Investigation"],
-  ["constraints", "Constraints"], ["opportunities", "Opportunities"], ["evidence", "Evidence"]];
+/* R3.27. The place navigation is the four activities. The earlier views remain reachable where
+   they hold content, but they no longer define the experience — and a tab is never offered for a
+   view that would render the same page as its neighbour. */
+const PLACE_MODES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
+  ["strategies", "Development strategies"], ["scenario", "Scenario"],
+  ["flows", "Flows"], ["investigation", "Investigation"], ["evidence", "Evidence"],
+  ["statewide", "Anatomy"], ["overview", "Overview"], ["system", "System"],
+  ["constraints", "Constraints"], ["opportunities", "Opportunities"]];
 /* Older links used these names. They still resolve, to the view that replaced them. */
 const MODE_ALIAS = { intelligence: "overview", model: "system" };
 
@@ -3130,6 +3148,31 @@ function placeData(pid) {
       : (O.places || {})[pid] || null;
 }
 
+/* R3.27. A county is offered the four activities, plus a legacy view ONLY where that view holds
+   content for it. Before this, every county was offered all twelve and two thirds of them
+   rendered one page under eight labels. A tab that leads nowhere different is worse than no tab:
+   it tells the reader something is there. */
+const IV_ACTIVITIES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
+  ["strategies", "Development strategies"], ["scenario", "Scenario"]];
+function modesFor(pid) {
+  const out = IV_ACTIVITIES.slice();
+  const E = (ECPL.places || {})[pid];
+  const hasPlaceModel = Boolean(PLACES.places[pid]);
+  const hasEcon = Boolean(E && !E.unavailable);
+  if (hasPlaceModel) out.push(["flows", "Flows"]);
+  /* A legacy view is offered only where it has something to say. Harding has an economy record
+     but no opportunity scan and no findings, so Constraints and Opportunities would render
+     "no scan is held" — an empty view existing to fill a tab bar. It is not offered. */
+  if (hasEcon && E.productive_structure) out.push(["system", "System"]);
+  if (hasEcon && (E.findings || []).length) out.push(["constraints", "Constraints"]);
+  if (hasEcon && placeData && placeData(pid)) out.push(["opportunities", "Opportunities"]);
+  if (INVG && String(INVG.geoid) === String(pid)) out.push(["investigation", "Investigation"]);
+  if (hasEcon) out.push(["evidence", "Evidence"]);
+  return out;
+}
+function swName(pid) {
+  return (SW.counties && SW.counties[pid] && SW.counties[pid].name) || null;
+}
 function atlasHeader(p, r, E) {
   const g = (E && E.geography) || {};
   return `<header class="atl-head">
@@ -3137,9 +3180,9 @@ function atlasHeader(p, r, E) {
       data-go='${JSON.stringify({ scope: "home" })}'>Dula</span>
       <span class="atl-sep">/</span><b>${esc(g.titled || p.name + " County")}</b></div>
     <nav class="atl-tabs" aria-label="Place views">
-      ${PLACE_MODES.map(([m, label]) => `<span class="atl-tab${r.mode === m ? " on" : ""}"
+      ${modesFor(r.pid).map(([m, label]) => `<span class="atl-tab${r.mode === m ? " on" : ""}"
         role="link" tabindex="0" aria-current="${r.mode === m ? "page" : "false"}"
-        data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: m })}'
+        data-go='${JSON.stringify({ scope: "place", pid: r.pid, mode: m, sel: r.sel || null })}'
         >${esc(label)}</span>`).join("")}
     </nav>
     <div class="atl-places">${PIDS.map(id => `<span class="atl-pill${id === r.pid ? " on" : ""}"
@@ -3406,6 +3449,301 @@ function conditionalBlock(pid) {
        <p class="iv-lim">${esc(v.creation_vs_capture)}</p></div>`).join("")}
     <p class="iv-foot">${esc(A.magnitude_note)} ${esc(A.note)}</p>
   </section>`;
+}
+
+/* R3.27. THE STATEWIDE INSTRUMENT. Every county reaches this view through the same model; what
+   differs is which questions its evidence answers. Findings lead — the evidence state qualifies a
+   particular claim rather than framing the page. */
+const SYSLABEL = { food_agriculture:"Food & agriculture", water:"Water", housing:"Housing",
+  energy:"Energy", workforce:"Workforce", industry_enterprise:"Industry & enterprise",
+  land_built:"Land & built", transport_logistics:"Transport & logistics",
+  capital_institutions:"Capital & institutions" };
+function swCounty(pid) { return SW && SW.counties ? SW.counties[pid] : null; }
+function viewStatewide(p, r, E) {
+  const c = swCounty(r.pid);
+  if (!c) return `<div class="card"><h2>STATEWIDE</h2><p>No statewide record for this county.</p></div>`;
+  const sel = r.sel && c.answered[r.sel] ? r.sel : Object.keys(c.answered)[0];
+  const A = c.answered[sel];
+  const comp = (A && A.composition) || [];
+  const mx = Math.max(1, ...comp.map(x => x.emp));
+  return `<div class="card sw">
+   <div class="sw-head">
+     <div><h2 style="margin:0">${esc(c.name)} County</h2>
+       <p class="muted" style="margin:2px 0 0">${c.answered_count} of ${c.question_count} questions
+       answered from this county's own evidence · ${c.systems_touched.length} systems touched</p></div>
+     <div class="sw-sys">${c.systems_touched.map(s =>
+        `<span class="sw-chip">${esc(SYSLABEL[s] || s)}</span>`).join("")}</div>
+   </div>
+   <div class="sw-grid">
+     <nav class="sw-q">
+       ${Object.values(c.answered).map(a => `<button class="sw-qb${a.id === sel ? " on" : ""}"
+          data-go='${esc(JSON.stringify({ scope:"place", pid:r.pid, mode:"statewide", sel:a.id }))}'>
+          <b>${esc(a.question)}</b>
+          <i>${a.systems.map(x => esc(SYSLABEL[x] || x)).join(" · ")}</i></button>`).join("")}
+       ${c.unanswered.length ? `<div class="sw-un"><b>Not answerable here</b>
+          ${c.unanswered.map(a => `<div><span>${esc(a.question)}</span>
+            <em>needs ${esc((a.would_require || []).join("; "))}</em></div>`).join("")}</div>` : ""}
+     </nav>
+     <section class="sw-a">
+       ${A ? `<h3>${esc(A.question)}</h3><p class="sw-lede">${esc(A.headline)}</p>
+       ${comp.length ? `<div class="sw-bars">${comp.map(x => `<div class="sw-bar">
+          <i>${esc(x.name)}</i><div class="t"><b style="width:${(x.emp / mx * 100).toFixed(1)}%"></b></div>
+          <em>${x.emp.toLocaleString()}</em>
+          <s>${x.pay_per_worker ? "$" + x.pay_per_worker.toLocaleString() : ""}</s></div>`).join("")}</div>` : ""}
+       ${A.series ? (() => { const ys = Object.keys(A.series).sort();
+          const vs = ys.map(y => A.series[y]); const m = Math.max(...vs);
+          return `<div class="sw-spark">${ys.map((y, i) => `<i style="height:${vs[i] / m * 100}%"
+            title="${y}: ${vs[i].toLocaleString()}"></i>`).join("")}</div>
+            <div class="sw-ax"><span>${ys[0]}</span><span>${ys[ys.length - 1]}</span></div>`; })() : ""}
+       ${A.participates && A.participates.length ? `<div class="sw-part">${A.participates.map(x =>
+          `<div><b>${esc(SYSLABEL[x.system] || x.system)}</b><span>${esc(x.role.toLowerCase())}</span>
+           <i>${esc(x.why)}</i></div>`).join("")}</div>` : ""}
+       ${A.lihtc ? `<div class="sw-part">${A.lihtc.map(x => `<div><b>${esc(x.project || "—")}</b>
+          <span>${esc(x.city || "")}</span><i>${x.units || "—"} units · placed ${x.placed || "—"}</i></div>`).join("")}</div>` : ""}
+       ${A.trap ? `<p class="sw-note">${esc(A.trap)}</p>` : ""}
+       ${A.caveat ? `<p class="sw-note">${esc(A.caveat)}</p>` : ""}
+       ${A.limits ? `<p class="sw-note">${esc(A.limits)}</p>` : ""}
+       ${A.instrument_fails ? `<p class="sw-note">The permit survey does not measure this county.
+          Supply has to be read from another instrument.</p>` : ""}
+       ${A.source ? `<p class="sw-src">${esc(A.source)}</p>` : ""}` : ""}
+     </section>
+   </div></div>`;
+}
+
+/* ============================================================ R3.27 · THE INVESTIGATION
+   Four connected activities over ONE selected object. The place, the industry, the strategy and
+   the assumptions all live in the route, so every view shares them and a link reproduces the
+   whole state. This replaces eight tabs that rendered one page for two thirds of the state. */
+const ACTIVITIES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
+                    ["strategies", "Development strategies"], ["scenario", "Scenario"]];
+function ivg(pid) { return (IVG && IVG.counties) ? IVG.counties[pid] : null; }
+
+/* state travels in the route's third segment: strategy.capital.contribution.throughput */
+function ivState(r) {
+  const d = { strategy: null, capital: 2000000, contribution: 180, throughput: 15000 };
+  if (!r.sel) return d;
+  const p = String(r.sel).split(".");
+  if (p[0] && p[0] !== "_") d.strategy = p[0];
+  if (+p[1]) d.capital = +p[1];
+  if (+p[2]) d.contribution = +p[2];
+  if (+p[3]) d.throughput = +p[3];
+  return d;
+}
+function ivSel(st) {
+  return [st.strategy || "_", st.capital, st.contribution, st.throughput].join(".");
+}
+function ivGo(pid, mode, st) {
+  return esc(JSON.stringify({ scope: "place", pid, mode, sel: ivSel(st) }));
+}
+/* The one rule the arithmetic must not break: a value computed from an assumption IS an
+   assumption's consequence, however precise it looks. */
+function ivCompute(st) {
+  const be = st.contribution ? st.capital / st.contribution : null;
+  const util = (be && st.throughput) ? be / st.throughput : null;
+  return { breakEven: be, utilisation: util, state: "PARAMETERIZED" };
+}
+function ivNav(pid, cur, st, C) {
+  /* The place header is the only navigation. This renders the step position instead, so a
+     reader can see where they are in the investigation without a second row of tabs. */
+  const i = ACTIVITIES.findIndex(([k]) => k === cur) + 1;
+  return `<div class="iv-step">step ${i} of ${ACTIVITIES.length} ·
+    ${ACTIVITIES.map(([k, label], n) => `<span class="${k === cur ? "on" : ""}">${esc(label)}</span>`)
+      .join('<i>→</i>')}</div>`;
+}
+function ivHead(C, cur, st, pid) {
+  return `<div class="iv-top">
+    <div><h2 style="margin:0">${esc(C.name)} County</h2>
+      <p class="muted" style="margin:2px 0 0">${C.answered} of ${C.of} questions answered from
+      this county's own evidence${C.industry_name ? ` · leading industry ${esc(C.industry_name)}` : ""}</p></div>
+    <div class="iv-sysrow">${(C.systems || []).map(x =>
+      `<span class="sw-chip">${esc(SYSLABEL[x] || x)}</span>`).join("")}</div>
+  </div>${ivNav(pid, cur, st, C)}`;
+}
+
+function viewIvAnatomy(p, r) {
+  const C = ivg(r.pid), S = swCounty(r.pid), st = ivState(r);
+  if (!C || !S) return `<div class="card"><h2>No record</h2></div>`;
+  const A = S.answered["what_is_produced"], comp = (A && A.composition) || [];
+  const mx = Math.max(1, ...comp.map(x => x.emp));
+  const others = Object.values(S.answered).filter(a => a.id !== "what_is_produced");
+  return `<div class="card iv2">${ivHead(C, "anatomy", st, r.pid)}
+    <div class="iv-body">
+      <section>
+        <h3>What this county produces</h3>
+        ${A ? `<p class="sw-lede">${esc(A.headline)}</p>` : ""}
+        ${comp.length ? `<div class="sw-bars">${comp.map(x => `<div class="sw-bar">
+          <i>${esc(x.name)}</i><div class="t"><b style="width:${(x.emp / mx * 100).toFixed(1)}%"></b></div>
+          <em>${x.emp.toLocaleString()}</em>
+          <s>${x.pay_per_worker ? "$" + x.pay_per_worker.toLocaleString() : ""}</s></div>`).join("")}</div>`
+          : `<p class="sw-note">No sector detail is published — disclosure withholds every
+             breakdown in a county this small. The total above is what CBP will say.</p>`}
+        <h3 style="margin-top:20px">What else its evidence answers</h3>
+        ${others.map(a => `<div class="iv-ans"><b>${esc(a.question)}</b>
+          <p>${esc(a.headline)}</p>
+          ${a.caveat ? `<em>${esc(a.caveat)}</em>` : ""}${a.trap ? `<em>${esc(a.trap)}</em>` : ""}
+          ${a.limits ? `<em>${esc(a.limits)}</em>` : ""}</div>`).join("")}
+        ${S.unanswered.length ? `<div class="iv-un"><b>Not answerable here</b>
+          ${S.unanswered.map(a => `<div>${esc(a.question)} — needs
+            ${esc((a.would_require || []).join("; "))}</div>`).join("")}</div>` : ""}
+      </section>
+      <aside class="iv-side">
+        <div class="sec">Carry forward</div>
+        <p class="iv-carry">Everything below keeps this county, its leading industry and your
+        assumptions. A link reproduces the whole state.</p>
+        <button class="iv-next" data-go='${ivGo(r.pid, "relationships", st)}'>
+          Explore relationships →</button>
+      </aside>
+    </div></div>`;
+}
+
+function viewIvRelationships(p, r) {
+  const C = ivg(r.pid), st = ivState(r);
+  if (!C) return `<div class="card"><h2>No record</h2></div>`;
+  const s = C.suppliers || {}, ins = s.inputs || [];
+  const mx = Math.max(0.01, ...ins.map(x => x.share));
+  return `<div class="card iv2">${ivHead(C, "relationships", st, r.pid)}
+    <div class="iv-body">
+      <section>
+        <h3>What its leading industry touches</h3>
+        ${C.participates.length ? `<div class="sw-part">${C.participates.map(x =>
+          `<div><b>${esc(SYSLABEL[x.system] || x.system)}</b>
+           <span>${esc(x.role.toLowerCase())}</span><i>${esc(x.why)}</i></div>`).join("")}</div>`
+          : `<p class="sw-note">This industry's participation in Dula's economic systems is not
+             yet mapped. That is a gap in the mapping, not in the economy.</p>`}
+        <h3 style="margin-top:20px">What it buys, and whether anyone here makes it</h3>
+        ${s.held ? `<p class="sw-note">${esc(s.denominator || "")}${s.code_used && s.code_used !== C.industry
+            ? ` · input structure read at BEA code ${esc(s.code_used)}` : ""}</p>
+          <div class="sw-bars">${ins.map(x => `<div class="sw-bar">
+            <i>${esc(x.name)}</i><div class="t"><b style="width:${(x.share / mx * 100).toFixed(1)}%"></b></div>
+            <em>${(x.share * 100).toFixed(1)}%</em>
+            <s class="${x.present ? "iv-here" : "iv-nothere"}">${x.present
+              ? x.estab + " estab" : "none published"}</s></div>`).join("")}</div>
+          <p class="sw-note"><b>These are national input structures.</b> They establish what this
+          kind of production requires on average in the United States. A local producer appearing
+          beside one is a <b>related capability</b> — it is not evidence that anyone here buys
+          from them. No transaction is observed.</p>`
+          : `<p class="sw-note">No national input structure is held for this industry.</p>`}
+        ${C.labour ? `<h3 style="margin-top:20px">Where its workers come from</h3>
+          <p class="sw-lede">Self-containment ${(C.labour.self_containment * 100).toFixed(0)}% at
+          most — ${C.labour.outflow.toLocaleString()} residents work elsewhere and
+          ${C.labour.inflow.toLocaleString()} come in.</p>
+          <p class="sw-note">${esc(C.labour.caveat || "")}</p>` : ""}
+      </section>
+      <aside class="iv-side">
+        <div class="sec">Conditions read from this</div>
+        ${(C.conditions || []).map(c => `<div class="iv-cond"><b>${esc(c.id)}</b>
+          <p>${esc(c.condition)}</p><em>rests on ${esc(c.rests_on)}</em></div>`).join("")}
+        <button class="iv-next" data-go='${ivGo(r.pid, "strategies", st)}'>
+          See development strategies →</button>
+      </aside>
+    </div></div>`;
+}
+
+function viewIvStrategies(p, r) {
+  const C = ivg(r.pid), st = ivState(r);
+  if (!C) return `<div class="card"><h2>No record</h2></div>`;
+  const list = C.strategies || [];
+  const cur = st.strategy && list.find(x => x.key === st.strategy);
+  return `<div class="card iv2">${ivHead(C, "strategies", st, r.pid)}
+    <div class="iv-body">
+      <section>
+        <h3>What this county's conditions could support</h3>
+        <p class="sw-note">Each of these is a <b>development investigation</b>, not an investment
+        opportunity. They are ordered as written, not ranked, and none is recommended.</p>
+        <p class="sw-note iv-prov"><b>These are generated.</b> One method reads every county's own
+        rows and reports the conditions it finds — so the same question can surface in several
+        counties, and none of these has been worked through by hand against local evidence.
+        ${INVG && String(INVG.geoid) === String(r.pid)
+          ? `A <b>worked investigation</b> does exist for this county, with observed market
+             evidence, named buyers and suppliers, and its own corrections —
+             <span class="iv-link" data-go='${esc(JSON.stringify({ scope: "place", pid: r.pid,
+               mode: "investigation" }))}'>open it</span>. Treat that one as deeper than these.`
+          : `No worked investigation exists for this county yet. Santa Fe has the only one — these
+             strategies are a starting point, not a finished analysis.`}</p>
+        ${list.length ? list.map(x => {
+          const on = cur && cur.key === x.key;
+          const next = { ...st, strategy: x.key };
+          return `<div class="iv-strat${on ? " on" : ""}" data-go='${ivGo(r.pid, "strategies", next)}'>
+            <div class="iv-sk">${esc(x.key)}</div>
+            <div class="iv-sb"><b>${esc(x.name)}</b>
+              <p><i>Addresses</i> ${esc(x.addresses)}</p>
+              <p><i>Evidence</i> ${esc(x.evidence)}</p>
+              <p><i>Falsified by</i> ${esc(x.falsified_by)}</p>
+              <p class="iv-cap"><i>Capital</i> ${esc(x.capital)}</p></div></div>`;
+        }).join("") : `<p class="sw-note">The conditions present here do not support a strategy
+          comparison. That is a statement about the evidence, not about the county.</p>`}
+      </section>
+      <aside class="iv-side">
+        <div class="sec">Selected</div>
+        ${cur ? `<p class="iv-carry"><b>${esc(cur.name)}</b> travels with you into the scenario.</p>
+          <button class="iv-next" data-go='${ivGo(r.pid, "scenario", st)}'>
+            Test assumptions →</button>`
+          : `<p class="iv-carry">Choose a strategy to carry into the scenario.</p>`}
+        <div class="sec" style="margin-top:16px">Not established</div>
+        <p class="iv-carry">None of these has a site, an operator, a cost or a buyer. Each names
+        what would falsify it, which is the only honest ranking available.</p>
+      </aside>
+    </div></div>`;
+}
+
+function viewIvScenario(p, r) {
+  const C = ivg(r.pid), st = ivState(r);
+  if (!C) return `<div class="card"><h2>No record</h2></div>`;
+  const list = C.strategies || [];
+  const cur = st.strategy && list.find(x => x.key === st.strategy);
+  const c = ivCompute(st);
+  const P = (IVG.parameters || []);
+  const row = (def) => {
+    const v = st[def.id];
+    const dn = { ...st }, up = { ...st };
+    dn[def.id] = Math.max(def.min, v - def.step);
+    up[def.id] = Math.min(def.max, v + def.step);
+    return `<div class="iv-par">
+      <div class="iv-pl"><b>${esc(def.label)}</b><i>${esc(def.unit)}</i></div>
+      <button class="iv-pb" data-go='${ivGo(r.pid, "scenario", dn)}'>−</button>
+      <div class="iv-pv">${v.toLocaleString()}</div>
+      <button class="iv-pb" data-go='${ivGo(r.pid, "scenario", up)}'>+</button>
+      <span class="chip un">parameterized</span></div>`;
+  };
+  return `<div class="card iv2">${ivHead(C, "scenario", st, r.pid)}
+    <div class="iv-body">
+      <section>
+        <h3>${cur ? esc(cur.name) : "No strategy selected"}</h3>
+        <p class="sw-note">${cur ? esc(cur.addresses) : "Pick a strategy first — the scenario is about something."}
+        <b>This is an illustrative, parameterized scenario.</b> The numbers below are assumptions
+        you chose, not a project budget, an estimate or a forecast. Dula holds no cost, no
+        operator and no site for this.</p>
+        <div class="sec">Your assumptions</div>
+        ${P.map(row).join("")}
+        <div class="sec" style="margin-top:14px">What follows from them</div>
+        <div class="iv-out">
+          <div><em>Break-even</em><b>${c.breakEven ? Math.round(c.breakEven).toLocaleString() : "—"}</b>
+            <s>units per period</s><span class="chip un">parameterized</span></div>
+          <div><em>Required utilisation</em>
+            <b>${c.utilisation ? (c.utilisation * 100).toFixed(1) + "%" : "—"}</b>
+            <s>of your chosen throughput</s><span class="chip un">parameterized</span></div>
+          <div><em>Energy cost per unit</em><b>—</b>
+            <s>needs a utility tariff and a facility specification</s>
+            <span class="chip un">unestimated</span></div>
+        </div>
+        <p class="sw-note">${esc(IVG.rules.state)}</p>
+        ${c.utilisation && c.utilisation > 1 ? `<p class="sw-note" style="border-left:2px solid var(--clay);padding-left:9px">
+          At these assumptions break-even exceeds the throughput you set: the scenario does not
+          clear. That is a property of the numbers you chose, not a finding about this county.</p>` : ""}
+      </section>
+      <aside class="iv-side">
+        <div class="sec">Regional development, kept separate</div>
+        <p class="iv-carry">Financial feasibility and development value are reported side by side
+        and <b>never combined</b>. There is no overall score.</p>
+        ${(IVG.development_dimensions || []).map(d => `<div class="iv-cond">
+          <b>${esc(d.dimension.toLowerCase().replace("_", " "))}</b>
+          <p>${esc(d.statement)}</p>
+          <em>${esc(d.direction.toLowerCase())} · ${esc(d.state.toLowerCase())}${
+            d.would_require ? " · needs " + esc(d.would_require) : ""}</em></div>`).join("")}
+        <button class="iv-next" data-go='${ivGo(r.pid, "strategies", st)}'>
+          ← Compare another strategy</button>
+      </aside>
+    </div></div>`;
 }
 
 function viewInvestigation(p, r, E) {
@@ -4338,7 +4676,14 @@ function renderBody() {
     return;
   }
   if (r.scope === "place") {
-    const p = PLACES.places[r.pid];
+    /* R3.27. Counties outside the original eleven have no place record, but they do have an
+       anatomy. A minimal stand-in carries the name so the header and navigation work; every
+       figure still comes from the statewide model's own resolvers. */
+    const p = PLACES.places[r.pid] || (SW.counties && SW.counties[r.pid]
+      ? { label: SW.counties[r.pid].name, titled: SW.counties[r.pid].name + " County",
+          geoid: r.pid, statewide_only: true }
+      : null);
+    if (!p) { app.innerHTML = `<div class="card"><h2>Unknown place</h2></div>`; return; }
     /* R3.24. The place experience is the atlas. It builds its own header because the generic
        shell's scope chips are a working surface and this is a place-centred instrument. Older
        mode names still resolve to the view that replaced them. */
@@ -4346,10 +4691,24 @@ function renderBody() {
     if (PLACE_MODES.some(([k]) => k === _m)) {
       const E = (ECPL.places || {})[r.pid];
       const rr = { ...r, mode: _m };
-      const body = !E || E.unavailable ? placeLabor(p, true)
+      /* A county the 11-county model never covered still has an anatomy, built from its own
+         evidence by the statewide model. It is not an unavailable page. */
+      const swOnly = !PLACES.places[r.pid] && SW.counties && SW.counties[r.pid];
+      const IV4 = ["anatomy", "relationships", "strategies", "scenario"];
+      const body = IV4.includes(_m)
+          ? (_m === "anatomy" ? viewIvAnatomy(p, rr)
+             : _m === "relationships" ? viewIvRelationships(p, rr)
+             : _m === "strategies" ? viewIvStrategies(p, rr) : viewIvScenario(p, rr))
+        : swOnly ? viewIvAnatomy(p, { ...rr, mode: "anatomy" })
+        : !E || E.unavailable ? placeLabor(p, true)
         : _m === "system" ? viewSystem(p, rr, E)
           : _m === "flows" ? viewFlows(p, rr, E)
           : _m === "investigation" ? viewInvestigation(p, rr, E)
+          : _m === "statewide" ? viewStatewide(p, rr, E)
+          : _m === "anatomy" ? viewIvAnatomy(p, rr)
+          : _m === "relationships" ? viewIvRelationships(p, rr)
+          : _m === "strategies" ? viewIvStrategies(p, rr)
+          : _m === "scenario" ? viewIvScenario(p, rr)
             : _m === "constraints" ? viewConstraints(p, rr, E)
               : _m === "opportunities" ? viewOpportunities(p, rr, E)
                 : _m === "evidence" ? viewEvidence(p, rr, E)
