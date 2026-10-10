@@ -1,0 +1,260 @@
+{
+ "artefact": "R3.25 CONDITIONAL ANALYSIS",
+ "id": "A-35049-23-DEMAND",
+ "geoid": "35049",
+ "subject": {
+  "object": "ECONOMIC_OBJECT",
+  "geoid": "35049",
+  "industry": "23",
+  "label": "Construction in Santa Fe"
+ },
+ "condition": {
+  "id": "C-DEMAND-UP",
+  "kind": "EXTERNAL_CONDITION",
+  "statement": "Regional construction demand increases.",
+  "source": null,
+  "note": "stated as an antecedent to reason from. Dula does not forecast construction demand and makes no claim that this happens.",
+  "is_a_prediction": false,
+  "means": "the analysis below is CONDITIONAL ON THIS. It does not claim it happens."
+ },
+ "reads": "a conditional mechanism analysis: what could travel, by what route, under what conditions, and what would decide how large it is",
+ "pathways": [
+  {
+   "id": "P-332",
+   "frm": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "to": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "332",
+    "label": "Fabricated metal products"
+   },
+   "mechanism": "construction buys fabricated metal products as an intermediate input; more building means more of that input bought somewhere",
+   "direction": "INCREASE",
+   "direction_means": "the change would push in the same direction",
+   "status": "CONDITIONAL_PATHWAY",
+   "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
+   "basis": "STRUCTURAL",
+   "operates_if": [
+    "the county's 17 332 establishments make products matching construction specifications",
+    "they hold capacity headroom, or can add it",
+    "buyers source within the county rather than outside it"
+   ],
+   "what_would_determine_magnitude": [
+    "what share of construction's input spend is currently sourced in-county \u2014 NOT OBSERVED; nothing held records a purchase",
+    "capacity headroom at those 17 establishments (83 employees) \u2014 unknown",
+    "product match inside NAICS 332, which is a broad commodity class",
+    "published detail is a floor: suppressed cells mean the local base is known only to a lower bound"
+   ],
+   "counter_effects": [
+    "if no local producer matches the specification, the additional demand leaves the county entirely and the local effect is zero",
+    "a larger county supplier outside Santa Fe may absorb it on price"
+   ],
+   "note": "Fabricated metal products is 16.3% of the national intermediate basket",
+   "magnitude": "NOT ESTIMATED \u2014 Dula holds no response coefficient for this"
+  },
+  {
+   "id": "P-327",
+   "frm": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "to": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "327",
+    "label": "Nonmetallic mineral products"
+   },
+   "mechanism": "construction buys nonmetallic mineral products as an intermediate input; more building means more of that input bought somewhere",
+   "direction": "INCREASE",
+   "direction_means": "the change would push in the same direction",
+   "status": "CONDITIONAL_PATHWAY",
+   "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
+   "basis": "STRUCTURAL",
+   "operates_if": [
+    "the county's 12 327 establishments make products matching construction specifications",
+    "they hold capacity headroom, or can add it",
+    "buyers source within the county rather than outside it"
+   ],
+   "what_would_determine_magnitude": [
+    "what share of construction's input spend is currently sourced in-county \u2014 NOT OBSERVED; nothing held records a purchase",
+    "capacity headroom at those 12 establishments (101 employees) \u2014 unknown",
+    "product match inside NAICS 327, which is a broad commodity class",
+    "published detail is a floor: suppressed cells mean the local base is known only to a lower bound"
+   ],
+   "counter_effects": [
+    "if no local producer matches the specification, the additional demand leaves the county entirely and the local effect is zero",
+    "a larger county supplier outside Santa Fe may absorb it on price"
+   ],
+   "note": "Nonmetallic mineral products is 13.2% of the national intermediate basket",
+   "magnitude": "NOT ESTIMATED \u2014 Dula holds no response coefficient for this"
+  },
+  {
+   "id": "P-321",
+   "frm": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "to": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "321",
+    "label": "Wood products"
+   },
+   "mechanism": "construction buys wood products as an intermediate input; more building means more of that input bought somewhere",
+   "direction": "INCREASE",
+   "direction_means": "the change would push in the same direction",
+   "status": "CONDITIONAL_PATHWAY",
+   "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
+   "basis": "STRUCTURAL",
+   "operates_if": [
+    "the county's 3 321 establishments make products matching construction specifications",
+    "they hold capacity headroom, or can add it",
+    "buyers source within the county rather than outside it"
+   ],
+   "what_would_determine_magnitude": [
+    "what share of construction's input spend is currently sourced in-county \u2014 NOT OBSERVED; nothing held records a purchase",
+    "capacity headroom at those 3 establishments (7 employees) \u2014 unknown",
+    "product match inside NAICS 321, which is a broad commodity class",
+    "published detail is a floor: suppressed cells mean the local base is known only to a lower bound"
+   ],
+   "counter_effects": [
+    "if no local producer matches the specification, the additional demand leaves the county entirely and the local effect is zero",
+    "a larger county supplier outside Santa Fe may absorb it on price"
+   ],
+   "note": "Wood products is 9.4% of the national intermediate basket",
+   "magnitude": "NOT ESTIMATED \u2014 Dula holds no response coefficient for this"
+  },
+  {
+   "id": "P-LABOUR",
+   "frm": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "to": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "mechanism": "more construction output requires more construction labour; a tighter labour market bids wages up",
+   "direction": "AMBIGUOUS",
+   "direction_means": "the sign depends on which of two opposing mechanisms dominates",
+   "status": "CONDITIONAL_PATHWAY",
+   "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
+   "basis": "OBSERVED_LOCAL",
+   "operates_if": [
+    "the labour shed is not already fully employed"
+   ],
+   "what_would_determine_magnitude": [
+    "slack in the construction workforce across the labour shed \u2014 not observed",
+    "who the earnings accrue to: self-containment is 63% AT MOST, so a share of any wage gain accrues to workers who RESIDE in other counties. LODES establishes residence and workplace, nothing more \u2014 where those earnings are then spent is not observed, and no spending leakage is claimed here",
+    "547 establishments averaging 5.4 employees \u2014 small firms may be capacity-constrained before they are labour-constrained"
+   ],
+   "counter_effects": [
+    "higher wages raise construction costs, which works against the demand that started the chain",
+    "a share of the wage gain accrues to workers residing in other counties, while the cost effect falls on builders operating here. Whether that changes local spending is a further question the commuting record cannot answer"
+   ],
+   "note": "the standard ambiguity: good for workers, a cost to builders",
+   "magnitude": "NOT ESTIMATED \u2014 Dula holds no response coefficient for this"
+  }
+ ],
+ "constraints": [
+  {
+   "id": "B-CAPACITY",
+   "on": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "332",
+    "label": "Fabricated metal products"
+   },
+   "statement": "Whether the county's 17 fabricated metal establishments (83 employees) can take on more work \u2014 equipment, premises, skilled staff. Nothing held measures utilisation.",
+   "state_known": "UNKNOWN",
+   "basis": "DERIVED",
+   "archetype_families": [
+    "FAM_EXPANSION",
+    "FAM_MISSING_CAPABILITY",
+    "FAM_FORMATION"
+   ],
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+  },
+  {
+   "id": "B-WORKFORCE",
+   "on": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "statement": "Whether skilled construction labour is available across the shed, and whether training reaches where those workers actually live.",
+   "state_known": "UNKNOWN",
+   "basis": "DERIVED",
+   "archetype_families": [
+    "FAM_SHARED_INFRASTRUCTURE",
+    "FAM_AGGREGATION"
+   ],
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+  },
+  {
+   "id": "B-SOURCING",
+   "on": {
+    "object": "ECONOMIC_OBJECT",
+    "geoid": "35049",
+    "industry": "23",
+    "label": "Construction in Santa Fe"
+   },
+   "statement": "Whether builders would buy locally at all. This is the hinge: every supplier pathway above passes through it.",
+   "state_known": "UNKNOWN",
+   "basis": "DERIVED",
+   "archetype_families": [
+    "FAM_SUPPLY_CHAIN",
+    "FAM_AGGREGATION"
+   ],
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+  }
+ ],
+ "value_at_stake": [
+  {
+   "id": "V-ECON",
+   "kind": "ECONOMIC",
+   "kind_means": "value to the place -- wages paid, output produced, jobs retained. It accrues to residents and the local economy, and no one owns it.",
+   "amount": null,
+   "unit": null,
+   "object": "35049:332",
+   "period": "conditional",
+   "basis": null,
+   "source": "census_cbp 2023",
+   "note": "value AT STAKE under a conditional pathway; not created, not captured",
+   "statement": "Wages and output at local fabricators, if any of the additional input demand is sourced in-county. This accrues to the place.",
+   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim requiring an observed capture event (ec_semantics.effect)."
+  },
+  {
+   "id": "V-ENT",
+   "kind": "ENTERPRISE",
+   "kind_means": "value of the firm or the asset itself. It belongs to whoever owns it, and it exists whether or not anyone is buying.",
+   "amount": null,
+   "unit": null,
+   "object": "35049:332",
+   "period": "conditional",
+   "basis": null,
+   "source": "census_cbp 2023",
+   "note": "value AT STAKE under a conditional pathway; not created, not captured",
+   "statement": "Higher utilisation would raise what those firms are worth to their owners. That is a different quantity from the wages above, and the two may not be added.",
+   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim requiring an observed capture event (ec_semantics.effect)."
+  }
+ ],
+ "note": "no investment value is stated. Investment value exists only relative to an entry price, and no asset here carries one \u2014 ec_semantics.value refuses an INVESTMENT figure without a basis.",
+ "holds_no_magnitudes": true,
+ "magnitude_note": "No pathway carries a number. Dula holds no elasticity, multiplier or response coefficient for any of these routes, and ec_conditional refuses to carry one. What each pathway carries instead is what would determine its size.",
+ "effect_note": "These are MECHANISMS, not effects. Claiming an effect occurred needs an observed actor response and an identification strategy; describing the route needs neither."
+}

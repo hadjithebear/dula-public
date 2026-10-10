@@ -1241,3 +1241,41 @@ body.loop-canvas svg#stage:active{cursor:default}
   border-radius:10px}
 .atl-map path{vector-effect:non-scaling-stroke}
 .atl-entrance-r .atl-cap{text-align:left}
+
+/* ---- R3.25 INVESTIGATION. The hierarchy is the argument: a finding reads first and largest,
+   its evidence basis is a quiet chip rather than a warning, and the evidence that would change
+   a conclusion sits beside that conclusion instead of opening the page. */
+.iv h3.iv-q{font-family:var(--serif);font-size:21px;font-weight:600;margin:26px 0 2px;
+  color:var(--ink);letter-spacing:-.01em}
+.iv-sec:first-of-type h3.iv-q{margin-top:6px}
+.iv-lede{margin:0 0 12px;color:var(--ink-2);font-size:13.5px;max-width:62ch}
+.iv-claim{border-left:2px solid var(--line-2);padding:2px 0 2px 14px;margin:0 0 14px}
+.iv-head{margin-bottom:3px}
+.iv-stmt{margin:0;font-family:var(--serif);font-size:16.5px;line-height:1.5;max-width:68ch}
+.iv-lim{margin:5px 0 0;color:var(--ink-3);font-size:12.5px;max-width:66ch}
+.iv-open{margin:6px 0 0;font-size:12.5px;color:var(--ink-2);max-width:66ch}
+.iv-open b{color:var(--ink);font-weight:600}
+.iv-basis{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.07em;
+  text-transform:uppercase;padding:1px 7px;border-radius:9px;color:var(--ink-2);
+  background:var(--paper-2);border:1px solid var(--line)}
+.iv-OBSERVED_LOCAL{background:var(--water-soft);border-color:var(--water);color:var(--water)}
+.iv-STRUCTURAL{background:var(--paper-3);border-color:var(--sand);color:var(--ink-2)}
+.iv-DERIVED{background:var(--paper-2);border-color:var(--line-2)}
+.iv-ABSENT{background:transparent;border-style:dashed;border-color:var(--line-2);color:var(--ink-3)}
+.iv-foot{margin:22px 0 0;padding-top:12px;border-top:1px solid var(--line);
+  color:var(--ink-3);font-size:12.5px;max-width:70ch}
+.cd-dir{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.07em;
+  text-transform:uppercase;padding:1px 7px;border-radius:9px;margin-right:4px;border:1px solid}
+.cd-INCREASE{color:var(--sage);border-color:var(--sage);background:#eef1e9}
+.cd-DECREASE{color:var(--clay);border-color:var(--clay);background:var(--clay-soft)}
+.cd-AMBIGUOUS{color:var(--warn);border-color:var(--warn);background:#f6eedd}
+.cd-mag{margin:4px 0 0;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.cd-det{margin:7px 0 0;font-size:12.5px;color:var(--ink-2)}
+.cd-det summary{cursor:pointer;color:var(--water);font-size:12.5px}
+.cd-det ul{margin:5px 0 8px;padding-left:18px}
+.cd-det li{margin:2px 0;max-width:64ch}
+.cd-sub{margin:6px 0 0;font-weight:600;color:var(--ink);font-size:12px}
+.cd-h{font-family:var(--serif);font-size:16px;margin:20px 0 8px;color:var(--ink)}
+.cd-arch{margin:5px 0 0;font-size:12px;color:var(--ink-2)}
+.cd-arch code{font-family:var(--mono);font-size:10.5px;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:4px;padding:1px 5px}

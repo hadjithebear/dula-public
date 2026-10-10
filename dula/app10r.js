@@ -18,7 +18,7 @@ import * as GR from "./graph.js";
 import * as AT from "./atlas.js";
 
 const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, ECO, ECD, ECPL, ECN,
-  ECF, ECE, ECO2, ATL] = await Promise.all([
+  ECF, ECE, ECO2, ATL, INVG, COND] = await Promise.all([
   J("product/places.json"), J("product/newmexico.json"), J("product/world.json"),
   J("product/observatory.json"), J("product/legible.json"), J("product/graphs.json"),
   J("product/reading.json"), J("product/machine.json"), J("product/regional.json"),
@@ -47,6 +47,14 @@ const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, EC
   /* R3.24. Geography and movement: Census county boundaries and LODES county-to-county job
    * flows. The only two things the atlas needed that no earlier artefact held. */
   J("product/atlas.json"),
+  /* R3.25. The first end-to-end investigation. It is organised as four questions and every
+   * claim carries ITS OWN evidence: confidence belongs to a claim, never to the investigation,
+   * so one unobserved transaction limits one claim and leaves the rest standing. */
+  J("product/investigation.json"),
+  /* R3.25. The conditional analysis. It belongs to the SAME economic object as the
+   * investigation, which is why it renders inside that view rather than as a separate page:
+   * one object, another lens. It carries no magnitudes, by construction. */
+  J("product/conditional.json"),
 ]);
 
 /* R3.10, revised R3.23. product/economy.json is the PUBLIC half of the R3 economic
@@ -3090,6 +3098,7 @@ function homeDemos() {
  * tile, and none of them is a paragraph pretending to be a visualisation.
  */
 const PLACE_MODES = [["overview", "Overview"], ["system", "System"], ["flows", "Flows"],
+  ["investigation", "Investigation"],
   ["constraints", "Constraints"], ["opportunities", "Opportunities"], ["evidence", "Evidence"]];
 /* Older links used these names. They still resolve, to the view that replaced them. */
 const MODE_ALIAS = { intelligence: "overview", model: "system" };
@@ -3323,6 +3332,114 @@ function sectorRelationships(pid, sec, D) {
 
 
 /* ---------------------------------------------------------------- C · FLOWS */
+/* R3.25. AN INVESTIGATION, READ IN THE ORDER A READER NEEDS IT: what we know, what it means,
+   what we could develop, and only then the specific evidence that would change a decision.
+   The fourth section does not lead and does not repeat itself -- each entry hangs off the claim
+   it would actually change, which is why it is rendered BESIDE that claim as well as below. */
+const BASIS_LABEL = {
+  OBSERVED_LOCAL: "observed here", OBSERVED_REGIONAL: "observed in New Mexico",
+  STRUCTURAL: "national production structure", DERIVED: "computed from held figures",
+  ABSENT: "not held",
+};
+function claimCard(c, changers) {
+  const chips = `<span class="iv-basis iv-${c.basis}">${esc(BASIS_LABEL[c.basis] || c.basis)}</span>`;
+  const lim = c.limits ? `<p class="iv-lim">${esc(c.limits)}</p>` : "";
+  const open = (changers || []).length
+    ? `<p class="iv-open"><b>Would change this:</b> ${changers.map(w => esc(w.statement)).join(" ")}</p>`
+    : "";
+  return `<div class="iv-claim"><div class="iv-head">${chips}</div>
+    <p class="iv-stmt">${esc(c.statement)}</p>${lim}${open}</div>`;
+}
+/* R3.25. CONDITIONAL MECHANISMS. A pathway has a direction and a route and NO NUMBER, because
+   Dula holds no response coefficient for any of these. What a pathway carries instead is what
+   would determine its size -- which is the honest content and also the research agenda. The
+   AMBIGUOUS case is not a hedge: a tightening labour market is good for workers and a cost to
+   builders, and showing only the first would be the overstatement. */
+const DIR_MARK = { INCREASE: "&uarr;", DECREASE: "&darr;", AMBIGUOUS: "&updownarrow;" };
+function conditionalBlock(pid) {
+  const A = COND;
+  if (!A || String(A.geoid) !== String(pid)) return "";
+  const path = p => {
+    const to = p.to && p.to.industry !== A.subject.industry
+      ? esc(p.to.label || p.to.industry) : "its own labour market";
+    return `<div class="iv-claim cd-path">
+      <div class="iv-head"><span class="cd-dir cd-${p.direction}">${DIR_MARK[p.direction] || ""}
+        ${esc(p.direction.toLowerCase())}</span>
+        <span class="iv-basis iv-${p.basis}">${esc(BASIS_LABEL[p.basis] || p.basis)}</span></div>
+      <p class="iv-stmt">To <b>${to}</b> — ${esc(p.mechanism)}.</p>
+      <p class="cd-mag">${esc(p.magnitude)}</p>
+      <details class="cd-det"><summary>What would determine how large this is</summary>
+        <ul>${p.what_would_determine_magnitude.map(w => `<li>${esc(w)}</li>`).join("")}</ul>
+        <p class="cd-sub">Operates only if</p>
+        <ul>${(p.operates_if || []).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
+        <p class="cd-sub">Working against it</p>
+        <ul>${p.counter_effects.map(w => `<li>${esc(w)}</li>`).join("")}</ul>
+      </details></div>`;
+  };
+  return `<section class="iv-sec cd">
+    <h3 class="iv-q">What happens if this changes</h3>
+    <p class="iv-lede">Everything below is conditional on one stated change —
+      <b>${esc(A.condition.statement)}</b> Dula does not claim it happens, and none of these
+      pathways carries a magnitude.</p>
+    ${A.pathways.map(path).join("")}
+    <h4 class="cd-h">What could stop these operating</h4>
+    ${A.constraints.map(c => `<div class="iv-claim"><div class="iv-head">
+       <span class="iv-basis iv-ABSENT">state ${esc(c.state_known.toLowerCase())}</span></div>
+       <p class="iv-stmt">${esc(c.statement)}</p>
+       <p class="cd-arch">Archetypes that could address it:
+         ${c.archetype_families.map(f => `<code>${esc(f)}</code>`).join(" ")}</p></div>`).join("")}
+    <h4 class="cd-h">Value at stake, by kind</h4>
+    ${A.value_at_stake.map(v => `<div class="iv-claim"><div class="iv-head">
+       <span class="iv-basis iv-${v.kind === "ECONOMIC" ? "OBSERVED_LOCAL" : "DERIVED"}">
+         ${esc(v.kind.toLowerCase())} value</span></div>
+       <p class="iv-stmt">${esc(v.statement)}</p>
+       <p class="iv-lim">${esc(v.creation_vs_capture)}</p></div>`).join("")}
+    <p class="iv-foot">${esc(A.magnitude_note)} ${esc(A.note)}</p>
+  </section>`;
+}
+
+function viewInvestigation(p, r, E) {
+  const A = INVG;
+  if (!A || String(A.geoid) !== String(r.pid))
+    return `<div class="card"><h2>INVESTIGATION</h2><p>Dula holds no worked investigation for
+      this county yet. The first one is Santa Fe's construction economy.</p></div>`;
+  const byQ = {};
+  A.questions.forEach(q => { byQ[q.question] = q.claims; });
+  const changers = byQ.WHAT_WOULD_CHANGE_IT || [];
+  /* One piece of missing evidence often bears on several claims, and printing it beside each
+     one turns a specific note into a repeated warning -- the thing this view is built to avoid.
+     It is shown ONCE, against the first claim it would change, and remains listed in full in
+     the final section. */
+  const shown = new Set();
+  const forClaim = id => changers.filter(w => {
+    if (!(w.rests_on || []).includes(id) || shown.has(w.id)) return false;
+    shown.add(w.id);
+    return true;
+  });
+  const section = (key, title, lede) => {
+    const cs = byQ[key] || [];
+    if (!cs.length) return "";
+    return `<section class="iv-sec"><h3 class="iv-q">${esc(title)}</h3>
+      <p class="iv-lede">${esc(lede)}</p>
+      ${cs.map(c => claimCard(c, key === "WHAT_WOULD_CHANGE_IT" ? [] : forClaim(c.id))).join("")}
+    </section>`;
+  };
+  return `<div class="card iv">
+    <h2 style="margin:0 0 4px">${esc(A.subject)}</h2>
+    <p class="muted" style="margin:0 0 14px">${esc(A.reads)}</p>
+    ${section("WHAT_WE_KNOW", "What we know",
+      "Findings read from the county's own rows, and from the national production structure where that is what the question needs.")}
+    ${section("WHAT_IT_MEANS", "What it means",
+      "What those findings imply about how this part of the economy works.")}
+    ${section("WHAT_WE_COULD_DEVELOP", "What we could develop",
+      "Development questions the evidence makes it reasonable to pursue. None of these is an investment decision.")}
+    ${conditionalBlock(r.pid)}
+    ${section("WHAT_WOULD_CHANGE_IT", "What would change the decision",
+      "The specific evidence that would settle a particular claim above — not a general statement about what Dula lacks.")}
+    <p class="iv-foot">${esc(A.confidence_note)}</p>
+  </div>`;
+}
+
 function viewFlows(p, r, E) {
   /* THE BOUNDARY IS IN THE ROUTE. A selection of counties is the analysis, so it is shareable
      and survives a refresh like every other piece of state in this application. */
@@ -4222,6 +4339,7 @@ function renderBody() {
       const body = !E || E.unavailable ? placeLabor(p, true)
         : _m === "system" ? viewSystem(p, rr, E)
           : _m === "flows" ? viewFlows(p, rr, E)
+          : _m === "investigation" ? viewInvestigation(p, rr, E)
             : _m === "constraints" ? viewConstraints(p, rr, E)
               : _m === "opportunities" ? viewOpportunities(p, rr, E)
                 : _m === "evidence" ? viewEvidence(p, rr, E)

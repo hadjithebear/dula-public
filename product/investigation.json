@@ -1,0 +1,313 @@
+{
+ "artefact": "R3.25 INVESTIGATION",
+ "geoid": "35049",
+ "subject": "Construction and its material supply chain",
+ "id": "INV-35049-CONSTRUCTION",
+ "reads": "findings first, then what they mean, then what could be developed, then the specific evidence that would change a decision",
+ "questions": [
+  {
+   "question": "WHAT_WE_KNOW",
+   "claims": [
+    {
+     "id": "F1",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "PRESENCE",
+     "asserts_means": "these establishments or this employment exists here",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "Santa Fe County has an established construction economy: 547 establishments employing 2,981 people, 6.1% of all private employment the county publishes.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": 2981,
+     "unit": "employees",
+     "rests_on": [],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "F2",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "STRUCTURE",
+     "asserts_means": "this is how the local economy is composed, or how it has changed",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "It is predominantly specialty trade work: 315 specialty trade establishments employ 1,717 people, 58% of construction employment, averaging 5.5 employees each. Residential building adds 190 establishments and 849 employees.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": 1717,
+     "unit": "employees",
+     "rests_on": [],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "F3",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "REQUIREMENT",
+     "asserts_means": "this kind of production requires these inputs",
+     "basis": "STRUCTURAL",
+     "basis_means": "a national production relationship. It describes what an industry of this kind REQUIRES on average in the United States. That is real information about production, and it is not a statement about any local firm's purchases.",
+     "statement": "Fabricated metal products (NAICS 332) are construction's largest single intermediate input nationally: 16.3% of the $1,108,514m basket of intermediate purchases, ahead of nonmetallic minerals and wood. That basket is 48% of construction's $2,333,007m total industry output \u2014 the remainder is value added \u2014 so fabricated-metal inputs are equivalent to 7.7% of total construction industry output. TOTAL OUTPUT IS A PRODUCTION-ACCOUNTING MEASURE, not a firm's expense budget, so that second figure is a comparison against output and not a share of what construction firms spend.",
+     "source": "BEA Use table, detail, 2023 (national)",
+     "value": 16.3,
+     "unit": "% of intermediate inputs",
+     "rests_on": [],
+     "limits": "a national production structure, and a COMMODITY CLASS. It establishes what construction of this kind requires on average in the United States. It is not an observation of anything bought in this county, and NAICS 332 covers many products, only some of which any given builder uses.",
+     "note": null
+    },
+    {
+     "id": "F4",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "PRESENCE",
+     "asserts_means": "these establishments or this employment exists here",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "Santa Fe has an observed presence in that same industry: 17 fabricated metal establishments (NAICS 332) employing 83. The largest published part is architectural and structural metals (NAICS 3323) \u2014 6 establishments, 33 employees \u2014 which is the part of 332 most associated with building work.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": 17,
+     "unit": "establishments",
+     "rests_on": [],
+     "limits": "a presence in NAICS 332, and within it 3323, is evidence of RELATED local manufacturing capability. It does not establish that these firms make the particular products Santa Fe construction buys, nor at the specification or volume it buys them.",
+     "note": null
+    },
+    {
+     "id": "F4b",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "STRUCTURE",
+     "asserts_means": "this is how the local economy is composed, or how it has changed",
+     "basis": "DERIVED",
+     "basis_means": "computed here from stated inputs by a stated recipe",
+     "statement": "That count is a floor, not a census. Published 4-digit detail accounts for 15 of 17 establishments and 71 of 83 employees; the remaining 2 establishments and up to 12 employees are withheld by disclosure rules, not absent from the county.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": 12,
+     "unit": "employees, upper bound",
+     "rests_on": [],
+     "limits": "the source measures it and declined to publish it. A published parent BOUNDS what is hidden; the hidden value is never zero and never unbounded.",
+     "note": null
+    },
+    {
+     "id": "F5",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "RELATIONSHIP",
+     "asserts_means": "these parts of the economy are connected -- labour, geography, infrastructure",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "The workforce is regional, not local: of 63,008 jobs in the county, 26,065 are filled by people living elsewhere, while 21,970 residents leave to work.",
+     "source": "LEHD LODES WAC/OD (web/product/atlas.json)",
+     "value": 26065,
+     "unit": "jobs",
+     "rests_on": [],
+     "limits": "internal divided by resident workers. The denominator counts New Mexico residents working at New Mexico jobs, because LODES holds no record of a resident working in another state. Any such resident is missing from the denominator, so this figure is an UPPER BOUND on self-containment.",
+     "note": null
+    },
+    {
+     "id": "F6",
+     "question": "WHAT_WE_KNOW",
+     "asserts": "STRUCTURE",
+     "asserts_means": "this is how the local economy is composed, or how it has changed",
+     "basis": "DERIVED",
+     "basis_means": "computed here from stated inputs by a stated recipe",
+     "statement": "Construction pays $53,964 per worker against a county average of $52,618 \u2014 close to typical, not a high-wage enclave.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": 53964,
+     "unit": "USD per worker, annual",
+     "rests_on": [],
+     "limits": null,
+     "note": null
+    }
+   ]
+  },
+  {
+   "question": "WHAT_IT_MEANS",
+   "claims": [
+    {
+     "id": "I1",
+     "question": "WHAT_IT_MEANS",
+     "asserts": "STRUCTURE",
+     "asserts_means": "this is how the local economy is composed, or how it has changed",
+     "basis": "DERIVED",
+     "basis_means": "computed here from stated inputs by a stated recipe",
+     "statement": "This is a small-firm industry. 547 establishments for 2,981 jobs is 5.4 employees each, so capacity is distributed across many small contractors rather than concentrated in a few. Coordination, not consolidation, is the lever that fits that structure.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "F1",
+      "F2"
+     ],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "I2",
+     "question": "WHAT_IT_MEANS",
+     "asserts": "WORTH_INVESTIGATING",
+     "asserts_means": "this is a development question the evidence makes it reasonable to pursue",
+     "basis": "STRUCTURAL",
+     "basis_means": "a national production relationship. It describes what an industry of this kind REQUIRES on average in the United States. That is real information about production, and it is not a statement about any local firm's purchases.",
+     "statement": "Santa Fe has an observed presence in fabricated metal manufacturing, including the architectural and structural metals most associated with building work, in a county whose construction sector nationally-modelled input structure identifies that commodity class as its largest intermediate purchase. That is a related local capability sitting beside a known requirement, which makes regional sourcing and supplier-capacity investigations economically relevant.",
+     "source": "BEA Use table, detail, 2023 (national)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "F3",
+      "F4",
+      "F4b"
+     ],
+     "limits": "the two halves are observed independently: one is a national input structure, the other a local establishment count. Nothing held connects them. Whether these firms make what these builders buy \u2014 and whether anyone already buys it \u2014 are the open questions below, not findings.",
+     "note": null
+    },
+    {
+     "id": "I3",
+     "question": "WHAT_IT_MEANS",
+     "asserts": "RELATIONSHIP",
+     "asserts_means": "these parts of the economy are connected -- labour, geography, infrastructure",
+     "basis": "DERIVED",
+     "basis_means": "computed here from stated inputs by a stated recipe",
+     "statement": "Construction labour is drawn from a multi-county shed. With self-containment at 63% at most, a workforce intervention scoped to county residents would miss a large share of the people doing the work.",
+     "source": "LEHD LODES WAC/OD (web/product/atlas.json)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "F5",
+      "F2"
+     ],
+     "limits": null,
+     "note": null
+    }
+   ]
+  },
+  {
+   "question": "WHAT_WE_COULD_DEVELOP",
+   "claims": [
+    {
+     "id": "D1",
+     "question": "WHAT_WE_COULD_DEVELOP",
+     "asserts": "WORTH_INVESTIGATING",
+     "asserts_means": "this is a development question the evidence makes it reasonable to pursue",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "Regional sourcing of fabricated metal. The buyers and a supplier base both exist in the county; the question is whether local fabrication can meet construction specifications, volumes and lead times. One round of conversations with a builder and a fabricator would settle the direction.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "I2"
+     ],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "D2",
+     "question": "WHAT_WE_COULD_DEVELOP",
+     "asserts": "WORTH_INVESTIGATING",
+     "asserts_means": "this is a development question the evidence makes it reasonable to pursue",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "Capacity at the existing fabricators. 17 establishments and 83 employees is a small base against a construction sector of 2,981. If demand is real, the binding question is whether these firms can expand \u2014 equipment, workforce, premises \u2014 or whether the gap needs a new entrant \u2014 and the withheld detail means even that base is known only to a floor.",
+     "source": "census_cbp 2023 (data/raw/census_cbp/cbp_2023_sector.json)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "I2",
+      "I1"
+     ],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "D3",
+     "question": "WHAT_WE_COULD_DEVELOP",
+     "asserts": "WORTH_INVESTIGATING",
+     "asserts_means": "this is a development question the evidence makes it reasonable to pursue",
+     "basis": "OBSERVED_LOCAL",
+     "basis_means": "measured in this geography by a named source",
+     "statement": "Workforce development scoped to the labour shed rather than the county. Training and apprenticeship designed around where construction workers actually live would reach the workforce the industry employs.",
+     "source": "LEHD LODES WAC/OD (web/product/atlas.json)",
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "I3",
+      "I1"
+     ],
+     "limits": null,
+     "note": null
+    }
+   ]
+  },
+  {
+   "question": "WHAT_WOULD_CHANGE_IT",
+   "claims": [
+    {
+     "id": "W1",
+     "question": "WHAT_WOULD_CHANGE_IT",
+     "asserts": "TRANSACTION",
+     "asserts_means": "this buyer actually purchases from this supplier",
+     "basis": "ABSENT",
+     "basis_means": "nothing held supports this",
+     "statement": "Whether Santa Fe builders currently buy fabricated metal locally, and if not, why not \u2014 price, specification, lead time or capacity. Nothing held observes a purchase. This is what separates a sourcing opportunity from a sourcing assumption, and it is answered by asking buyers, not by more data.",
+     "source": null,
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "I2",
+      "D1"
+     ],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "W2",
+     "question": "WHAT_WOULD_CHANGE_IT",
+     "asserts": "VIABILITY",
+     "asserts_means": "this would work commercially at a stated price and volume",
+     "basis": "ABSENT",
+     "basis_means": "nothing held supports this",
+     "statement": "What expansion would cost at the existing fabricators, and at what volume it pays back. Required before any capital commitment; not required to ask the sourcing question.",
+     "source": null,
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "D2"
+     ],
+     "limits": null,
+     "note": null
+    },
+    {
+     "id": "W3",
+     "question": "WHAT_WOULD_CHANGE_IT",
+     "asserts": "PRESENCE",
+     "asserts_means": "these establishments or this employment exists here",
+     "basis": "ABSENT",
+     "basis_means": "nothing held supports this",
+     "statement": "Which products the local 332 firms actually make, and whether any match construction specifications. The commodity class is broad and the published detail is incomplete, so a directory check plus a short call sheet would establish what capability is really here.",
+     "source": null,
+     "value": null,
+     "unit": null,
+     "rests_on": [
+      "F4",
+      "F4b"
+     ],
+     "limits": null,
+     "note": null
+    }
+   ]
+  }
+ ],
+ "confidence_note": "Confidence attaches to a CLAIM, not to this investigation. Each claim carries the evidence that holds it up. A missing purchase observation limits the purchasing claim and nothing else.",
+ "basis_meanings": {
+  "OBSERVED_LOCAL": "measured in this geography by a named source",
+  "OBSERVED_REGIONAL": "measured in New Mexico, not at this geography",
+  "STRUCTURAL": "a national production relationship. It describes what an industry of this kind REQUIRES on average in the United States. That is real information about production, and it is not a statement about any local firm's purchases.",
+  "DERIVED": "computed here from stated inputs by a stated recipe",
+  "ABSENT": "nothing held supports this"
+ },
+ "assertion_meanings": {
+  "REQUIREMENT": "this kind of production requires these inputs",
+  "PRESENCE": "these establishments or this employment exists here",
+  "STRUCTURE": "this is how the local economy is composed, or how it has changed",
+  "RELATIONSHIP": "these parts of the economy are connected -- labour, geography, infrastructure",
+  "WORTH_INVESTIGATING": "this is a development question the evidence makes it reasonable to pursue",
+  "TRANSACTION": "this buyer actually purchases from this supplier",
+  "VIABILITY": "this would work commercially at a stated price and volume",
+  "CAUSAL": "this intervention would cause this outcome"
+ }
+}
