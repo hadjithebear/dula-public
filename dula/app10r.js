@@ -3355,7 +3355,16 @@ function claimCard(c, changers) {
    would determine its size -- which is the honest content and also the research agenda. The
    AMBIGUOUS case is not a hedge: a tightening labour market is good for workers and a cost to
    builders, and showing only the first would be the overstatement. */
-const DIR_MARK = { INCREASE: "&uarr;", DECREASE: "&darr;", AMBIGUOUS: "&updownarrow;" };
+/* R3.25. A BARE ARROW READS AS A PREDICTION. "↑ increase" beside a pathway says an increase is
+   expected, which is precisely what these pathways do not claim: each one is conditional on
+   things nobody has checked, and three of the four stop dead if no local producer matches the
+   specification. The label therefore says POTENTIAL, and the conditions it depends on are shown
+   on the face of the card rather than hidden behind a disclosure arrow. Presentation only --
+   the model's `direction` field is untouched. */
+const DIR_LABEL = {
+  INCREASE: "potential increase", DECREASE: "potential decrease",
+  AMBIGUOUS: "could go either way",
+};
 function conditionalBlock(pid) {
   const A = COND;
   if (!A || String(A.geoid) !== String(pid)) return "";
@@ -3363,15 +3372,15 @@ function conditionalBlock(pid) {
     const to = p.to && p.to.industry !== A.subject.industry
       ? esc(p.to.label || p.to.industry) : "its own labour market";
     return `<div class="iv-claim cd-path">
-      <div class="iv-head"><span class="cd-dir cd-${p.direction}">${DIR_MARK[p.direction] || ""}
-        ${esc(p.direction.toLowerCase())}</span>
+      <div class="iv-head"><span class="cd-dir cd-${p.direction}">${esc(DIR_LABEL[p.direction]
+        || p.direction.toLowerCase())}</span>
         <span class="iv-basis iv-${p.basis}">${esc(BASIS_LABEL[p.basis] || p.basis)}</span></div>
       <p class="iv-stmt">To <b>${to}</b> — ${esc(p.mechanism)}.</p>
+      ${(p.operates_if || []).length ? `<p class="cd-cond">Conditional on
+        ${p.operates_if.map(c => esc(c)).join("; ")}.</p>` : ""}
       <p class="cd-mag">${esc(p.magnitude)}</p>
       <details class="cd-det"><summary>What would determine how large this is</summary>
         <ul>${p.what_would_determine_magnitude.map(w => `<li>${esc(w)}</li>`).join("")}</ul>
-        <p class="cd-sub">Operates only if</p>
-        <ul>${(p.operates_if || []).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
         <p class="cd-sub">Working against it</p>
         <ul>${p.counter_effects.map(w => `<li>${esc(w)}</li>`).join("")}</ul>
       </details></div>`;
@@ -3387,7 +3396,8 @@ function conditionalBlock(pid) {
        <span class="iv-basis iv-ABSENT">state ${esc(c.state_known.toLowerCase())}</span></div>
        <p class="iv-stmt">${esc(c.statement)}</p>
        <p class="cd-arch">Archetypes that could address it:
-         ${c.archetype_families.map(f => `<code>${esc(f)}</code>`).join(" ")}</p></div>`).join("")}
+         ${(c.archetype_labels || c.archetype_families).map(f =>
+             `<code>${esc(f)}</code>`).join(" · ")}</p></div>`).join("")}
     <h4 class="cd-h">Value at stake, by kind</h4>
     ${A.value_at_stake.map(v => `<div class="iv-claim"><div class="iv-head">
        <span class="iv-basis iv-${v.kind === "ECONOMIC" ? "OBSERVED_LOCAL" : "DERIVED"}">

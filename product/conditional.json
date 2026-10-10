@@ -40,7 +40,7 @@
    "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
    "basis": "STRUCTURAL",
    "operates_if": [
-    "the county's 17 332 establishments make products matching construction specifications",
+    "the county's 17 fabricated metal products establishments (NAICS 332) make products matching construction specifications",
     "they hold capacity headroom, or can add it",
     "buyers source within the county rather than outside it"
    ],
@@ -78,7 +78,7 @@
    "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
    "basis": "STRUCTURAL",
    "operates_if": [
-    "the county's 12 327 establishments make products matching construction specifications",
+    "the county's 12 nonmetallic mineral products establishments (NAICS 327) make products matching construction specifications",
     "they hold capacity headroom, or can add it",
     "buyers source within the county rather than outside it"
    ],
@@ -116,7 +116,7 @@
    "status_means": "the mechanism plus the conditions under which it would operate. Still no magnitude.",
    "basis": "STRUCTURAL",
    "operates_if": [
-    "the county's 3 321 establishments make products matching construction specifications",
+    "the county's 3 wood products establishments (NAICS 321) make products matching construction specifications",
     "they hold capacity headroom, or can add it",
     "buyers source within the county rather than outside it"
    ],
@@ -186,7 +186,12 @@
     "FAM_MISSING_CAPABILITY",
     "FAM_FORMATION"
    ],
-   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists",
+   "archetype_labels": [
+    "Existing enterprise expansion",
+    "Missing or insufficient productive capability",
+    "Enterprise formation"
+   ]
   },
   {
    "id": "B-WORKFORCE",
@@ -203,7 +208,11 @@
     "FAM_SHARED_INFRASTRUCTURE",
     "FAM_AGGREGATION"
    ],
-   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists",
+   "archetype_labels": [
+    "Shared infrastructure",
+    "Market aggregation and coordination"
+   ]
   },
   {
    "id": "B-SOURCING",
@@ -220,7 +229,11 @@
     "FAM_SUPPLY_CHAIN",
     "FAM_AGGREGATION"
    ],
-   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists"
+   "means": "a development archetype addresses a constraint; it does not become a candidate because the constraint exists",
+   "archetype_labels": [
+    "Supply-chain development",
+    "Market aggregation and coordination"
+   ]
   }
  ],
  "value_at_stake": [
@@ -236,7 +249,7 @@
    "source": "census_cbp 2023",
    "note": "value AT STAKE under a conditional pathway; not created, not captured",
    "statement": "Wages and output at local fabricators, if any of the additional input demand is sourced in-county. This accrues to the place.",
-   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim requiring an observed capture event (ec_semantics.effect)."
+   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim, and it needs an observed capture event before it can be made."
   },
   {
    "id": "V-ENT",
@@ -250,11 +263,11 @@
    "source": "census_cbp 2023",
    "note": "value AT STAKE under a conditional pathway; not created, not captured",
    "statement": "Higher utilisation would raise what those firms are worth to their owners. That is a different quantity from the wages above, and the two may not be added.",
-   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim requiring an observed capture event (ec_semantics.effect)."
+   "creation_vs_capture": "this is potential CREATION. Whether anyone captures it is a separate claim, and it needs an observed capture event before it can be made."
   }
  ],
- "note": "no investment value is stated. Investment value exists only relative to an entry price, and no asset here carries one \u2014 ec_semantics.value refuses an INVESTMENT figure without a basis.",
+ "note": "No investment value is stated. Investment value exists only relative to an entry price, and no asset here carries one, so the model refuses to put a figure on it.",
  "holds_no_magnitudes": true,
- "magnitude_note": "No pathway carries a number. Dula holds no elasticity, multiplier or response coefficient for any of these routes, and ec_conditional refuses to carry one. What each pathway carries instead is what would determine its size.",
+ "magnitude_note": "No pathway carries a number. Dula holds no response coefficient for any of these routes, and the model refuses to carry one. What each pathway states instead is what would determine its size.",
  "effect_note": "These are MECHANISMS, not effects. Claiming an effect occurred needs an observed actor response and an identification strategy; describing the route needs neither."
 }
