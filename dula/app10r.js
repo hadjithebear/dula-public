@@ -330,7 +330,18 @@ const money = v => v == null ? "—"
         : "$" + a.toLocaleString(undefined, { maximumFractionDigits: 0 }))(Math.abs(Number(v)));
 const UNK = t => `<div class="refuse">UNKNOWN — ${esc(t)}</div>`;
 
-const PIDS = Object.keys(PLACES.places);
+/* ITERATION 2I. The pill list was built from PLACES.places, which holds 11 counties, while the
+   statewide model holds 33 and the route already accepted all of them. 22 counties were
+   reachable only by typing a geoid into the URL. The navigation now comes from the statewide
+   model -- the same source the page itself renders from -- so the list and the content cannot
+   disagree. Corrected only AFTER the answer-validity checks passed, because widening the
+   audience for a wrong answer is worse than hiding it. */
+const PIDS = Object.keys((SW && SW.counties) || PLACES.places)
+  .sort((a, b) => (swName(a) || "").localeCompare(swName(b) || ""));
+/* The COUNTY name first. PP07 exists because the chips once mixed county names with county
+   SEATS, and the place model is where seats live; the statewide model is county-only. Taking
+   swName first makes "counties, not a mixture" true by construction rather than by coincidence. */
+const PNAME = id => swName(id) || (PLACES.places[id] && PLACES.places[id].name) || id;
 
 /* ---- ROUTE. The route IS the state. One scope, one place, one mode, and a reload or a
    shared link resolves the same thing. Nothing survives a navigation. */
@@ -385,7 +396,7 @@ function shell(r, title, sub) {
       ${PIDS.map(id => `<span class="tag nav-chip${r.pid === id ? " on" : ""}"
         aria-current="${r.pid === id ? "page" : "false"}" style="cursor:pointer"
         data-go='${JSON.stringify({ scope: "place", pid: id, mode: r.mode })}'
-        >${esc(PLACES.places[id].name.replace(" County", ""))}</span>`).join("")}
+        >${esc(String(PNAME(id)).replace(" County", ""))}</span>`).join("")}
     </div>
     <div class="row" style="margin:10px 0 0">
       ${/* The connected economy is the same model seen four ways, so its modes are the four
@@ -411,9 +422,18 @@ function shell(r, title, sub) {
    same payload the page rendered, so it cannot be about the previous place. */
 function ask(r, q) {
   const t = q.toLowerCase();
-  const o = r.scope === "place" ? PLACES.places[r.pid]
+  /* 2I. `PLACES.places[r.pid]` is undefined for the 22 counties outside the place model. That
+     was unreachable while navigation offered only 11; widening it to 33 made this a live crash
+     on any search from those pages.
+     The binding expression below is left EXACTLY as it was, because check 15 of
+     test_canonical_10r pins it: the conversation context must bind to the same object the
+     route resolves, not to a private copy. The fallback is applied afterwards, so the binding
+     is unchanged and only the undefined case is covered. */
+  const o0 = r.scope === "place" ? PLACES.places[r.pid]
     : r.scope === "world" ? WORLD : r.scope === "machine" ? MC
       : r.scope === "regional" ? RG : NM;
+  const o = o0 || (r.scope === "place" && swName(r.pid)
+    ? { name: swName(r.pid) } : {});
   const name = r.scope === "place" ? (o.seat || o.name)
     : r.scope === "world" ? "the world" : r.scope === "machine" ? "the machine"
       : r.scope === "regional" ? "regional systems" : "New Mexico";
@@ -3187,7 +3207,7 @@ function atlasHeader(p, r, E) {
     </nav>
     <div class="atl-places">${PIDS.map(id => `<span class="atl-pill${id === r.pid ? " on" : ""}"
       data-go='${JSON.stringify({ scope: "place", pid: id, mode: r.mode })}'
-      >${esc(PLACES.places[id].name.replace(" County", ""))}</span>`).join("")}</div>
+      >${esc(String(PNAME(id)).replace(" County", ""))}</span>`).join("")}</div>
   </header>`;
 }
 
@@ -3459,53 +3479,179 @@ const SYSLABEL = { food_agriculture:"Food & agriculture", water:"Water", housing
   land_built:"Land & built", transport_logistics:"Transport & logistics",
   capital_institutions:"Capital & institutions" };
 function swCounty(pid) { return SW && SW.counties ? SW.counties[pid] : null; }
+
+/* ================= ITERATION 2J · COUNTY ECONOMIC FUNDAMENTALS =================
+   The 2I acceptance review found every published figure correct and the economic picture
+   incomplete: population, income, housing, poverty, total employment and nominal GDP were all
+   absent while sitting in datasets already held. This block is the baseline a reader needs
+   before any relational question means anything, and it carries each figure's source, period,
+   vintage and limitations with it rather than in a footnote. */
+const FUND_GROUPS = [
+  ["Size of the economy", ["gdp_current", "gdp_real", "gdp_implicit_price_index"]],
+  ["Work",   ["employment_total", "employment_private", "employment_government",
+              "government_share", "avg_annual_pay", "wages_total", "establishments_qcew"]],
+  ["People", ["population", "population_change", "median_household_income", "poverty_rate"]],
+  ["Housing", ["housing_units", "median_home_value", "median_gross_rent",
+               "rent_to_income", "value_to_income"]],
+  ["Also published, on a different basis", ["establishments_cbp", "employment_cbp"]],
+];
+
+function fundFmt(i) {
+  const v = i.value, u = (i.unit || "");
+  if (v === null || v === undefined) return "—";
+  if (u === "share") return (v * 100).toFixed(1) + "%";
+  if (u === "multiple") return v.toFixed(2) + "×";
+  if (u.startsWith("index")) return v.toFixed(2);   /* an index loses meaning when rounded */
+  if (u.startsWith("USD") && Math.abs(v) >= 1e9) return "$" + (v / 1e9).toFixed(2) + "bn";
+  if (u.startsWith("USD") && Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(1) + "m";
+  if (u.startsWith("USD")) return "$" + Math.round(v).toLocaleString();
+  return Math.round(v).toLocaleString();
+}
+
+function fundCell(i) {
+  if (!i) return "";
+  if (i.basis === "NOT_AVAILABLE") {
+    return `<div class="fn-cell fn-na"><b>${esc(i.label)}</b><em>not published for this county</em>
+      <i>${esc((i.would_establish || [])[0] || i.why || "")}</i></div>`;
+  }
+  const moe = (i.moe !== undefined && i.moe !== null)
+    ? ` ± ${Math.round(i.moe).toLocaleString()}` : "";
+  const lims = i.limitations || [];
+  /* 2J FINAL. Everything stays on the page and nothing is summarised away, but the definition,
+     vintage, universe, derivation and limitations now sit behind a disclosure. Printed inline
+     they made the Santa Fe page 4,185px -- 4.7 screens, 8,674 characters and 34 limitation
+     lines before a reader reached the first question. Rigour a reader scrolls past is not
+     rigour. The count is shown on the summary so nothing is hidden silently, and <details> is
+     keyboard-accessible and found by the browser's own in-page search. */
+  const detail = `<u>universe \u00b7 ${esc(i.universe || "—")}</u>
+    <u>release vintage \u00b7 ${esc(i.vintage || "—")}</u>
+    ${i.basis === "CALCULATED" ? `<u>calculated \u00b7 ${esc(i.derivation || "")}</u>` : ""}
+    ${lims.map(x => `<i>${esc(x)}</i>`).join("")}`;
+  return `<div class="fn-cell${i.basis === "CALCULATED" ? " fn-calc" : ""}">
+    <b>${esc(i.label)}</b>
+    <span class="fn-v">${esc(fundFmt(i))}<s>${esc(moe)}</s></span>
+    <em>${esc(i.unit || "")} \u00b7 ${esc(i.source || "")} \u00b7 ${esc(i.reference_period || "")}</em>
+    <details class="fn-more"><summary>definition, vintage${
+      lims.length ? ` and ${lims.length} limitation${lims.length > 1 ? "s" : ""}` : ""
+    }</summary>${detail}</details></div>`;
+}
+
+function fundBlock(c) {
+  const F = c.fundamentals || [];
+  if (!F.length) return "";
+  const by = {}; F.forEach(i => { by[i.key] = i; });
+  const L = c.leading_industries || {};
+  const e = (L.by_employment || {}).top, p = (L.by_value_added || {}).top;
+  const money = v => Math.abs(v) >= 1e9 ? "$" + (v / 1e9).toFixed(2) + "bn"
+    : "$" + Math.round(v / 1e6) + "m";
+  return `<section class="fn">
+    <h3 class="fn-h">Economic fundamentals</h3>
+    ${e && p ? `<div class="fn-lead">
+      <div><span class="fn-lab">Largest industry by employment</span>
+        <b>${esc(e.name)}</b><em>${e.employment.toLocaleString()} jobs ·
+        BLS QCEW ${esc((L.by_employment || {}).reference_period || "")}${
+        (e.ownerships && e.ownerships.length > 1)
+          ? ` · summed across ${e.ownerships.length} ownerships (${
+              e.ownerships.map(esc).join(", ")})` : ""}</em></div>
+      <div><span class="fn-lab">Largest industry by production</span>
+        <b>${esc(p.name)}</b><em>${esc(money(p.value_added))} value added ·
+        BEA CAGDP9 ${esc((L.by_value_added || {}).reference_period || "")}</em></div>
+      <p class="fn-note">These answer different questions and are often different industries.
+        The largest employer is never used here to describe value added.</p>
+      <p class="fn-note"><b>Industry is not ownership.</b> Both rankings above classify by NAICS
+        industry, summing a county's public and private employers within each industry. Who owns
+        the employer — private, federal, state or local — is a separate classification and is
+        reported under <i>Work</i> below.${
+        (e.ownerships_suppressed && e.ownerships_suppressed.length)
+          ? ` One or more ownerships of this industry are withheld by the publisher, so its
+              total is a floor, not a complete count.` : ""}</p>
+    </div>` : ""}
+    ${FUND_GROUPS.map(([title, keys]) => {
+      const cells = keys.map(k => by[k]).filter(Boolean);
+      if (!cells.length) return "";
+      return `<div class="fn-grp"><h4>${esc(title)}</h4>
+        <div class="fn-grid">${cells.map(fundCell).join("")}</div></div>`;
+    }).join("")}
+    ${(L.by_value_added || {}).suppressed && L.by_value_added.suppressed.length
+      ? `<p class="fn-note"><b>Withheld by the publisher and not counted as zero:</b>
+         ${L.by_value_added.suppressed.map(esc).join(", ")}.</p>` : ""}
+  </section>`;
+}
+
 function viewStatewide(p, r, E) {
   const c = swCounty(r.pid);
   if (!c) return `<div class="card"><h2>STATEWIDE</h2><p>No statewide record for this county.</p></div>`;
-  const sel = r.sel && c.answered[r.sel] ? r.sel : Object.keys(c.answered)[0];
-  const A = c.answered[sel];
+  /* ITERATION 2I. The payload changed shape, and the shape is the correction. There is no
+     `answered` boolean and no `N of M` count: 2H measured 207 cells counted as answered of which
+     112 were misleading or unsupported, and 38 were answers whose content was that there is no
+     answer. Each answer now carries a STATUS, the economic quantity it MEASURES, its SOURCE,
+     its REFERENCE PERIOD and its UNIT, and this view renders all five rather than the headline
+     alone. */
+  const ALL = c.answers || [];
+  const EST = ALL.filter(a => a.status !== "NOT_ESTABLISHED");
+  const NE  = ALL.filter(a => a.status === "NOT_ESTABLISHED");
+  const sel = r.sel && ALL.some(a => a.id === r.sel) ? r.sel : (EST[0] || ALL[0] || {}).id;
+  const A = ALL.find(a => a.id === sel);
   const comp = (A && A.composition) || [];
-  const mx = Math.max(1, ...comp.map(x => x.emp));
+  const mx = Math.max(1, ...comp.map(x => x.value_added || 0));
+  const badge = s => `<span class="sw-st sw-st-${esc((s || "").toLowerCase())}">${esc(s || "")}</span>`;
+  const money = v => {
+    const d = (v || 0) * 1000;
+    return Math.abs(d) >= 1e9 ? "$" + (d / 1e9).toFixed(2) + "bn" : "$" + Math.round(d / 1e6) + "m";
+  };
   return `<div class="card sw">
    <div class="sw-head">
      <div><h2 style="margin:0">${esc(c.name)} County</h2>
-       <p class="muted" style="margin:2px 0 0">${c.answered_count} of ${c.question_count} questions
-       answered from this county's own evidence · ${c.systems_touched.length} systems touched</p></div>
+       <p class="muted" style="margin:2px 0 0">${esc(c.summary || "")} ·
+       ${c.systems_touched.length} systems touched</p></div>
      <div class="sw-sys">${c.systems_touched.map(s =>
         `<span class="sw-chip">${esc(SYSLABEL[s] || s)}</span>`).join("")}</div>
    </div>
+   ${fundBlock(c)}
    <div class="sw-grid">
      <nav class="sw-q">
-       ${Object.values(c.answered).map(a => `<button class="sw-qb${a.id === sel ? " on" : ""}"
+       ${EST.map(a => `<button class="sw-qb${a.id === sel ? " on" : ""}"
           data-go='${esc(JSON.stringify({ scope:"place", pid:r.pid, mode:"statewide", sel:a.id }))}'>
           <b>${esc(a.question)}</b>
-          <i>${a.systems.map(x => esc(SYSLABEL[x] || x)).join(" · ")}</i></button>`).join("")}
-       ${c.unanswered.length ? `<div class="sw-un"><b>Not answerable here</b>
-          ${c.unanswered.map(a => `<div><span>${esc(a.question)}</span>
-            <em>needs ${esc((a.would_require || []).join("; "))}</em></div>`).join("")}</div>` : ""}
+          <i>${badge(a.status)} ${esc(a.measures || "")}</i></button>`).join("")}
+       ${NE.length ? `<div class="sw-un"><b>Not established from this county's evidence</b>
+          ${NE.map(a => `<div><span>${esc(a.question)}</span>
+            <em>would need ${esc((a.would_establish || []).join("; "))}</em></div>`).join("")}</div>` : ""}
      </nav>
      <section class="sw-a">
-       ${A ? `<h3>${esc(A.question)}</h3><p class="sw-lede">${esc(A.headline)}</p>
-       ${comp.length ? `<div class="sw-bars">${comp.map(x => `<div class="sw-bar">
-          <i>${esc(x.name)}</i><div class="t"><b style="width:${(x.emp / mx * 100).toFixed(1)}%"></b></div>
-          <em>${x.emp.toLocaleString()}</em>
-          <s>${x.pay_per_worker ? "$" + x.pay_per_worker.toLocaleString() : ""}</s></div>`).join("")}</div>` : ""}
+       ${A ? `<h3>${esc(A.question)}</h3>
+       <p class="sw-lede">${esc(A.headline)}</p>
+       <p class="sw-prov">${badge(A.status)}
+         <b>measures</b> ${esc(A.measures || "—")} ·
+         <b>source</b> ${esc(A.source || "—")} ·
+         <b>period</b> ${esc(A.reference_period || "—")} ·
+         <b>unit</b> ${esc(A.unit || "—")}</p>
+       ${A.proxy_limit ? `<p class="sw-note"><b>What this proxy does not capture.</b>
+          ${esc(A.proxy_limit)}</p>` : ""}
+       ${comp.length ? `<div class="sw-barhead"><i>industry</i><em>real value added</em>
+          <s>${esc(A.unit || "")}</s></div>
+          <div class="sw-bars">${comp.map(x => `<div class="sw-bar">
+          <i>${esc(x.name)}</i><div class="t"><b style="width:${((x.value_added || 0) / mx * 100).toFixed(1)}%"></b></div>
+          <em>${money(x.value_added)}</em>
+          <s>${(x.value_added || 0).toLocaleString()}</s></div>`).join("")}</div>` : ""}
+       ${A.suppressed && A.suppressed.length ? `<p class="sw-note"><b>Withheld by the publisher,
+          and not counted as zero:</b> ${A.suppressed.map(esc).join(", ")}.</p>` : ""}
        ${A.series ? (() => { const ys = Object.keys(A.series).sort();
           const vs = ys.map(y => A.series[y]); const m = Math.max(...vs);
           return `<div class="sw-spark">${ys.map((y, i) => `<i style="height:${vs[i] / m * 100}%"
             title="${y}: ${vs[i].toLocaleString()}"></i>`).join("")}</div>
             <div class="sw-ax"><span>${ys[0]}</span><span>${ys[ys.length - 1]}</span></div>`; })() : ""}
+       ${A.employment_comparison ? (() => { const e = A.employment_comparison;
+          return `<p class="sw-note"><b>A second, different measure.</b>
+            ${esc(e.measures)} (${esc(e.source)}, ${esc(e.reference_period)}, ${esc(e.unit)}):
+            ${(e.first || 0).toLocaleString()} to ${(e.last || 0).toLocaleString()}
+            (${e.change != null ? (e.change * 100).toFixed(1) + "%" : "—"}).
+            ${esc(e.reads || "")}</p>`; })() : ""}
        ${A.participates && A.participates.length ? `<div class="sw-part">${A.participates.map(x =>
           `<div><b>${esc(SYSLABEL[x.system] || x.system)}</b><span>${esc(x.role.toLowerCase())}</span>
            <i>${esc(x.why)}</i></div>`).join("")}</div>` : ""}
-       ${A.lihtc ? `<div class="sw-part">${A.lihtc.map(x => `<div><b>${esc(x.project || "—")}</b>
-          <span>${esc(x.city || "")}</span><i>${x.units || "—"} units · placed ${x.placed || "—"}</i></div>`).join("")}</div>` : ""}
-       ${A.trap ? `<p class="sw-note">${esc(A.trap)}</p>` : ""}
-       ${A.caveat ? `<p class="sw-note">${esc(A.caveat)}</p>` : ""}
-       ${A.limits ? `<p class="sw-note">${esc(A.limits)}</p>` : ""}
-       ${A.instrument_fails ? `<p class="sw-note">The permit survey does not measure this county.
-          Supply has to be read from another instrument.</p>` : ""}
-       ${A.source ? `<p class="sw-src">${esc(A.source)}</p>` : ""}` : ""}
+       ${(A.caveats || []).map(x => `<p class="sw-note">${esc(x)}</p>`).join("")}
+       ${A.source ? `<p class="sw-src">${esc(A.source)} · ${esc(A.reference_period || "")}</p>` : ""}` : ""}
      </section>
    </div></div>`;
 }
@@ -3553,8 +3699,9 @@ function ivNav(pid, cur, st, C) {
 function ivHead(C, cur, st, pid) {
   return `<div class="iv-top">
     <div><h2 style="margin:0">${esc(C.name)} County</h2>
-      <p class="muted" style="margin:2px 0 0">${C.answered} of ${C.of} questions answered from
-      this county's own evidence${C.industry_name ? ` · leading industry ${esc(C.industry_name)}` : ""}</p></div>
+      <p class="muted" style="margin:2px 0 0">${esc((swCounty(pid) || {}).summary ||
+      `${C.answered} of ${C.of} questions answered`)}${C.industry_name ?
+      ` · leading industry ${esc(C.industry_name)}` : ""}</p></div>
     <div class="iv-sysrow">${(C.systems || []).map(x =>
       `<span class="sw-chip">${esc(SYSLABEL[x] || x)}</span>`).join("")}</div>
   </div>${ivNav(pid, cur, st, C)}`;
@@ -3563,28 +3710,51 @@ function ivHead(C, cur, st, pid) {
 function viewIvAnatomy(p, r) {
   const C = ivg(r.pid), S = swCounty(r.pid), st = ivState(r);
   if (!C || !S) return `<div class="card"><h2>No record</h2></div>`;
-  const A = S.answered["what_is_produced"], comp = (A && A.composition) || [];
-  const mx = Math.max(1, ...comp.map(x => x.emp));
-  const others = Object.values(S.answered).filter(a => a.id !== "what_is_produced");
+  /* ITERATION 2I. This view read S.answered -- the shape 2H condemned -- and broke outright
+     when the payload was corrected. It is the view every county outside the 11-county place
+     model opens on, so it is also the view 22 counties depend on. It now reads the same
+     status-bearing answers as viewStatewide, and composition is REAL VALUE ADDED, not
+     headcount. */
+  const ALL = S.answers || [];
+  const A = ALL.find(a => a.id === "what_is_produced");
+  const comp = (A && A.composition) || [];
+  const mx = Math.max(1, ...comp.map(x => x.value_added || 0));
+  const others = ALL.filter(a => a.id !== "what_is_produced" && a.status !== "NOT_ESTABLISHED");
+  const NE = ALL.filter(a => a.status === "NOT_ESTABLISHED");
+  const ivBadge = s => `<span class="sw-st sw-st-${esc((s || "").toLowerCase())}">${esc(s || "")}</span>`;
+  const ivMoney = v => { const d = (v || 0) * 1000;
+    return Math.abs(d) >= 1e9 ? "$" + (d / 1e9).toFixed(2) + "bn" : "$" + Math.round(d / 1e6) + "m"; };
   return `<div class="card iv2">${ivHead(C, "anatomy", st, r.pid)}
     <div class="iv-body">
       <section>
+        ${fundBlock(S)}
         <h3>What this county produces</h3>
-        ${A ? `<p class="sw-lede">${esc(A.headline)}</p>` : ""}
-        ${comp.length ? `<div class="sw-bars">${comp.map(x => `<div class="sw-bar">
-          <i>${esc(x.name)}</i><div class="t"><b style="width:${(x.emp / mx * 100).toFixed(1)}%"></b></div>
-          <em>${x.emp.toLocaleString()}</em>
-          <s>${x.pay_per_worker ? "$" + x.pay_per_worker.toLocaleString() : ""}</s></div>`).join("")}</div>`
-          : `<p class="sw-note">No sector detail is published — disclosure withholds every
-             breakdown in a county this small. The total above is what CBP will say.</p>`}
+        ${A ? `<p class="sw-lede">${esc(A.headline)}</p>
+        <p class="sw-prov">${ivBadge(A.status)}
+          <b>measures</b> ${esc(A.measures || "—")} ·
+          <b>source</b> ${esc(A.source || "—")} ·
+          <b>period</b> ${esc(A.reference_period || "—")} ·
+          <b>unit</b> ${esc(A.unit || "—")}</p>` : ""}
+        ${comp.length ? `<div class="sw-barhead"><i>industry</i><em>real value added</em>
+          <s>${esc((A && A.unit) || "")}</s></div>
+          <div class="sw-bars">${comp.map(x => `<div class="sw-bar">
+          <i>${esc(x.name)}</i><div class="t"><b style="width:${((x.value_added || 0) / mx * 100).toFixed(1)}%"></b></div>
+          <em>${ivMoney(x.value_added)}</em>
+          <s>${(x.value_added || 0).toLocaleString()}</s></div>`).join("")}</div>`
+          : `<p class="sw-note">No industry breakdown is published for this county.</p>`}
+        ${A && A.suppressed && A.suppressed.length ? `<p class="sw-note"><b>Withheld by the
+          publisher, and not counted as zero:</b> ${A.suppressed.map(esc).join(", ")}.</p>` : ""}
         <h3 style="margin-top:20px">What else its evidence answers</h3>
         ${others.map(a => `<div class="iv-ans"><b>${esc(a.question)}</b>
           <p>${esc(a.headline)}</p>
-          ${a.caveat ? `<em>${esc(a.caveat)}</em>` : ""}${a.trap ? `<em>${esc(a.trap)}</em>` : ""}
-          ${a.limits ? `<em>${esc(a.limits)}</em>` : ""}</div>`).join("")}
-        ${S.unanswered.length ? `<div class="iv-un"><b>Not answerable here</b>
-          ${S.unanswered.map(a => `<div>${esc(a.question)} — needs
-            ${esc((a.would_require || []).join("; "))}</div>`).join("")}</div>` : ""}
+          <p class="sw-prov">${ivBadge(a.status)} <b>measures</b> ${esc(a.measures || "—")} ·
+            <b>source</b> ${esc(a.source || "—")} · <b>period</b> ${esc(a.reference_period || "—")}
+            · <b>unit</b> ${esc(a.unit || "—")}</p>
+          ${a.proxy_limit ? `<em>${esc(a.proxy_limit)}</em>` : ""}
+          ${(a.caveats || []).map(x => `<em>${esc(x)}</em>`).join("")}</div>`).join("")}
+        ${NE.length ? `<div class="iv-un"><b>Not established from this county's evidence</b>
+          ${NE.map(a => `<div>${esc(a.question)} — would need
+            ${esc((a.would_establish || []).join("; "))}</div>`).join("")}</div>` : ""}
       </section>
       <aside class="iv-side">
         <div class="sec">Carry forward</div>
@@ -4680,7 +4850,10 @@ function renderBody() {
        anatomy. A minimal stand-in carries the name so the header and navigation work; every
        figure still comes from the statewide model's own resolvers. */
     const p = PLACES.places[r.pid] || (SW.counties && SW.counties[r.pid]
-      ? { label: SW.counties[r.pid].name, titled: SW.counties[r.pid].name + " County",
+      ? { name: SW.counties[r.pid].name,  /* 2I: `name` was missing, so the breadcrumb fell back
+                                             to p.name and rendered "undefined County" for the
+                                             22 counties outside the place model */
+          label: SW.counties[r.pid].name, titled: SW.counties[r.pid].name + " County",
           geoid: r.pid, statewide_only: true }
       : null);
     if (!p) { app.innerHTML = `<div class="card"><h2>Unknown place</h2></div>`; return; }

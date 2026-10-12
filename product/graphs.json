@@ -212,7 +212,7 @@
    "eligibility": "INSUFFICIENT",
    "form": null,
    "refused": true,
-   "why_refused": "County output is not held. Employment alone cannot carry a productivity claim \u2014 that is the counting error this repository has already adjudicated once."
+   "why_refused": "County output is now held (BEA CAGDP2 and CAGDP9, 2001-2024), and that is not enough. Output per worker would divide BEA value added, which covers ALL industries and all forms of work including the self-employed, by QCEW employment, which counts only UI-COVERED jobs. The numerator and the denominator describe different populations, and the gap between them varies by county \u2014 so the ratio would move with coverage rather than with productivity. That is the same counting error this repository has already adjudicated once, under a new name."
   }
  ],
  "refusals": [
@@ -298,7 +298,7 @@
    "eligibility": "INSUFFICIENT",
    "form": null,
    "refused": true,
-   "why_refused": "County output is not held. Employment alone cannot carry a productivity claim \u2014 that is the counting error this repository has already adjudicated once."
+   "why_refused": "County output is now held (BEA CAGDP2 and CAGDP9, 2001-2024), and that is not enough. Output per worker would divide BEA value added, which covers ALL industries and all forms of work including the self-employed, by QCEW employment, which counts only UI-COVERED jobs. The numerator and the denominator describe different populations, and the gap between them varies by county \u2014 so the ratio would move with coverage rather than with productivity. That is the same counting error this repository has already adjudicated once, under a new name."
   }
  ],
  "buildable": [

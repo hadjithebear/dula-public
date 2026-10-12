@@ -1388,3 +1388,64 @@ body.loop-canvas svg#stage:active{cursor:default}
 .iv-prov{border-left:2px solid var(--sand);padding-left:10px;background:var(--paper-2);
   padding-top:7px;padding-bottom:7px;border-radius:0 4px 4px 0}
 .iv-link{color:var(--clay);text-decoration:underline;cursor:pointer}
+
+
+/* ---- ITERATION 2I. Every published quantity now names what it measures, where it came from,
+   the period it refers to and its unit. 2H measured 0 of 207 published cells carrying a
+   reference period and 0 carrying a unit, and the sector table rendered three bare values with
+   no header row. These rules put all of that on the page. */
+.sw-st{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;
+  padding:1px 5px;border-radius:2px;text-transform:uppercase;vertical-align:middle}
+.sw-st-measured{background:var(--clay);color:var(--paper);opacity:.92}
+.sw-st-proxy{background:var(--paper-2);color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--rule)}
+.sw-st-not_established{background:transparent;color:var(--ink-3);
+  box-shadow:inset 0 0 0 1px var(--rule)}
+.sw-prov{font-size:11px;color:var(--ink-2);margin:6px 0 10px;line-height:1.55}
+.sw-prov b{font-weight:600;color:var(--ink-3);text-transform:uppercase;font-size:9.5px;
+  letter-spacing:.05em;margin-right:2px}
+.sw-barhead{display:flex;align-items:center;gap:8px;font-size:9.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3);margin:10px 0 2px;
+  padding-bottom:3px;border-bottom:1px solid var(--rule)}
+.sw-barhead i{flex:none;width:150px;font-style:normal}
+.sw-barhead em{flex:1;text-align:right;font-style:normal}
+.sw-barhead s{flex:none;width:92px;text-align:right;text-decoration:none}
+.sw-bar s{flex:none;width:92px;text-align:right;font-family:var(--mono);font-size:10px;
+  color:var(--ink-3);text-decoration:none}
+
+
+/* ---- ITERATION 2J · economic fundamentals. Each figure carries its unit, source, period,
+   vintage, universe and limitations on the page rather than in a footnote, because the 2I
+   acceptance review found a reader could not tell which BEA series a number came from. */
+.fn{margin:14px 0 18px;padding:14px 0 2px;border-top:1px solid var(--rule)}
+.fn-h{margin:0 0 10px;font-size:13px;letter-spacing:.02em}
+.fn-lead{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+.fn-lead > div{padding:9px 11px;background:var(--paper-2);border-radius:3px}
+.fn-lab{display:block;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.fn-lead b{display:block;font-size:14px;line-height:1.25}
+.fn-lead em{display:block;font-style:normal;font-size:10.5px;color:var(--ink-2);margin-top:3px}
+.fn-note{font-size:10.5px;color:var(--ink-2);margin:8px 0 0;grid-column:1/-1;line-height:1.5}
+.fn-grp{margin:0 0 12px}
+.fn-grp h4{margin:0 0 6px;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.fn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:9px}
+.fn-cell{padding:8px 10px;border:1px solid var(--rule);border-radius:3px;background:var(--paper)}
+.fn-cell.fn-calc{border-style:dashed}
+.fn-cell b{display:block;font-size:11px;font-weight:600;color:var(--ink-2)}
+.fn-v{display:block;font-size:19px;line-height:1.2;margin:2px 0 3px;font-family:var(--mono)}
+.fn-v s{font-size:11px;color:var(--ink-3);text-decoration:none}
+.fn-cell em{display:block;font-style:normal;font-size:9.5px;color:var(--ink-3);line-height:1.45}
+.fn-cell u{display:block;text-decoration:none;font-size:9px;color:var(--ink-3);opacity:.85;
+  margin-top:3px;line-height:1.45}
+.fn-cell i{display:block;font-style:normal;font-size:9.5px;color:var(--ink-2);margin-top:4px;
+  padding-left:7px;border-left:2px solid var(--rule);line-height:1.45}
+.fn-na{opacity:.75;border-style:dotted}
+@media (max-width:760px){.fn-lead{grid-template-columns:1fr}}
+
+.fn-more{margin-top:5px}
+.fn-more > summary{cursor:pointer;font-size:9.5px;letter-spacing:.04em;color:var(--ink-3);
+  text-transform:uppercase;list-style:none;padding:2px 0}
+.fn-more > summary::-webkit-details-marker{display:none}
+.fn-more > summary::before{content:"+ ";font-family:var(--mono)}
+.fn-more[open] > summary::before{content:"\2212 "}
+.fn-more > summary:hover{color:var(--ink-2)}
