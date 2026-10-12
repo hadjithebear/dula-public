@@ -1449,3 +1449,195 @@ body.loop-canvas svg#stage:active{cursor:default}
 .fn-more > summary::before{content:"+ ";font-family:var(--mono)}
 .fn-more[open] > summary::before{content:"\2212 "}
 .fn-more > summary:hover{color:var(--ink-2)}
+
+/* ================================================================ 2L · DEVELOPMENT
+ * One view, nine sector lenses, 33 counties. The evidence STATE is the loudest thing on a
+ * cell, because a reader who mistakes a proxy for a measurement has been misled by the design
+ * and not by the data. Observed is sage, a proxy is amber and an absence is stone -- and an
+ * absence is drawn as a research task rather than as an empty box. */
+.dv{padding:0 4px}
+.dv-intro{padding:0 0 4px}
+.dv h2{font-family:var(--serif);font-size:26px;margin:0 0 6px;font-weight:400}
+.dv-lede{margin:0 0 16px;font-size:13.5px;color:var(--ink-2);max-width:66ch;line-height:1.5}
+.dv-sectors{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.dv-sector{display:inline-flex;flex-direction:column;gap:1px;cursor:pointer;
+  border:1px solid var(--line-2);border-radius:8px;padding:6px 10px;background:#fff;
+  font-size:12.5px;line-height:1.2}
+.dv-sector i{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--sage);font-style:normal}
+.dv-sector.none{background:var(--paper-2);border-color:var(--line)}
+.dv-sector.none i{color:var(--ink-3)}
+.dv-sector.on{border-color:var(--clay);box-shadow:0 0 0 2px rgba(180,85,45,.12)}
+.dv-sector:hover{border-color:var(--clay)}
+.dv-sec{border-top:1px solid var(--line);padding:18px 0 6px;margin:14px 0 0}
+.dv-h1{font-family:var(--serif);font-size:21px;line-height:1.25}
+.dv-h2{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px}
+.dv-ct{display:inline-block;margin-left:6px;color:var(--clay)}
+.dv-asks{margin:4px 0 10px;font-size:13.5px;color:var(--ink-2);font-style:italic}
+.dv-cov{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+.dv-st{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;
+  text-transform:uppercase;border-radius:4px;padding:2px 6px;border:1px solid}
+.dv-st.s{color:var(--sage);border-color:var(--sage);background:rgba(111,127,92,.07)}
+.dv-st.w{color:var(--warn);border-color:var(--warn);background:rgba(154,107,31,.07)}
+.dv-st.u{color:var(--stone);border-color:var(--line-2);background:var(--paper-2)}
+.dv-both{font-size:11.5px;color:var(--ink-2)}
+.dv-both.no{color:var(--warn)}
+.dv-gov{margin:8px 0 0;padding:10px 12px;border-left:2px solid var(--water);
+  background:var(--water-soft);font-size:12.5px;line-height:1.5;max-width:70ch}
+.dv-empty{margin:8px 0 0;padding:10px 12px;border-left:2px solid var(--line-2);
+  background:var(--paper-2);font-size:12.5px;line-height:1.5;max-width:70ch}
+.dv-note{margin:6px 0 0;font-size:11.5px;color:var(--ink-3);max-width:74ch;line-height:1.5}
+.dv-why{margin:6px 0 0;font-size:12.5px;color:var(--ink-2);max-width:72ch;line-height:1.5}
+.dv-prov{margin:8px 0 0;font-size:11px;color:var(--ink-3);max-width:74ch;line-height:1.5}
+.dv-prov i{color:var(--stone);font-style:normal;font-family:var(--mono);font-size:9px;
+  letter-spacing:.06em;text-transform:uppercase;margin-right:4px}
+
+.dv-sides{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 0}
+.dv-side-h{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);padding:0 0 6px;border-bottom:1px solid var(--line);margin:0 0 8px}
+.dv-cell{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;
+  background:#fff}
+.dv-cell.u{background:var(--paper-2);border-style:dashed}
+.dv-cell-h{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline}
+.dv-cell-h b{font-size:13px;font-weight:600}
+.dv-val{font-family:var(--mono);font-size:17px;margin:6px 0 2px;color:var(--ink)}
+.dv-meta{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-3)}
+.dv-proxy{margin:8px 0 0;font-size:11.5px;line-height:1.5;color:var(--warn)}
+.dv-series{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;font-family:var(--mono);
+  font-size:9.5px;color:var(--ink-3)}
+
+.dv-held{margin:8px 0 0;padding:8px 10px;background:#fff;border:1px dashed var(--line-2);
+  border-radius:6px;font-size:11.5px;line-height:1.5}
+.dv-held > span{color:var(--ink-3)}
+.dv-held ul{margin:6px 0 0;padding-left:16px;color:var(--ink-2)}
+.dv-held li{margin:0 0 2px}
+.dv-held i{display:block;font-style:normal;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.dv-inv{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;margin:0 0 12px;
+  background:#fff}
+.dv-inv-h{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dv-inv-h .tag{margin-left:0;font-family:var(--mono)}
+.dv-kind{font-size:10.5px;color:var(--ink-3)}
+.dv-inv h4{font-family:var(--serif);font-size:18px;line-height:1.3;margin:8px 0 0;
+  font-weight:400;max-width:60ch}
+
+.dv-comp-wrap{overflow-x:auto;margin:12px 0 0;-webkit-overflow-scrolling:touch}
+table.dv-comp{border-collapse:collapse;font-size:12px;min-width:34rem}
+table.dv-comp th{font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);text-align:left;padding:0 10px 5px 0;
+  border-bottom:1px solid var(--line-2);font-weight:400;white-space:nowrap}
+table.dv-comp td{padding:5px 10px 5px 0;border-bottom:1px solid var(--line)}
+table.dv-comp td.r,table.dv-comp th.r{text-align:right;font-family:var(--mono);
+  white-space:nowrap}
+table.dv-comp tr.dv-tot td{font-weight:600}
+table.dv-comp tr.dv-sub td{color:var(--ink-3);font-size:11px}
+table.dv-comp tr.dv-rate td{color:var(--ink-2);border-bottom:1px solid var(--line-2)}
+table.dv-comp tr.dv-rate b{color:var(--clay)}
+.dv-u{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-3)}
+
+.dv-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 0}
+.dv-rung{border:1px solid var(--line);border-radius:8px;padding:9px 10px;background:var(--paper-2)}
+.dv-rung.on{background:#fff;border-color:var(--line-2)}
+.dv-rung b{display:block;font-family:var(--serif);font-size:23px;line-height:1;color:var(--ink-3)}
+.dv-rung.on b{color:var(--clay)}
+.dv-rung span{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin:4px 0 4px}
+.dv-rung i{display:block;font-style:normal;font-size:10.5px;line-height:1.45;color:var(--ink-2)}
+@media(max-width:760px){.dv-ladder{grid-template-columns:1fr 1fr}}
+.dv-tasks{margin:8px 0 0}
+.dv-task{border-left:2px solid var(--line-2);padding:4px 0 4px 12px;margin:0 0 10px}
+.dv-task b{font-size:12.5px}
+
+.dv-dec{margin:14px 0 0;border:1px solid var(--line-2);border-radius:8px;padding:12px 14px;
+  background:var(--paper-2)}
+.dv-dec.inv{border-left:3px solid var(--warn)}
+.dv-dec.base{border-left:3px solid var(--stone)}
+.dv-dec.sel{border-left:3px solid var(--sage)}
+.dv-dec-h{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3)}
+.dv-dec-l{font-family:var(--serif);font-size:17px;line-height:1.3;margin:3px 0 0}
+.dv-dec-m{margin:4px 0 0;font-size:12px;color:var(--ink-2);max-width:70ch;line-height:1.5}
+.dv-cats{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.dv-cat{display:inline-flex;flex-direction:column;gap:0;border:1px solid var(--line-2);
+  border-radius:6px;padding:4px 8px;background:#fff;font-size:12px;line-height:1.2}
+.dv-cat i{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;
+  font-style:normal;color:var(--ink-3)}
+.dv-cat.w{border-color:var(--warn)}
+.dv-cat.s{border-color:var(--sage)}
+.dv-counts{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 0;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.dv-counts b{color:var(--ink);font-size:12px}
+.dv-gate{border-left:2px solid var(--line-2);padding:2px 0 2px 10px;margin:0 0 8px;
+  font-size:11.5px;line-height:1.5}
+.dv-gate p{margin:2px 0 0;color:var(--ink-2)}
+.dv-gate i{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--stone);font-style:normal;margin-right:4px}
+.dv-ref{margin:6px 0 0;padding-left:18px;font-size:12px;color:var(--ink-2);max-width:72ch;
+  line-height:1.55}
+.dv-ref li{margin:0 0 5px}
+
+.dv dl.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:6px 0 0;
+  font-size:11.5px;line-height:1.5}
+.dv dl.kv dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);padding-top:3px}
+.dv dl.kv dd{margin:0;color:var(--ink-2)}
+.dv details{margin:8px 0 0;font-size:12px}
+.dv details > summary{cursor:pointer;font-family:var(--mono);font-size:9px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--clay)}
+.dv details > .in{padding:6px 0 0 2px}
+
+/* 375px. Two columns of cells and a five-column table do not fit a phone, and a page that
+ * scrolls sideways is a page a field worker cannot read with one hand. */
+@media(max-width:760px){
+  .dv-sides{grid-template-columns:1fr}
+  .dv h2{font-size:22px}
+  .dv-h1{font-size:18px}
+  .dv-inv h4{font-size:16px}
+  .dv-inv{padding:12px 12px}
+  .dv-dec{padding:10px 11px}
+  .dv-val{font-size:15px}
+  .dv dl.kv{grid-template-columns:1fr;gap:1px}
+  .dv dl.kv dt{padding-top:6px}
+}
+
+/* ================================================================ 2L · 375px OVERFLOW
+ * Measured, not guessed: at 375px the page scrolled 22px sideways on Anatomy and Statewide and
+ * 170px on Scenario. The cause is the same in all three and is not the content -- a grid item's
+ * default `min-width:auto` lets a long unbreakable string push its own `1fr` track wider than
+ * the grid. `.iv-body` measured 241px while its single column resolved to 478px.
+ *
+ * `minmax(0,1fr)` lets the track shrink; `min-width:0` lets the item shrink inside it; and
+ * `overflow-wrap:anywhere` lets the string that started it break rather than overhang. A page a
+ * field worker reads with one hand must not scroll sideways. */
+@media(max-width:900px){
+  .iv-body{grid-template-columns:minmax(0,1fr)}
+  .iv-body > *{min-width:0}
+  .iv-par,.iv-out,.iv-strat,.sw-qb,.sw-q,.sw-note{overflow-wrap:anywhere}
+}
+@media(max-width:820px){
+  .sw-grid{grid-template-columns:minmax(0,1fr)}
+  .sw-grid > *{min-width:0}
+}
+
+/* The two rows that still overhung after the grid fix are FLEX rows with fixed-width children:
+ * `.sw-bar` reserves 150px for a label, 64px for a value and 62px for a note before the bar
+ * itself, which is 276px of furniture in a 241px column. On a phone the label takes its own
+ * line and the rest shares what is left. */
+@media(max-width:900px){
+  .sw-bar{flex-wrap:wrap}
+  .sw-bar i{flex:1 0 100%;width:auto}
+  .sw-bar .t{flex:1 1 60px;min-width:48px}
+  .sw-bar em{flex:0 1 auto;width:auto;min-width:54px}
+  .sw-bar s{flex:0 1 auto;width:auto;min-width:46px}
+  .iv-out div,.iv-par div{flex-wrap:wrap}
+  .iv-out em{flex:1 0 100%;width:auto}
+  .iv-out b{min-width:0}
+  .iv-out s{flex:1 1 auto;min-width:0}
+}
+@media(max-width:900px){
+  /* A tag is a label, and a long label on a phone wraps rather than hanging off the page. */
+  .tag{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+}

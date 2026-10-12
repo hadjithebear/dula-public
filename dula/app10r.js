@@ -18,7 +18,7 @@ import * as GR from "./graph.js";
 import * as AT from "./atlas.js";
 
 const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, ECO, ECD, ECPL, ECN,
-  ECF, ECE, ECO2, ATL, INVG, COND, SW, IVG] = await Promise.all([
+  ECF, ECE, ECO2, ATL, INVG, COND, SW, IVG, DEVP] = await Promise.all([
   J("product/places.json"), J("product/newmexico.json"), J("product/world.json"),
   J("product/observatory.json"), J("product/legible.json"), J("product/graphs.json"),
   J("product/reading.json"), J("product/machine.json"), J("product/regional.json"),
@@ -64,6 +64,11 @@ const [PLACES, NM, WORLD, OBS, LEG, GQ, RD, MC, RG, ECON, ECM, ECS, ECP, ECI, EC
    * parameter, under the same rule the driver uses — a result is never stronger than its
    * weakest input, so anything downstream of an assumption stays PARAMETERIZED. */
   J("product/investigate.json"),
+  /* 2L. Sector development intelligence: 33 counties x 9 sector lenses over ONE evidence model,
+   * with the supply side and the demand side of each sector held apart. It carries the cells,
+   * the generated investigations and one decision per investigation. It carries no opportunity,
+   * no market size and no return, because no held measurement supports one. */
+  J("product/development.json"),
 ]);
 
 /* R3.10, revised R3.23. product/economy.json is the PUBLIC half of the R3 economic
@@ -3134,12 +3139,16 @@ function homeDemos() {
    they hold content, but they no longer define the experience — and a tab is never offered for a
    view that would render the same page as its neighbour. */
 const PLACE_MODES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
+  ["development", "Development"],
   ["strategies", "Development strategies"], ["scenario", "Scenario"],
   ["flows", "Flows"], ["investigation", "Investigation"], ["evidence", "Evidence"],
   ["statewide", "Anatomy"], ["overview", "Overview"], ["system", "System"],
   ["constraints", "Constraints"], ["opportunities", "Opportunities"]];
 /* Older links used these names. They still resolve, to the view that replaced them. */
-const MODE_ALIAS = { intelligence: "overview", model: "system" };
+/* 2L merged Development strategies and Opportunities into one Development view. Both names
+   stay routable and resolve to it, so every link published earlier still opens a page. */
+const MODE_ALIAS = { intelligence: "overview", model: "system",
+  strategies: "development", opportunities: "development" };
 
 /* The opening sentence of a county page, COMPOSED FROM ITS OWN ROWS. The page used to lead
    with the food study's actor counts, which describe Dula's research reach and not the economy.
@@ -3173,7 +3182,7 @@ function placeData(pid) {
    rendered one page under eight labels. A tab that leads nowhere different is worse than no tab:
    it tells the reader something is there. */
 const IV_ACTIVITIES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
-  ["strategies", "Development strategies"], ["scenario", "Scenario"]];
+  ["development", "Development"], ["scenario", "Scenario"]];
 function modesFor(pid) {
   const out = IV_ACTIVITIES.slice();
   const E = (ECPL.places || {})[pid];
@@ -3185,7 +3194,8 @@ function modesFor(pid) {
      "no scan is held" — an empty view existing to fill a tab bar. It is not offered. */
   if (hasEcon && E.productive_structure) out.push(["system", "System"]);
   if (hasEcon && (E.findings || []).length) out.push(["constraints", "Constraints"]);
-  if (hasEcon && placeData && placeData(pid)) out.push(["opportunities", "Opportunities"]);
+  /* 2L: Opportunities is not offered as a tab of its own. Its scan is rendered inside
+     Development, where the evidence behind it is visible. The route still resolves. */
   if (INVG && String(INVG.geoid) === String(pid)) out.push(["investigation", "Investigation"]);
   if (hasEcon) out.push(["evidence", "Evidence"]);
   return out;
@@ -3661,22 +3671,27 @@ function viewStatewide(p, r, E) {
    the assumptions all live in the route, so every view shares them and a link reproduces the
    whole state. This replaces eight tabs that rendered one page for two thirds of the state. */
 const ACTIVITIES = [["anatomy", "Economic anatomy"], ["relationships", "Relationships"],
-                    ["strategies", "Development strategies"], ["scenario", "Scenario"]];
+                    ["development", "Development"], ["scenario", "Scenario"]];
 function ivg(pid) { return (IVG && IVG.counties) ? IVG.counties[pid] : null; }
 
 /* state travels in the route's third segment: strategy.capital.contribution.throughput */
 function ivState(r) {
-  const d = { strategy: null, capital: 2000000, contribution: 180, throughput: 15000 };
+  const d = { strategy: null, capital: 2000000, contribution: 180, throughput: 15000,
+    lens: null };
   if (!r.sel) return d;
   const p = String(r.sel).split(".");
   if (p[0] && p[0] !== "_") d.strategy = p[0];
+  /* 2L: the selected SECTOR, in a fifth segment. A four-segment route published earlier still
+     parses, and lands on the first sector with a measurement. */
+  if (p[4] && p[4] !== "_") d.lens = p[4];
   if (+p[1]) d.capital = +p[1];
   if (+p[2]) d.contribution = +p[2];
   if (+p[3]) d.throughput = +p[3];
   return d;
 }
 function ivSel(st) {
-  return [st.strategy || "_", st.capital, st.contribution, st.throughput].join(".");
+  return [st.strategy || "_", st.capital, st.contribution, st.throughput,
+    st.lens || "_"].join(".");
 }
 function ivGo(pid, mode, st) {
   return esc(JSON.stringify({ scope: "place", pid, mode, sel: ivSel(st) }));
@@ -3854,6 +3869,381 @@ function viewIvStrategies(p, r) {
         what would falsify it, which is the only honest ranking available.</p>
       </aside>
     </div></div>`;
+}
+
+/* ================================================================ 2L · DEVELOPMENT
+   Development strategies and Opportunities were two views over two different layers: one
+   generated county-level strategy sketches, the other a legacy opportunity scan. Neither was
+   organised by SECTOR, and neither separated the supply side of a sector from its demand side.
+   This is one view over one evidence model, and the two it replaces are reachable inside it.
+
+   THE HIERARCHY IS Development -> Sector -> Supply & Demand -> Investigations -> Pathways.
+   Every sentence below is read from product/development.json. The view holds no sector
+   knowledge, no county knowledge and no intervention text of its own: if a reader sees a
+   question here, a rule in i2l_development generated it from an observation, and removing the
+   observation removes the question. That is tested rather than asserted. */
+const DV_STATE_TAG = { OBSERVED: "s", PROXIED: "w", NOT_OBSERVED: "u" };
+const DV_STATE_WORD = { OBSERVED: "observed", PROXIED: "proxy", NOT_OBSERVED: "not observed" };
+const DV_LEVEL_TAG = { 1: "u", 2: "w", 3: "s" };
+
+function dvCounty(pid) { return (DEVP.counties || {})[pid] || null; }
+function dvLens(id) { return (DEVP.lenses || []).find(l => l.id === id) || null; }
+function dvDecl(id, dim) { const l = dvLens(id); return (l && l.dimensions[dim]) || null; }
+function dvGate(k) { return (DEVP.vocabulary.gates || {})[k] || null; }
+
+/* A figure is printed with its unit beside it and never rescaled. "18,489,000 USD" cannot be
+   misread; an abbreviated magnitude with a currency sign invites the reader to forget which of
+   two sources it came from — and a money magnitude written anywhere in this file trips the
+   landing-page guard that keeps Dula from reading as a fund, which is how this comment was
+   caught. */
+function dvNum(v, unit) {
+  if (v == null) return "—";
+  const d = Math.abs(v) < 10 && !Number.isInteger(v) ? 2 : 0;
+  return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d })
+    + (unit ? " " + unit : "");
+}
+const dvPct = x => x == null ? "—" : (x >= 0 ? "+" : "") + (x * 100).toFixed(1) + "%";
+const dvShare = x => x == null ? "—" : (x * 100).toFixed(2) + "%";
+
+/* ---- one cell. The STATE is the first thing read, and a proxy says what it is not. */
+function dvCell(c, lensId) {
+  const decl = dvDecl(lensId, c.dimension);
+  const tag = DV_STATE_TAG[c.state] || "u";
+  const head = `<div class="dv-cell-h"><span class="dv-st ${tag}">${esc(DV_STATE_WORD[c.state]
+    || c.state)}</span><b>${esc(c.quantity || c.dimension)}</b></div>`;
+  if (c.state === "NOT_OBSERVED") {
+    const t = (decl && decl.research_task) || {};
+    /* Evidence that EXISTS but does not measure this dimension here. Showing it on the absent
+       cell is how a reader learns the acquisition is done and the attribution is not — which
+       is a different and more useful fact than "nothing is held". */
+    const held = c.held_records || [];
+    return `<div class="dv-cell u">${head}
+      <p class="dv-why">Nothing held measures this. ${esc(t.why_it_matters || "")}</p>
+      ${held.length ? `<div class="dv-held"><b>${held.length} record(s) are held and cannot be
+        attributed here.</b> <span>${esc(c.held_records_mean || "")}</span>
+        <ul>${held.map(h => `<li>${esc(h.name || h.gauge || "—")}${h.period
+          ? ` · ${esc(h.period)}` : ""}${h.rows ? ` · ${esc(dvNum(h.rows, "rows"))}` : ""}
+          ${h.unit ? `<i>${esc(h.unit)}</i>` : ""}</li>`).join("")}</ul></div>` : ""}
+      ${det("What would measure it", `${kv({
+        "Missing measurement": t.missing_measurement, "Plausible source": t.plausible_source,
+        "Who could help": t.who_could_help, "Decision it would support":
+          t.decision_it_would_support })}`)}</div>`;
+  }
+  const limits = (c.limitations || []).length ? ul(c.limitations) : "";
+  const cc = c.concept || null;
+  return `<div class="dv-cell ${tag}">${head}
+    <div class="dv-val">${esc(dvNum(c.value, c.unit))}</div>
+    <div class="dv-meta">${esc(c.source || "—")} · ${esc(c.period || "—")} ·
+      ${esc(PNAME(c.geography) || c.geography || "—")}</div>
+    ${c.state === "PROXIED" ? `<p class="dv-proxy"><b>Stands in for</b>
+      ${esc(c.stands_in_for)}. <b>It is not that:</b> ${esc(c.why_it_is_not_that)}</p>` : ""}
+    ${(c.series && Object.keys(c.series).length > 1) ? `<div class="dv-series">${
+      Object.keys(c.series).sort().map(p => `<span>${esc(p)}: ${c.series[p] == null
+        ? "<i>suppressed</i>" : esc(dvNum(c.series[p], ""))}</span>`).join("")}</div>` : ""}
+    ${det("What this number is about", (cc ? kv({
+      "Activity": cc.activity, "Reported by": cc.transaction_role_means,
+      "Transaction boundary": cc.boundary, "Product scope": cc.product_scope,
+      "Population": cc.population }) : `<p class="sw-note">This cell declares no economic
+      concept, so it may not enter any subtraction.</p>`)
+      + (limits ? `<div class="sec">Limitations</div>${limits}` : ""))}</div>`;
+}
+
+/* ---- how much each REPORTING OPERATION sold, and whether that moved. This replaced a
+   share-of-total table when the principal withdrew the two share licences: the Census does not
+   publish the channel figures as components of total market value, so no share is drawn. What
+   is drawn is a value beside the count of the operations that reported THAT SAME measure, which
+   separates participation from transaction size and claims nothing about a total. */
+function dvIntensity(oc) {
+  const rows = [];
+  (oc.measures || []).forEach(p => {
+    rows.push(`<tr class="dv-tot"><td>${esc(p.quantity)}</td>
+      <td class="r">${esc(dvNum(p.from_value, ""))}</td>
+      <td class="r">${esc(dvNum(p.to_value, ""))}</td>
+      <td class="r">${esc(dvPct(p.change))}</td></tr>`);
+    rows.push(`<tr class="dv-sub"><td>— ${esc(String(p.denominator_quantity).toLowerCase())}</td>
+      <td class="r">${esc(dvNum(p.denominator_from, ""))}</td>
+      <td class="r">${esc(dvNum(p.denominator_to, ""))}</td>
+      <td class="r">${esc(dvPct(p.denominator_change))}</td></tr>`);
+    rows.push(`<tr class="dv-sub dv-rate"><td>— per reporting operation
+      <span class="dv-u">${esc(p.per_unit_unit)}</span></td>
+      <td class="r">${esc(dvNum(p.per_unit_from, ""))}</td>
+      <td class="r">${esc(dvNum(p.per_unit_to, ""))}</td>
+      <td class="r"><b>${esc(dvPct(p.per_unit_change))}</b></td></tr>`);
+  });
+  const unreviewed = (oc.measures || []).some(p => p.human_reviewed === false);
+  const src = ((oc.measures || [])[0] || {}).source;
+  return `<div class="dv-comp-wrap"><table class="dv-comp"><thead><tr><th>Measure</th>
+      <th class="r">${esc(oc.from_period)}</th><th class="r">${esc(oc.to_period)}</th>
+      <th class="r">change</th></tr></thead>
+    <tbody>${rows.join("")}</tbody></table></div>
+    <p class="dv-note"><b>A figure per reporting operation is an aggregate ratio, not an
+    individual outcome.</b> It is a total divided by a count. A fall in it is consistent with
+    patterns in which no single operation's sales fell — for instance if the operations that
+    joined the channel are smaller than the ones already in it. The publisher reports no
+    distribution for this measure.</p>
+    <p class="dv-note">Figures are <b>nominal</b> — no deflator is applied, so part of any change
+    is price, which these ratios do not separate. <b>No share of any total appears here.</b> Two
+    share licences were withdrawn on review: the publisher labels the channel measures on a
+    different class and utilization axis from total market value and publishes value-added sales
+    separately, so containment was never established. The remaining ratios divide a value by the
+    operations reporting that same measure, which agree on every published axis except the
+    unit.${unreviewed ? ` Those licences are recorded as <b>not yet human-reviewed</b>.` : ""}</p>`;
+}
+
+/* ---- the decision. ONE per investigation. The categories are listed as categories; the
+   choice is not made, and the gates that would allow it to be made are named. */
+function dvDecision(de) {
+  const voc = DEVP.vocabulary;
+  const lv = (de.assessed || []).reduce((a, x) => { (a[x.level] = a[x.level] || []).push(x); return a; }, {});
+  const blocking = [...new Set((de.assessed || []).flatMap(a => a.gates_failed || []))];
+  return `<div class="dv-dec ${de.status === "ESTABLISH_BASELINE" ? "base" : de.status === "INVESTIGATE" ? "inv" : "sel"}">
+    <div class="dv-dec-h">Current decision</div>
+    <div class="dv-dec-l">${esc(de.label)}</div>
+    <p class="dv-dec-m">${esc((voc.decision_statuses[de.status] || {}).means || "")}</p>
+    ${de.intervention_categories.length ? `
+      <div class="sec">Possible intervention categories</div>
+      <p class="dv-note">Categories that <b>could</b> apply to a condition of this shape.
+      Listing a category is not proposing it, and the list is not ranked.</p>
+      <div class="dv-cats">${de.intervention_categories.map(t => {
+        const a = (de.assessed || []).find(x => x.intervention_type === t) || { level: 1 };
+        const L = voc.intervention_levels[String(a.level)] || {};
+        return `<span class="dv-cat ${DV_LEVEL_TAG[a.level] || "u"}"
+          title="${esc(L.means || "")}">${esc(t)}
+          <i>${esc((L.name || "").replace(/_/g, " ").toLowerCase())}</i></span>`;
+      }).join("")}</div>
+      <div class="dv-counts">${["categories", "candidates", "pathways", "validated"].map(k =>
+        `<span><b>${de.counts[k]}</b> ${k === "pathways" ? "supported pathways"
+          : k === "validated" ? "validated for implementation" : esc(k)}</span>`).join("")}</div>
+    ` : ""}
+    <div class="sec">Before anything is acted on</div>
+    <p class="dv-note">${esc(de.because)}</p>
+    <div class="sec">This does not imply</div>
+    <p class="dv-note">${esc(de.explicitly_not_implied)}</p>
+    ${blocking.length ? `${det(`Why no pathway is selected — ${blocking.length} gate(s) not met`,
+      blocking.map(g => { const G = dvGate(g) || {}; return `<div class="dv-gate">
+        <b>${esc(g.replace(/_/g, " ").toLowerCase())}</b>
+        <p><i>Asks</i> ${esc(G.asks || "")}</p><p><i>Why</i> ${esc(G.why || "")}</p>
+        <p><i>Obtained by</i> ${esc(G.obtained_by || "")}</p></div>`; }).join(""))}` : ""}
+  </div>`;
+}
+
+/* ---- one investigation: a QUESTION, what generated it, and the decision it leads to. */
+function dvInvestigation(i, lensId) {
+  const voc = DEVP.vocabulary;
+  return `<div class="dv-inv">
+    <div class="dv-inv-h"><span class="tag">${esc(i.rule)}</span>
+      <span class="dv-kind">investigation — a question, not a finding</span></div>
+    <h4>${esc(i.question)}</h4>
+    <p class="dv-why">${esc(i.why)}</p>
+    ${i.observed_change && i.observed_change.measures
+      ? dvIntensity(i.observed_change)
+      : i.observed_change ? `<p class="dv-note"><b>${esc(dvNum(i.observed_change.from_value,
+          i.observed_change.unit))}</b> (${esc(i.observed_change.from_period)}) →
+          <b>${esc(dvNum(i.observed_change.to_value, i.observed_change.unit))}</b>
+          (${esc(i.observed_change.to_period)}), ${esc(dvPct(i.observed_change.change))}.
+          Source: ${esc(i.observed_change.source)}.</p>` : ""}
+    <p class="dv-prov"><i>Generated from</i> ${esc(i.generated_from)}.
+      <i>Would advance when</i> ${esc(i.advancement_criterion)}.</p>
+    ${(i.research_tasks || []).length ? `<div class="sec">Evidence needed</div>
+      <div class="dv-tasks">${i.research_tasks.map(t => dvTask(t, lensId)).join("")}</div>` : ""}
+    ${i.decision ? dvDecision(i.decision) : ""}</div>`;
+}
+
+function dvTask(t, lensId) {
+  const d = t.declared_by_lens ? (dvDecl(lensId, t.dimension) || {}).research_task || {} : t;
+  const req = t.satisfies ? (DEVP.vocabulary.advancement_requirements || {})[t.satisfies] : null;
+  return `<div class="dv-task"><b>${esc(d.missing_measurement || t.dimension)}</b>
+    ${kv({ "Why it matters": d.why_it_matters, "Plausible source": d.plausible_source,
+      "Who could help": d.who_could_help,
+      "Decision it would support": d.decision_it_would_support,
+      "Would satisfy": req })}</div>`;
+}
+
+/* ---- the sector selector. A sector with no measurement says so ON THE CHIP, because a tab
+   that looks like the others tells the reader something is behind it. */
+function dvSectorRow(pid, cur, st) {
+  const C = dvCounty(pid);
+  return `<div class="dv-sectors">${(DEVP.lenses || []).map(l => {
+    const s = C && C.sectors[l.id];
+    const cov = (s && s.coverage) || { OBSERVED: 0 };
+    const none = !cov.OBSERVED;
+    return `<span class="dv-sector${l.id === cur ? " on" : ""}${none ? " none" : ""}"
+      data-go='${ivGo(pid, "development", { ...st, lens: l.id })}'>${esc(l.label)}
+      <i>${none ? "no measurement" : cov.OBSERVED + " observed"}</i></span>`;
+  }).join("")}</div>`;
+}
+
+/* Whose side a demand figure is measured from. Counted from the cells rather than written:
+   if a buyer-reported measure ever arrives for a sector, this notice disappears by itself. */
+function dvWhoReported(dem) {
+  const obs = dem.filter(c => c.state === "OBSERVED");
+  if (!obs.length) return "";
+  const buyer = obs.filter(c => c.concept
+    && c.concept.transaction_role === "BUYER_REPORTED").length;
+  if (buyer) return `<p class="dv-note">${buyer} of ${obs.length} observed demand measures
+    ${buyer === 1 ? "is" : "are"} reported by the party BUYING.</p>`;
+  return `<p class="dv-note"><b>No measure in this column is reported by a buyer.</b> Every
+    observed figure here is reported by the SELLER or is a count of sellers, which is why none
+    of them establishes what anyone purchased. Each cell says so.</p>`;
+}
+
+function viewDevelopment(p, r) {
+  const C = dvCounty(r.pid), st = ivState(r), IC = ivg(r.pid);
+  if (!C) return `<div class="card"><h2>No development record</h2>
+    <p class="sw-note">This county is not in the 33-county registry the development model is
+    built from.</p></div>`;
+  const lensId = (C.sectors[st.lens] ? st.lens : null)
+    || (DEVP.lenses.find(l => (C.sectors[l.id].coverage.OBSERVED || 0) > 0) || DEVP.lenses[0]).id;
+  const s = C.sectors[lensId], L = dvLens(lensId), cov = s.coverage;
+  const bothSides = (cov.sides_observed || []).length === 2;
+  const sup = s.supply, dem = s.demand;
+  return `<div class="card iv2">${IC ? ivHead(IC, "development", st, r.pid) : ""}
+    <div class="dv">
+      <section class="dv-intro">
+        <h2>Development</h2>
+        <p class="dv-lede">${esc(DEVP.what_this_is)}</p>
+        ${dvSectorRow(r.pid, lensId, st)}
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h1">${esc(L.label)} in ${esc(PNAME(r.pid))}</div>
+        <p class="dv-asks">${esc(L.asks)}</p>
+        <div class="dv-cov">
+          <span class="dv-st s">${cov.OBSERVED} observed</span>
+          <span class="dv-st w">${cov.PROXIED} proxy</span>
+          <span class="dv-st u">${cov.NOT_OBSERVED} not observed</span>
+          <span class="dv-both ${bothSides ? "yes" : "no"}">${bothSides
+            ? "both sides of the sector are measured"
+            : cov.sides_observed.length
+              ? `only the ${esc(cov.sides_observed.join(" and ").toLowerCase())} side is measured`
+              : "nothing in this sector is measured here"}</span>
+        </div>
+        ${L.governance_note ? `<p class="dv-gov">${esc(L.governance_note)}</p>` : ""}
+        ${cov.OBSERVED ? `<p class="dv-why"><b>What is established here:</b>
+          ${sup.concat(dem).filter(c => c.state === "OBSERVED")
+            .map(c => esc(String(c.quantity).toLowerCase()) + " ("
+              + esc(dvNum(c.value, c.unit)) + ", " + esc(c.period) + ")").join("; ")}.
+          ${cov.PROXIED ? `${cov.PROXIED} further dimension(s) are covered only by a declared
+          proxy, which is not a measurement of what it describes. ` : ""}Nothing else in this
+          sector is measured for this county.</p>` : ""}
+        ${!cov.OBSERVED ? `<p class="dv-empty"><b>No measurement exists for this sector in this
+          county.</b> There is no development opportunity to report — not because there is none,
+          but because nothing here has been measured. What follows is the research that would
+          establish a baseline.</p>` : ""}
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">Supply and demand — the observed conditions
+          <span class="dv-ct">${s.observed_conditions.length}</span></div>
+        <p class="dv-note">These are separate columns on purpose. Of the money-denominated
+        series Dula holds, two measure a purchase, and both are the producer's side of one.
+        <b>No supply figure is subtracted from any demand figure anywhere on this page:</b> the
+        registry that would license such a subtraction holds
+        ${DEVP.registries.licensed_subtractions.count} entries.</p>
+        <div class="dv-sides">
+          <div><div class="dv-side-h">Supply — what is produced, and the capacity to produce it</div>
+            ${sup.map(c => dvCell(c, lensId)).join("")}</div>
+          <div><div class="dv-side-h">Demand — what is actually purchased</div>
+            ${dvWhoReported(dem)}
+            ${dem.map(c => dvCell(c, lensId)).join("")}</div>
+        </div>
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">Development investigations
+          <span class="dv-ct">${s.investigations.length}</span></div>
+        <p class="dv-note">Each is a question generated by a rule from the observations above,
+        with one decision attached. None is a finding and none is a recommendation.</p>
+        ${s.investigations.map(i => dvInvestigation(i, lensId)).join("")}
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">Intervention pathways</div>
+        ${(() => {
+          const ds = s.decision_summary;
+          if (!ds.categories_listed) return `<p class="dv-note">No intervention category applies
+            to this sector here. With nothing measured there is nothing to intervene in, and the
+            work is measurement.</p>`;
+          return `<div class="dv-ladder">${Object.entries(DEVP.vocabulary.intervention_levels)
+            .map(([lv, L]) => {
+              const n = lv === "0" ? ds.categories_listed
+                : lv === "1" ? s.investigations.reduce((a, i) =>
+                    a + i.decision.counts.candidates, 0)
+                : lv === "2" ? ds.pathways_supported : ds.validated_for_implementation;
+              return `<div class="dv-rung${n ? " on" : ""}"><b>${n}</b>
+                <span>${esc(L.name.replace(/_/g, " ").toLowerCase())}</span>
+                <i>${esc(L.means)}</i></div>`;
+            }).join("")}</div>
+          <p class="dv-note">${ds.pathways_supported === 0
+            ? `Nothing has been promoted past CANDIDATE for this sector. Promotion needs a
+               measurement on both sides, the investigation's own evidence obtained and
+               recorded, and a constraint named on the record by someone who trades in this
+               market — and that last one Dula holds for no county. The decision attached to
+               each investigation above names the gates that were not met.`
+            : `${ds.pathways_supported} pathway(s) have cleared every gate and can be
+               investigated against each other. Each is still a pathway and not a plan.`}</p>`;
+        })()}
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">Next steps</div>
+        <p class="dv-note">${s.decision_summary.pathways_supported === 0
+          ? `No intervention pathway is supported by the evidence for this sector, so the next
+             steps are research and relationships rather than investment.`
+          : `${s.decision_summary.pathways_supported} pathway(s) are supported well enough to
+             investigate against each other.`}</p>
+        <div class="dv-tasks">${dem.concat(sup).filter(c => c.state === "NOT_OBSERVED")
+          .map(c => dvTask({ declared_by_lens: true, dimension: c.dimension }, lensId))
+          .join("") || `<p class="sw-note">Every dimension of this sector is measured here.</p>`}
+        </div>
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">What this page refuses to say</div>
+        <ul class="dv-ref">
+          <li>No market size, margin, investment requirement, return or customer commitment
+            appears here. No held measurement supports one.</li>
+          <li>A difference between a measured quantity and an absent one is not a gap. It is one
+            number and one absence.</li>
+          <li>${esc(DEVP.registries.field_evidence.means)}</li>
+          <li>${esc(DEVP.registries.implementation_reviews.means)}</li>
+        </ul>
+      </section>
+
+      <section class="dv-sec">
+        <div class="dv-h2">The layers this view replaced</div>
+        <p class="dv-note">Development strategies and Opportunities were separate views over
+        different layers. Both are kept, inside this one, so nothing published earlier
+        disappeared.</p>
+        ${det("Earlier development strategies for this county (county-level, not by sector)",
+          dvLegacyStrategies(r, st))}
+        ${det("Earlier opportunity scan for this county", dvLegacyOpportunities(p, r))}
+      </section>
+    </div></div>`;
+}
+
+function dvLegacyStrategies(r, st) {
+  const C = ivg(r.pid);
+  const list = (C && C.strategies) || [];
+  if (!list.length) return `<p class="sw-note">The conditions present here did not support a
+    strategy comparison in that layer. That is a statement about the evidence, not the county.</p>`;
+  return `<p class="sw-note">Generated county-wide, before the sector model existed. One method
+    read every county's own rows and reported the conditions it found, so the same question
+    surfaces in several counties and none was worked through by hand.</p>`
+    + list.map(x => `<div class="iv-strat"><div class="iv-sk">${esc(x.key)}</div>
+      <div class="iv-sb"><b>${esc(x.name)}</b>
+        <p><i>Addresses</i> ${esc(x.addresses)}</p><p><i>Evidence</i> ${esc(x.evidence)}</p>
+        <p><i>Falsified by</i> ${esc(x.falsified_by)}</p>
+        <p class="iv-cap"><i>Capital</i> ${esc(x.capital)}</p></div></div>`).join("");
+}
+
+function dvLegacyOpportunities(p, r) {
+  const E = (ECPL.places || {})[r.pid];
+  if (!E || E.unavailable || !placeData(r.pid))
+    return `<p class="sw-note">No opportunity scan is held for this county.</p>`;
+  try { return viewOpportunities(p, { ...r, mode: "opportunities" }, E); }
+  catch (e) { return `<p class="sw-note">The earlier opportunity scan could not be rendered for
+    this county.</p>`; }
 }
 
 function viewIvScenario(p, r) {
@@ -4867,11 +5257,11 @@ function renderBody() {
       /* A county the 11-county model never covered still has an anatomy, built from its own
          evidence by the statewide model. It is not an unavailable page. */
       const swOnly = !PLACES.places[r.pid] && SW.counties && SW.counties[r.pid];
-      const IV4 = ["anatomy", "relationships", "strategies", "scenario"];
+      const IV4 = ["anatomy", "relationships", "development", "scenario"];
       const body = IV4.includes(_m)
           ? (_m === "anatomy" ? viewIvAnatomy(p, rr)
              : _m === "relationships" ? viewIvRelationships(p, rr)
-             : _m === "strategies" ? viewIvStrategies(p, rr) : viewIvScenario(p, rr))
+             : _m === "development" ? viewDevelopment(p, rr) : viewIvScenario(p, rr))
         : swOnly ? viewIvAnatomy(p, { ...rr, mode: "anatomy" })
         : !E || E.unavailable ? placeLabor(p, true)
         : _m === "system" ? viewSystem(p, rr, E)
@@ -4880,6 +5270,7 @@ function renderBody() {
           : _m === "statewide" ? viewStatewide(p, rr, E)
           : _m === "anatomy" ? viewIvAnatomy(p, rr)
           : _m === "relationships" ? viewIvRelationships(p, rr)
+          : _m === "development" ? viewDevelopment(p, rr)
           : _m === "strategies" ? viewIvStrategies(p, rr)
           : _m === "scenario" ? viewIvScenario(p, rr)
             : _m === "constraints" ? viewConstraints(p, rr, E)
