@@ -1,0 +1,1191 @@
+{
+ "artefact": "DOWNTOWN-ABQ-OS",
+ "generated_by": "pipeline/downtown_os_publish.py",
+ "inputs": {
+  "web/product/statewide.json": "d7aef445d87efe744e371051fa2b61b02bfef2215cb0eee68c787e89f56310e5",
+  "downtown_os/copy.json": "c41951c85145ab16e12546b17cca447fcaa0b02db1a518cab97ac9e9ca20415c",
+  "downtown_os/approvals.json": "2b3548e272ffd4f1e4d8e7e71c6d16be2a3621515c4790e1b6792ff725d31d36",
+  "downtown_os/opportunities.json": "7e252263c579f6f654b371f1e7bf7d9941f4b57cebc66ada8ebbe41ba2df8e5d",
+  "pipeline/dev_templates/farm_shop.json": "1af7be4fd629dc7646670b6372aff40726d3a2bdbf79603de098841982eb23b6",
+  "data/acquired/nass_census_of_ag_35001/MANIFEST.json": "64fd4c4fbb07d9515504aac47fd59a8b274b984ac1c026d3b686c004f6213f9d"
+ },
+ "copy_approved": true,
+ "ui": {
+  "brand": "Dula",
+  "limits_heading": "What this site does not establish",
+  "status": {
+   "understand": "{figures} county figures · {downtown} Downtown measurements",
+   "develop": "{stages} stages · {opportunities}",
+   "invest": "{structures} structures · {decisions} capital decisions published",
+   "learn": "{baselines} baselines published"
+  },
+  "back_overview": "Overview",
+  "figure_rows": {
+   "unit": "Unit",
+   "period": "Period",
+   "source": "Source",
+   "vintage": "Vintage",
+   "universe": "Universe",
+   "basis": "Basis",
+   "provenance": "Provenance"
+  },
+  "provenance_note": "recorded in the {source} source manifest",
+  "limits": "Limits",
+  "structure_kicker": "Structure",
+  "structure_unanswered": "None of these has been answered for a Downtown opportunity.",
+  "not_found": "That page is not part of this site.",
+  "vintage_label": "Data vintage.",
+  "draft_prefix": "Prototype draft, not yet approved for publication:",
+  "approval_items": {
+   "copy": "the editorial text",
+   "county:35001": "the use of Bernalillo County figures here",
+   "opportunity": "the opportunity “{title}”",
+   "signal": "the signal “{title}”"
+  },
+  "status_chips": {
+   "OBSERVED": "Observed",
+   "ASSUMED": "Assumed",
+   "ABSENT": "Absent",
+   "NOT_ESTABLISHED": "Not established",
+   "PROPOSED": "Proposed",
+   "RESEARCH": "Research needed",
+   "MODELLED": "Modelled from assumptions"
+  },
+  "thread": {
+   "label": "Follow an example",
+   "intro": "Each example runs from the evidence, through the opportunity and what financing it would need, to what would have to happen before anything could be measured.",
+   "steps": {
+    "signal": "Signal",
+    "opportunity": "Opportunity",
+    "capital": "Capital needs",
+    "measurement": "Measurement"
+   },
+   "next": "Next",
+   "back_to_start": "Back to the start",
+   "start": "Start"
+  },
+  "counts": {
+   "opportunities": {
+    "0": "no opportunity published",
+    "1": "1 opportunity",
+    "n": "{n} opportunities"
+   }
+  },
+  "record_status": {
+   "ILLUSTRATIVE_RESEARCH_EXAMPLE": "Illustrative research example — not a confirmed investment, partner arrangement or operating project"
+  },
+  "signal": {
+   "tile_note": "A signal under investigation, not a finding.",
+   "heading": "What the census shows",
+   "columns": {
+    "value": "Value",
+    "count": "Count",
+    "ratio": "Value per counted unit"
+   },
+   "comparison_note": "Read the earlier and later values, not only the change: large percentage changes can start from small numbers.",
+   "reading_heading": "The investigation's reading",
+   "caveats_heading": "What the source itself warns",
+   "related_heading": "Related investigations",
+   "decision_heading": "Where the investigation stands",
+   "would_advance": "What would advance it:",
+   "responded_label": "Opportunities investigating this signal",
+   "responded_none": "No published opportunity responds to this signal."
+  },
+  "opportunity": {
+   "objective_label": "Objective, as recorded:",
+   "stages_heading": "Where the example stands",
+   "questions_heading": "The questions a funder would ask",
+   "questions": {
+    "what": "What is proposed?",
+    "why": "Why might it matter here?",
+    "how": "How would it work?",
+    "blocking": "What is in the way?",
+    "support": "What support would it need?",
+    "funder": "Why might a funder consider it?",
+    "measure": "How would success be measured?"
+   },
+   "fallback_answers": {
+    "what": "Proposed.",
+    "why": "Not established.",
+    "how": "Not established.",
+    "blocking": "What the model looked for and could not find.",
+    "support": "Research that would close the gaps, with where the answer could come from.",
+    "funder": "Not established.",
+    "measure": "Not established.",
+    "support_none": "No research agenda is recorded.",
+    "blocking_none": "Not established."
+   },
+   "how_structures": "Structures that exist; none has been chosen for this example.",
+   "assumption_attribution": "asserted by the example's author, in a local research workspace, on {date}",
+   "evidence_heading": "The evidence",
+   "evidence_withheld": "Held, but not shown",
+   "evidence_context": "County context: each is on the Understand page, shown there or held back with its reason",
+   "organisations_heading": "Who is present",
+   "organisations_count": "{count} organisations appear in a public registry for this sector and county. That is what the registry says, and nothing more. None is a customer, partner, investor or participant.",
+   "not_established_heading": "What this does not establish",
+   "agenda_columns": {
+    "action": "To establish",
+    "source": "Plausible source",
+    "who": "Who could help",
+    "resolves": "Would resolve"
+   },
+   "invest_heading": "{title}: what financing would need",
+   "invest_no_figures": "No financing figure, instrument or return exists for this opportunity.",
+   "invest_needs_heading": "What this stage would need",
+   "invest_holds_heading": "What it holds toward it",
+   "invest_position_heading": "Where the investigations stand",
+   "invest_position": "{investigations} investigations · {pathways} pathways supported · {validated} validated for implementation",
+   "invest_not_worked": "The Invest stage has not been worked for this opportunity.",
+   "learn_heading": "{title}: what would have to happen before anything is measured",
+   "learn_attribution": "Nothing has been done, so no change can yet be attributed.",
+   "learn_holds_heading": "What is held",
+   "learn_holds": "{versions} versions of the evidence are kept in Dula's research workspace; they are not published here · {outcomes} outcome observations · {links} links from an intervention to an outcome",
+   "learn_move_heading": "What would move it on",
+   "learn_not_worked": "No outcome has been defined or observed for this opportunity.",
+   "withheld_unnamed": "An item held in Dula's research workspace",
+   "context_unlisted": "{n} further county figures in the plan match nothing published here and are not shown."
+  }
+ },
+ "title": "Downtown Albuquerque OS",
+ "subtitle": "How Dula approaches a place: understanding its economy, developing opportunities in it, preparing for the capital they would need, and learning from what happens.",
+ "not_established": [
+  "No figure on this site measures Downtown Albuquerque. Downtown has not yet been defined as a measurable area, and the published model is organised by county.",
+  "No business or nonprofit is named here, and none has agreed to anything. Public agencies appear only as holders of public records.",
+  "No project, capital commitment, financial return or outcome is reported here."
+ ],
+ "sections": {
+  "understand": {
+   "title": "Understand",
+   "question": "What is happening in the economy, what is known, and where is the evidence incomplete?",
+   "lede": "Understanding starts from published public statistics, and it says plainly what they cover. The finest geography Dula's published model holds for Albuquerque today is Bernalillo County.",
+   "county_heading": "Bernalillo County",
+   "county_note": "These describe the whole county, which extends well beyond Downtown. They are context for Downtown. They are not measurements of it.",
+   "downtown_heading": "Downtown itself",
+   "downtown_text": "Every economic figure on this site describes Bernalillo County as a whole, not Downtown Albuquerque. Downtown has not been defined as a measurable area, and no Downtown-specific measurement has been established.",
+   "withheld_heading": "Held, but not shown here",
+   "withheld_text": "Dula publishes a figure only if the file it came from is recorded, with a checksum, in a provenance manifest. These county figures are in the model but fail that test in this build, so they are left out instead of being shown without a source.",
+   "signals_heading": "Signals under investigation",
+   "county": {
+    "geoid": "35001",
+    "name": "Bernalillo County",
+    "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+    "figures": [
+     {
+      "key": "gdp_current",
+      "label": "GDP, current dollars",
+      "value": 54831086000.0,
+      "unit": "USD",
+      "source": "BEA CAGDP2, GDP by county and industry",
+      "reference_period": "2024",
+      "vintage": "BEA release of 5 February 2026 (new 2024; revised 2020-2023)",
+      "universe": "all industry total, current dollars",
+      "basis": "OBSERVED",
+      "limitations": [
+       "current dollars are NOT adjusted for inflation; a rise may be price, volume, or both"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bea_regional/MANIFEST.json#CAGDP2.zip"
+      ]
+     },
+     {
+      "key": "employment_total",
+      "label": "Total covered employment",
+      "value": 347440,
+      "unit": "jobs",
+      "source": "BLS QCEW, annual average",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "all UI-covered employment, private AND government, at the place of work",
+      "basis": "OBSERVED",
+      "limitations": [
+       "jobs, not people: a worker with two covered jobs is counted twice",
+       "excludes self-employment, most agricultural labour and some religious organisations",
+       "NOT comparable with Census CBP, which is a different universe"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "employment_private",
+      "label": "Private covered employment",
+      "value": 282400,
+      "unit": "jobs",
+      "source": "BLS QCEW, annual average, ownership 5",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "UI-covered private employment at the place of work",
+      "basis": "OBSERVED",
+      "limitations": [
+       "a component of total covered employment, not an alternative to it"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "employment_government",
+      "label": "Government covered employment",
+      "value": 65039,
+      "unit": "jobs",
+      "source": "BLS QCEW, annual average, ownerships 1+2+3",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "UI-covered government employment at the place of work",
+      "basis": "CALCULATED",
+      "limitations": [
+       "QCEW annual averages are means of twelve rounded monthly levels, so ownership components need not sum exactly to the published total"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "government_share",
+      "label": "Government share of covered employment",
+      "value": 0.1872,
+      "unit": "share",
+      "source": "BLS QCEW",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "UI-covered employment at the place of work",
+      "basis": "CALCULATED",
+      "limitations": [
+       "a share within one universe; it is not a share of all work done in the county"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "wages_total",
+      "label": "Total covered wages",
+      "value": 22059918766,
+      "unit": "USD",
+      "source": "BLS QCEW, annual",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "all UI-covered wages, private and government",
+      "basis": "OBSERVED",
+      "limitations": [
+       "NOMINAL dollars, not adjusted for inflation",
+       "wages paid at the place of work, not income received by residents"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "avg_annual_pay",
+      "label": "Average annual pay per covered job",
+      "value": 63493,
+      "unit": "USD per job",
+      "source": "BLS QCEW, annual",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "all UI-covered employment",
+      "basis": "OBSERVED",
+      "limitations": [
+       "a mean, not a median: a few very high salaries raise it",
+       "per JOB, not per worker or per household"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     },
+     {
+      "key": "establishments_qcew",
+      "label": "Establishments (QCEW)",
+      "value": 22948,
+      "unit": "establishments",
+      "source": "BLS QCEW, annual average",
+      "reference_period": "2024",
+      "vintage": "QCEW annual averages for 2024",
+      "universe": "UI-covered establishments, private and government",
+      "basis": "OBSERVED",
+      "limitations": [
+       "a different universe from Census County Business Patterns; the two are not alternative estimates and must not be combined"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
+      ]
+     }
+    ],
+    "withheld": [
+     {
+      "label": "Population",
+      "source": "Census ACS 5-year, table B01001",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Population change since the 2019 release",
+      "source": "Census ACS 5-year, table B01001",
+      "reference_period": "2015-2019 to 2020-2024",
+      "why": "no provenance manifest records ACS for 2015-2019 to 2020-2024"
+     },
+     {
+      "label": "Real GDP, chained 2017 dollars",
+      "source": "BEA CAGDP9, real GDP by county and industry",
+      "reference_period": "2024",
+      "why": "no provenance manifest records CAGDP9 for 2024"
+     },
+     {
+      "label": "Implicit price index for county output (2017 = 100)",
+      "source": "BEA CAGDP2 and CAGDP9",
+      "reference_period": "2024",
+      "why": "no provenance manifest records CAGDP9 for 2024"
+     },
+     {
+      "label": "Establishments (Census CBP)",
+      "source": "Census County Business Patterns",
+      "reference_period": "2023",
+      "why": "no provenance manifest records County Business Patterns for 2023"
+     },
+     {
+      "label": "Private employment (Census CBP)",
+      "source": "Census County Business Patterns",
+      "reference_period": "2023",
+      "why": "no provenance manifest records County Business Patterns for 2023"
+     },
+     {
+      "label": "Median household income",
+      "source": "Census ACS 5-year, table B19013",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Poverty rate",
+      "source": "Census ACS 5-year, table B17020",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Housing units",
+      "source": "Census ACS 5-year, table B25001",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Median home value",
+      "source": "Census ACS 5-year, table B25077",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Median gross rent",
+      "source": "Census ACS 5-year, table B25064",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Median rent as a share of median household income",
+      "source": "Census ACS 5-year, tables B25064 and B19013",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     },
+     {
+      "label": "Median home value as a multiple of median income",
+      "source": "Census ACS 5-year, tables B25077 and B19013",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+     }
+    ],
+    "approved": true
+   },
+   "downtown": {
+    "measurements_published": 0,
+    "boundary_published": false
+   }
+  },
+  "develop": {
+   "title": "Develop",
+   "question": "How does Dula research and develop an opportunity?",
+   "lede": "Dula takes an opportunity through stages, and at each one it says what is known, what is assumed and what is missing.",
+   "stages": [
+    {
+     "key": "CONCEPT",
+     "label": "Concept",
+     "question": "What are we trying to create, for whom, and why?",
+     "dula_can": "describe the economy, name who is present, state what is unmeasured, and set out the structures that exist"
+    },
+    {
+     "key": "FEASIBILITY",
+     "label": "Feasibility",
+     "question": "Could a particular building or site support the proposed uses?",
+     "dula_can": "supply the surrounding economy and the declared absences. Property-level information—including available buildings, vacancies, lease rates, and site conditions—is not yet included"
+    },
+    {
+     "key": "INVESTMENT_READY",
+     "label": "Investment ready",
+     "question": "Are the economics, approvals, participants and financing sufficiently established?",
+     "dula_can": "record decisions, confirmed commitments and their evidence. It establishes none of them on its own"
+    }
+   ],
+   "stages_note": "An idea can stop at any stage, and stopping is a result, not a failure. A stage that has not been worked is shown as not worked.",
+   "evidence_heading": "How every statement is marked",
+   "evidence": [
+    {
+     "basis": "OBSERVATION",
+     "means": "read from a named public source"
+    },
+    {
+     "basis": "ASSUMPTION",
+     "means": "chosen by a person, attributed to them, and never treated as a fact"
+    },
+    {
+     "basis": "ABSENT",
+     "means": "looked for and not found, said out loud"
+    }
+   ],
+   "stage_can_label": "What Dula can do at this stage:",
+   "opportunities_heading": "Opportunities",
+   "opportunities_empty": "No opportunity is published yet."
+  },
+  "invest": {
+   "title": "Invest",
+   "question": "What could an opportunity's structure be, what would each ask of capital, and who would have to coordinate?",
+   "lede": "This section describes the kinds of structure an enterprise can take and what each one means for capital. It is not an offering, and it reports no transactions.",
+   "structures_heading": "Structures that exist",
+   "structures_note": "This is a list of structures that exist. It does not compare them and does not recommend any of them.",
+   "questions_heading": "What every structure has to answer",
+   "questions": {
+    "owns_the_assets": "Who owns the assets?",
+    "operates_the_activity": "Who operates the activity?",
+    "bears_operating_risk": "Who bears the operating risk?",
+    "supplies_the_capital": "Who supplies the capital?",
+    "buys_the_output": "Who buys the output?",
+    "how_revenue_is_generated": "How is revenue generated?",
+    "how_costs_are_shared": "How are costs shared?",
+    "capabilities_to_develop": "What capabilities have to be developed?",
+    "if_demand_is_insufficient": "What happens if demand is insufficient?"
+   },
+   "recorded_heading": "Published so far",
+   "recorded_text": "This site publishes no capital decision, commitment or transaction for Downtown.",
+   "opportunities_heading": "What each opportunity's financing would need",
+   "structures": [
+    {
+     "key": "EXISTING_EXPANSION",
+     "means": "an operating business serves additional demand"
+    },
+    {
+     "key": "NEW_ENTERPRISE",
+     "means": "a new company is formed to do it"
+    },
+    {
+     "key": "COOPERATIVE",
+     "means": "the producers or users own and govern the activity"
+    },
+    {
+     "key": "SHARED_LOGISTICS",
+     "means": "existing businesses share an operation without a new owner"
+    },
+    {
+     "key": "BUYER_COORDINATED",
+     "means": "a buyer organises or underwrites the supply it needs"
+    },
+    {
+     "key": "SHARED_FACILITY",
+     "means": "a public or philanthropic owner provides an asset others operate through"
+    },
+    {
+     "key": "ACQUISITION",
+     "means": "an existing capability changes hands rather than being rebuilt"
+    },
+    {
+     "key": "COORDINATED_PURCHASING",
+     "means": "buyers combine demand without anyone producing anything new"
+    }
+   ],
+   "question_keys": [
+    "owns_the_assets",
+    "operates_the_activity",
+    "bears_operating_risk",
+    "supplies_the_capital",
+    "buys_the_output",
+    "how_revenue_is_generated",
+    "how_costs_are_shared",
+    "capabilities_to_develop",
+    "if_demand_is_insufficient"
+   ],
+   "capital_decisions_published": 0
+  },
+  "learn": {
+   "title": "Learn",
+   "question": "What would be measured, what baseline exists, and how would observed change be told apart from impact?",
+   "lede": "Learning needs three things in place before anything happens: an outcome someone has agreed to, an indicator with a baseline, and a way to tell change that was caused apart from change that would have happened anyway.",
+   "chain_heading": "From change to impact",
+   "chain": [
+    {
+     "step": "Observed change",
+     "means": "an indicator moved, measured against its baseline"
+    },
+    {
+     "step": "Contribution",
+     "means": "a documented link from something that was done to that change"
+    },
+    {
+     "step": "Attributable impact",
+     "means": "the part of the change that would not have happened otherwise, judged by someone independent of the work"
+    }
+   ],
+   "baseline_heading": "Baselines",
+   "baseline_text": "No Downtown indicator baseline is published here yet. Until one is, any later movement can be reported as change but not as impact.",
+   "capability_heading": "What Dula's research does today",
+   "capability_text": "Dula's research records each published figure's source, geography and period. It marks statements as observed, calculated, modelled, assumed or absent, and on this site it refuses to show a county figure as a Downtown one.",
+   "proposal_heading": "A proposed low-burden approach",
+   "proposal_text": "For Downtown, Dula proposes to measure outcomes first from public sources that already exist, and to ask partners for new data only where nothing public answers the question, naming those requests in advance. This is a proposal. It has not been operated in Downtown.",
+   "opportunities_heading": "What each opportunity would need before anything is measured",
+   "indicators_with_baseline": 0
+  }
+ },
+ "signals": [
+  {
+   "id": "INV-90357ed32f",
+   "title": "How Bernalillo County's farms sold, 2017 and 2022",
+   "geoid": "35001",
+   "county": "Bernalillo",
+   "lens": "Food & Agriculture",
+   "origin_means": "carried from the Atlas, with its assessment intact",
+   "question": "How did food & agriculture sales per reporting operation change between 2017 and 2022, and what explains it?",
+   "reading": "TWO OBSERVATIONS ARE NOT A TREND and do not identify a cause. market value of ag products sold +72.7% with -22.8% farm operations, so +123.5% per reporting unit; direct-to-consumer sales +8.1% with -35.2% operations selling direct to consumers, so +66.9% per reporting unit; sales to retailers, institutions & food hubs (local/regional brand) +2211.2% with +119.0% operations selling to retailers, institutions & food hubs, so +955.1% per reporting unit. Dividing the value by the operations that reported it separates PARTICIPATION from TRANSACTION SIZE — more sellers selling less is a different condition from fewer sellers selling more, and the two call for different work. It does NOT separate price from quantity. A FIGURE PER REPORTING OPERATION IS AN AGGREGATE RATIO, NOT AN INDIVIDUAL OUTCOME. It is a total divided by a count. A fall in it is consistent with patterns in which no single operation's sales fell — for example if the operations that joined the channel are smaller than the ones already in it. The publisher reports no distribution for this measure, so which pattern produced the movement is unknown. These are NOMINAL dollars. No deflator has been applied, so a movement in this figure is not a movement in real production or in volume: part of any change is price, and the published value does not separate the two.",
+   "decision": "Investigate — intervention not yet selected",
+   "would_advance": "the value change separated into price and quantity, the distribution behind the per-operation averages, and a constraint named by a market participant. A movement in a reported value is not a diagnosis.",
+   "source": "USDA NASS, Census of Agriculture 2017 and 2022",
+   "table": "NASS",
+   "periods": [
+    "2017",
+    "2022"
+   ],
+   "provenance": [
+    "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2017_35001.tsv",
+    "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+   ],
+   "caveats": [
+    "(D) = withheld to avoid disclosing individual operations; (Z) = less than half the unit; (NA) not available",
+    "Census counts operations by principal county of operation, not by where land lies",
+    "Census year 2022 data reflect calendar 2022 activity; 2022 was a severe drought year in northern NM"
+   ],
+   "measures": [
+    {
+     "key": "all_sales",
+     "value": [
+      9317000,
+      16086000
+     ],
+     "count": [
+      1248,
+      964
+     ],
+     "rows": [
+      "COMMODITY TOTALS - SALES, MEASURED IN $",
+      "FARM OPERATIONS - NUMBER OF OPERATIONS"
+     ],
+     "value_change_pct": 72.7,
+     "count_change_pct": -22.8,
+     "ratio_change_pct": 123.5,
+     "label": "All agricultural sales"
+    },
+    {
+     "key": "direct_to_consumer",
+     "value": [
+      332000,
+      359000
+     ],
+     "count": [
+      142,
+      92
+     ],
+     "rows": [
+      "COMMODITY TOTALS, INCL VALUE-ADDED, RETAIL, DIRECTLY MARKETED, HUMAN CONSUMPTION - SALES, MEASURED IN $",
+      "COMMODITY TOTALS, INCL VALUE-ADDED, RETAIL, DIRECTLY MARKETED, HUMAN CONSUMPTION - OPERATIONS WITH SALES"
+     ],
+     "value_change_pct": 8.1,
+     "count_change_pct": -35.2,
+     "ratio_change_pct": 66.9,
+     "label": "Direct to consumers"
+    },
+    {
+     "key": "retail_institutions_food_hubs",
+     "value": [
+      152000,
+      3513000
+     ],
+     "count": [
+      21,
+      46
+     ],
+     "rows": [
+      "COMMODITY TOTALS, INCL VALUE-ADDED, WHOLESALE, DIRECT TO RETAILERS & INSTITUTIONS & FOOD HUBS, LOCAL OR REGIONALLY BRANDED PRODUCTS, HUMAN CONSUMPTION - SALES, MEASURED IN $",
+      "COMMODITY TOTALS, INCL VALUE-ADDED, WHOLESALE, DIRECT TO RETAILERS & INSTITUTIONS & FOOD HUBS, LOCAL OR REGIONALLY BRANDED PRODUCTS, HUMAN CONSUMPTION - OPERATIONS WITH SALES"
+     ],
+     "value_change_pct": 2211.2,
+     "count_change_pct": 119.0,
+     "ratio_change_pct": 955.1,
+     "label": "To retailers, institutions and food hubs"
+    }
+   ],
+   "related": [
+    {
+     "id": "INV-5bc45a32d1",
+     "question": "What is the demand side of food & agriculture in this county, and can it be measured?",
+     "reading": "2 supply-side measurement(s) exist while 1 demand-side dimension(s) have none. A difference between a measured quantity and an absent one is not a gap, so no opportunity can be sized from this asymmetry.",
+     "decision": "Investigate — intervention not yet selected",
+     "would_advance": "a measurement of the unmeasured side. Until it exists, no intervention can be sized, sequenced or justified, and none should be proposed to a funder."
+    }
+   ],
+   "responded_to_by": [
+    "PLAN-e97cf1240a"
+   ],
+   "approved": true
+  }
+ ],
+ "opportunities": [
+  {
+   "plan_id": "PLAN-e97cf1240a",
+   "status": "ILLUSTRATIVE_RESEARCH_EXAMPLE",
+   "featured": true,
+   "title": "Farm Shop — an illustrative research example",
+   "objective": "develop Farm Shop, a year-round consignment retail outlet for local food producers",
+   "objective_kind": "SINGLE_PROJECT",
+   "geoids": [
+    "35001"
+   ],
+   "county": "Bernalillo",
+   "lenses": [
+    "Food & Agriculture"
+   ],
+   "display": {
+    "summary": "Read-only research, not a project: it has no approved plan, no organisation that has agreed to take part, no financing and no property, and its feasibility has not been worked. Its unfinished stages are shown as unfinished.",
+    "chips": [
+     "Bernalillo County",
+     "Food & Agriculture",
+     "Concept",
+     "Research, not a project"
+    ],
+    "location": "This research is scoped to Bernalillo County's food economy. No Downtown site or property has been identified.",
+    "answers": {
+     "what": "Proposed, as a development objective. Nothing has been built or operated.",
+     "why": "A change in how the county's farms sold between two census years, not a demonstrated need. Demand for what this would sell is not measured.",
+     "how": "Not established. Working this out is the next stage, and it would need the items below. One assumption is recorded, labelled as an assumption.",
+     "blocking": "Two things the model looked for and could not find, and what the investigation says is blocking it.",
+     "support": "Research that would close the gaps, with where the answer could come from.",
+     "funder": "Not established. The Invest stage has not been worked.",
+     "measure": "Not established. No outcome has been agreed, and nothing has been done that could be measured."
+    }
+   },
+   "development_stage": "CONCEPT",
+   "next_stage_needs": [
+    "a specific property with its characteristics",
+    "operating cost assumptions",
+    "likely users and what they would pay",
+    "regulatory and infrastructure constraints on that site"
+   ],
+   "stages": [
+    {
+     "stage": "understand",
+     "label": "Understand",
+     "state": "WORKED",
+     "why": "The research is at CONCEPT, and this is the stage CONCEPT answers.",
+     "dula_can": "describe the economy, name who is present, state what is unmeasured, and set out the structures that exist",
+     "what_the_workspace_holds": {
+      "observations": 28,
+      "declared_absences": 2,
+      "participant_assumptions": 1,
+      "organisations_present_in_model": 304,
+      "investigations_carried_from_the_atlas": 2,
+      "research_actions": 5,
+      "candidate_structures": 8
+     }
+    },
+    {
+     "stage": "develop",
+     "label": "Develop",
+     "state": "NOT_WORKED",
+     "why": "This research example stops at CONCEPT. Nothing in Dula's research workspace proposes an intervention, a partner, a property or a financial projection, and none has been written for the example.",
+     "dula_can": "supply the surrounding economy and the declared absences. Property-level information—including available buildings, vacancies, lease rates, and site conditions—is not yet included",
+     "what_this_stage_needs": [
+      "a specific property with its characteristics",
+      "operating cost assumptions",
+      "likely users and what they would pay",
+      "regulatory and infrastructure constraints on that site"
+     ],
+     "what_it_does_not_need": [
+      "committed financing",
+      "signed users"
+     ],
+     "what_would_move_it_on": [
+      "Establish: what schools, hospitals and government buy",
+      "Establish: food manufacturing capacity, by volume",
+      "Establish: the change separated into PRICE and QUANTITY",
+      "Establish: the distribution of transaction sizes WITHIN each channel, and who the buyers are",
+      "Establish: whether the same buyers purchased less, or different buyers purchased"
+     ],
+     "what_the_workspace_holds_toward_it": "the surrounding economy, the organisations present, and the declared absences. No property layer exists in Dula: no building stock, vacancy, lease rate or site characteristic, which is what this stage would need first."
+    },
+    {
+     "stage": "expand",
+     "label": "Expand",
+     "state": "NOT_WORKED",
+     "why": "This research example stops at CONCEPT. Nothing in Dula's research workspace proposes an intervention, a partner, a property or a financial projection, and none has been written for the example.",
+     "dula_can": "supply the surrounding economy and the declared absences. Property-level information—including available buildings, vacancies, lease rates, and site conditions—is not yet included",
+     "what_this_stage_needs": [
+      "a specific property with its characteristics",
+      "operating cost assumptions",
+      "likely users and what they would pay",
+      "regulatory and infrastructure constraints on that site"
+     ],
+     "what_it_does_not_need": [
+      "committed financing",
+      "signed users"
+     ],
+     "what_would_move_it_on": [
+      "Establish: what schools, hospitals and government buy",
+      "Establish: food manufacturing capacity, by volume",
+      "Establish: the change separated into PRICE and QUANTITY",
+      "Establish: the distribution of transaction sizes WITHIN each channel, and who the buyers are",
+      "Establish: whether the same buyers purchased less, or different buyers purchased"
+     ],
+     "what_the_workspace_holds_toward_it": "304 organisations recorded as PRESENT_IN_MODEL across 10 activity types. That is what public registries say is there. It is not a partner, a customer or a distribution agreement, and no relationship between any two of them is recorded."
+    },
+    {
+     "stage": "invest",
+     "label": "Invest",
+     "state": "NOT_WORKED",
+     "why": "This research example stops at CONCEPT. Nothing in Dula's research workspace proposes an intervention, a partner, a property or a financial projection, and none has been written for the example.",
+     "dula_can": "record decisions, confirmed commitments and their evidence. It establishes none of them on its own",
+     "what_this_stage_needs": [
+      "confirmed users or buyers",
+      "financing terms",
+      "approvals",
+      "governance and decision rights",
+      "recorded commitments from named parties"
+     ],
+     "what_it_does_not_need": [],
+     "what_would_move_it_on": [
+      "Establish: what schools, hospitals and government buy",
+      "Establish: food manufacturing capacity, by volume",
+      "Establish: the change separated into PRICE and QUANTITY",
+      "Establish: the distribution of transaction sizes WITHIN each channel, and who the buyers are",
+      "Establish: whether the same buyers purchased less, or different buyers purchased"
+     ],
+     "what_the_workspace_holds_toward_it": "nothing. There is no intervention to cost, no confirmed user, no financing term and no recorded commitment, so there is no portfolio to assemble and no return to compute. Dula's scenario tools have not been applied to it."
+    },
+    {
+     "stage": "learn",
+     "label": "Learn",
+     "state": "PARTIALLY_WORKED",
+     "why": "Evidence is attached and versioned in Dula's research workspace, where what the example knows can be audited; it is not published here. What is absent is any OUTCOME: nothing has been done here, so nothing has been observed to follow from it, and no intervention can be shown to have enabled another.",
+     "dula_can": null,
+     "what_would_move_it_on": [
+      "a recorded decision, so that something exists to trace an outcome back to",
+      "an observation taken after that decision, in the same place and measure",
+      "the link between them, recorded with its own evidence"
+     ],
+     "what_the_workspace_holds": {
+      "plan_versions": 3,
+      "evidence_attached": true,
+      "outcome_observations": 0,
+      "intervention_to_outcome_links": 0
+     }
+    }
+   ],
+   "claims": {
+    "shown": [
+     {
+      "claim_id": "assu-911f671f22",
+      "basis": "ASSUMPTION",
+      "tier": "DIRECT",
+      "statement": "One operating hypothesis to test is whether supplementary coffee sales could help cover operating costs. No demand, margins, or feasibility have been established.",
+      "qualifications": [],
+      "asserted_on": "2026-10-19"
+     },
+     {
+      "claim_id": "unce-13cb8e5d23",
+      "basis": "ABSENT",
+      "tier": "DIRECT",
+      "statement": "Food & Agriculture — food manufacturing capacity, by volume is not measured for Bernalillo.",
+      "qualifications": [
+       "aggregation and processing are the usual bottleneck between a farm and an institutional buyer"
+      ]
+     },
+     {
+      "claim_id": "unce-1f0983a36b",
+      "basis": "ABSENT",
+      "tier": "DIRECT",
+      "statement": "Food & Agriculture — what schools, hospitals and government buy is not measured for Bernalillo.",
+      "qualifications": [
+       "the demand-aggregation opportunity cannot be sized without it; counting caterers does not measure what institutions buy"
+      ]
+     },
+     {
+      "claim_id": "posi-cebf8a3fd0",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — market value of ag products sold: 16,086,000 USD (2022)",
+      "qualifications": [
+       "gross receipts, not farm income",
+       "the Census of Agriculture is quinquennial"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     },
+     {
+      "claim_id": "posi-c405f76fd5",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — farm operations: 964 operations (2022)",
+      "qualifications": [
+       "a COUNT OF REPORTING OPERATIONS. It is not a volume, a value or a capacity, and it says nothing about how large any operation is.",
+       "producer-reported: an operation is counted if it reported this channel, not if a buyer reported purchasing from it"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     },
+     {
+      "claim_id": "posi-01b401b077",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — direct-to-consumer sales: 359,000 USD (2022)",
+      "qualifications": [
+       "measured on the PRODUCER's side: it is what farms report selling direct, not what households report buying",
+       "covers only direct sales; it is not total household food spending"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     },
+     {
+      "claim_id": "posi-45b43207ba",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — sales to retailers, institutions & food hubs (local/regional brand): 3,513,000 USD (2022)",
+      "qualifications": [
+       "PRODUCER-SIDE. This is what farms report selling to retailers, institutions and food hubs. It is NOT total institutional purchasing, and the share bought from outside the county cannot be derived from it.",
+       "retailers, institutions and food hubs are combined in one figure and cannot be separated"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     },
+     {
+      "claim_id": "posi-3a5200eaaa",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — operations selling to retailers, institutions & food hubs: 46 operations (2022)",
+      "qualifications": [
+       "a COUNT OF REPORTING OPERATIONS. It is not a volume, a value or a capacity, and it says nothing about how large any operation is.",
+       "producer-reported: an operation is counted if it reported this channel, not if a buyer reported purchasing from it"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     },
+     {
+      "claim_id": "posi-4a61a3d8ed",
+      "basis": "OBSERVATION",
+      "tier": "DIRECT",
+      "statement": "Bernalillo County, food & agriculture — operations selling direct to consumers: 92 operations (2022)",
+      "qualifications": [
+       "a COUNT OF REPORTING OPERATIONS. It is not a volume, a value or a capacity, and it says nothing about how large any operation is.",
+       "producer-reported: an operation is counted if it reported this channel, not if a buyer reported purchasing from it"
+      ],
+      "source": "USDA NASS, 2022 Census of Agriculture",
+      "period": "2022",
+      "provenance": [
+       "data/acquired/nass_census_of_ag_35001/MANIFEST.json#census2022_35001.tsv"
+      ]
+     }
+    ],
+    "withheld": [
+     {
+      "claim_id": "posi-69ea27d636",
+      "basis": "OBSERVATION",
+      "source": "U.S. Census Bureau, County Business Patterns 2023",
+      "why": "no provenance manifest records County Business Patterns for 2023",
+      "statement_withheld": true
+     },
+     {
+      "claim_id": "posi-e7a4405c67",
+      "basis": "OBSERVATION",
+      "source": "Census ACS 5-year, table B19013",
+      "why": "no provenance manifest records ACS for this figure",
+      "statement_withheld": true
+     }
+    ],
+    "context": [
+     {
+      "claim_id": "posi-70877cdac3",
+      "label": "Population",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-098c0ad67d",
+      "label": "Population change since the 2019 release",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-67d6119c46",
+      "label": "GDP, current dollars",
+      "figure": "gdp_current"
+     },
+     {
+      "claim_id": "posi-7799d7ecd3",
+      "label": "Real GDP, chained 2017 dollars",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-39ccbb3c51",
+      "label": "Implicit price index for county output (2017 = 100)",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-280c03f7d0",
+      "label": "Total covered employment",
+      "figure": "employment_total"
+     },
+     {
+      "claim_id": "posi-243d323661",
+      "label": "Private covered employment",
+      "figure": "employment_private"
+     },
+     {
+      "claim_id": "posi-74094593d3",
+      "label": "Government covered employment",
+      "figure": "employment_government"
+     },
+     {
+      "claim_id": "posi-6403fcee02",
+      "label": "Government share of covered employment",
+      "figure": "government_share"
+     },
+     {
+      "claim_id": "posi-62c469e2cc",
+      "label": "Total covered wages",
+      "figure": "wages_total"
+     },
+     {
+      "claim_id": "posi-61669d15b7",
+      "label": "Average annual pay per covered job",
+      "figure": "avg_annual_pay"
+     },
+     {
+      "claim_id": "posi-250f7b5d7b",
+      "label": "Establishments (QCEW)",
+      "figure": "establishments_qcew"
+     },
+     {
+      "claim_id": "posi-5c4d702017",
+      "label": "Establishments (Census CBP)",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-f428f6e85f",
+      "label": "Private employment (Census CBP)",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-3215e48f22",
+      "label": "Poverty rate",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-1194fb8a9f",
+      "label": "Housing units",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-35298ce6c3",
+      "label": "Median home value",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-2c960880e6",
+      "label": "Median gross rent",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-f9ea570554",
+      "label": "Median rent as a share of median household income",
+      "figure": null
+     },
+     {
+      "claim_id": "posi-acc380a597",
+      "label": "Median home value as a multiple of median income",
+      "figure": null
+     }
+    ],
+    "context_unlisted": 0
+   },
+   "organisations": {
+    "count": 304,
+    "coverage": "Dula's organisation layer was acquired for a food-system study. Coverage of food-system organisations in this county is good; coverage of any other sector is close to nil. A short list here means Dula has not looked, not that the organisations do not exist."
+   },
+   "research_agenda": [
+    {
+     "action": "Establish: what schools, hospitals and government buy",
+     "plausible_source": "procurement records from school districts, hospitals and state agencies; NM Public Education Department food service reporting",
+     "who_could_help": "school district business offices; hospital supply chain managers; NM General Services Department",
+     "would_resolve": "whether a procurement commitment of a stated size is achievable"
+    },
+    {
+     "action": "Establish: food manufacturing capacity, by volume",
+     "plausible_source": "a facility inventory; state licensing records",
+     "who_could_help": "NM Environment Department; food hub operators",
+     "would_resolve": "whether an identified buyer requirement can be met without new processing"
+    },
+    {
+     "action": "Establish: the change separated into PRICE and QUANTITY",
+     "plausible_source": "NASS commodity price and production series; operation interviews",
+     "who_could_help": "USDA NASS; extension agents; producers",
+     "would_resolve": "whether the constraint is market access or production"
+    },
+    {
+     "action": "Establish: the distribution of transaction sizes WITHIN each channel, and who the buyers are",
+     "plausible_source": "NASS special tabulation by channel and sales class; food hub and distributor records, by agreement",
+     "who_could_help": "USDA NASS; food hub and distributor operators; institutional buyers",
+     "would_resolve": "whether a coordination intervention would reach the operations that actually moved"
+    },
+    {
+     "action": "Establish: whether the same buyers purchased less, or different buyers purchased",
+     "plausible_source": "interviews with the operations reporting this channel and the intermediaries they sell to",
+     "who_could_help": "producers; food hubs; retail and institutional buyers",
+     "would_resolve": "whether to work on retention or on new accounts"
+    }
+   ],
+   "structures_note": "a vocabulary of structures that exist, not a comparison and not a recommendation.",
+   "decision_position": {
+    "investigations": 3,
+    "pathways_supported": 0,
+    "validated_for_implementation": 0,
+    "blocking": [
+     "field evidence that names this intervention type as addressing the constraint",
+     "field research: interviews with producers, buyers and intermediaries, recorded against this county and sector",
+     "obtaining the evidence the investigation's research tasks name, and recording it against this county and sector"
+    ]
+   },
+   "invest": {
+    "stage": "invest",
+    "label": "Invest",
+    "state": "NOT_WORKED",
+    "why": "This research example stops at CONCEPT. Nothing in Dula's research workspace proposes an intervention, a partner, a property or a financial projection, and none has been written for the example.",
+    "dula_can": "record decisions, confirmed commitments and their evidence. It establishes none of them on its own",
+    "what_this_stage_needs": [
+     "confirmed users or buyers",
+     "financing terms",
+     "approvals",
+     "governance and decision rights",
+     "recorded commitments from named parties"
+    ],
+    "what_it_does_not_need": [],
+    "what_would_move_it_on": [
+     "Establish: what schools, hospitals and government buy",
+     "Establish: food manufacturing capacity, by volume",
+     "Establish: the change separated into PRICE and QUANTITY",
+     "Establish: the distribution of transaction sizes WITHIN each channel, and who the buyers are",
+     "Establish: whether the same buyers purchased less, or different buyers purchased"
+    ],
+    "what_the_workspace_holds_toward_it": "nothing. There is no intervention to cost, no confirmed user, no financing term and no recorded commitment, so there is no portfolio to assemble and no return to compute. Dula's scenario tools have not been applied to it."
+   },
+   "learn": {
+    "stage": "learn",
+    "label": "Learn",
+    "state": "PARTIALLY_WORKED",
+    "why": "Evidence is attached and versioned in Dula's research workspace, where what the example knows can be audited; it is not published here. What is absent is any OUTCOME: nothing has been done here, so nothing has been observed to follow from it, and no intervention can be shown to have enabled another.",
+    "dula_can": null,
+    "what_would_move_it_on": [
+     "a recorded decision, so that something exists to trace an outcome back to",
+     "an observation taken after that decision, in the same place and measure",
+     "the link between them, recorded with its own evidence"
+    ],
+    "what_the_workspace_holds": {
+     "plan_versions": 3,
+     "evidence_attached": true,
+     "outcome_observations": 0,
+     "intervention_to_outcome_links": 0
+    }
+   },
+   "not_established": [
+    "that anyone wants what this objective would produce — demand is unmeasured here",
+    "that any organisation listed is a customer, partner, investor or participant",
+    "that any quantity not carried by an OBSERVATION claim has a value",
+    "that any development pathway is supported",
+    "a recommendation to build this, or to fund it",
+    "a complete development: four of its five stages have no content, by design",
+    "an entry in any investment pipeline."
+   ],
+   "signals": [
+    "INV-90357ed32f"
+   ],
+   "thread": [
+    {
+     "step": "signal",
+     "section": "understand",
+     "route": "#/understand/signal/INV-90357ed32f",
+     "object": "INV-90357ed32f"
+    },
+    {
+     "step": "opportunity",
+     "section": "develop",
+     "route": "#/develop/opportunity/PLAN-e97cf1240a",
+     "object": "PLAN-e97cf1240a"
+    },
+    {
+     "step": "capital",
+     "section": "invest",
+     "route": "#/invest/opportunity/PLAN-e97cf1240a",
+     "object": "PLAN-e97cf1240a"
+    },
+    {
+     "step": "measurement",
+     "section": "learn",
+     "route": "#/learn/opportunity/PLAN-e97cf1240a",
+     "object": "PLAN-e97cf1240a"
+    }
+   ],
+   "approved": true
+  }
+ ],
+ "vintage": [
+  "BEA CAGDP2 2024",
+  "BLS QCEW 2024",
+  "USDA NASS 2017",
+  "USDA NASS 2022"
+ ],
+ "refresh": "Refreshed by hand. Nothing on this page updates itself.",
+ "footer": {
+  "refresh": "Refreshed by hand. Nothing on this page updates itself.",
+  "elsewhere": "Dula's county Atlas covers all 33 New Mexico counties at county level. It does not measure Downtown.",
+  "atlas_link": {
+   "label": "Bernalillo County in the Dula Atlas",
+   "url": "https://www.duuula.com/#/place/35001"
+  }
+ },
+ "approval_digests": {
+  "copy": "fc9ffa0c11ee8563ba34e539ad8af5e2eb56534c0fc42d6370f75f8b99053ac0",
+  "county:35001": "41a02e80805feb2d44507adf6507652b74616538dd58490d31043d42e1d06c16",
+  "signal:INV-90357ed32f": "92eb766d2fe96a8d094f07e015530c34fb2eb5e01322f85370b75b6ca47d0de4",
+  "opportunity:PLAN-e97cf1240a": "f837efbdb476a4c45ba5ef195edb300b0dc8a4b00d1a7547b71fd24303d58823"
+ },
+ "pending_approval": []
+}
