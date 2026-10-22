@@ -3,8 +3,8 @@
  "generated_by": "pipeline/downtown_os_publish.py",
  "inputs": {
   "web/product/statewide.json": "d7aef445d87efe744e371051fa2b61b02bfef2215cb0eee68c787e89f56310e5",
-  "downtown_os/copy.json": "c41951c85145ab16e12546b17cca447fcaa0b02db1a518cab97ac9e9ca20415c",
-  "downtown_os/approvals.json": "2b3548e272ffd4f1e4d8e7e71c6d16be2a3621515c4790e1b6792ff725d31d36",
+  "downtown_os/copy.json": "11f668d0286c3f87537ed08e55b08b3139fa801e697f8ebbc6de75397be3e887",
+  "downtown_os/approvals.json": "29ba5af5478c17372de3f45c4a95566ba5ce988ca02a18fa25bd40042fb877c6",
   "downtown_os/opportunities.json": "7e252263c579f6f654b371f1e7bf7d9941f4b57cebc66ada8ebbe41ba2df8e5d",
   "pipeline/dev_templates/farm_shop.json": "1af7be4fd629dc7646670b6372aff40726d3a2bdbf79603de098841982eb23b6",
   "data/acquired/nass_census_of_ag_35001/MANIFEST.json": "64fd4c4fbb07d9515504aac47fd59a8b274b984ac1c026d3b686c004f6213f9d"
@@ -12,6 +12,8 @@
  "copy_approved": true,
  "ui": {
   "brand": "Dula",
+  "powered_by": "Powered by Dula",
+  "sections_label": "Sections",
   "limits_heading": "What this site does not establish",
   "status": {
    "understand": "{figures} county figures · {downtown} Downtown measurements",
@@ -1182,7 +1184,7 @@
   }
  },
  "approval_digests": {
-  "copy": "fc9ffa0c11ee8563ba34e539ad8af5e2eb56534c0fc42d6370f75f8b99053ac0",
+  "copy": "fd7ac337a4cfbabfa5eaa9b2cd2ecb543b83f34fb51e90a59dc43f91e8a6c280",
   "county:35001": "41a02e80805feb2d44507adf6507652b74616538dd58490d31043d42e1d06c16",
   "signal:INV-90357ed32f": "92eb766d2fe96a8d094f07e015530c34fb2eb5e01322f85370b75b6ca47d0de4",
   "opportunity:PLAN-e97cf1240a": "f837efbdb476a4c45ba5ef195edb300b0dc8a4b00d1a7547b71fd24303d58823"

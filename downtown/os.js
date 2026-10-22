@@ -385,8 +385,24 @@ const footer = () => `<footer class="foot">
   <p><b>${esc(U.vintage_label)}</b> ${D.vintage.map(esc).join(" · ")}</p>
   <p>${esc(D.footer.refresh)} ${esc(D.footer.elsewhere)}${D.footer.atlas_link ? ` <a href="${esc(D.footer.atlas_link.url)}" rel="noopener noreferrer">${esc(D.footer.atlas_link.label)}</a>.` : ""}</p></footer>`;
 
+/* ---- the masthead, drawn once above every view: the page's name, the four sections in order,
+   and who built it. The section names are the sections' own titles; the current one is marked. */
+const SECTIONS = ["understand", "develop", "invest", "learn"];
+const mast = document.createElement("header");
+mast.className = "mast";
+mast.innerHTML = `<div class="mast-in"><a class="mast-prod" href="#/">${esc(D.title)}</a>
+  <p class="powered">${esc(U.powered_by)}</p></div>
+  <nav class="mast-nav" aria-label="${esc(U.sections_label)}">${SECTIONS.map((k, i) =>
+    `<a href="#/${k}" data-sec="${k}"><span class="n">${i + 1}</span>${esc(S[k].title)}</a>`).join("")}</nav>`;
+app.before(mast);
+const navLinks = [...mast.querySelectorAll(".mast-nav a")];
+
 function route() {
   const [a, b, c] = location.hash.replace(/^#\/?/, "").split("/").map(decodeURIComponent);
+  for (const l of navLinks) {
+    if (l.dataset.sec === a) l.setAttribute("aria-current", "page");
+    else l.removeAttribute("aria-current");
+  }
   const view = !a ? overview()
     : a === "understand" ? (b === "figure" ? figure(c) : b === "signal" ? signalView(c) : understand())
     : a === "develop" ? (b === "opportunity" ? opportunityView(c) : develop())
