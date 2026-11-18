@@ -425,7 +425,7 @@
      "why_it_matters": "a commodity is a thing made; an industry is an establishment class that makes things. They are not interchangeable, and the row and column labels here are different classifications even where the code looks the same."
     },
     "geography": "UNITED STATES",
-    "not_a_local_transaction": "these are national average purchase patterns. Nothing here is a purchase made in Bernalillo County, and no coefficient may be presented as one.",
+    "not_a_local_transaction": "these are national average purchase patterns. NOTHING HERE IS A PURCHASE MADE IN ANY COUNTY, and no coefficient may be presented as one. A reader who wants to know what a particular county buys locally has to observe a purchase; this table cannot supply one.",
     "what_cannot_be_computed": {
      "industry_by_industry_A": "requires the Make/Supply matrix, which this repository does not hold. Only Use tables are on disk.",
      "leontief_inverse": "requires A, so it is not computable",

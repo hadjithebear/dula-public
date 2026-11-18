@@ -23,6 +23,9 @@ export function frame(meta, body) {
     ${body}
     <div class="gq-m">${[meta.unit, meta.geography, meta.time].filter(Boolean)
       .map(x => `<span>${esc(x)}</span>`).join("")}</div>
+    ${meta.source ? `<p class="gq-src">${esc(meta.source.line || "")}${
+      meta.source.transformation ? ` · ${esc(meta.source.transformation)}` : ""}${
+      meta.source.terms_url ? ` · <a href="${esc(meta.source.terms_url)}" rel="noopener noreferrer" target="_blank">terms</a>` : ""}</p>` : ""}
     ${meta.caveat ? `<p class="gq-c">${esc(meta.caveat)}</p>` : ""}
   </figure>`;
 }
@@ -112,13 +115,40 @@ export function matrix(rows, cols, cells, meta = {}) {
 }
 
 /* ---- SMALL MULTIPLES. The same measure across entities, on one shared scale. */
+/* A panel whose series is WITHHELD carries no `points`. It renders its notice instead of a
+   line, and takes no part in the shared scale. Without this the renderer throws on
+   `p.points.map` and the whole view fails — which is a worse outcome than the withholding it
+   is reporting. `drawable` is the guard; nothing else in this function changed. */
+const drawable = p => Array.isArray(p.points) && p.points.length > 0;
+
+function withheldPanel(p, w, h) {
+  const note = (p.series && p.series.note) || "Historical series unavailable for public display.";
+  const n = p.n_observations_withheld;
+  const att = p.attribution && p.attribution.line;
+  return `<div class="gq-sp gq-sp-withheld"><div class="gq-spl">${esc(p.label)}</div>
+    <div class="gq-withheld" role="note" style="width:${w}px;min-height:${h}px;display:flex;
+      align-items:center;justify-content:center;text-align:center;padding:6px;
+      border:1px dashed var(--line-2);border-radius:6px;font-size:10.5px;line-height:1.35;
+      color:var(--ink-3)">${esc(note)}${n ? `<br>${n} observations` : ""}</div>
+    <div class="gq-spv">${esc(p.display ?? "—")}</div>
+    ${att && p._showAtt ? `<div class="gq-spa">${esc(att)}</div>` : ""}</div>`;
+}
+
 export function multiples(panels, meta = {}) {
   const w = 150, h = 62;
+  /* ATTRIBUTION. A chart had no way to say where its data came from: frame() rendered unit,
+     geography, time and caveat and nothing else. Where every panel in a section shares one
+     source -- which is the normal case -- it is stated once for the section. Where they
+     differ, each panel carries its own. */
+  const atts = panels.map(p => p.attribution).filter(Boolean);
+  const lines = [...new Set(atts.map(a => a.line))];
+  if (!meta.source && lines.length === 1) meta = Object.assign({}, meta, { source: atts[0] });
+  const perPanel = lines.length > 1;
   // Panels share a scale only with panels in the same UNIT. Putting a percentage of GDP
   // and an annual price change on one axis flattens the price panels into a line at the
   // bottom and reads as "nothing is happening" when something is.
   const groups = {};
-  panels.forEach(p => {
+  panels.filter(drawable).forEach(p => {
     const g = p.scale || meta.unit || "default";
     (groups[g] ||= []).push(...p.points.map(q => q[1]));
   });
@@ -126,6 +156,7 @@ export function multiples(panels, meta = {}) {
   Object.entries(groups).forEach(([g, vals]) =>
     (bounds[g] = { lo: Math.min(...vals), hi: Math.max(...vals) }));
   return frame(meta, `<div class="gq-sm">${panels.map(p => {
+    if (!drawable(p)) return withheldPanel(Object.assign({}, p, { _showAtt: perPanel }), w, h);
     const b = bounds[p.scale || meta.unit || "default"];
     const y0 = b.lo, y1 = b.hi;
     const xs = p.points.map(q => q[0]);

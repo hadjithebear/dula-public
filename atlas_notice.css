@@ -1,0 +1,9 @@
+/* The archived-snapshot notice. Shipped only by `build_public.py --notice`; no entry links it, so
+   the default build never carries it. */
+.dula-archived{background:#fff3dc;color:#3b2a00;border-bottom:1px solid #e9c070;
+  font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  padding:9px 16px;text-align:center}
+.dula-archived a{color:inherit;text-decoration:underline}
+@media (prefers-color-scheme: dark){
+  .dula-archived{background:#3a2c14;color:#f6e7c8;border-bottom-color:#6b5426}
+}

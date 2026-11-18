@@ -4907,7 +4907,46 @@
     },
     "permitted_last_5_years": 3177,
     "source": "Census Building Permits Survey, county annual",
-    "caveat": "units AUTHORISED. Not started, not completed, not occupied."
+    "caveat": "units AUTHORISED. Not started, not completed, not occupied. And the universe for this county is Santa Fe, which is NOT the whole county -- construction permitted outside those jurisdictions is not in this figure.",
+    "measured_places": "Santa Fe",
+    "measured_places_cover_whole_county": false,
+    "coverage_state_by_year": {
+     "2010": "UNIVERSE_UNKNOWN",
+     "2011": "UNIVERSE_UNKNOWN",
+     "2012": "UNIVERSE_UNKNOWN",
+     "2013": "UNIVERSE_UNKNOWN",
+     "2014": "UNIVERSE_UNKNOWN",
+     "2015": "UNIVERSE_UNKNOWN",
+     "2016": "UNIVERSE_UNKNOWN",
+     "2017": "UNIVERSE_UNKNOWN",
+     "2018": "UNIVERSE_UNKNOWN",
+     "2019": "REPORTED",
+     "2020": "REPORTED",
+     "2021": "REPORTED",
+     "2022": "REPORTED",
+     "2023": "REPORTED",
+     "2024": "REPORTED"
+    },
+    "window": {
+     "label": "the last five published years",
+     "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+     ],
+     "period": "2020-2024",
+     "by_category": {
+      "2020": "MEASURED",
+      "2021": "MEASURED",
+      "2022": "MEASURED",
+      "2023": "MEASURED",
+      "2024": "MEASURED"
+     },
+     "is_all_measured": true,
+     "differs_from": "the development lens, which publishes MEASURED years only. This window is a fixed five-year period and is not the same measure."
+    }
    },
    "the_dependency": {
     "established": true,
@@ -8404,7 +8443,46 @@
      },
      "permitted_last_5_years": 150,
      "source": "Census Building Permits Survey, county annual",
-     "caveat": "units AUTHORISED. Not started, not completed, not occupied."
+     "caveat": "units AUTHORISED. Not started, not completed, not occupied. NOT EVERY YEAR IN THIS WINDOW IS A MEASURED YEAR: 2021 estimated, 2022 estimated, 2023 estimated.",
+     "measured_places": "Los Alamos County",
+     "measured_places_cover_whole_county": true,
+     "coverage_state_by_year": {
+      "2010": "UNIVERSE_UNKNOWN",
+      "2011": "UNIVERSE_UNKNOWN",
+      "2012": "UNIVERSE_UNKNOWN",
+      "2013": "UNIVERSE_UNKNOWN",
+      "2014": "UNIVERSE_UNKNOWN",
+      "2015": "UNIVERSE_UNKNOWN",
+      "2016": "UNIVERSE_UNKNOWN",
+      "2017": "UNIVERSE_UNKNOWN",
+      "2018": "UNIVERSE_UNKNOWN",
+      "2019": "REPORTED",
+      "2020": "REPORTED",
+      "2021": "MISSING_REPORT_IMPUTED",
+      "2022": "MISSING_REPORT_IMPUTED",
+      "2023": "MISSING_REPORT_IMPUTED",
+      "2024": "REPORTED"
+     },
+     "window": {
+      "label": "the last five published years",
+      "years": [
+       2020,
+       2021,
+       2022,
+       2023,
+       2024
+      ],
+      "period": "2020-2024",
+      "by_category": {
+       "2020": "MEASURED",
+       "2021": "ESTIMATED",
+       "2022": "ESTIMATED",
+       "2023": "ESTIMATED",
+       "2024": "MEASURED"
+      },
+      "is_all_measured": false,
+      "differs_from": "the development lens, which publishes MEASURED years only. This window is a fixed five-year period and is not the same measure."
+     }
     },
     "the_dependency": {
      "established": true,
@@ -15523,7 +15601,39 @@
      },
      "permitted_last_5_years": 0,
      "source": "Census Building Permits Survey, county annual",
-     "caveat": "units AUTHORISED. Not started, not completed, not occupied."
+     "caveat": "units AUTHORISED. Not started, not completed, not occupied. NOT EVERY YEAR IN THIS WINDOW IS A MEASURED YEAR: 2013 insufficient, 2014 insufficient, 2015 insufficient, 2016 insufficient, 2017 insufficient. And the universe for this county is None, which is NOT the whole county -- construction permitted outside those jurisdictions is not in this figure.",
+     "measured_places": null,
+     "measured_places_cover_whole_county": false,
+     "coverage_state_by_year": {
+      "2010": "UNIVERSE_UNKNOWN",
+      "2011": "UNIVERSE_UNKNOWN",
+      "2012": "UNIVERSE_UNKNOWN",
+      "2013": "UNIVERSE_UNKNOWN",
+      "2014": "UNIVERSE_UNKNOWN",
+      "2015": "UNIVERSE_UNKNOWN",
+      "2016": "UNIVERSE_UNKNOWN",
+      "2017": "UNIVERSE_UNKNOWN"
+     },
+     "window": {
+      "label": "the last five published years",
+      "years": [
+       2013,
+       2014,
+       2015,
+       2016,
+       2017
+      ],
+      "period": "2013-2017",
+      "by_category": {
+       "2013": "INSUFFICIENT",
+       "2014": "INSUFFICIENT",
+       "2015": "INSUFFICIENT",
+       "2016": "INSUFFICIENT",
+       "2017": "INSUFFICIENT"
+      },
+      "is_all_measured": false,
+      "differs_from": "the development lens, which publishes MEASURED years only. This window is a fixed five-year period and is not the same measure."
+     }
     },
     "the_dependency": {
      "established": true,
@@ -19582,7 +19692,43 @@
      },
      "permitted_last_5_years": 3,
      "source": "Census Building Permits Survey, county annual",
-     "caveat": "units AUTHORISED. Not started, not completed, not occupied."
+     "caveat": "units AUTHORISED. Not started, not completed, not occupied. NOT EVERY YEAR IN THIS WINDOW IS A MEASURED YEAR: 2023 insufficient, 2024 insufficient. And the universe for this county is Las Vegas, which is NOT the whole county -- construction permitted outside those jurisdictions is not in this figure.",
+     "measured_places": "Las Vegas",
+     "measured_places_cover_whole_county": false,
+     "coverage_state_by_year": {
+      "2013": "UNIVERSE_UNKNOWN",
+      "2014": "UNIVERSE_UNKNOWN",
+      "2015": "UNIVERSE_UNKNOWN",
+      "2016": "UNIVERSE_UNKNOWN",
+      "2017": "UNIVERSE_UNKNOWN",
+      "2018": "UNIVERSE_UNKNOWN",
+      "2019": "MISSING_REPORT_IMPUTED",
+      "2020": "REPORTED",
+      "2021": "REPORTED",
+      "2022": "REPORTED",
+      "2023": "MISSING_REPORT_NOT_IMPUTED",
+      "2024": "MISSING_REPORT_NOT_IMPUTED"
+     },
+     "window": {
+      "label": "the last five published years",
+      "years": [
+       2020,
+       2021,
+       2022,
+       2023,
+       2024
+      ],
+      "period": "2020-2024",
+      "by_category": {
+       "2020": "MEASURED",
+       "2021": "MEASURED",
+       "2022": "MEASURED",
+       "2023": "INSUFFICIENT",
+       "2024": "INSUFFICIENT"
+      },
+      "is_all_measured": false,
+      "differs_from": "the development lens, which publishes MEASURED years only. This window is a fixed five-year period and is not the same measure."
+     }
     },
     "the_dependency": {
      "established": true,
@@ -23689,7 +23835,46 @@
      },
      "permitted_last_5_years": 608,
      "source": "Census Building Permits Survey, county annual",
-     "caveat": "units AUTHORISED. Not started, not completed, not occupied."
+     "caveat": "units AUTHORISED. Not started, not completed, not occupied. NOT EVERY YEAR IN THIS WINDOW IS A MEASURED YEAR: 2020 partially reported, 2023 estimated, 2024 partially reported.",
+     "measured_places": "Taos County Unincorporated Area, Taos Ski Valley village",
+     "measured_places_cover_whole_county": true,
+     "coverage_state_by_year": {
+      "2010": "UNIVERSE_UNKNOWN",
+      "2011": "UNIVERSE_UNKNOWN",
+      "2012": "UNIVERSE_UNKNOWN",
+      "2013": "UNIVERSE_UNKNOWN",
+      "2014": "UNIVERSE_UNKNOWN",
+      "2015": "UNIVERSE_UNKNOWN",
+      "2016": "UNIVERSE_UNKNOWN",
+      "2017": "UNIVERSE_UNKNOWN",
+      "2018": "UNIVERSE_UNKNOWN",
+      "2019": "REPORTED",
+      "2020": "PARTIAL_MONTHS_REPORTED",
+      "2021": "REPORTED",
+      "2022": "REPORTED",
+      "2023": "PARTIALLY_IMPUTED",
+      "2024": "PARTIAL_MONTHS_REPORTED"
+     },
+     "window": {
+      "label": "the last five published years",
+      "years": [
+       2020,
+       2021,
+       2022,
+       2023,
+       2024
+      ],
+      "period": "2020-2024",
+      "by_category": {
+       "2020": "PARTIALLY_REPORTED",
+       "2021": "MEASURED",
+       "2022": "MEASURED",
+       "2023": "ESTIMATED",
+       "2024": "PARTIALLY_REPORTED"
+      },
+      "is_all_measured": false,
+      "differs_from": "the development lens, which publishes MEASURED years only. This window is a fixed five-year period and is not the same measure."
+     }
     },
     "the_dependency": {
      "established": true,
