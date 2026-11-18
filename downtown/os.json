@@ -3,8 +3,8 @@
  "generated_by": "pipeline/downtown_os_publish.py",
  "inputs": {
   "web/product/statewide.json": "d7aef445d87efe744e371051fa2b61b02bfef2215cb0eee68c787e89f56310e5",
-  "downtown_os/copy.json": "11f668d0286c3f87537ed08e55b08b3139fa801e697f8ebbc6de75397be3e887",
-  "downtown_os/approvals.json": "29ba5af5478c17372de3f45c4a95566ba5ce988ca02a18fa25bd40042fb877c6",
+  "downtown_os/copy.json": "639187ddf87bc35b3f00603583693b8aa6849539701726f9f5dde26625566b27",
+  "downtown_os/approvals.json": "8d35e15579c078526040f140ee4cbe85ab430e0d28b65d1f3071e0edcb644f5f",
   "downtown_os/opportunities.json": "7e252263c579f6f654b371f1e7bf7d9941f4b57cebc66ada8ebbe41ba2df8e5d",
   "pipeline/dev_templates/farm_shop.json": "1af7be4fd629dc7646670b6372aff40726d3a2bdbf79603de098841982eb23b6",
   "data/acquired/nass_census_of_ag_35001/MANIFEST.json": "64fd4c4fbb07d9515504aac47fd59a8b274b984ac1c026d3b686c004f6213f9d"
@@ -22,7 +22,9 @@
    "learn": "{baselines} baselines published"
   },
   "back_overview": "Overview",
+  "moe_short": "± {moe}",
   "figure_rows": {
+   "moe": "Margin of error (90 percent confidence)",
    "unit": "Unit",
    "period": "Period",
    "source": "Source",
@@ -173,6 +175,43 @@
     "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
     "figures": [
      {
+      "key": "population",
+      "label": "Population",
+      "value": 673930.0,
+      "unit": "people",
+      "source": "Census ACS 5-year, table B01001",
+      "reference_period": "2020-2024 (5-year estimate)",
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "total resident population",
+      "basis": "OBSERVED",
+      "limitations": [
+       "a 5-year estimate is an average over the period, not a point-in-time count; it is not the decennial census"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B01001_county.json"
+      ]
+     },
+     {
+      "key": "population_change",
+      "label": "Population change since the 2019 release",
+      "value": -0.0058,
+      "unit": "share",
+      "source": "Census ACS 5-year, table B01001",
+      "reference_period": "2015-2019 to 2020-2024",
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "total resident population",
+      "basis": "CALCULATED",
+      "limitations": [
+       "two overlapping 5-year windows are not independent observations; this is a change between estimates, not a measured annual rate"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2019_B01001_county.json",
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B01001_county.json"
+      ]
+     },
+     {
       "key": "gdp_current",
       "label": "GDP, current dollars",
       "value": 54831086000.0,
@@ -188,6 +227,47 @@
       "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
       "provenance": [
        "data/acquired/bea_regional/MANIFEST.json#CAGDP2.zip"
+      ]
+     },
+     {
+      "key": "gdp_real",
+      "label": "Real GDP, chained 2017 dollars",
+      "value": 43535686000.0,
+      "unit": "USD, chained 2017",
+      "source": "BEA CAGDP9, real GDP by county and industry",
+      "reference_period": "2024",
+      "vintage": "BEA release of 5 February 2026 (new 2024; revised 2020-2023)",
+      "universe": "all industry total, chained 2017 dollars",
+      "basis": "OBSERVED",
+      "limitations": [
+       "chained dollars are NOT additive: industry values do not sum to this total and no share of it is computed",
+       "this removes price change, so it differs from the current-dollar figure; both are correct and answer different questions"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bea_regional/MANIFEST.json#CAGDP9.zip"
+      ]
+     },
+     {
+      "key": "gdp_implicit_price_index",
+      "label": "Implicit price index for county output (2017 = 100)",
+      "value": 125.95,
+      "unit": "index, 2017 = 100",
+      "source": "BEA CAGDP2 and CAGDP9",
+      "reference_period": "2024",
+      "vintage": "BEA release of 5 February 2026 (new 2024; revised 2020-2023)",
+      "universe": "all industry total; the deflator implied by the two published series",
+      "basis": "CALCULATED",
+      "limitations": [
+       "an IMPLICIT deflator: it is the ratio of two published series, not an index BEA publishes directly for counties",
+       "it tracks the prices of what this COUNTY PRODUCES, weighted by its own industry mix. It is NOT a cost-of-living index and must not be read as one; CPI measures what households buy and will differ",
+       "BEA's real series is a CHAIN-TYPE (Fisher) index re-weighted annually, so 'chained 2017 dollars' names the reference year it is scaled to, not a fixed 2017 basket",
+       "a value of 128 means prices of this county's output are 28% above their 2017 level on this measure — it is not a statement about economic performance"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/bea_regional/MANIFEST.json#CAGDP2.zip",
+       "data/acquired/bea_regional/MANIFEST.json#CAGDP9.zip"
       ]
      },
      {
@@ -319,88 +399,181 @@
       "provenance": [
        "data/acquired/bls_qcew/MANIFEST.json#qcew_2024_a_35001.csv"
       ]
-     }
-    ],
-    "withheld": [
-     {
-      "label": "Population",
-      "source": "Census ACS 5-year, table B01001",
-      "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
      },
      {
-      "label": "Population change since the 2019 release",
-      "source": "Census ACS 5-year, table B01001",
-      "reference_period": "2015-2019 to 2020-2024",
-      "why": "no provenance manifest records ACS for 2015-2019 to 2020-2024"
-     },
-     {
-      "label": "Real GDP, chained 2017 dollars",
-      "source": "BEA CAGDP9, real GDP by county and industry",
-      "reference_period": "2024",
-      "why": "no provenance manifest records CAGDP9 for 2024"
-     },
-     {
-      "label": "Implicit price index for county output (2017 = 100)",
-      "source": "BEA CAGDP2 and CAGDP9",
-      "reference_period": "2024",
-      "why": "no provenance manifest records CAGDP9 for 2024"
-     },
-     {
+      "key": "establishments_cbp",
       "label": "Establishments (Census CBP)",
+      "value": 16349,
+      "unit": "establishments",
       "source": "Census County Business Patterns",
       "reference_period": "2023",
-      "why": "no provenance manifest records County Business Patterns for 2023"
+      "vintage": "CBP 2023 release",
+      "universe": "private employers with paid employees; EXCLUDES government, most agriculture and the self-employed",
+      "basis": "OBSERVED",
+      "limitations": [
+       "a different universe and a different year from the QCEW establishments figure",
+       "published here because it is widely cited, not because it is comparable"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_cbp/MANIFEST.json#cbp_2023_sector_bernalillo.json"
+      ]
      },
      {
+      "key": "employment_cbp",
       "label": "Private employment (Census CBP)",
+      "value": 277465,
+      "unit": "jobs",
       "source": "Census County Business Patterns",
       "reference_period": "2023",
-      "why": "no provenance manifest records County Business Patterns for 2023"
+      "vintage": "CBP 2023 release",
+      "universe": "employees of private employers with paid employees; EXCLUDES government",
+      "basis": "OBSERVED",
+      "limitations": [
+       "NOT the same measure as QCEW private employment: different universe, different year. Never add or average the two."
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_cbp/MANIFEST.json#cbp_2023_sector_bernalillo.json"
+      ]
      },
      {
+      "key": "median_household_income",
       "label": "Median household income",
+      "value": 69473.0,
+      "moe": 1449.0,
+      "unit": "USD",
       "source": "Census ACS 5-year, table B19013",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "all households",
+      "basis": "OBSERVED",
+      "limitations": [
+       "income received by RESIDENTS, which is a different quantity from wages paid at the place of work",
+       "a median, so it is unaffected by the size of the top tail"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B19013_county.json"
+      ]
      },
      {
+      "key": "poverty_rate",
       "label": "Poverty rate",
+      "value": 0.1517,
+      "unit": "share",
       "source": "Census ACS 5-year, table B17020",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "population for whom poverty status is determined",
+      "basis": "CALCULATED",
+      "limitations": [
+       "the federal poverty threshold does not vary with local housing costs",
+       "the denominator excludes people in institutions and some others"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B17020_county.json"
+      ]
      },
      {
+      "key": "housing_units",
       "label": "Housing units",
+      "value": 302746.0,
+      "moe": 209.0,
+      "unit": "housing units",
       "source": "Census ACS 5-year, table B25001",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "all housing units, occupied and vacant",
+      "basis": "OBSERVED",
+      "limitations": [
+       "the STOCK of housing; permits authorised are a flow and the two are different quantities"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B25001_county.json"
+      ]
      },
      {
+      "key": "median_home_value",
       "label": "Median home value",
+      "value": 292900.0,
+      "moe": 3423.0,
+      "unit": "USD",
       "source": "Census ACS 5-year, table B25077",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "owner-occupied housing units",
+      "basis": "OBSERVED",
+      "limitations": [
+       "self-reported by owners, not an assessment or a sale price"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B25077_county.json"
+      ]
      },
      {
+      "key": "median_gross_rent",
       "label": "Median gross rent",
+      "value": 1144.0,
+      "moe": 17.0,
+      "unit": "USD per month",
       "source": "Census ACS 5-year, table B25064",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "renter-occupied units paying rent",
+      "basis": "OBSERVED",
+      "limitations": [
+       "gross rent includes utilities where the renter pays them"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B25064_county.json"
+      ]
      },
      {
+      "key": "rent_to_income",
       "label": "Median rent as a share of median household income",
+      "value": 0.1976,
+      "unit": "share",
       "source": "Census ACS 5-year, tables B25064 and B19013",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "two medians of DIFFERENT populations",
+      "basis": "CALCULATED",
+      "limitations": [
+       "A RATIO OF TWO MEDIANS IS NOT A HOUSEHOLD'S COST BURDEN. The median renter and the median household are not the same people; renter incomes are typically lower. It indicates relative pressure between counties and must not be read as the share of income a household actually pays."
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B25064_county.json",
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B19013_county.json"
+      ]
      },
      {
+      "key": "value_to_income",
       "label": "Median home value as a multiple of median income",
+      "value": 4.22,
+      "unit": "multiple",
       "source": "Census ACS 5-year, tables B25077 and B19013",
       "reference_period": "2020-2024 (5-year estimate)",
-      "why": "no provenance manifest records ACS for 2020-2024 (5-year estimate)"
+      "vintage": "ACS 5-year 2024 release",
+      "universe": "owner-occupied units against all households",
+      "basis": "CALCULATED",
+      "limitations": [
+       "owners and all households are different populations",
+       "it is not an affordability test: it ignores rates, terms and equity"
+      ],
+      "geography_label": "Bernalillo County (35001) — not a Downtown measurement",
+      "provenance": [
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B25077_county.json",
+       "data/acquired/census_acs5/MANIFEST.json#acs5_2024_B19013_county.json"
+      ]
      }
     ],
+    "withheld": [],
     "approved": true
    },
    "downtown": {
@@ -924,14 +1097,14 @@
       "claim_id": "posi-69ea27d636",
       "basis": "OBSERVATION",
       "source": "U.S. Census Bureau, County Business Patterns 2023",
-      "why": "no provenance manifest records County Business Patterns for 2023",
+      "why": "its value is not checked against its source: no validation is declared",
       "statement_withheld": true
      },
      {
       "claim_id": "posi-e7a4405c67",
       "basis": "OBSERVATION",
       "source": "Census ACS 5-year, table B19013",
-      "why": "no provenance manifest records ACS for this figure",
+      "why": "it names no ACS table and period this build can trace to a file",
       "statement_withheld": true
      }
     ],
@@ -939,12 +1112,12 @@
      {
       "claim_id": "posi-70877cdac3",
       "label": "Population",
-      "figure": null
+      "figure": "population"
      },
      {
       "claim_id": "posi-098c0ad67d",
       "label": "Population change since the 2019 release",
-      "figure": null
+      "figure": "population_change"
      },
      {
       "claim_id": "posi-67d6119c46",
@@ -954,12 +1127,12 @@
      {
       "claim_id": "posi-7799d7ecd3",
       "label": "Real GDP, chained 2017 dollars",
-      "figure": null
+      "figure": "gdp_real"
      },
      {
       "claim_id": "posi-39ccbb3c51",
       "label": "Implicit price index for county output (2017 = 100)",
-      "figure": null
+      "figure": "gdp_implicit_price_index"
      },
      {
       "claim_id": "posi-280c03f7d0",
@@ -999,42 +1172,42 @@
      {
       "claim_id": "posi-5c4d702017",
       "label": "Establishments (Census CBP)",
-      "figure": null
+      "figure": "establishments_cbp"
      },
      {
       "claim_id": "posi-f428f6e85f",
       "label": "Private employment (Census CBP)",
-      "figure": null
+      "figure": "employment_cbp"
      },
      {
       "claim_id": "posi-3215e48f22",
       "label": "Poverty rate",
-      "figure": null
+      "figure": "poverty_rate"
      },
      {
       "claim_id": "posi-1194fb8a9f",
       "label": "Housing units",
-      "figure": null
+      "figure": "housing_units"
      },
      {
       "claim_id": "posi-35298ce6c3",
       "label": "Median home value",
-      "figure": null
+      "figure": "median_home_value"
      },
      {
       "claim_id": "posi-2c960880e6",
       "label": "Median gross rent",
-      "figure": null
+      "figure": "median_gross_rent"
      },
      {
       "claim_id": "posi-f9ea570554",
       "label": "Median rent as a share of median household income",
-      "figure": null
+      "figure": "rent_to_income"
      },
      {
       "claim_id": "posi-acc380a597",
       "label": "Median home value as a multiple of median income",
-      "figure": null
+      "figure": "value_to_income"
      }
     ],
     "context_unlisted": 0
@@ -1170,7 +1343,11 @@
  ],
  "vintage": [
   "BEA CAGDP2 2024",
+  "BEA CAGDP9 2024",
   "BLS QCEW 2024",
+  "Census ACS 2015-2019 to 2020-2024",
+  "Census ACS 2020-2024 (5-year estimate)",
+  "Census County Business Patterns 2023",
   "USDA NASS 2017",
   "USDA NASS 2022"
  ],
@@ -1184,10 +1361,10 @@
   }
  },
  "approval_digests": {
-  "copy": "fd7ac337a4cfbabfa5eaa9b2cd2ecb543b83f34fb51e90a59dc43f91e8a6c280",
-  "county:35001": "41a02e80805feb2d44507adf6507652b74616538dd58490d31043d42e1d06c16",
+  "copy": "b963bbbf1290cfa8f7d02806e6e696cb4fd3217e858828cf6f27f1a8520758eb",
+  "county:35001": "2e4db9db2297df105748d9848d4ab5606843ac82f0d2c8fb7aef7040b12f3ca4",
   "signal:INV-90357ed32f": "92eb766d2fe96a8d094f07e015530c34fb2eb5e01322f85370b75b6ca47d0de4",
-  "opportunity:PLAN-e97cf1240a": "f837efbdb476a4c45ba5ef195edb300b0dc8a4b00d1a7547b71fd24303d58823"
+  "opportunity:PLAN-e97cf1240a": "3126df14dfe09364aeebe7afc4dac6ce61f7f298cd6f7abae8542dc86646bd09"
  },
  "pending_approval": []
 }

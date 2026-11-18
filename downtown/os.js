@@ -41,11 +41,16 @@ function fmt(f) {
     const per = u.slice(3).trim();
     const n = Math.abs(v) >= 1e9 ? `$${(v / 1e9).toFixed(1)}bn`
       : Math.abs(v) >= 1e6 ? `$${(v / 1e6).toFixed(1)}M` : `$${Math.round(v).toLocaleString("en-US")}`;
-    return per ? `${n} ${per}` : n;
+    // "USD per job" follows the number; "USD, chained 2017" qualifies the dollars in brackets.
+    return !per ? n : per.startsWith(",") ? `${n} (${per.slice(1).trim()})` : `${n} ${per}`;
   }
-  return Math.round(v).toLocaleString("en-US");
+  // A count keeps every digit; an index or a ratio keeps its decimals, never rounded to whole.
+  return Number.isInteger(v) ? v.toLocaleString("en-US")
+    : v.toLocaleString("en-US", { maximumFractionDigits: 2 });
 }
 const unitWord = f => (String(f.unit).startsWith("USD") || f.unit === "share") ? "" : f.unit;
+/* A survey estimate is shown with the 90% margin of error its source publishes, in its own unit. */
+const moe = f => f.moe == null ? "" : fmt({ ...f, value: f.moe });
 
 /* ---- the four marks. One small drawing per section, from the same few strokes: a field of
    points (what is observed), a ladder (stages), interlocking forms (structures), and a line
@@ -109,7 +114,8 @@ function understand() {
     <p class="muted">${esc(V.county_note)}</p>
     <div class="grid-fig">${C.figures.map(f => `
       <a class="fig" href="#/understand/figure/${encodeURIComponent(f.key)}">
-        <span class="v">${esc(fmt(f))}</span>
+        <span class="v">${esc(fmt(f))}</span>${f.moe != null
+          ? `<span class="m">${esc(tpl(U.moe_short, { moe: moe(f) }))}</span>` : ""}
         <span class="l">${esc(f.label)}</span>
         <span class="p">${esc(unitWord(f))} ${esc(f.reference_period)}</span>
       </a>`).join("")}</div></section>
@@ -118,10 +124,10 @@ function understand() {
   <section><h2 class="eyebrow">${esc(V.downtown_heading)}</h2>
     <div class="empty"><span class="big">${V.downtown.measurements_published}</span>
       <p>${esc(V.downtown_text)}</p></div></section>
-  <section><h2 class="eyebrow">${esc(V.withheld_heading)}</h2>
+  ${C.withheld.length ? `<section><h2 class="eyebrow">${esc(V.withheld_heading)}</h2>
     <p class="muted">${esc(V.withheld_text)}</p>
     <ul class="withheld">${C.withheld.map(w => `<li><b>${esc(w.label)}</b>
-      <span>${esc(w.why)}</span></li>`).join("")}</ul></section>`;
+      <span>${esc(w.why)}</span></li>`).join("")}</ul></section>` : ""}`;
 }
 
 function figure(key) {
@@ -133,7 +139,7 @@ function figure(key) {
   <article class="detail"><p class="kicker">${esc(S.understand.county.name)}</p>
     <h1>${esc(f.label)}</h1><p class="v-big">${esc(fmt(f))}</p>
     <p class="note"><span class="geo">${esc(f.geography_label)}</span></p>
-    <dl>${row(R.unit, esc(f.unit))}${row(R.period, esc(f.reference_period))}
+    <dl>${row(R.moe, esc(moe(f)))}${row(R.unit, esc(f.unit))}${row(R.period, esc(f.reference_period))}
       ${row(R.source, esc(f.source))}${row(R.vintage, esc(f.vintage))}
       ${row(R.universe, esc(f.universe))}${row(R.basis, esc(f.basis))}
       ${row(R.provenance, (f.provenance || []).map(p => {
